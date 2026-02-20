@@ -1,12 +1,726 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Administration — Gravelines Optique</title>
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-  </head>
-  <body>
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Administration — Gravelines Optique</title>
+  <link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css" />
+  <style>
+    :root {
+      --gold: #C9A961;
+      --dark: #0A0A0A;
+      --bg: #f5f5f5;
+      --white: #ffffff;
+      --border: #e0e0e0;
+      --red: #e53e3e;
+      --green: #38a169;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: #333; }
+
+    /* LOGIN */
+    #login-screen {
+      min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      background: var(--dark);
+    }
+    .login-box {
+      background: white; border-radius: 12px; padding: 40px; width: 380px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+    .login-logo { text-align: center; margin-bottom: 30px; }
+    .login-logo h1 { font-size: 22px; color: var(--dark); margin-top: 10px; }
+    .login-logo span { color: var(--gold); }
+    .login-box label { display: block; font-size: 13px; font-weight: 600; color: #555; margin-bottom: 6px; }
+    .login-box input {
+      width: 100%; padding: 12px 16px; border: 2px solid var(--border); border-radius: 8px;
+      font-size: 16px; outline: none; transition: border-color 0.2s;
+    }
+    .login-box input:focus { border-color: var(--gold); }
+    .btn-primary {
+      width: 100%; padding: 14px; background: var(--gold); color: white; border: none;
+      border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer;
+      margin-top: 20px; transition: opacity 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.9; }
+    .login-error { color: var(--red); font-size: 14px; margin-top: 12px; text-align: center; display: none; }
+
+    /* APP */
+    #app { display: none; min-height: 100vh; }
+
+    /* SIDEBAR */
+    .sidebar {
+      position: fixed; top: 0; left: 0; width: 240px; height: 100vh;
+      background: var(--dark); overflow-y: auto; z-index: 100;
+    }
+    .sidebar-logo {
+      padding: 20px; border-bottom: 1px solid #222;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .sidebar-logo span { color: var(--gold); font-size: 24px; }
+    .sidebar-logo strong { color: white; font-size: 14px; line-height: 1.3; }
+    .sidebar-logo small { color: #888; font-size: 11px; display: block; }
+    .sidebar nav { padding: 16px 0; }
+    .nav-section { padding: 8px 20px 4px; color: #555; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+    .nav-item {
+      display: flex; align-items: center; gap: 10px; padding: 10px 20px;
+      color: #aaa; cursor: pointer; transition: all 0.15s; font-size: 14px;
+    }
+    .nav-item:hover { color: white; background: #111; }
+    .nav-item.active { color: var(--gold); background: #111; border-right: 3px solid var(--gold); }
+    .nav-item .icon { font-size: 18px; width: 24px; text-align: center; }
+    .sidebar-footer {
+      position: absolute; bottom: 0; left: 0; right: 0; padding: 16px 20px;
+      border-top: 1px solid #222;
+    }
+    .btn-logout {
+      width: 100%; padding: 10px; background: transparent; border: 1px solid #333;
+      color: #888; border-radius: 6px; cursor: pointer; font-size: 13px; transition: all 0.2s;
+    }
+    .btn-logout:hover { border-color: #666; color: white; }
+
+    /* MAIN */
+    .main { margin-left: 240px; padding: 30px; min-height: 100vh; }
+
+    /* PAGE HEADER */
+    .page-header { margin-bottom: 24px; display: flex; align-items: center; justify-content: space-between; }
+    .page-header h2 { font-size: 24px; color: var(--dark); }
+    .page-header p { color: #666; font-size: 14px; margin-top: 4px; }
+
+    /* CARDS GRID */
+    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 30px; }
+    .stat-card { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .stat-card .value { font-size: 28px; font-weight: 700; color: var(--gold); }
+    .stat-card .label { font-size: 13px; color: #888; margin-top: 4px; }
+
+    /* ARTICLES LIST */
+    .articles-list { background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); overflow: hidden; }
+    .articles-list-header { padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+    .btn-new { padding: 10px 20px; background: var(--gold); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 6px; transition: opacity 0.2s; }
+    .btn-new:hover { opacity: 0.9; }
+    .article-item { padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; cursor: pointer; transition: background 0.15s; }
+    .article-item:last-child { border-bottom: none; }
+    .article-item:hover { background: #fafafa; }
+    .article-title { font-weight: 600; color: var(--dark); font-size: 15px; }
+    .article-meta { font-size: 12px; color: #888; margin-top: 3px; }
+    .badge { display: inline-block; padding: 2px 8px; border-radius: 99px; font-size: 11px; font-weight: 600; }
+    .badge-green { background: #f0fff4; color: var(--green); }
+    .badge-gray { background: #f5f5f5; color: #999; }
+    .article-actions { display: flex; gap: 8px; }
+    .btn-edit { padding: 6px 14px; background: #f0f0f0; border: none; border-radius: 6px; cursor: pointer; font-size: 13px; transition: background 0.15s; }
+    .btn-edit:hover { background: #e0e0e0; }
+    .btn-delete { padding: 6px 14px; background: #fff0f0; color: var(--red); border: none; border-radius: 6px; cursor: pointer; font-size: 13px; transition: background 0.15s; }
+    .btn-delete:hover { background: #ffe0e0; }
+    .empty-state { text-align: center; padding: 60px 20px; color: #999; }
+    .empty-state .icon { font-size: 48px; display: block; margin-bottom: 12px; }
+
+    /* EDITOR */
+    .editor-panel { background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); overflow: hidden; }
+    .editor-header { padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; }
+    .btn-back { padding: 8px 16px; background: #f0f0f0; border: none; border-radius: 6px; cursor: pointer; font-size: 13px; display: flex; align-items: center; gap: 6px; }
+    .btn-back:hover { background: #e0e0e0; }
+    .editor-body { padding: 24px; }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-size: 13px; font-weight: 600; color: #555; margin-bottom: 6px; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 10px 14px; border: 2px solid var(--border); border-radius: 8px;
+      font-size: 14px; outline: none; transition: border-color 0.2s; font-family: inherit;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+    .form-group.full { grid-column: 1 / -1; }
+    .toggle-group { display: flex; align-items: center; gap: 12px; }
+    .toggle { position: relative; display: inline-block; width: 48px; height: 26px; }
+    .toggle input { opacity: 0; width: 0; height: 0; }
+    .toggle-slider {
+      position: absolute; inset: 0; background: #ccc; border-radius: 26px; cursor: pointer; transition: 0.3s;
+    }
+    .toggle-slider:before {
+      content: ''; position: absolute; height: 20px; width: 20px; left: 3px; bottom: 3px;
+      background: white; border-radius: 50%; transition: 0.3s;
+    }
+    .toggle input:checked + .toggle-slider { background: var(--gold); }
+    .toggle input:checked + .toggle-slider:before { transform: translateX(22px); }
+    .editor-footer { padding: 16px 24px; border-top: 1px solid var(--border); display: flex; gap: 12px; justify-content: flex-end; background: #fafafa; }
+    .btn-save { padding: 12px 28px; background: var(--gold); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 15px; font-weight: 600; transition: opacity 0.2s; }
+    .btn-save:hover { opacity: 0.9; }
+    .btn-cancel { padding: 12px 20px; background: #f0f0f0; border: none; border-radius: 8px; cursor: pointer; font-size: 15px; }
+    .btn-cancel:hover { background: #e0e0e0; }
+
+    /* JSON EDITOR */
+    .json-section { border: 2px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 20px; }
+    .json-section h3 { font-size: 16px; color: var(--dark); margin-bottom: 16px; }
+
+    /* NOTIFICATIONS */
+    .toast {
+      position: fixed; bottom: 24px; right: 24px; padding: 14px 20px; border-radius: 10px;
+      color: white; font-size: 14px; font-weight: 600; z-index: 1000;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2); transform: translateY(100px);
+      transition: transform 0.3s; display: flex; align-items: center; gap: 8px;
+    }
+    .toast.show { transform: translateY(0); }
+    .toast.success { background: var(--green); }
+    .toast.error { background: var(--red); }
+    .loading { text-align: center; padding: 60px; color: #888; }
+    .spinner { display: inline-block; width: 30px; height: 30px; border: 3px solid #eee; border-top-color: var(--gold); border-radius: 50%; animation: spin 0.8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .EasyMDEContainer .CodeMirror { height: 350px; }
+  </style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div id="login-screen">
+  <div class="login-box">
+    <div class="login-logo">
+      <span style="font-size:40px">👓</span>
+      <h1>Gravelines <span>Optique</span></h1>
+      <p style="color:#888;font-size:13px;margin-top:4px">Administration du site</p>
+    </div>
+    <div>
+      <label>Mot de passe</label>
+      <input type="password" id="password-input" placeholder="Entrez le mot de passe" />
+    </div>
+    <button class="btn-primary" onclick="doLogin()">Accéder au panneau</button>
+    <div class="login-error" id="login-error">Mot de passe incorrect</div>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app">
+  <div class="sidebar">
+    <div class="sidebar-logo">
+      <span>👓</span>
+      <div>
+        <strong>Gravelines Optique</strong>
+        <small>Administration</small>
+      </div>
+    </div>
+    <nav>
+      <div class="nav-section">Contenu</div>
+      <div class="nav-item active" onclick="showSection('articles')" id="nav-articles">
+        <span class="icon">📰</span> Articles
+      </div>
+      <div class="nav-section">Paramètres</div>
+      <div class="nav-item" onclick="showSection('contact')" id="nav-contact">
+        <span class="icon">📍</span> Contact & Horaires
+      </div>
+      <div class="nav-item" onclick="showSection('accueil')" id="nav-accueil">
+        <span class="icon">🏠</span> Page d'accueil
+      </div>
+      <div class="nav-item" onclick="showSection('equipe')" id="nav-equipe">
+        <span class="icon">👥</span> L'Équipe
+      </div>
+    </nav>
+    <div class="sidebar-footer">
+      <button class="btn-logout" onclick="logout()">← Déconnexion</button>
+    </div>
+  </div>
+
+  <div class="main" id="main-content">
+    <div class="loading"><div class="spinner"></div><p style="margin-top:16px">Chargement...</p></div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
+<script>
+const API = '/.netlify/functions/cms';
+const REPO = 'totoni2213-jpg/gravelines-optique';
+let password = '';
+let currentSection = 'articles';
+let easyMDE = null;
+
+// ─── AUTH ─────────────────────────────────────────────────────────────────
+async function doLogin() {
+  const pw = document.getElementById('password-input').value.trim();
+  if (!pw) return;
+  // Test the password by making a real API call
+  const res = await fetch(`${API}?path=src/content/articles`, {
+    headers: { 'X-CMS-Password': pw }
+  });
+  if (res.ok || res.status === 200) {
+    password = pw;
+    document.getElementById('login-screen').style.display = 'none';
+    document.getElementById('app').style.display = 'block';
+    showSection('articles');
+  } else {
+    document.getElementById('login-error').style.display = 'block';
+  }
+}
+
+document.getElementById('password-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') doLogin();
+});
+
+function logout() {
+  password = '';
+  document.getElementById('login-screen').style.display = 'flex';
+  document.getElementById('app').style.display = 'none';
+}
+
+// ─── NAVIGATION ───────────────────────────────────────────────────────────
+function showSection(section) {
+  currentSection = section;
+  document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
+  document.getElementById(`nav-${section}`)?.classList.add('active');
+  if (section === 'articles') loadArticles();
+  else loadJsonEditor(section);
+}
+
+// ─── UTILS ────────────────────────────────────────────────────────────────
+async function apiGet(path) {
+  const res = await fetch(`${API}?path=${encodeURIComponent(path)}`, {
+    headers: { 'X-CMS-Password': password }
+  });
+  if (!res.ok) throw new Error(`Erreur ${res.status}`);
+  return res.json();
+}
+
+async function apiPut(path, content, sha, message) {
+  const encoded = btoa(unescape(encodeURIComponent(content)));
+  const body = { content: encoded, sha, message };
+  const res = await fetch(`${API}?path=${encodeURIComponent(path)}`, {
+    method: 'PUT',
+    headers: { 'X-CMS-Password': password, 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  });
+  if (!res.ok) {
+    const err = await res.json();
+    throw new Error(err.message || `Erreur ${res.status}`);
+  }
+  return res.json();
+}
+
+async function apiDelete(path, sha) {
+  const res = await fetch(`${API}?path=${encodeURIComponent(path)}`, {
+    method: 'DELETE',
+    headers: { 'X-CMS-Password': password, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ sha })
+  });
+  if (!res.ok) throw new Error(`Erreur ${res.status}`);
+  return res.json();
+}
+
+function b64decode(str) {
+  try { return decodeURIComponent(escape(atob(str.replace(/\n/g, '')))); }
+  catch(e) { return atob(str.replace(/\n/g, '')); }
+}
+
+function showToast(msg, type = 'success') {
+  const t = document.getElementById('toast');
+  t.textContent = (type === 'success' ? '✓ ' : '✗ ') + msg;
+  t.className = `toast ${type} show`;
+  setTimeout(() => t.classList.remove('show'), 3500);
+}
+
+function slugify(str) {
+  return str.toLowerCase()
+    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-')
+    .substring(0, 50);
+}
+
+// ─── ARTICLES ─────────────────────────────────────────────────────────────
+async function loadArticles() {
+  const main = document.getElementById('main-content');
+  main.innerHTML = '<div class="loading"><div class="spinner"></div><p style="margin-top:16px">Chargement des articles...</p></div>';
+  try {
+    const files = await apiGet('src/content/articles');
+    const mdFiles = files.filter(f => f.name.endsWith('.md'));
+
+    // Load article details
+    const articles = await Promise.all(mdFiles.map(async f => {
+      try {
+        const data = await apiGet(f.path);
+        const content = b64decode(data.content);
+        const fm = parseFrontmatter(content);
+        return { ...f, sha: data.sha, frontmatter: fm };
+      } catch(e) { return { ...f, frontmatter: {} }; }
+    }));
+
+    articles.sort((a, b) => {
+      const da = a.frontmatter.date || '';
+      const db = b.frontmatter.date || '';
+      return db.localeCompare(da);
+    });
+
+    const published = articles.filter(a => a.frontmatter.publie !== false).length;
+
+    main.innerHTML = `
+      <div class="page-header">
+        <div>
+          <h2>📰 Articles & Actualités</h2>
+          <p>Gérez vos articles et actualités du site</p>
+        </div>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="value">${articles.length}</div><div class="label">Articles au total</div></div>
+        <div class="stat-card"><div class="value">${published}</div><div class="label">Articles publiés</div></div>
+        <div class="stat-card"><div class="value">${articles.length - published}</div><div class="label">Brouillons</div></div>
+      </div>
+      <div class="articles-list">
+        <div class="articles-list-header">
+          <strong style="font-size:15px">Tous les articles</strong>
+          <button class="btn-new" onclick="newArticle()">＋ Nouvel article</button>
+        </div>
+        ${articles.length === 0 ? `
+          <div class="empty-state">
+            <span class="icon">📝</span>
+            <p>Aucun article pour l'instant.<br>Créez votre premier article !</p>
+          </div>
+        ` : articles.map(a => `
+          <div class="article-item">
+            <div style="flex:1;min-width:0">
+              <div class="article-title">${a.frontmatter.titre || a.name}</div>
+              <div class="article-meta">
+                ${a.frontmatter.date ? '📅 ' + a.frontmatter.date.substring(0,10) : ''}
+                ${a.frontmatter.categorie ? ' · 🏷 ' + a.frontmatter.categorie : ''}
+              </div>
+            </div>
+            <span class="badge ${a.frontmatter.publie !== false ? 'badge-green' : 'badge-gray'}">
+              ${a.frontmatter.publie !== false ? 'Publié' : 'Brouillon'}
+            </span>
+            <div class="article-actions" style="margin-left:16px">
+              <button class="btn-edit" onclick="editArticle('${a.path}', '${a.sha}')">Modifier</button>
+              <button class="btn-delete" onclick="deleteArticle('${a.path}', '${a.sha}', '${(a.frontmatter.titre || a.name).replace(/'/g, "\\'")}')">Supprimer</button>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+  } catch(e) {
+    main.innerHTML = `<div class="loading" style="color:#e53e3e">Erreur: ${e.message}</div>`;
+  }
+}
+
+function parseFrontmatter(content) {
+  const match = content.match(/^---\n([\s\S]*?)\n---/);
+  if (!match) return {};
+  const fm = {};
+  match[1].split('\n').forEach(line => {
+    const [key, ...vals] = line.split(':');
+    if (key && vals.length) {
+      let val = vals.join(':').trim().replace(/^["']|["']$/g, '');
+      if (val === 'true') val = true;
+      else if (val === 'false') val = false;
+      fm[key.trim()] = val;
+    }
+  });
+  return fm;
+}
+
+function buildFrontmatter(fields) {
+  const lines = ['---'];
+  for (const [k, v] of Object.entries(fields)) {
+    if (typeof v === 'boolean') lines.push(`${k}: ${v}`);
+    else if (v !== undefined && v !== null && v !== '') lines.push(`${k}: "${String(v).replace(/"/g, '\\"')}"`);
+  }
+  lines.push('---');
+  return lines.join('\n');
+}
+
+async function editArticle(path, sha) {
+  const main = document.getElementById('main-content');
+  main.innerHTML = '<div class="loading"><div class="spinner"></div></div>';
+  try {
+    const data = await apiGet(path);
+    const content = b64decode(data.content);
+    const fm = parseFrontmatter(content);
+    const bodyMatch = content.match(/^---\n[\s\S]*?\n---\n?([\s\S]*)$/);
+    const body = bodyMatch ? bodyMatch[1].trim() : '';
+    renderArticleEditor(path, data.sha, fm, body, false);
+  } catch(e) {
+    showToast('Erreur chargement: ' + e.message, 'error');
+    loadArticles();
+  }
+}
+
+function newArticle() {
+  const today = new Date().toISOString().split('T')[0];
+  renderArticleEditor(null, null, {
+    titre: '', description: '', date: today, categorie: '', publie: true
+  }, '', true);
+}
+
+function renderArticleEditor(path, sha, fm, body, isNew) {
+  const main = document.getElementById('main-content');
+  const cats = ['Actualités', 'Conseils optique', 'Nouveautés', 'Promotions', 'Événements'];
+  main.innerHTML = `
+    <div class="editor-panel">
+      <div class="editor-header">
+        <button class="btn-back" onclick="loadArticles()">← Retour</button>
+        <h2 style="font-size:18px">${isNew ? '✨ Nouvel article' : '✏️ Modifier l\'article'}</h2>
+      </div>
+      <div class="editor-body">
+        <div class="form-row">
+          <div class="form-group full">
+            <label>Titre de l'article *</label>
+            <input type="text" id="f-titre" value="${(fm.titre || '').replace(/"/g, '&quot;')}" placeholder="Ex: Nouvelle collection printemps 2025" />
+          </div>
+          <div class="form-group full">
+            <label>Description courte (pour les aperçus)</label>
+            <input type="text" id="f-description" value="${(fm.description || '').replace(/"/g, '&quot;')}" placeholder="Une courte description de l'article..." />
+          </div>
+          <div class="form-group">
+            <label>Date de publication</label>
+            <input type="date" id="f-date" value="${fm.date ? fm.date.toString().substring(0,10) : ''}" />
+          </div>
+          <div class="form-group">
+            <label>Catégorie</label>
+            <select id="f-categorie">
+              <option value="">— Choisir —</option>
+              ${cats.map(c => `<option value="${c}" ${fm.categorie === c ? 'selected' : ''}>${c}</option>`).join('')}
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Statut</label>
+            <div class="toggle-group" style="margin-top:8px">
+              <label class="toggle">
+                <input type="checkbox" id="f-publie" ${fm.publie !== false ? 'checked' : ''} />
+                <span class="toggle-slider"></span>
+              </label>
+              <span style="font-size:14px;color:#555">Publié (visible sur le site)</span>
+            </div>
+          </div>
+          <div class="form-group full">
+            <label>Contenu de l'article</label>
+            <textarea id="f-body">${body}</textarea>
+          </div>
+        </div>
+      </div>
+      <div class="editor-footer">
+        <button class="btn-cancel" onclick="loadArticles()">Annuler</button>
+        <button class="btn-save" onclick="saveArticle('${path || ''}', '${sha || ''}', ${isNew})">💾 Enregistrer</button>
+      </div>
+    </div>
+  `;
+
+  // Init EasyMDE
+  if (easyMDE) { try { easyMDE.toTextArea(); } catch(e){} easyMDE = null; }
+  easyMDE = new EasyMDE({
+    element: document.getElementById('f-body'),
+    spellChecker: false,
+    autofocus: false,
+    placeholder: 'Écrivez le contenu de votre article ici...',
+    toolbar: ['bold','italic','heading','|','quote','unordered-list','ordered-list','|','link','image','|','preview','side-by-side','fullscreen'],
+    status: false,
+  });
+}
+
+async function saveArticle(path, sha, isNew) {
+  const titre = document.getElementById('f-titre').value.trim();
+  if (!titre) { showToast('Le titre est obligatoire', 'error'); return; }
+
+  const fm = {
+    titre,
+    description: document.getElementById('f-description').value.trim(),
+    date: document.getElementById('f-date').value || new Date().toISOString().split('T')[0],
+    categorie: document.getElementById('f-categorie').value,
+    publie: document.getElementById('f-publie').checked,
+  };
+
+  const body = easyMDE ? easyMDE.value() : document.getElementById('f-body').value;
+  const content = buildFrontmatter(fm) + '\n\n' + body;
+
+  let filePath = path;
+  let fileSha = sha || undefined;
+  if (isNew) {
+    filePath = `src/content/articles/${slugify(titre)}.md`;
+    fileSha = undefined;
+  }
+
+  try {
+    await apiPut(filePath, content, fileSha, `Article: ${titre}`);
+    showToast('Article enregistré ! Le site se met à jour automatiquement.');
+    setTimeout(() => loadArticles(), 1000);
+  } catch(e) {
+    showToast('Erreur: ' + e.message, 'error');
+  }
+}
+
+async function deleteArticle(path, sha, titre) {
+  if (!confirm(`Supprimer l'article "${titre}" ?\n\nCette action est définitive.`)) return;
+  try {
+    await apiDelete(path, sha);
+    showToast('Article supprimé.');
+    loadArticles();
+  } catch(e) {
+    showToast('Erreur: ' + e.message, 'error');
+  }
+}
+
+// ─── JSON EDITORS ──────────────────────────────────────────────────────────
+const JSON_FILES = {
+  contact: 'src/data/contact.json',
+  accueil: 'src/data/home.json',
+  equipe: 'src/data/equipe.json',
+};
+
+const JSON_LABELS = {
+  contact: { label: '📍 Contact & Horaires', desc: 'Informations de contact et horaires d\'ouverture' },
+  accueil: { label: '🏠 Page d\'accueil', desc: 'Textes de la page d\'accueil' },
+  equipe: { label: '👥 L\'Équipe', desc: 'Membres de l\'équipe' },
+};
+
+async function loadJsonEditor(section) {
+  const main = document.getElementById('main-content');
+  const info = JSON_LABELS[section];
+  main.innerHTML = '<div class="loading"><div class="spinner"></div></div>';
+  try {
+    const data = await apiGet(JSON_FILES[section]);
+    const content = b64decode(data.content);
+    const json = JSON.parse(content);
+    renderJsonEditor(section, data.sha, json, info);
+  } catch(e) {
+    main.innerHTML = `<div class="loading" style="color:#e53e3e">Erreur: ${e.message}</div>`;
+  }
+}
+
+function renderJsonEditor(section, sha, json, info) {
+  const main = document.getElementById('main-content');
+  let formHtml = '';
+
+  if (section === 'contact') {
+    formHtml = renderContactForm(json);
+  } else if (section === 'accueil') {
+    formHtml = renderAccueilForm(json);
+  } else if (section === 'equipe') {
+    formHtml = renderEquipeForm(json);
+  }
+
+  main.innerHTML = `
+    <div class="page-header">
+      <div>
+        <h2>${info.label}</h2>
+        <p>${info.desc}</p>
+      </div>
+    </div>
+    <div class="editor-panel">
+      <div class="editor-body" id="json-form">${formHtml}</div>
+      <div class="editor-footer">
+        <button class="btn-save" onclick="saveJson('${section}', '${sha}')">💾 Enregistrer les modifications</button>
+      </div>
+    </div>
+  `;
+}
+
+function renderContactForm(j) {
+  const horaires = (j.horaires || []).map((h, i) => `
+    <div style="display:grid;grid-template-columns:1fr 1fr auto;gap:12px;align-items:center;margin-bottom:10px">
+      <input type="text" value="${h.jour || ''}" placeholder="Jour" data-horaire="${i}" data-field="jour" class="h-jour" style="padding:8px 12px;border:2px solid var(--border);border-radius:6px;font-size:13px" />
+      <input type="text" value="${h.heures || ''}" placeholder="9h00 – 19h00" data-horaire="${i}" data-field="heures" class="h-heures" style="padding:8px 12px;border:2px solid var(--border);border-radius:6px;font-size:13px" />
+      <label style="font-size:13px;white-space:nowrap"><input type="checkbox" ${h.ferme ? 'checked' : ''} data-horaire="${i}" data-field="ferme" class="h-ferme" /> Fermé</label>
+    </div>
+  `).join('');
+
+  return `
+    <div class="json-section">
+      <h3>Informations générales</h3>
+      <div class="form-row">
+        <div class="form-group"><label>Nom du magasin</label><input id="c-nom" type="text" value="${j.nom || ''}" /></div>
+        <div class="form-group"><label>Slogan</label><input id="c-tagline" type="text" value="${j.tagline || ''}" /></div>
+        <div class="form-group"><label>Téléphone</label><input id="c-telephone" type="text" value="${j.telephone || ''}" /></div>
+        <div class="form-group"><label>Email</label><input id="c-email" type="text" value="${j.email || ''}" /></div>
+        <div class="form-group"><label>Adresse (rue)</label><input id="c-adresse" type="text" value="${j.adresse || ''}" /></div>
+        <div class="form-group"><label>Ville & code postal</label><input id="c-ville" type="text" value="${j.ville || ''}" /></div>
+      </div>
+    </div>
+    <div class="json-section">
+      <h3>Horaires d'ouverture</h3>
+      <div id="horaires-container">${horaires}</div>
+    </div>
+  `;
+}
+
+function renderAccueilForm(j) {
+  return `
+    <div class="json-section">
+      <h3>Section Hero (bannière principale)</h3>
+      <div class="form-group"><label>Titre principal</label><input id="h-hero_titre" type="text" value="${(j.hero_titre||'').replace(/"/g,'&quot;')}" /></div>
+      <div class="form-group"><label>Sous-titre</label><textarea id="h-hero_sous_titre" rows="3" style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:8px;font-size:14px">${j.hero_sous_titre||''}</textarea></div>
+      <div class="form-group"><label>Badge (ex: Opticien depuis 2008)</label><input id="h-hero_badge" type="text" value="${(j.hero_badge||'').replace(/"/g,'&quot;')}" /></div>
+    </div>
+    <div class="json-section">
+      <h3>Section Histoire</h3>
+      <div class="form-group"><label>Titre</label><input id="h-histoire_titre" type="text" value="${(j.histoire_titre||'').replace(/"/g,'&quot;')}" /></div>
+      <div class="form-group"><label>Texte</label><textarea id="h-histoire_texte" rows="5" style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:8px;font-size:14px">${j.histoire_texte||''}</textarea></div>
+    </div>
+  `;
+}
+
+function renderEquipeForm(j) {
+  const membres = (j.membres || []).map((m, i) => `
+    <div style="border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:12px">
+      <div style="font-weight:600;color:#555;margin-bottom:12px">Membre ${i+1}</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div><label style="font-size:12px;color:#888;display:block;margin-bottom:4px">Prénom</label><input class="e-nom" data-index="${i}" type="text" value="${(m.nom||'').replace(/"/g,'&quot;')}" style="width:100%;padding:8px 12px;border:2px solid var(--border);border-radius:6px;font-size:13px" /></div>
+        <div><label style="font-size:12px;color:#888;display:block;margin-bottom:4px">Rôle</label><input class="e-role" data-index="${i}" type="text" value="${(m.role||'').replace(/"/g,'&quot;')}" style="width:100%;padding:8px 12px;border:2px solid var(--border);border-radius:6px;font-size:13px" /></div>
+        <div style="grid-column:1/-1"><label style="font-size:12px;color:#888;display:block;margin-bottom:4px">Description</label><input class="e-expertise" data-index="${i}" type="text" value="${(m.expertise||'').replace(/"/g,'&quot;')}" style="width:100%;padding:8px 12px;border:2px solid var(--border);border-radius:6px;font-size:13px" /></div>
+      </div>
+    </div>
+  `).join('');
+  return `<div class="json-section"><h3>Membres de l'équipe</h3>${membres}</div>`;
+}
+
+async function saveJson(section, sha) {
+  let json;
+  try {
+    if (section === 'contact') json = readContactForm();
+    else if (section === 'accueil') json = readAccueilForm();
+    else if (section === 'equipe') json = readEquipeForm();
+    const content = JSON.stringify(json, null, 2);
+    await apiPut(JSON_FILES[section], content, sha, `Mise à jour ${section} via CMS`);
+    showToast('Modifications enregistrées ! Le site se met à jour automatiquement.');
+    loadJsonEditor(section);
+  } catch(e) {
+    showToast('Erreur: ' + e.message, 'error');
+  }
+}
+
+function readContactForm() {
+  const horaires = [];
+  document.querySelectorAll('#horaires-container > div').forEach((row, i) => {
+    horaires.push({
+      jour: row.querySelector('.h-jour')?.value || '',
+      heures: row.querySelector('.h-heures')?.value || '',
+      ferme: row.querySelector('.h-ferme')?.checked || false,
+    });
+  });
+  // Keep existing avantages
+  return {
+    nom: document.getElementById('c-nom').value,
+    tagline: document.getElementById('c-tagline').value,
+    adresse: document.getElementById('c-adresse').value,
+    ville: document.getElementById('c-ville').value,
+    telephone: document.getElementById('c-telephone').value,
+    email: document.getElementById('c-email').value,
+    horaires,
+  };
+}
+
+function readAccueilForm() {
+  return {
+    hero_titre: document.getElementById('h-hero_titre').value,
+    hero_sous_titre: document.getElementById('h-hero_sous_titre').value,
+    hero_badge: document.getElementById('h-hero_badge').value,
+    histoire_titre: document.getElementById('h-histoire_titre').value,
+    histoire_texte: document.getElementById('h-histoire_texte').value,
+  };
+}
+
+function readEquipeForm() {
+  const membres = [];
+  const count = document.querySelectorAll('.e-nom').length;
+  for (let i = 0; i < count; i++) {
+    membres.push({
+      nom: document.querySelector(`.e-nom[data-index="${i}"]`)?.value || '',
+      role: document.querySelector(`.e-role[data-index="${i}"]`)?.value || '',
+      expertise: document.querySelector(`.e-expertise[data-index="${i}"]`)?.value || '',
+    });
+  }
+  return { membres };
+}
+</script>
+</body>
 </html>
