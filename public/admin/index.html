@@ -7,218 +7,259 @@
   <link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css" />
   <style>
     :root {
-      --gold: #C9A961;
-      --dark: #0A0A0A;
-      --bg: #f5f5f5;
-      --white: #ffffff;
-      --border: #e0e0e0;
-      --red: #e53e3e;
-      --green: #38a169;
+      --gold: #C9A961; --gold-light: #dfc07e;
+      --dark: #0A0A0A; --bg: #f0f2f5;
+      --white: #fff; --border: #e2e8f0;
+      --red: #e53e3e; --green: #38a169; --blue: #3182ce;
+      --sidebar: 250px;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: #333; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: #1a202c; }
 
-    /* LOGIN */
-    #login-screen {
-      min-height: 100vh; display: flex; align-items: center; justify-content: center;
-      background: var(--dark);
-    }
-    .login-box {
-      background: white; border-radius: 12px; padding: 40px; width: 380px;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    }
-    .login-logo { text-align: center; margin-bottom: 30px; }
-    .login-logo h1 { font-size: 22px; color: var(--dark); margin-top: 10px; }
-    .login-logo span { color: var(--gold); }
-    .login-box label { display: block; font-size: 13px; font-weight: 600; color: #555; margin-bottom: 6px; }
-    .login-box input {
-      width: 100%; padding: 12px 16px; border: 2px solid var(--border); border-radius: 8px;
-      font-size: 16px; outline: none; transition: border-color 0.2s;
-    }
-    .login-box input:focus { border-color: var(--gold); }
-    .btn-primary {
-      width: 100%; padding: 14px; background: var(--gold); color: white; border: none;
-      border-radius: 8px; font-size: 16px; font-weight: 600; cursor: pointer;
-      margin-top: 20px; transition: opacity 0.2s;
-    }
-    .btn-primary:hover { opacity: 0.9; }
-    .login-error { color: var(--red); font-size: 14px; margin-top: 12px; text-align: center; display: none; }
+    /* ── LOGIN ── */
+    #login-screen { min-height: 100vh; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #0A0A0A 0%, #1a1a2e 100%); }
+    .login-box { background: white; border-radius: 16px; padding: 48px 40px; width: 400px; box-shadow: 0 25px 80px rgba(0,0,0,0.4); }
+    .login-logo { text-align: center; margin-bottom: 36px; }
+    .login-logo .logo-icon { width: 64px; height: 64px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); border-radius: 16px; display: inline-flex; align-items: center; justify-content: center; font-size: 32px; margin-bottom: 16px; }
+    .login-logo h1 { font-size: 20px; font-weight: 700; color: var(--dark); }
+    .login-logo p { color: #718096; font-size: 13px; margin-top: 4px; }
+    .login-field { margin-bottom: 16px; }
+    .login-field label { display: block; font-size: 13px; font-weight: 600; color: #4a5568; margin-bottom: 6px; }
+    .login-field input { width: 100%; padding: 12px 16px; border: 2px solid var(--border); border-radius: 10px; font-size: 15px; outline: none; transition: border-color 0.2s, box-shadow 0.2s; }
+    .login-field input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,169,97,0.15); }
+    .btn-login { width: 100%; padding: 14px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: white; border: none; border-radius: 10px; font-size: 15px; font-weight: 700; cursor: pointer; margin-top: 8px; transition: opacity 0.2s, transform 0.1s; }
+    .btn-login:hover { opacity: 0.92; transform: translateY(-1px); }
+    .btn-login:active { transform: translateY(0); }
+    .login-error { color: var(--red); font-size: 13px; margin-top: 10px; text-align: center; display: none; padding: 10px; background: #fff5f5; border-radius: 8px; }
 
-    /* APP */
+    /* ── APP ── */
     #app { display: none; min-height: 100vh; }
 
-    /* SIDEBAR */
-    .sidebar {
-      position: fixed; top: 0; left: 0; width: 240px; height: 100vh;
-      background: var(--dark); overflow-y: auto; z-index: 100;
-    }
-    .sidebar-logo {
-      padding: 20px; border-bottom: 1px solid #222;
-      display: flex; align-items: center; gap: 10px;
-    }
-    .sidebar-logo span { color: var(--gold); font-size: 24px; }
-    .sidebar-logo strong { color: white; font-size: 14px; line-height: 1.3; }
-    .sidebar-logo small { color: #888; font-size: 11px; display: block; }
-    .sidebar nav { padding: 16px 0; }
-    .nav-section { padding: 8px 20px 4px; color: #555; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
-    .nav-item {
-      display: flex; align-items: center; gap: 10px; padding: 10px 20px;
-      color: #aaa; cursor: pointer; transition: all 0.15s; font-size: 14px;
-    }
-    .nav-item:hover { color: white; background: #111; }
-    .nav-item.active { color: var(--gold); background: #111; border-right: 3px solid var(--gold); }
-    .nav-item .icon { font-size: 18px; width: 24px; text-align: center; }
-    .sidebar-footer {
-      position: absolute; bottom: 0; left: 0; right: 0; padding: 16px 20px;
-      border-top: 1px solid #222;
-    }
-    .btn-logout {
-      width: 100%; padding: 10px; background: transparent; border: 1px solid #333;
-      color: #888; border-radius: 6px; cursor: pointer; font-size: 13px; transition: all 0.2s;
-    }
-    .btn-logout:hover { border-color: #666; color: white; }
+    /* ── SIDEBAR ── */
+    .sidebar { position: fixed; top: 0; left: 0; width: var(--sidebar); height: 100vh; background: var(--dark); overflow-y: auto; z-index: 100; display: flex; flex-direction: column; }
+    .sidebar-logo { padding: 22px 20px; border-bottom: 1px solid #1a1a1a; display: flex; align-items: center; gap: 12px; }
+    .sidebar-logo .logo-sq { width: 36px; height: 36px; background: linear-gradient(135deg, var(--gold), var(--gold-light)); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+    .sidebar-logo strong { color: white; font-size: 13px; line-height: 1.4; display: block; }
+    .sidebar-logo small { color: #4a5568; font-size: 11px; }
+    .sidebar-site-link { margin: 12px 16px; padding: 8px 12px; background: #111; border: 1px solid #222; border-radius: 8px; color: #666; font-size: 12px; text-decoration: none; display: flex; align-items: center; gap: 6px; transition: all 0.2s; cursor: pointer; }
+    .sidebar-site-link:hover { color: var(--gold); border-color: #333; }
+    nav { padding: 8px 0; flex: 1; }
+    .nav-section { padding: 12px 20px 4px; color: #333; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; }
+    .nav-item { display: flex; align-items: center; gap: 10px; padding: 10px 20px; color: #718096; cursor: pointer; transition: all 0.15s; font-size: 13.5px; border-left: 3px solid transparent; }
+    .nav-item:hover { color: #e2e8f0; background: #111; }
+    .nav-item.active { color: var(--gold); background: rgba(201,169,97,0.08); border-left-color: var(--gold); }
+    .nav-item .ni { font-size: 16px; width: 22px; text-align: center; }
+    .sidebar-footer { padding: 16px; border-top: 1px solid #111; }
+    .btn-logout { width: 100%; padding: 9px; background: transparent; border: 1px solid #222; color: #555; border-radius: 8px; cursor: pointer; font-size: 12px; transition: all 0.2s; }
+    .btn-logout:hover { border-color: #444; color: #aaa; }
 
-    /* MAIN */
-    .main { margin-left: 240px; padding: 30px; min-height: 100vh; }
+    /* ── MAIN ── */
+    .main { margin-left: var(--sidebar); padding: 28px 32px; min-height: 100vh; }
 
-    /* PAGE HEADER */
-    .page-header { margin-bottom: 24px; display: flex; align-items: center; justify-content: space-between; }
-    .page-header h2 { font-size: 24px; color: var(--dark); }
-    .page-header p { color: #666; font-size: 14px; margin-top: 4px; }
+    /* ── PAGE HEADER ── */
+    .page-header { margin-bottom: 24px; display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+    .page-header h2 { font-size: 22px; font-weight: 700; color: var(--dark); }
+    .page-header p { color: #718096; font-size: 13px; margin-top: 3px; }
 
-    /* CARDS GRID */
-    .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 30px; }
-    .stat-card { background: white; border-radius: 10px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
-    .stat-card .value { font-size: 28px; font-weight: 700; color: var(--gold); }
-    .stat-card .label { font-size: 13px; color: #888; margin-top: 4px; }
+    /* ── DASHBOARD ── */
+    .dash-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 28px; }
+    .dash-card { background: white; border-radius: 12px; padding: 22px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); border: 1px solid var(--border); }
+    .dash-card .dc-icon { font-size: 28px; margin-bottom: 10px; }
+    .dash-card .dc-val { font-size: 30px; font-weight: 800; color: var(--gold); line-height: 1; }
+    .dash-card .dc-label { font-size: 13px; color: #718096; margin-top: 4px; }
+    .dash-actions { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; }
+    .dash-action { background: white; border-radius: 12px; padding: 20px; border: 1px solid var(--border); cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 14px; }
+    .dash-action:hover { border-color: var(--gold); box-shadow: 0 4px 16px rgba(201,169,97,0.12); transform: translateY(-2px); }
+    .dash-action .da-icon { width: 46px; height: 46px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; flex-shrink: 0; }
+    .da-gold { background: rgba(201,169,97,0.12); }
+    .da-blue { background: rgba(49,130,206,0.1); }
+    .da-green { background: rgba(56,161,105,0.1); }
+    .da-purple { background: rgba(128,90,213,0.1); }
+    .dash-action strong { display: block; font-size: 14px; font-weight: 600; color: var(--dark); }
+    .dash-action span { font-size: 12px; color: #718096; }
 
-    /* ARTICLES LIST */
-    .articles-list { background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); overflow: hidden; }
-    .articles-list-header { padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
-    .btn-new { padding: 10px 20px; background: var(--gold); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 600; display: flex; align-items: center; gap: 6px; transition: opacity 0.2s; }
-    .btn-new:hover { opacity: 0.9; }
-    .article-item { padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; cursor: pointer; transition: background 0.15s; }
-    .article-item:last-child { border-bottom: none; }
-    .article-item:hover { background: #fafafa; }
-    .article-title { font-weight: 600; color: var(--dark); font-size: 15px; }
-    .article-meta { font-size: 12px; color: #888; margin-top: 3px; }
-    .badge { display: inline-block; padding: 2px 8px; border-radius: 99px; font-size: 11px; font-weight: 600; }
-    .badge-green { background: #f0fff4; color: var(--green); }
-    .badge-gray { background: #f5f5f5; color: #999; }
-    .article-actions { display: flex; gap: 8px; }
-    .btn-edit { padding: 6px 14px; background: #f0f0f0; border: none; border-radius: 6px; cursor: pointer; font-size: 13px; transition: background 0.15s; }
-    .btn-edit:hover { background: #e0e0e0; }
-    .btn-delete { padding: 6px 14px; background: #fff0f0; color: var(--red); border: none; border-radius: 6px; cursor: pointer; font-size: 13px; transition: background 0.15s; }
-    .btn-delete:hover { background: #ffe0e0; }
-    .empty-state { text-align: center; padding: 60px 20px; color: #999; }
-    .empty-state .icon { font-size: 48px; display: block; margin-bottom: 12px; }
+    /* ── STATS CARDS ── */
+    .stats-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-bottom: 24px; }
+    .stat-card { background: white; border-radius: 10px; padding: 18px 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); border: 1px solid var(--border); }
+    .stat-card .sv { font-size: 26px; font-weight: 800; color: var(--gold); }
+    .stat-card .sl { font-size: 12px; color: #718096; margin-top: 3px; }
 
-    /* EDITOR */
-    .editor-panel { background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); overflow: hidden; }
-    .editor-header { padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; }
-    .btn-back { padding: 8px 16px; background: #f0f0f0; border: none; border-radius: 6px; cursor: pointer; font-size: 13px; display: flex; align-items: center; gap: 6px; }
-    .btn-back:hover { background: #e0e0e0; }
-    .editor-body { padding: 24px; }
+    /* ── ARTICLES ── */
+    .articles-panel { background: white; border-radius: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); border: 1px solid var(--border); overflow: hidden; }
+    .panel-header { padding: 16px 20px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+    .panel-title { font-size: 14px; font-weight: 600; color: var(--dark); }
+    .btn-new { padding: 9px 18px; background: var(--gold); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; display: flex; align-items: center; gap: 6px; transition: opacity 0.2s; }
+    .btn-new:hover { opacity: 0.88; }
+    .article-row { padding: 14px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 14px; transition: background 0.12s; }
+    .article-row:last-child { border-bottom: none; }
+    .article-row:hover { background: #fafafa; }
+    .article-thumb { width: 52px; height: 40px; border-radius: 6px; background: #f0f2f5; object-fit: cover; flex-shrink: 0; display: flex; align-items: center; justify-content: center; color: #cbd5e0; font-size: 18px; overflow: hidden; }
+    .article-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .art-info { flex: 1; min-width: 0; }
+    .art-title { font-weight: 600; font-size: 14px; color: var(--dark); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .art-meta { font-size: 11px; color: #a0aec0; margin-top: 2px; }
+    .badge { display: inline-flex; align-items: center; padding: 2px 9px; border-radius: 99px; font-size: 11px; font-weight: 600; white-space: nowrap; }
+    .badge-green { background: #f0fff4; color: #276749; }
+    .badge-gray { background: #f7fafc; color: #718096; }
+    .badge-cat { padding: 2px 8px; border-radius: 4px; font-size: 10px; font-weight: 600; }
+    .cat-Actualités { background: #ebf8ff; color: #2b6cb0; }
+    .cat-Conseils { background: #f0fff4; color: #276749; }
+    .cat-Nouveautés { background: #faf5ff; color: #6b46c1; }
+    .cat-Promotions { background: #fff5f5; color: #c53030; }
+    .cat-Événements { background: #fffaf0; color: #c05621; }
+    .art-btns { display: flex; gap: 6px; flex-shrink: 0; }
+    .btn-sm { padding: 5px 12px; border: none; border-radius: 6px; cursor: pointer; font-size: 12px; font-weight: 500; transition: background 0.15s; }
+    .btn-edit-sm { background: #edf2f7; color: #4a5568; }
+    .btn-edit-sm:hover { background: #e2e8f0; }
+    .btn-del-sm { background: #fff5f5; color: var(--red); }
+    .btn-del-sm:hover { background: #fed7d7; }
+    .empty-state { text-align: center; padding: 56px 20px; color: #a0aec0; }
+    .empty-icon { font-size: 44px; display: block; margin-bottom: 10px; }
+
+    /* ── EDITOR ── */
+    .editor-wrap { background: white; border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 1px 4px rgba(0,0,0,0.06); overflow: hidden; }
+    .editor-top { padding: 14px 20px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; }
+    .btn-back { padding: 7px 14px; background: #edf2f7; border: none; border-radius: 7px; cursor: pointer; font-size: 13px; color: #4a5568; display: flex; align-items: center; gap: 5px; transition: background 0.15s; }
+    .btn-back:hover { background: #e2e8f0; }
+    .editor-title { font-size: 16px; font-weight: 600; }
+    .editor-body { padding: 24px 28px; }
     .form-group { margin-bottom: 20px; }
-    .form-group label { display: block; font-size: 13px; font-weight: 600; color: #555; margin-bottom: 6px; }
+    .form-group label { display: block; font-size: 12px; font-weight: 600; color: #4a5568; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
     .form-group input, .form-group select, .form-group textarea {
       width: 100%; padding: 10px 14px; border: 2px solid var(--border); border-radius: 8px;
-      font-size: 14px; outline: none; transition: border-color 0.2s; font-family: inherit;
+      font-size: 14px; outline: none; transition: border-color 0.2s, box-shadow 0.2s; font-family: inherit; color: var(--dark);
     }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
-    .form-group.full { grid-column: 1 / -1; }
-    .toggle-group { display: flex; align-items: center; gap: 12px; }
-    .toggle { position: relative; display: inline-block; width: 48px; height: 26px; }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,169,97,0.12); }
+    .form-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-3col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+    .col-full { grid-column: 1 / -1; }
+    .toggle-row { display: flex; align-items: center; gap: 10px; }
+    .toggle { position: relative; display: inline-block; width: 46px; height: 25px; flex-shrink: 0; }
     .toggle input { opacity: 0; width: 0; height: 0; }
-    .toggle-slider {
-      position: absolute; inset: 0; background: #ccc; border-radius: 26px; cursor: pointer; transition: 0.3s;
-    }
-    .toggle-slider:before {
-      content: ''; position: absolute; height: 20px; width: 20px; left: 3px; bottom: 3px;
-      background: white; border-radius: 50%; transition: 0.3s;
-    }
-    .toggle input:checked + .toggle-slider { background: var(--gold); }
-    .toggle input:checked + .toggle-slider:before { transform: translateX(22px); }
-    .editor-footer { padding: 16px 24px; border-top: 1px solid var(--border); display: flex; gap: 12px; justify-content: flex-end; background: #fafafa; }
-    .btn-save { padding: 12px 28px; background: var(--gold); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 15px; font-weight: 600; transition: opacity 0.2s; }
-    .btn-save:hover { opacity: 0.9; }
-    .btn-cancel { padding: 12px 20px; background: #f0f0f0; border: none; border-radius: 8px; cursor: pointer; font-size: 15px; }
-    .btn-cancel:hover { background: #e0e0e0; }
+    .tslider { position: absolute; inset: 0; background: #cbd5e0; border-radius: 25px; cursor: pointer; transition: 0.25s; }
+    .tslider:before { content: ''; position: absolute; height: 19px; width: 19px; left: 3px; bottom: 3px; background: white; border-radius: 50%; transition: 0.25s; }
+    .toggle input:checked + .tslider { background: var(--gold); }
+    .toggle input:checked + .tslider:before { transform: translateX(21px); }
+    .editor-footer { padding: 14px 24px; border-top: 1px solid var(--border); display: flex; gap: 10px; justify-content: flex-end; background: #fafafa; }
+    .btn-save { padding: 10px 26px; background: var(--gold); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; font-weight: 600; transition: opacity 0.2s; display: flex; align-items: center; gap: 8px; min-width: 160px; justify-content: center; }
+    .btn-save:hover:not(:disabled) { opacity: 0.88; }
+    .btn-save:disabled { opacity: 0.6; cursor: not-allowed; }
+    .btn-cancel { padding: 10px 18px; background: #edf2f7; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; color: #4a5568; }
+    .btn-cancel:hover { background: #e2e8f0; }
 
-    /* JSON EDITOR */
-    .json-section { border: 2px solid var(--border); border-radius: 8px; padding: 20px; margin-bottom: 20px; }
-    .json-section h3 { font-size: 16px; color: var(--dark); margin-bottom: 16px; }
+    /* ── IMAGE UPLOAD ── */
+    .img-upload-zone { border: 2px dashed var(--border); border-radius: 10px; padding: 20px; text-align: center; cursor: pointer; transition: all 0.2s; background: #fafafa; }
+    .img-upload-zone:hover, .img-upload-zone.drag { border-color: var(--gold); background: rgba(201,169,97,0.04); }
+    .img-upload-zone input { display: none; }
+    .img-preview { width: 100%; max-height: 160px; object-fit: cover; border-radius: 8px; margin-top: 10px; display: none; }
+    .img-current { font-size: 12px; color: #718096; margin-top: 6px; word-break: break-all; }
+    .upload-progress { height: 4px; background: #e2e8f0; border-radius: 2px; margin-top: 10px; display: none; }
+    .upload-bar { height: 100%; background: var(--gold); border-radius: 2px; width: 0; transition: width 0.3s; }
 
-    /* NOTIFICATIONS */
-    .toast {
-      position: fixed; bottom: 24px; right: 24px; padding: 14px 20px; border-radius: 10px;
-      color: white; font-size: 14px; font-weight: 600; z-index: 1000;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2); transform: translateY(100px);
-      transition: transform 0.3s; display: flex; align-items: center; gap: 8px;
-    }
+    /* ── SECTION CARD ── */
+    .section-card { border: 1px solid var(--border); border-radius: 10px; padding: 20px; margin-bottom: 20px; }
+    .section-card h3 { font-size: 14px; font-weight: 700; color: var(--dark); margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 8px; }
+
+    /* ── LIST EDITOR ── */
+    .list-editor { display: flex; flex-direction: column; gap: 8px; }
+    .list-item { display: flex; gap: 8px; align-items: center; }
+    .list-item input { flex: 1; padding: 8px 12px; border: 2px solid var(--border); border-radius: 7px; font-size: 13px; outline: none; transition: border-color 0.2s; }
+    .list-item input:focus { border-color: var(--gold); }
+    .btn-rm { padding: 7px 10px; background: #fff5f5; color: var(--red); border: none; border-radius: 6px; cursor: pointer; font-size: 14px; line-height: 1; flex-shrink: 0; transition: background 0.15s; }
+    .btn-rm:hover { background: #fed7d7; }
+    .btn-add { padding: 8px 14px; background: #f0fff4; color: var(--green); border: 1px dashed #9ae6b4; border-radius: 7px; cursor: pointer; font-size: 13px; font-weight: 500; margin-top: 4px; transition: all 0.15s; display: inline-flex; align-items: center; gap: 5px; }
+    .btn-add:hover { background: #c6f6d5; }
+
+    /* ── OBJECT LIST EDITOR ── */
+    .obj-item { border: 1px solid var(--border); border-radius: 8px; padding: 14px; margin-bottom: 8px; position: relative; }
+    .obj-item-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
+    .obj-label { font-size: 12px; font-weight: 600; color: #718096; }
+
+    /* ── TOAST ── */
+    .toast { position: fixed; bottom: 24px; right: 24px; padding: 13px 20px; border-radius: 10px; color: white; font-size: 13px; font-weight: 600; z-index: 9999; box-shadow: 0 8px 30px rgba(0,0,0,0.2); transform: translateY(80px); transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1); max-width: 340px; }
     .toast.show { transform: translateY(0); }
-    .toast.success { background: var(--green); }
-    .toast.error { background: var(--red); }
-    .loading { text-align: center; padding: 60px; color: #888; }
-    .spinner { display: inline-block; width: 30px; height: 30px; border: 3px solid #eee; border-top-color: var(--gold); border-radius: 50%; animation: spin 0.8s linear infinite; }
+    .toast.success { background: linear-gradient(135deg, #38a169, #48bb78); }
+    .toast.error { background: linear-gradient(135deg, #e53e3e, #fc8181); }
+    .toast.info { background: linear-gradient(135deg, #3182ce, #63b3ed); }
+
+    /* ── LOADING ── */
+    .loading { text-align: center; padding: 60px 20px; color: #a0aec0; }
+    .spinner { display: inline-block; width: 28px; height: 28px; border: 3px solid #e2e8f0; border-top-color: var(--gold); border-radius: 50%; animation: spin 0.7s linear infinite; }
+    .spinner-sm { display: inline-block; width: 14px; height: 14px; border: 2px solid rgba(255,255,255,0.4); border-top-color: white; border-radius: 50%; animation: spin 0.7s linear infinite; }
     @keyframes spin { to { transform: rotate(360deg); } }
-    .EasyMDEContainer .CodeMirror { height: 350px; }
+    .EasyMDEContainer .CodeMirror { height: 320px; font-size: 14px; }
+    .editor-toolbar { border-radius: 8px 8px 0 0; }
+
+    /* ── HORAIRE ROW ── */
+    .horaire-row { display: grid; grid-template-columns: 140px 1fr auto; gap: 10px; align-items: center; margin-bottom: 8px; }
+    .horaire-row input { padding: 8px 12px; border: 2px solid var(--border); border-radius: 7px; font-size: 13px; outline: none; transition: border-color 0.2s; }
+    .horaire-row input:focus { border-color: var(--gold); }
+    .horaire-toggle { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #718096; white-space: nowrap; }
+
+    /* ── DEPLOY BANNER ── */
+    .deploy-banner { background: linear-gradient(135deg, rgba(201,169,97,0.1), rgba(201,169,97,0.05)); border: 1px solid rgba(201,169,97,0.3); border-radius: 10px; padding: 14px 18px; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; font-size: 13px; color: #744210; }
+    .deploy-banner .db-icon { font-size: 20px; }
+    .deploy-banner a { color: var(--gold); font-weight: 600; text-decoration: none; }
+    .deploy-banner a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
 
-<!-- LOGIN -->
+<!-- ─── LOGIN ─────────────────────────────────────────────────────────────── -->
 <div id="login-screen">
   <div class="login-box">
     <div class="login-logo">
-      <span style="font-size:40px">👓</span>
-      <h1>Gravelines <span>Optique</span></h1>
-      <p style="color:#888;font-size:13px;margin-top:4px">Administration du site</p>
+      <div class="logo-icon">👓</div>
+      <h1>Gravelines Optique</h1>
+      <p>Panneau d'administration</p>
     </div>
-    <div>
+    <div class="login-field">
       <label>Mot de passe</label>
-      <input type="password" id="password-input" placeholder="Entrez le mot de passe" />
+      <input type="password" id="pw" placeholder="••••••••••••" autocomplete="current-password" />
     </div>
-    <button class="btn-primary" onclick="doLogin()">Accéder au panneau</button>
-    <div class="login-error" id="login-error">Mot de passe incorrect</div>
+    <button class="btn-login" id="login-btn" onclick="doLogin()">Accéder au panneau</button>
+    <div class="login-error" id="login-error">Mot de passe incorrect. Réessayez.</div>
   </div>
 </div>
 
-<!-- APP -->
+<!-- ─── APP ──────────────────────────────────────────────────────────────── -->
 <div id="app">
-  <div class="sidebar">
+  <aside class="sidebar">
     <div class="sidebar-logo">
-      <span>👓</span>
-      <div>
-        <strong>Gravelines Optique</strong>
-        <small>Administration</small>
-      </div>
+      <div class="logo-sq">👓</div>
+      <div><strong>Gravelines Optique</strong><small>Administration</small></div>
     </div>
+    <a class="sidebar-site-link" href="https://glittering-tapioca-3708c0.netlify.app" target="_blank">
+      🌐 Voir le site en ligne ↗
+    </a>
     <nav>
-      <div class="nav-section">Contenu</div>
-      <div class="nav-item active" onclick="showSection('articles')" id="nav-articles">
-        <span class="icon">📰</span> Articles
+      <div class="nav-section">Tableau de bord</div>
+      <div class="nav-item active" onclick="showSection('dashboard')" id="nav-dashboard">
+        <span class="ni">🏡</span> Accueil
       </div>
-      <div class="nav-section">Paramètres</div>
+      <div class="nav-section">Contenu</div>
+      <div class="nav-item" onclick="showSection('articles')" id="nav-articles">
+        <span class="ni">📰</span> Articles
+      </div>
+      <div class="nav-section">Paramètres du site</div>
       <div class="nav-item" onclick="showSection('contact')" id="nav-contact">
-        <span class="icon">📍</span> Contact & Horaires
+        <span class="ni">📍</span> Contact & Horaires
       </div>
       <div class="nav-item" onclick="showSection('accueil')" id="nav-accueil">
-        <span class="icon">🏠</span> Page d'accueil
+        <span class="ni">🏠</span> Page d'accueil
       </div>
       <div class="nav-item" onclick="showSection('equipe')" id="nav-equipe">
-        <span class="icon">👥</span> L'Équipe
+        <span class="ni">👥</span> L'Équipe
       </div>
     </nav>
     <div class="sidebar-footer">
-      <button class="btn-logout" onclick="logout()">← Déconnexion</button>
+      <button class="btn-logout" onclick="logout()">⬅ Déconnexion</button>
     </div>
-  </div>
+  </aside>
 
-  <div class="main" id="main-content">
-    <div class="loading"><div class="spinner"></div><p style="margin-top:16px">Chargement...</p></div>
-  </div>
+  <main class="main" id="main">
+    <div class="loading"><div class="spinner"></div></div>
+  </main>
 </div>
 
 <div class="toast" id="toast"></div>
@@ -226,264 +267,283 @@
 <script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
 <script>
 const API = '/.netlify/functions/cms';
-const REPO = 'totoni2213-jpg/gravelines-optique';
-let password = '';
-let currentSection = 'articles';
-let easyMDE = null;
+let pw = '', mde = null;
 
-// ─── AUTH ─────────────────────────────────────────────────────────────────
+// ─── AUTH ──────────────────────────────────────────────────────────────────
 async function doLogin() {
-  const pw = document.getElementById('password-input').value.trim();
-  if (!pw) return;
-  // Test the password by making a real API call
-  const res = await fetch(`${API}?path=src/content/articles`, {
-    headers: { 'X-CMS-Password': pw }
-  });
-  if (res.ok || res.status === 200) {
-    password = pw;
-    document.getElementById('login-screen').style.display = 'none';
-    document.getElementById('app').style.display = 'block';
-    showSection('articles');
-  } else {
+  const val = document.getElementById('pw').value.trim();
+  if (!val) return;
+  const btn = document.getElementById('login-btn');
+  btn.textContent = 'Connexion…'; btn.disabled = true;
+  document.getElementById('login-error').style.display = 'none';
+  try {
+    const r = await fetch(`${API}?path=src/content/articles`, { headers: { 'X-CMS-Password': val } });
+    if (r.ok) {
+      pw = val;
+      document.getElementById('login-screen').style.display = 'none';
+      document.getElementById('app').style.display = 'block';
+      showSection('dashboard');
+    } else throw new Error();
+  } catch {
     document.getElementById('login-error').style.display = 'block';
+    btn.textContent = 'Accéder au panneau'; btn.disabled = false;
   }
 }
-
-document.getElementById('password-input').addEventListener('keydown', e => {
-  if (e.key === 'Enter') doLogin();
-});
+document.getElementById('pw').addEventListener('keydown', e => e.key === 'Enter' && doLogin());
 
 function logout() {
-  password = '';
+  pw = '';
   document.getElementById('login-screen').style.display = 'flex';
   document.getElementById('app').style.display = 'none';
+  document.getElementById('pw').value = '';
 }
 
-// ─── NAVIGATION ───────────────────────────────────────────────────────────
-function showSection(section) {
-  currentSection = section;
+// ─── NAV ───────────────────────────────────────────────────────────────────
+function showSection(s) {
   document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
-  document.getElementById(`nav-${section}`)?.classList.add('active');
-  if (section === 'articles') loadArticles();
-  else loadJsonEditor(section);
+  document.getElementById(`nav-${s}`)?.classList.add('active');
+  if (s === 'dashboard') loadDashboard();
+  else if (s === 'articles') loadArticles();
+  else loadJsonEditor(s);
 }
 
-// ─── UTILS ────────────────────────────────────────────────────────────────
+// ─── API ───────────────────────────────────────────────────────────────────
 async function apiGet(path) {
-  const res = await fetch(`${API}?path=${encodeURIComponent(path)}`, {
-    headers: { 'X-CMS-Password': password }
-  });
-  if (!res.ok) throw new Error(`Erreur ${res.status}`);
-  return res.json();
+  const r = await fetch(`${API}?path=${encodeURIComponent(path)}`, { headers: { 'X-CMS-Password': pw } });
+  if (!r.ok) throw new Error(`Erreur ${r.status}`);
+  return r.json();
 }
-
-async function apiPut(path, content, sha, message) {
+async function apiPut(path, content, sha, msg) {
   const encoded = btoa(unescape(encodeURIComponent(content)));
-  const body = { content: encoded, sha, message };
-  const res = await fetch(`${API}?path=${encodeURIComponent(path)}`, {
-    method: 'PUT',
-    headers: { 'X-CMS-Password': password, 'Content-Type': 'application/json' },
-    body: JSON.stringify(body)
+  const r = await fetch(`${API}?path=${encodeURIComponent(path)}`, {
+    method: 'PUT', headers: { 'X-CMS-Password': pw, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ content: encoded, sha, message: msg || `Mise à jour: ${path}` })
   });
-  if (!res.ok) {
-    const err = await res.json();
-    throw new Error(err.message || `Erreur ${res.status}`);
-  }
-  return res.json();
+  if (!r.ok) { const e = await r.json(); throw new Error(e.message || `Erreur ${r.status}`); }
+  return r.json();
 }
-
-async function apiDelete(path, sha) {
-  const res = await fetch(`${API}?path=${encodeURIComponent(path)}`, {
-    method: 'DELETE',
-    headers: { 'X-CMS-Password': password, 'Content-Type': 'application/json' },
+async function apiPutBinary(path, base64, sha, msg) {
+  const r = await fetch(`${API}?path=${encodeURIComponent(path)}`, {
+    method: 'PUT', headers: { 'X-CMS-Password': pw, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ content: base64, sha, message: msg || `Upload: ${path}`, binary: true })
+  });
+  if (!r.ok) { const e = await r.json(); throw new Error(e.message || `Erreur ${r.status}`); }
+  return r.json();
+}
+async function apiDel(path, sha) {
+  const r = await fetch(`${API}?path=${encodeURIComponent(path)}`, {
+    method: 'DELETE', headers: { 'X-CMS-Password': pw, 'Content-Type': 'application/json' },
     body: JSON.stringify({ sha })
   });
-  if (!res.ok) throw new Error(`Erreur ${res.status}`);
-  return res.json();
+  if (!r.ok) throw new Error(`Erreur ${r.status}`);
+  return r.json();
 }
+function b64d(s) { try { return decodeURIComponent(escape(atob(s.replace(/\n/g,'')))); } catch { return atob(s.replace(/\n/g,'')); } }
+function slug(s) { return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9\s-]/g,'').replace(/\s+/g,'-').replace(/-+/g,'-').substring(0,50); }
 
-function b64decode(str) {
-  try { return decodeURIComponent(escape(atob(str.replace(/\n/g, '')))); }
-  catch(e) { return atob(str.replace(/\n/g, '')); }
-}
-
-function showToast(msg, type = 'success') {
+function toast(msg, type = 'success') {
   const t = document.getElementById('toast');
-  t.textContent = (type === 'success' ? '✓ ' : '✗ ') + msg;
+  t.innerHTML = (type==='success'?'✓ ':type==='error'?'✗ ':'ℹ ') + msg;
   t.className = `toast ${type} show`;
-  setTimeout(() => t.classList.remove('show'), 3500);
+  setTimeout(() => t.classList.remove('show'), 4000);
 }
 
-function slugify(str) {
-  return str.toLowerCase()
-    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9\s-]/g, '').replace(/\s+/g, '-').replace(/-+/g, '-')
-    .substring(0, 50);
-}
-
-// ─── ARTICLES ─────────────────────────────────────────────────────────────
-async function loadArticles() {
-  const main = document.getElementById('main-content');
-  main.innerHTML = '<div class="loading"><div class="spinner"></div><p style="margin-top:16px">Chargement des articles...</p></div>';
-  try {
-    const files = await apiGet('src/content/articles');
-    const mdFiles = files.filter(f => f.name.endsWith('.md'));
-
-    // Load article details
-    const articles = await Promise.all(mdFiles.map(async f => {
-      try {
-        const data = await apiGet(f.path);
-        const content = b64decode(data.content);
-        const fm = parseFrontmatter(content);
-        return { ...f, sha: data.sha, frontmatter: fm };
-      } catch(e) { return { ...f, frontmatter: {} }; }
-    }));
-
-    articles.sort((a, b) => {
-      const da = a.frontmatter.date || '';
-      const db = b.frontmatter.date || '';
-      return db.localeCompare(da);
-    });
-
-    const published = articles.filter(a => a.frontmatter.publie !== false).length;
-
-    main.innerHTML = `
-      <div class="page-header">
-        <div>
-          <h2>📰 Articles & Actualités</h2>
-          <p>Gérez vos articles et actualités du site</p>
-        </div>
-      </div>
-      <div class="stats-grid">
-        <div class="stat-card"><div class="value">${articles.length}</div><div class="label">Articles au total</div></div>
-        <div class="stat-card"><div class="value">${published}</div><div class="label">Articles publiés</div></div>
-        <div class="stat-card"><div class="value">${articles.length - published}</div><div class="label">Brouillons</div></div>
-      </div>
-      <div class="articles-list">
-        <div class="articles-list-header">
-          <strong style="font-size:15px">Tous les articles</strong>
-          <button class="btn-new" onclick="newArticle()">＋ Nouvel article</button>
-        </div>
-        ${articles.length === 0 ? `
-          <div class="empty-state">
-            <span class="icon">📝</span>
-            <p>Aucun article pour l'instant.<br>Créez votre premier article !</p>
-          </div>
-        ` : articles.map(a => `
-          <div class="article-item">
-            <div style="flex:1;min-width:0">
-              <div class="article-title">${a.frontmatter.titre || a.name}</div>
-              <div class="article-meta">
-                ${a.frontmatter.date ? '📅 ' + a.frontmatter.date.substring(0,10) : ''}
-                ${a.frontmatter.categorie ? ' · 🏷 ' + a.frontmatter.categorie : ''}
-              </div>
-            </div>
-            <span class="badge ${a.frontmatter.publie !== false ? 'badge-green' : 'badge-gray'}">
-              ${a.frontmatter.publie !== false ? 'Publié' : 'Brouillon'}
-            </span>
-            <div class="article-actions" style="margin-left:16px">
-              <button class="btn-edit" onclick="editArticle('${a.path}', '${a.sha}')">Modifier</button>
-              <button class="btn-delete" onclick="deleteArticle('${a.path}', '${a.sha}', '${(a.frontmatter.titre || a.name).replace(/'/g, "\\'")}')">Supprimer</button>
-            </div>
-          </div>
-        `).join('')}
-      </div>
-    `;
-  } catch(e) {
-    main.innerHTML = `<div class="loading" style="color:#e53e3e">Erreur: ${e.message}</div>`;
-  }
-}
-
-function parseFrontmatter(content) {
-  const match = content.match(/^---\n([\s\S]*?)\n---/);
-  if (!match) return {};
+// ─── FRONTMATTER ───────────────────────────────────────────────────────────
+function parseFM(content) {
+  const m = content.match(/^---\n([\s\S]*?)\n---/);
+  if (!m) return {};
   const fm = {};
-  match[1].split('\n').forEach(line => {
-    const [key, ...vals] = line.split(':');
-    if (key && vals.length) {
-      let val = vals.join(':').trim().replace(/^["']|["']$/g, '');
-      if (val === 'true') val = true;
-      else if (val === 'false') val = false;
-      fm[key.trim()] = val;
-    }
+  m[1].split('\n').forEach(line => {
+    const idx = line.indexOf(':');
+    if (idx < 0) return;
+    const k = line.slice(0, idx).trim();
+    let v = line.slice(idx+1).trim().replace(/^["']|["']$/g, '');
+    if (v === 'true') v = true; else if (v === 'false') v = false;
+    fm[k] = v;
   });
   return fm;
 }
-
-function buildFrontmatter(fields) {
+function buildFM(f) {
   const lines = ['---'];
-  for (const [k, v] of Object.entries(fields)) {
+  for (const [k,v] of Object.entries(f)) {
     if (typeof v === 'boolean') lines.push(`${k}: ${v}`);
-    else if (v !== undefined && v !== null && v !== '') lines.push(`${k}: "${String(v).replace(/"/g, '\\"')}"`);
+    else if (v != null && v !== '') lines.push(`${k}: "${String(v).replace(/"/g,'\\"')}"`);
   }
-  lines.push('---');
-  return lines.join('\n');
+  lines.push('---'); return lines.join('\n');
 }
 
-async function editArticle(path, sha) {
-  const main = document.getElementById('main-content');
-  main.innerHTML = '<div class="loading"><div class="spinner"></div></div>';
+// ─── DASHBOARD ─────────────────────────────────────────────────────────────
+async function loadDashboard() {
+  const main = document.getElementById('main');
+  main.innerHTML = '<div class="loading"><div class="spinner"></div><p style="margin-top:12px">Chargement…</p></div>';
   try {
-    const data = await apiGet(path);
-    const content = b64decode(data.content);
-    const fm = parseFrontmatter(content);
-    const bodyMatch = content.match(/^---\n[\s\S]*?\n---\n?([\s\S]*)$/);
-    const body = bodyMatch ? bodyMatch[1].trim() : '';
-    renderArticleEditor(path, data.sha, fm, body, false);
+    const files = await apiGet('src/content/articles');
+    const mds = files.filter(f => f.name.endsWith('.md'));
+    const articles = await Promise.all(mds.map(async f => {
+      try { const d = await apiGet(f.path); return parseFM(b64d(d.content)); } catch { return {}; }
+    }));
+    const pub = articles.filter(a => a.publie !== false).length;
+
+    main.innerHTML = `
+      <div class="page-header">
+        <div><h2>🏡 Tableau de bord</h2><p>Bonjour ! Gérez votre site depuis ce panneau.</p></div>
+      </div>
+      <div class="deploy-banner">
+        <span class="db-icon">🌐</span>
+        <div>Votre site est en ligne sur <a href="https://glittering-tapioca-3708c0.netlify.app" target="_blank">glittering-tapioca-3708c0.netlify.app</a>
+        · Les modifications sont publiées automatiquement en 1–2 min après sauvegarde.</div>
+      </div>
+      <div class="dash-grid">
+        <div class="dash-card"><div class="dc-icon">📰</div><div class="dc-val">${mds.length}</div><div class="dc-label">Articles au total</div></div>
+        <div class="dash-card"><div class="dc-icon">✅</div><div class="dc-val">${pub}</div><div class="dc-label">Articles publiés</div></div>
+        <div class="dash-card"><div class="dc-icon">📝</div><div class="dc-val">${mds.length - pub}</div><div class="dc-label">Brouillons</div></div>
+      </div>
+      <h3 style="font-size:14px;font-weight:700;color:#4a5568;margin-bottom:14px;text-transform:uppercase;letter-spacing:.5px">Accès rapide</h3>
+      <div class="dash-actions">
+        <div class="dash-action" onclick="newArticle()">
+          <div class="da-icon da-gold">✍️</div>
+          <div><strong>Nouvel article</strong><span>Rédiger et publier un article</span></div>
+        </div>
+        <div class="dash-action" onclick="showSection('articles')">
+          <div class="da-icon da-blue">📰</div>
+          <div><strong>Mes articles</strong><span>Modifier ou supprimer un article</span></div>
+        </div>
+        <div class="dash-action" onclick="showSection('contact')">
+          <div class="da-icon da-green">📍</div>
+          <div><strong>Contact & Horaires</strong><span>Modifier les horaires ou l'adresse</span></div>
+        </div>
+        <div class="dash-action" onclick="showSection('equipe')">
+          <div class="da-icon da-purple">👥</div>
+          <div><strong>L'Équipe</strong><span>Mettre à jour les membres</span></div>
+        </div>
+      </div>
+    `;
   } catch(e) {
-    showToast('Erreur chargement: ' + e.message, 'error');
-    loadArticles();
+    main.innerHTML = `<div class="loading" style="color:var(--red)">Erreur: ${e.message}</div>`;
   }
+}
+
+// ─── ARTICLES LIST ─────────────────────────────────────────────────────────
+async function loadArticles() {
+  const main = document.getElementById('main');
+  main.innerHTML = '<div class="loading"><div class="spinner"></div><p style="margin-top:12px">Chargement des articles…</p></div>';
+  try {
+    const files = await apiGet('src/content/articles');
+    const mds = files.filter(f => f.name.endsWith('.md'));
+    const articles = await Promise.all(mds.map(async f => {
+      try { const d = await apiGet(f.path); const fm = parseFM(b64d(d.content)); return { ...f, sha: d.sha, fm }; }
+      catch { return { ...f, fm: {} }; }
+    }));
+    articles.sort((a,b) => (b.fm.date||'').localeCompare(a.fm.date||''));
+    const pub = articles.filter(a => a.fm.publie !== false).length;
+    const catClass = c => c ? `badge-cat cat-${c.split(' ')[0]}` : '';
+
+    main.innerHTML = `
+      <div class="page-header">
+        <div><h2>📰 Articles & Actualités</h2><p>Créez et gérez vos articles</p></div>
+        <button class="btn-new" onclick="newArticle()">＋ Nouvel article</button>
+      </div>
+      <div class="stats-row">
+        <div class="stat-card"><div class="sv">${articles.length}</div><div class="sl">Total</div></div>
+        <div class="stat-card"><div class="sv">${pub}</div><div class="sl">Publiés</div></div>
+        <div class="stat-card"><div class="sv">${articles.length-pub}</div><div class="sl">Brouillons</div></div>
+      </div>
+      <div class="articles-panel">
+        <div class="panel-header"><span class="panel-title">Tous les articles</span></div>
+        ${articles.length === 0 ? `<div class="empty-state"><span class="empty-icon">📝</span><p>Aucun article.<br>Créez votre premier article !</p></div>`
+        : articles.map(a => `
+          <div class="article-row">
+            <div class="article-thumb">
+              ${a.fm.image ? `<img src="${a.fm.image}" alt="" onerror="this.parentNode.innerHTML='📄'">` : '📄'}
+            </div>
+            <div class="art-info">
+              <div class="art-title">${esc(a.fm.titre || a.name)}</div>
+              <div class="art-meta">
+                ${a.fm.date ? '📅 ' + a.fm.date.toString().substring(0,10) : ''}
+                ${a.fm.categorie ? `&nbsp;<span class="badge ${catClass(a.fm.categorie)}">${a.fm.categorie}</span>` : ''}
+              </div>
+            </div>
+            <span class="badge ${a.fm.publie !== false ? 'badge-green' : 'badge-gray'}">${a.fm.publie !== false ? '● Publié' : '○ Brouillon'}</span>
+            <div class="art-btns">
+              <button class="btn-sm btn-edit-sm" onclick="editArticle('${a.path}','${a.sha}')">Modifier</button>
+              <button class="btn-sm btn-del-sm" onclick="delArticle('${a.path}','${a.sha}','${(a.fm.titre||a.name).replace(/'/g,"\\'")}')">✕</button>
+            </div>
+          </div>`).join('')}
+      </div>`;
+  } catch(e) {
+    main.innerHTML = `<div class="loading" style="color:var(--red)">Erreur: ${e.message}</div>`;
+  }
+}
+
+function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+// ─── ARTICLE EDITOR ────────────────────────────────────────────────────────
+async function editArticle(path, sha) {
+  document.getElementById('main').innerHTML = '<div class="loading"><div class="spinner"></div></div>';
+  try {
+    const d = await apiGet(path);
+    const content = b64d(d.content);
+    const fm = parseFM(content);
+    const bm = content.match(/^---\n[\s\S]*?\n---\n?([\s\S]*)$/);
+    renderEditor(path, d.sha, fm, bm ? bm[1].trim() : '', false);
+  } catch(e) { toast('Erreur: '+e.message,'error'); loadArticles(); }
 }
 
 function newArticle() {
-  const today = new Date().toISOString().split('T')[0];
-  renderArticleEditor(null, null, {
-    titre: '', description: '', date: today, categorie: '', publie: true
-  }, '', true);
+  renderEditor(null, null, { titre:'', description:'', date: new Date().toISOString().split('T')[0], categorie:'', publie:true }, '', true);
 }
 
-function renderArticleEditor(path, sha, fm, body, isNew) {
-  const main = document.getElementById('main-content');
-  const cats = ['Actualités', 'Conseils optique', 'Nouveautés', 'Promotions', 'Événements'];
-  main.innerHTML = `
-    <div class="editor-panel">
-      <div class="editor-header">
+function renderEditor(path, sha, fm, body, isNew) {
+  const cats = ['Actualités','Conseils optique','Nouveautés','Promotions','Événements'];
+  document.getElementById('main').innerHTML = `
+    <div class="editor-wrap">
+      <div class="editor-top">
         <button class="btn-back" onclick="loadArticles()">← Retour</button>
-        <h2 style="font-size:18px">${isNew ? '✨ Nouvel article' : '✏️ Modifier l\'article'}</h2>
+        <span class="editor-title">${isNew ? '✨ Nouvel article' : '✏️ Modifier l\'article'}</span>
       </div>
       <div class="editor-body">
-        <div class="form-row">
-          <div class="form-group full">
-            <label>Titre de l'article *</label>
-            <input type="text" id="f-titre" value="${(fm.titre || '').replace(/"/g, '&quot;')}" placeholder="Ex: Nouvelle collection printemps 2025" />
+        <div class="form-2col">
+          <div class="form-group col-full">
+            <label>Titre *</label>
+            <input id="f-titre" type="text" value="${esc(fm.titre||'')}" placeholder="Ex: Nouvelle collection printemps 2026" />
           </div>
-          <div class="form-group full">
+          <div class="form-group col-full">
             <label>Description courte (pour les aperçus)</label>
-            <input type="text" id="f-description" value="${(fm.description || '').replace(/"/g, '&quot;')}" placeholder="Une courte description de l'article..." />
+            <input id="f-desc" type="text" value="${esc(fm.description||'')}" placeholder="Un résumé court de l'article…" />
           </div>
           <div class="form-group">
             <label>Date de publication</label>
-            <input type="date" id="f-date" value="${fm.date ? fm.date.toString().substring(0,10) : ''}" />
+            <input id="f-date" type="date" value="${fm.date?fm.date.toString().substring(0,10):''}" />
           </div>
           <div class="form-group">
             <label>Catégorie</label>
-            <select id="f-categorie">
+            <select id="f-cat">
               <option value="">— Choisir —</option>
-              ${cats.map(c => `<option value="${c}" ${fm.categorie === c ? 'selected' : ''}>${c}</option>`).join('')}
+              ${cats.map(c=>`<option ${fm.categorie===c?'selected':''}>${c}</option>`).join('')}
             </select>
           </div>
-          <div class="form-group">
-            <label>Statut</label>
-            <div class="toggle-group" style="margin-top:8px">
-              <label class="toggle">
-                <input type="checkbox" id="f-publie" ${fm.publie !== false ? 'checked' : ''} />
-                <span class="toggle-slider"></span>
-              </label>
-              <span style="font-size:14px;color:#555">Publié (visible sur le site)</span>
+          <div class="form-group col-full">
+            <label>Statut de publication</label>
+            <div class="toggle-row">
+              <label class="toggle"><input type="checkbox" id="f-pub" ${fm.publie!==false?'checked':''}><span class="tslider"></span></label>
+              <span style="font-size:13px;color:#4a5568">Publié — visible sur le site</span>
             </div>
           </div>
-          <div class="form-group full">
+          <div class="form-group col-full">
+            <label>Image principale</label>
+            <div class="img-upload-zone" id="upload-zone" onclick="document.getElementById('f-img-file').click()">
+              <input type="file" id="f-img-file" accept="image/*" onchange="handleImgUpload(this)">
+              <div id="upload-placeholder">
+                <div style="font-size:28px;margin-bottom:6px">📷</div>
+                <div style="font-size:13px;color:#718096">Cliquer pour choisir une image<br><small>JPG, PNG, WEBP — max 5 Mo</small></div>
+              </div>
+              ${fm.image ? `<img class="img-preview" src="${fm.image}" style="display:block" id="img-preview-el">` : '<img class="img-preview" id="img-preview-el">'}
+              <div class="img-current" id="img-current-path">${fm.image||''}</div>
+              <div class="upload-progress" id="upload-prog"><div class="upload-bar" id="upload-bar"></div></div>
+            </div>
+            <input type="hidden" id="f-img" value="${esc(fm.image||'')}">
+          </div>
+          <div class="form-group col-full">
             <label>Contenu de l'article</label>
             <textarea id="f-body">${body}</textarea>
           </div>
@@ -491,236 +551,344 @@ function renderArticleEditor(path, sha, fm, body, isNew) {
       </div>
       <div class="editor-footer">
         <button class="btn-cancel" onclick="loadArticles()">Annuler</button>
-        <button class="btn-save" onclick="saveArticle('${path || ''}', '${sha || ''}', ${isNew})">💾 Enregistrer</button>
+        <button class="btn-save" id="save-btn" onclick="saveArticle('${path||''}','${sha||''}',${isNew})">💾 Enregistrer</button>
       </div>
-    </div>
-  `;
+    </div>`;
 
-  // Init EasyMDE
-  if (easyMDE) { try { easyMDE.toTextArea(); } catch(e){} easyMDE = null; }
-  easyMDE = new EasyMDE({
+  if (mde) { try { mde.toTextArea(); } catch {} mde = null; }
+  mde = new EasyMDE({
     element: document.getElementById('f-body'),
-    spellChecker: false,
-    autofocus: false,
-    placeholder: 'Écrivez le contenu de votre article ici...',
-    toolbar: ['bold','italic','heading','|','quote','unordered-list','ordered-list','|','link','image','|','preview','side-by-side','fullscreen'],
+    spellChecker: false, autofocus: false,
+    placeholder: 'Rédigez votre article ici…\n\nUtilisez la barre d\'outils pour mettre en forme le texte.',
+    toolbar: ['bold','italic','heading','|','quote','unordered-list','ordered-list','|','link','|','preview','side-by-side','fullscreen','|','guide'],
     status: false,
+  });
+}
+
+async function handleImgUpload(input) {
+  const file = input.files[0];
+  if (!file) return;
+  if (file.size > 5*1024*1024) { toast('Image trop lourde (max 5 Mo)','error'); return; }
+
+  const prog = document.getElementById('upload-prog');
+  const bar = document.getElementById('upload-bar');
+  const placeholder = document.getElementById('upload-placeholder');
+  prog.style.display = 'block'; bar.style.width = '30%';
+  placeholder.style.display = 'none';
+
+  try {
+    const b64 = await fileToB64(file);
+    const raw = b64.split(',')[1];
+    const ext = file.name.split('.').pop().toLowerCase();
+    const fname = `${Date.now()}-${slug(file.name.replace(/\.[^.]+$/,''))}.${ext}`;
+    const ghPath = `public/images/uploads/${fname}`;
+
+    bar.style.width = '60%';
+    await apiPutBinary(ghPath, raw, undefined, `Upload image: ${fname}`);
+    bar.style.width = '100%';
+
+    const imgPath = `/images/uploads/${fname}`;
+    document.getElementById('f-img').value = imgPath;
+    document.getElementById('img-current-path').textContent = imgPath;
+    const prev = document.getElementById('img-preview-el');
+    const reader = new FileReader();
+    reader.onload = e => { prev.src = e.target.result; prev.style.display = 'block'; };
+    reader.readAsDataURL(file);
+
+    setTimeout(() => { prog.style.display = 'none'; bar.style.width = '0'; }, 800);
+    toast('Image uploadée avec succès !');
+  } catch(e) {
+    prog.style.display = 'none'; bar.style.width = '0';
+    placeholder.style.display = 'block';
+    toast('Erreur upload: '+e.message,'error');
+  }
+}
+
+function fileToB64(file) {
+  return new Promise((res, rej) => {
+    const r = new FileReader();
+    r.onload = () => res(r.result);
+    r.onerror = rej;
+    r.readAsDataURL(file);
   });
 }
 
 async function saveArticle(path, sha, isNew) {
   const titre = document.getElementById('f-titre').value.trim();
-  if (!titre) { showToast('Le titre est obligatoire', 'error'); return; }
-
-  const fm = {
-    titre,
-    description: document.getElementById('f-description').value.trim(),
-    date: document.getElementById('f-date').value || new Date().toISOString().split('T')[0],
-    categorie: document.getElementById('f-categorie').value,
-    publie: document.getElementById('f-publie').checked,
-  };
-
-  const body = easyMDE ? easyMDE.value() : document.getElementById('f-body').value;
-  const content = buildFrontmatter(fm) + '\n\n' + body;
-
-  let filePath = path;
-  let fileSha = sha || undefined;
-  if (isNew) {
-    filePath = `src/content/articles/${slugify(titre)}.md`;
-    fileSha = undefined;
-  }
-
+  if (!titre) { toast('Le titre est obligatoire','error'); return; }
+  const btn = document.getElementById('save-btn');
+  btn.disabled = true; btn.innerHTML = '<span class="spinner-sm"></span> Enregistrement…';
   try {
-    await apiPut(filePath, content, fileSha, `Article: ${titre}`);
-    showToast('Article enregistré ! Le site se met à jour automatiquement.');
-    setTimeout(() => loadArticles(), 1000);
+    const fm = {
+      titre,
+      description: document.getElementById('f-desc').value.trim(),
+      date: document.getElementById('f-date').value || new Date().toISOString().split('T')[0],
+      categorie: document.getElementById('f-cat').value,
+      publie: document.getElementById('f-pub').checked,
+    };
+    const imgVal = document.getElementById('f-img').value;
+    if (imgVal) fm.image = imgVal;
+    const body = mde ? mde.value() : '';
+    const content = buildFM(fm) + '\n\n' + body;
+    const fpath = isNew ? `src/content/articles/${slug(titre)}.md` : path;
+    await apiPut(fpath, content, isNew ? undefined : sha, `Article: ${titre}`);
+    toast('Article enregistré ! Site mis à jour dans 1–2 min.', 'success');
+    setTimeout(() => loadArticles(), 900);
   } catch(e) {
-    showToast('Erreur: ' + e.message, 'error');
+    toast('Erreur: '+e.message,'error');
+    btn.disabled = false; btn.innerHTML = '💾 Enregistrer';
   }
 }
 
-async function deleteArticle(path, sha, titre) {
-  if (!confirm(`Supprimer l'article "${titre}" ?\n\nCette action est définitive.`)) return;
-  try {
-    await apiDelete(path, sha);
-    showToast('Article supprimé.');
-    loadArticles();
-  } catch(e) {
-    showToast('Erreur: ' + e.message, 'error');
-  }
+async function delArticle(path, sha, titre) {
+  if (!confirm(`Supprimer l'article "${titre}" ?\n\nCette action est irréversible.`)) return;
+  try { await apiDel(path, sha); toast('Article supprimé.'); loadArticles(); }
+  catch(e) { toast('Erreur: '+e.message,'error'); }
 }
 
 // ─── JSON EDITORS ──────────────────────────────────────────────────────────
-const JSON_FILES = {
-  contact: 'src/data/contact.json',
-  accueil: 'src/data/home.json',
-  equipe: 'src/data/equipe.json',
-};
-
-const JSON_LABELS = {
-  contact: { label: '📍 Contact & Horaires', desc: 'Informations de contact et horaires d\'ouverture' },
-  accueil: { label: '🏠 Page d\'accueil', desc: 'Textes de la page d\'accueil' },
-  equipe: { label: '👥 L\'Équipe', desc: 'Membres de l\'équipe' },
-};
+const JSON_FILES = { contact:'src/data/contact.json', accueil:'src/data/home.json', equipe:'src/data/equipe.json' };
 
 async function loadJsonEditor(section) {
-  const main = document.getElementById('main-content');
-  const info = JSON_LABELS[section];
+  const main = document.getElementById('main');
   main.innerHTML = '<div class="loading"><div class="spinner"></div></div>';
   try {
-    const data = await apiGet(JSON_FILES[section]);
-    const content = b64decode(data.content);
-    const json = JSON.parse(content);
-    renderJsonEditor(section, data.sha, json, info);
+    const d = await apiGet(JSON_FILES[section]);
+    const json = JSON.parse(b64d(d.content));
+    if (section === 'contact') renderContact(d.sha, json);
+    else if (section === 'accueil') renderAccueil(d.sha, json);
+    else renderEquipe(d.sha, json);
   } catch(e) {
-    main.innerHTML = `<div class="loading" style="color:#e53e3e">Erreur: ${e.message}</div>`;
+    main.innerHTML = `<div class="loading" style="color:var(--red)">Erreur: ${e.message}</div>`;
   }
 }
 
-function renderJsonEditor(section, sha, json, info) {
-  const main = document.getElementById('main-content');
-  let formHtml = '';
-
-  if (section === 'contact') {
-    formHtml = renderContactForm(json);
-  } else if (section === 'accueil') {
-    formHtml = renderAccueilForm(json);
-  } else if (section === 'equipe') {
-    formHtml = renderEquipeForm(json);
-  }
-
-  main.innerHTML = `
-    <div class="page-header">
-      <div>
-        <h2>${info.label}</h2>
-        <p>${info.desc}</p>
+// ── CONTACT ──
+function renderContact(sha, j) {
+  document.getElementById('main').innerHTML = `
+    <div class="page-header"><div><h2>📍 Contact & Horaires</h2><p>Coordonnées et horaires d'ouverture</p></div></div>
+    <div class="editor-wrap">
+      <div class="editor-body">
+        <div class="section-card">
+          <h3>📋 Informations générales</h3>
+          <div class="form-2col">
+            <div class="form-group"><label>Nom du magasin</label><input id="c-nom" value="${esc(j.nom||'')}"/></div>
+            <div class="form-group"><label>Slogan</label><input id="c-tagline" value="${esc(j.tagline||'')}"/></div>
+            <div class="form-group"><label>Adresse (rue)</label><input id="c-adresse" value="${esc(j.adresse||'')}"/></div>
+            <div class="form-group"><label>Ville & code postal</label><input id="c-ville" value="${esc(j.ville||'')}"/></div>
+            <div class="form-group"><label>Téléphone</label><input id="c-tel" value="${esc(j.telephone||'')}" type="tel"/></div>
+            <div class="form-group"><label>Email</label><input id="c-email" value="${esc(j.email||'')}" type="email"/></div>
+          </div>
+        </div>
+        <div class="section-card">
+          <h3>🕐 Horaires d'ouverture</h3>
+          <div id="horaires-list">
+            ${(j.horaires||[]).map((h,i) => horaireRow(h,i)).join('')}
+          </div>
+        </div>
+        <div class="section-card">
+          <h3>✅ Badges d'avantages</h3>
+          <div class="list-editor" id="avantages-list">
+            ${(j.avantages||[]).map(v => avantageItem(v)).join('')}
+          </div>
+          <button class="btn-add" onclick="addAvantage()">＋ Ajouter un avantage</button>
+        </div>
       </div>
-    </div>
-    <div class="editor-panel">
-      <div class="editor-body" id="json-form">${formHtml}</div>
       <div class="editor-footer">
-        <button class="btn-save" onclick="saveJson('${section}', '${sha}')">💾 Enregistrer les modifications</button>
+        <button class="btn-save" id="save-btn" onclick="saveContact('${sha}')">💾 Enregistrer les modifications</button>
       </div>
-    </div>
-  `;
+    </div>`;
 }
 
-function renderContactForm(j) {
-  const horaires = (j.horaires || []).map((h, i) => `
-    <div style="display:grid;grid-template-columns:1fr 1fr auto;gap:12px;align-items:center;margin-bottom:10px">
-      <input type="text" value="${h.jour || ''}" placeholder="Jour" data-horaire="${i}" data-field="jour" class="h-jour" style="padding:8px 12px;border:2px solid var(--border);border-radius:6px;font-size:13px" />
-      <input type="text" value="${h.heures || ''}" placeholder="9h00 – 19h00" data-horaire="${i}" data-field="heures" class="h-heures" style="padding:8px 12px;border:2px solid var(--border);border-radius:6px;font-size:13px" />
-      <label style="font-size:13px;white-space:nowrap"><input type="checkbox" ${h.ferme ? 'checked' : ''} data-horaire="${i}" data-field="ferme" class="h-ferme" /> Fermé</label>
+function horaireRow(h, i) {
+  return `<div class="horaire-row" data-i="${i}">
+    <input class="h-jour" value="${esc(h.jour||'')}" placeholder="Lundi">
+    <input class="h-heures" value="${esc(h.heures||'')}" placeholder="9h00 – 19h00 ou Fermé" ${h.ferme?'style="opacity:.5"':''}>
+    <div class="horaire-toggle">
+      <label class="toggle"><input type="checkbox" class="h-ferme" ${h.ferme?'checked':''}
+        onchange="this.closest('.horaire-row').querySelector('.h-heures').style.opacity=this.checked?'.5':'1'">
+        <span class="tslider"></span></label> Fermé
     </div>
-  `).join('');
-
-  return `
-    <div class="json-section">
-      <h3>Informations générales</h3>
-      <div class="form-row">
-        <div class="form-group"><label>Nom du magasin</label><input id="c-nom" type="text" value="${j.nom || ''}" /></div>
-        <div class="form-group"><label>Slogan</label><input id="c-tagline" type="text" value="${j.tagline || ''}" /></div>
-        <div class="form-group"><label>Téléphone</label><input id="c-telephone" type="text" value="${j.telephone || ''}" /></div>
-        <div class="form-group"><label>Email</label><input id="c-email" type="text" value="${j.email || ''}" /></div>
-        <div class="form-group"><label>Adresse (rue)</label><input id="c-adresse" type="text" value="${j.adresse || ''}" /></div>
-        <div class="form-group"><label>Ville & code postal</label><input id="c-ville" type="text" value="${j.ville || ''}" /></div>
-      </div>
-    </div>
-    <div class="json-section">
-      <h3>Horaires d'ouverture</h3>
-      <div id="horaires-container">${horaires}</div>
-    </div>
-  `;
+  </div>`;
 }
 
-function renderAccueilForm(j) {
-  return `
-    <div class="json-section">
-      <h3>Section Hero (bannière principale)</h3>
-      <div class="form-group"><label>Titre principal</label><input id="h-hero_titre" type="text" value="${(j.hero_titre||'').replace(/"/g,'&quot;')}" /></div>
-      <div class="form-group"><label>Sous-titre</label><textarea id="h-hero_sous_titre" rows="3" style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:8px;font-size:14px">${j.hero_sous_titre||''}</textarea></div>
-      <div class="form-group"><label>Badge (ex: Opticien depuis 2008)</label><input id="h-hero_badge" type="text" value="${(j.hero_badge||'').replace(/"/g,'&quot;')}" /></div>
-    </div>
-    <div class="json-section">
-      <h3>Section Histoire</h3>
-      <div class="form-group"><label>Titre</label><input id="h-histoire_titre" type="text" value="${(j.histoire_titre||'').replace(/"/g,'&quot;')}" /></div>
-      <div class="form-group"><label>Texte</label><textarea id="h-histoire_texte" rows="5" style="width:100%;padding:10px 14px;border:2px solid var(--border);border-radius:8px;font-size:14px">${j.histoire_texte||''}</textarea></div>
-    </div>
-  `;
+function avantageItem(v) {
+  return `<div class="list-item">
+    <input type="text" value="${esc(v)}" placeholder="Ex: Parking gratuit">
+    <button class="btn-rm" onclick="this.parentNode.remove()" title="Supprimer">✕</button>
+  </div>`;
 }
 
-function renderEquipeForm(j) {
-  const membres = (j.membres || []).map((m, i) => `
-    <div style="border:1px solid var(--border);border-radius:8px;padding:16px;margin-bottom:12px">
-      <div style="font-weight:600;color:#555;margin-bottom:12px">Membre ${i+1}</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
-        <div><label style="font-size:12px;color:#888;display:block;margin-bottom:4px">Prénom</label><input class="e-nom" data-index="${i}" type="text" value="${(m.nom||'').replace(/"/g,'&quot;')}" style="width:100%;padding:8px 12px;border:2px solid var(--border);border-radius:6px;font-size:13px" /></div>
-        <div><label style="font-size:12px;color:#888;display:block;margin-bottom:4px">Rôle</label><input class="e-role" data-index="${i}" type="text" value="${(m.role||'').replace(/"/g,'&quot;')}" style="width:100%;padding:8px 12px;border:2px solid var(--border);border-radius:6px;font-size:13px" /></div>
-        <div style="grid-column:1/-1"><label style="font-size:12px;color:#888;display:block;margin-bottom:4px">Description</label><input class="e-expertise" data-index="${i}" type="text" value="${(m.expertise||'').replace(/"/g,'&quot;')}" style="width:100%;padding:8px 12px;border:2px solid var(--border);border-radius:6px;font-size:13px" /></div>
-      </div>
-    </div>
-  `).join('');
-  return `<div class="json-section"><h3>Membres de l'équipe</h3>${membres}</div>`;
+function addAvantage() {
+  const list = document.getElementById('avantages-list');
+  list.insertAdjacentHTML('beforeend', avantageItem(''));
+  list.lastElementChild.querySelector('input').focus();
 }
 
-async function saveJson(section, sha) {
-  let json;
+async function saveContact(sha) {
+  const btn = document.getElementById('save-btn');
+  btn.disabled = true; btn.innerHTML = '<span class="spinner-sm"></span> Enregistrement…';
   try {
-    if (section === 'contact') json = readContactForm();
-    else if (section === 'accueil') json = readAccueilForm();
-    else if (section === 'equipe') json = readEquipeForm();
-    const content = JSON.stringify(json, null, 2);
-    await apiPut(JSON_FILES[section], content, sha, `Mise à jour ${section} via CMS`);
-    showToast('Modifications enregistrées ! Le site se met à jour automatiquement.');
-    loadJsonEditor(section);
-  } catch(e) {
-    showToast('Erreur: ' + e.message, 'error');
-  }
-}
-
-function readContactForm() {
-  const horaires = [];
-  document.querySelectorAll('#horaires-container > div').forEach((row, i) => {
-    horaires.push({
-      jour: row.querySelector('.h-jour')?.value || '',
-      heures: row.querySelector('.h-heures')?.value || '',
-      ferme: row.querySelector('.h-ferme')?.checked || false,
+    const horaires = [];
+    document.querySelectorAll('#horaires-list .horaire-row').forEach(row => {
+      horaires.push({ jour: row.querySelector('.h-jour').value, heures: row.querySelector('.h-heures').value, ferme: row.querySelector('.h-ferme').checked });
     });
-  });
-  // Keep existing avantages
-  return {
-    nom: document.getElementById('c-nom').value,
-    tagline: document.getElementById('c-tagline').value,
-    adresse: document.getElementById('c-adresse').value,
-    ville: document.getElementById('c-ville').value,
-    telephone: document.getElementById('c-telephone').value,
-    email: document.getElementById('c-email').value,
-    horaires,
-  };
+    const avantages = [...document.querySelectorAll('#avantages-list input')].map(i=>i.value).filter(Boolean);
+    const json = {
+      nom: v('c-nom'), tagline: v('c-tagline'), adresse: v('c-adresse'),
+      ville: v('c-ville'), telephone: v('c-tel'), email: v('c-email'),
+      horaires, avantages
+    };
+    await apiPut(JSON_FILES.contact, JSON.stringify(json,null,2), sha, 'Mise à jour Contact');
+    toast('Contact enregistré ! Site mis à jour dans 1–2 min.');
+    loadJsonEditor('contact');
+  } catch(e) { toast('Erreur: '+e.message,'error'); btn.disabled=false; btn.innerHTML='💾 Enregistrer les modifications'; }
 }
 
-function readAccueilForm() {
-  return {
-    hero_titre: document.getElementById('h-hero_titre').value,
-    hero_sous_titre: document.getElementById('h-hero_sous_titre').value,
-    hero_badge: document.getElementById('h-hero_badge').value,
-    histoire_titre: document.getElementById('h-histoire_titre').value,
-    histoire_texte: document.getElementById('h-histoire_texte').value,
-  };
+// ── ACCUEIL ──
+function renderAccueil(sha, j) {
+  document.getElementById('main').innerHTML = `
+    <div class="page-header"><div><h2>🏠 Page d'accueil</h2><p>Textes et contenus de la page principale</p></div></div>
+    <div class="editor-wrap">
+      <div class="editor-body">
+        <div class="section-card">
+          <h3>🎯 Bannière principale (Hero)</h3>
+          <div class="form-group"><label>Titre principal</label><input id="h-titre" value="${esc(j.hero_titre||'')}"/></div>
+          <div class="form-group"><label>Sous-titre</label><textarea id="h-sous" rows="3">${j.hero_sous_titre||''}</textarea></div>
+          <div class="form-group"><label>Badge (ex: Opticien depuis 2008)</label><input id="h-badge" value="${esc(j.hero_badge||'')}"/></div>
+        </div>
+        <div class="section-card">
+          <h3>📊 Statistiques clés</h3>
+          <div id="stats-list">
+            ${(j.stats||[]).map(s=>statItem(s)).join('')}
+          </div>
+          <button class="btn-add" onclick="addStat()">＋ Ajouter une statistique</button>
+        </div>
+        <div class="section-card">
+          <h3>📖 Section Histoire</h3>
+          <div class="form-group"><label>Titre</label><input id="h-hist-titre" value="${esc(j.histoire_titre||'')}"/></div>
+          <div class="form-group"><label>Texte</label><textarea id="h-hist-texte" rows="5">${j.histoire_texte||''}</textarea></div>
+        </div>
+        <div class="section-card">
+          <h3>📅 Frise chronologique</h3>
+          <div id="timeline-list">
+            ${(j.timeline||[]).map(t=>timelineItem(t)).join('')}
+          </div>
+          <button class="btn-add" onclick="addTimeline()">＋ Ajouter une étape</button>
+        </div>
+      </div>
+      <div class="editor-footer">
+        <button class="btn-save" id="save-btn" onclick="saveAccueil('${sha}')">💾 Enregistrer les modifications</button>
+      </div>
+    </div>`;
 }
 
-function readEquipeForm() {
-  const membres = [];
-  const count = document.querySelectorAll('.e-nom').length;
-  for (let i = 0; i < count; i++) {
-    membres.push({
-      nom: document.querySelector(`.e-nom[data-index="${i}"]`)?.value || '',
-      role: document.querySelector(`.e-role[data-index="${i}"]`)?.value || '',
-      expertise: document.querySelector(`.e-expertise[data-index="${i}"]`)?.value || '',
-    });
-  }
-  return { membres };
+function statItem(s) {
+  return `<div class="list-item" style="margin-bottom:8px">
+    <input type="text" value="${esc(s.valeur||'')}" placeholder="1000+" style="flex:.4;min-width:80px">
+    <input type="text" value="${esc(s.label||'')}" placeholder="Description (ex: Montures)">
+    <button class="btn-rm" onclick="this.parentNode.remove()">✕</button>
+  </div>`;
 }
+
+function addStat() {
+  const l = document.getElementById('stats-list');
+  l.insertAdjacentHTML('beforeend', statItem({valeur:'',label:''}));
+}
+
+function timelineItem(t) {
+  return `<div class="obj-item">
+    <div class="obj-item-header"><span class="obj-label">Étape</span><button class="btn-rm" onclick="this.closest('.obj-item').remove()">✕ Supprimer</button></div>
+    <div class="form-3col">
+      <div class="form-group"><label>Année</label><input class="tl-annee" type="text" value="${esc(t.annee||'')}" placeholder="2008"/></div>
+      <div class="form-group"><label>Titre</label><input class="tl-titre" type="text" value="${esc(t.titre||'')}" placeholder="Ouverture de la boutique"/></div>
+      <div class="form-group col-full"><label>Description</label><textarea class="tl-desc" rows="2">${t.description||''}</textarea></div>
+    </div>
+  </div>`;
+}
+
+function addTimeline() {
+  document.getElementById('timeline-list').insertAdjacentHTML('beforeend', timelineItem({annee:'',titre:'',description:''}));
+}
+
+async function saveAccueil(sha) {
+  const btn = document.getElementById('save-btn');
+  btn.disabled=true; btn.innerHTML='<span class="spinner-sm"></span> Enregistrement…';
+  try {
+    const stats = [...document.querySelectorAll('#stats-list .list-item')].map(row => ({
+      valeur: row.querySelectorAll('input')[0].value,
+      label: row.querySelectorAll('input')[1].value
+    })).filter(s=>s.valeur||s.label);
+    const timeline = [...document.querySelectorAll('#timeline-list .obj-item')].map(row => ({
+      annee: row.querySelector('.tl-annee').value,
+      titre: row.querySelector('.tl-titre').value,
+      description: row.querySelector('.tl-desc').value
+    })).filter(t=>t.annee||t.titre);
+    const json = {
+      hero_titre: v('h-titre'), hero_sous_titre: v('h-sous'), hero_badge: v('h-badge'),
+      stats, histoire_titre: v('h-hist-titre'), histoire_texte: v('h-hist-texte'), timeline
+    };
+    await apiPut(JSON_FILES.accueil, JSON.stringify(json,null,2), sha, 'Mise à jour Page Accueil');
+    toast('Page d\'accueil enregistrée ! Site mis à jour dans 1–2 min.');
+    loadJsonEditor('accueil');
+  } catch(e) { toast('Erreur: '+e.message,'error'); btn.disabled=false; btn.innerHTML='💾 Enregistrer les modifications'; }
+}
+
+// ── ÉQUIPE ──
+function renderEquipe(sha, j) {
+  const membres = j.membres||[];
+  document.getElementById('main').innerHTML = `
+    <div class="page-header"><div><h2>👥 L'Équipe</h2><p>Membres et rôles affichés sur le site</p></div></div>
+    <div class="editor-wrap">
+      <div class="editor-body">
+        <div class="section-card">
+          <h3>👤 Membres de l'équipe</h3>
+          <div id="equipe-list">
+            ${membres.map((m,i) => membreItem(m,i)).join('')}
+          </div>
+          <button class="btn-add" onclick="addMembre()">＋ Ajouter un membre</button>
+        </div>
+      </div>
+      <div class="editor-footer">
+        <button class="btn-save" id="save-btn" onclick="saveEquipe('${sha}')">💾 Enregistrer les modifications</button>
+      </div>
+    </div>`;
+}
+
+function membreItem(m, i) {
+  return `<div class="obj-item">
+    <div class="obj-item-header"><span class="obj-label">Membre ${i+1}</span><button class="btn-rm" onclick="this.closest('.obj-item').remove()">✕ Supprimer</button></div>
+    <div class="form-3col">
+      <div class="form-group"><label>Prénom</label><input class="m-nom" value="${esc(m.nom||'')}" placeholder="Marie"/></div>
+      <div class="form-group"><label>Rôle / Titre</label><input class="m-role" value="${esc(m.role||'')}" placeholder="Opticienne diplômée"/></div>
+      <div class="form-group col-full"><label>Description courte</label><input class="m-exp" value="${esc(m.expertise||'')}" placeholder="Spécialiste adaptation lentilles"/></div>
+    </div>
+  </div>`;
+}
+
+function addMembre() {
+  const l = document.getElementById('equipe-list');
+  const i = l.querySelectorAll('.obj-item').length;
+  l.insertAdjacentHTML('beforeend', membreItem({nom:'',role:'',expertise:''},i));
+}
+
+async function saveEquipe(sha) {
+  const btn = document.getElementById('save-btn');
+  btn.disabled=true; btn.innerHTML='<span class="spinner-sm"></span> Enregistrement…';
+  try {
+    const membres = [...document.querySelectorAll('#equipe-list .obj-item')].map(row => ({
+      nom: row.querySelector('.m-nom').value,
+      role: row.querySelector('.m-role').value,
+      expertise: row.querySelector('.m-exp').value,
+    })).filter(m=>m.nom||m.role);
+    await apiPut(JSON_FILES.equipe, JSON.stringify({membres},null,2), sha, 'Mise à jour Équipe');
+    toast('Équipe enregistrée ! Site mis à jour dans 1–2 min.');
+    loadJsonEditor('equipe');
+  } catch(e) { toast('Erreur: '+e.message,'error'); btn.disabled=false; btn.innerHTML='💾 Enregistrer les modifications'; }
+}
+
+// ── HELPER ──
+function v(id) { const el = document.getElementById(id); return el ? el.value : ''; }
 </script>
 </body>
 </html>

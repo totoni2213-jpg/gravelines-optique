@@ -42,15 +42,19 @@ exports.handler = async (event) => {
 
     if (event.httpMethod === "PUT") {
       const body = JSON.parse(event.body);
+      // For binary files (images), content is already raw base64
+      // For text files, content needs to be encoded
+      const content = body.binary ? body.content : body.content;
+      const payload = {
+        message: body.message || `Mise à jour via CMS: ${path}`,
+        content,
+        branch: BRANCH,
+      };
+      if (body.sha) payload.sha = body.sha;
       const res = await fetch(`${apiBase}/${path}`, {
         method: "PUT",
         headers: ghHeaders,
-        body: JSON.stringify({
-          message: body.message || `Mise à jour via CMS: ${path}`,
-          content: body.content,
-          sha: body.sha,
-          branch: BRANCH,
-        }),
+        body: JSON.stringify(payload),
       });
       const data = await res.json();
       return { statusCode: res.status, headers, body: JSON.stringify(data) };
