@@ -1,0 +1,154 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const brands = [
+  { name: 'Ray-Ban', logo: '/logos/rayban-lunettes.png', category: 'Iconique' },
+  { name: 'Lafont', logo: '/logos/lafont-lunettes.png', category: 'Créateur' },
+  { name: 'Morel', logo: '/logos/morel-lunettes.png', category: 'Français' },
+  { name: 'Blackfin', logo: '/logos/blackfin-lunettes.png', category: 'Premium' },
+  { name: 'Nathalie Blanc', logo: '/logos/nathalie-blanc-lunettes.png', category: 'Créateur' },
+  { name: 'De Stijl', logo: '/logos/de-stijl-lunettes.png', category: 'Design' },
+  { name: 'Inès de la Fressange', logo: '/logos/inesdelafressange-lunettes.png', category: 'Luxe' },
+  { name: 'Tommy Hilfiger', logo: '/logos/tommy-hilfiger-lunettes.png', category: 'Lifestyle' },
+  { name: 'David Beckham', logo: '/logos/david-beckham-lunettes.png', category: 'Lifestyle' },
+  { name: 'Vogue', logo: '/logos/vogue-lunettes.png', category: 'Mode' },
+  { name: 'Serge Blanco', logo: '/logos/serge-blanco-lunettes.png', category: 'Sport' },
+  { name: 'Lancel', logo: '/logos/lancel-lunettes.png', category: 'Luxe' },
+  { name: 'IKKS', logo: '/logos/ikks-lunettes.png', category: 'Mode' },
+  { name: 'Eden Park', logo: '/logos/edenpark-lunettes.png', category: 'Sport' },
+  { name: 'Bensimon', logo: '/logos/bensimon-lunettes.png', category: 'Lifestyle' },
+  { name: 'Paname', logo: '/logos/paname-lunettes.png', category: 'Français' },
+  { name: 'Plein les Mirettes', logo: '/logos/pleinlesmirettes-lunettes.png', category: 'Créateur' },
+  { name: 'Eyelet', logo: '/logos/eyelet-lunettes.png', category: 'Design' },
+  { name: 'Pierre', logo: '/logos/pierre-lunettes.png', category: 'Créateur' },
+  { name: 'Dutz', logo: '/logos/dutz-lunettes.png', category: 'Design' },
+  { name: 'Alpine', logo: '/logos/Alpine-lunettes.png', category: 'Sport' },
+  { name: 'Superbolide', logo: '/logos/superbolider-lunettes.png', category: 'Sport' },
+  { name: 'Bushnell', logo: '/logos/bushnell-lunettes.png', category: 'Sport' },
+  { name: 'Karavan Kids', logo: '/logos/karavan-kids-lunettes.png', category: 'Enfants' },
+  { name: 'Maison Lune', logo: '/logos/maison-lune-lunettes.png.avif', category: 'Créateur' },
+];
+
+const categories = ['Toutes', 'Iconique', 'Créateur', 'Luxe', 'Mode', 'Lifestyle', 'Sport', 'Design', 'Français', 'Enfants', 'Premium'];
+---
+
+<Layout
+  title="Nos Marques | Opticien à Montivilliers — Gravelines Optique"
+  description="30+ marques de lunettes : Ray-Ban, Lafont, David Beckham, IKKS enfants. Exclusivités. Essayage gratuit en boutique chez votre opticien à Montivilliers."
+>
+  <Header />
+
+  <!-- Hero -->
+  <section class="pt-32 pb-20 bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, #C9A961 1px, transparent 0); background-size: 40px 40px;"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="text-gold text-xs tracking-widest uppercase font-medium mb-4">Notre sélection</div>
+      <h1 class="font-serif text-5xl sm:text-6xl text-white mb-6">
+        30+ Marques <em class="text-gold">d'Exception</em>
+      </h1>
+      <p class="text-white/60 text-lg max-w-2xl mx-auto">
+        Des créateurs indépendants aux grandes maisons, nous sélectionnons avec exigence
+        chaque marque pour vous offrir le meilleur de l'optique.
+      </p>
+    </div>
+  </section>
+
+  <!-- Brands Grid -->
+  <section class="py-20 bg-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Filter tabs -->
+      <div class="flex flex-wrap gap-2 mb-12 reveal">
+        {categories.map((cat) => (
+          <button
+            data-filter={cat}
+            class={`filter-btn px-4 py-2 text-xs font-medium rounded-full border transition-all duration-200
+              ${cat === 'Toutes'
+                ? 'bg-dark text-white border-dark'
+                : 'border-dark/20 text-dark/60 hover:border-dark hover:text-dark'
+              }`}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+
+      <!-- Grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4" id="brands-grid">
+        {brands.map((brand, i) => (
+          <div
+            class="brand-card reveal group bg-white border border-cream-dark hover:border-gold rounded-sm p-6 flex flex-col items-center justify-center gap-3 transition-all duration-300 hover:shadow-md hover:-translate-y-0.5 aspect-square cursor-pointer"
+            data-category={brand.category}
+            style={`transition-delay: ${i * 40}ms`}
+          >
+            <img
+              src={brand.logo}
+              alt={`Logo ${brand.name}`}
+              class="max-h-12 max-w-full object-contain grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100 transition-all duration-300"
+              loading="lazy"
+              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
+            />
+            <div class="hidden font-serif text-dark text-sm text-center">{brand.name}</div>
+            <div class="text-dark/40 text-xs group-hover:text-gold transition-colors">{brand.name}</div>
+            <span class="text-xs px-2 py-0.5 bg-cream-dark rounded-full text-dark/50 group-hover:bg-gold/10 group-hover:text-gold-dark transition-colors">
+              {brand.category}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-dark text-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-serif text-4xl text-white mb-5">Essayage gratuit en boutique</h2>
+      <p class="text-white/60 text-lg mb-8">
+        Venez essayer toutes nos montures sans obligation d'achat. Notre équipe vous conseille
+        selon votre morphologie, votre style et votre correction.
+      </p>
+      <a
+        href="/contact"
+        class="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-dark font-semibold px-8 py-4 rounded-sm transition-colors duration-200 text-sm"
+      >
+        Prendre rendez-vous
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<script>
+  // Filter functionality
+  const filterBtns = document.querySelectorAll('.filter-btn');
+  const brandCards = document.querySelectorAll('.brand-card');
+
+  filterBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const filter = btn.getAttribute('data-filter');
+
+      // Update active button
+      filterBtns.forEach((b) => {
+        b.classList.remove('bg-dark', 'text-white', 'border-dark');
+        b.classList.add('border-dark/20', 'text-dark/60');
+      });
+      btn.classList.add('bg-dark', 'text-white', 'border-dark');
+      btn.classList.remove('border-dark/20', 'text-dark/60');
+
+      // Filter cards
+      brandCards.forEach((card) => {
+        const category = card.getAttribute('data-category');
+        if (filter === 'Toutes' || category === filter) {
+          (card as HTMLElement).style.display = 'flex';
+        } else {
+          (card as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

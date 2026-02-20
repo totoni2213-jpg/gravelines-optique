@@ -1,0 +1,110 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-dark text-white">
+  <!-- Main Footer -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+      <!-- Logo & Description -->
+      <div class="lg:col-span-2">
+        <a href="/" class="flex items-center gap-3 mb-5">
+          <img
+            src="/logos/logo-gravelines-optique.png"
+            alt="Gravelines Optique"
+            class="h-14 w-auto"
+            style="filter: brightness(0) invert(1);"
+          />
+          <div>
+            <div class="font-serif text-xl text-white">Gravelines Optique</div>
+            <div class="text-gold text-xs tracking-widest uppercase font-light">Opticien Indépendant</div>
+          </div>
+        </a>
+        <p class="text-white/60 text-sm leading-relaxed max-w-sm">
+          Depuis 2008, votre opticien indépendant à Montivilliers. Expertise, conseil personnalisé et
+          une sélection de 1000+ montures pour toute la famille.
+        </p>
+        <div class="flex gap-4 mt-6">
+          <a
+            href="https://www.facebook.com"
+            class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors"
+            aria-label="Facebook"
+          >
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+            </svg>
+          </a>
+          <a
+            href="https://www.instagram.com"
+            class="w-9 h-9 rounded-full border border-white/20 flex items-center justify-center hover:border-gold hover:text-gold transition-colors"
+            aria-label="Instagram"
+          >
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke-width="2"/>
+              <circle cx="12" cy="12" r="4" stroke-width="2"/>
+              <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Navigation -->
+      <div>
+        <h3 class="text-gold font-serif text-sm uppercase tracking-widest mb-5">Navigation</h3>
+        <ul class="space-y-3 text-sm text-white/60">
+          <li><a href="/" class="hover:text-gold transition-colors">Accueil</a></li>
+          <li><a href="/boutique" class="hover:text-gold transition-colors">La Boutique</a></li>
+          <li><a href="/marques" class="hover:text-gold transition-colors">Nos Marques</a></li>
+          <li><a href="/services" class="hover:text-gold transition-colors">Services</a></li>
+          <li><a href="/sav" class="hover:text-gold transition-colors">SAV & Réparations</a></li>
+          <li><a href="/contact" class="hover:text-gold transition-colors">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h3 class="text-gold font-serif text-sm uppercase tracking-widest mb-5">Contact</h3>
+        <ul class="space-y-3 text-sm text-white/60">
+          <li class="flex gap-3">
+            <svg class="w-4 h-4 mt-0.5 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            <span>27 rue Léon Gambetta<br />76290 Montivilliers</span>
+          </li>
+          <li class="flex gap-3">
+            <svg class="w-4 h-4 mt-0.5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+            </svg>
+            <a href="tel:0235209978" class="hover:text-gold transition-colors">02 35 20 99 78</a>
+          </li>
+          <li class="flex gap-3">
+            <svg class="w-4 h-4 mt-0.5 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            <a href="mailto:gravelines.optique@orange.fr" class="hover:text-gold transition-colors break-all">gravelines.optique@orange.fr</a>
+          </li>
+          <li class="flex gap-3">
+            <svg class="w-4 h-4 mt-0.5 text-gold flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            <span>Mar–Ven : 9h–12h / 14h–19h<br />Sam : 9h30–12h30 / 14h–18h</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bottom Bar -->
+  <div class="border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-white/40">
+      <span>© {currentYear} Gravelines Optique — Tous droits réservés</span>
+      <div class="flex gap-4">
+        <a href="/mentions-legales" class="hover:text-gold transition-colors">Mentions légales</a>
+        <a href="/politique-confidentialite" class="hover:text-gold transition-colors">Confidentialité</a>
+        <a href="/cookies" class="hover:text-gold transition-colors">Cookies</a>
+      </div>
+    </div>
+  </div>
+</footer>

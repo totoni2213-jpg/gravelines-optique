@@ -1,0 +1,79 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: public/images/uploads
+public_folder: /images/uploads
+
+locale: fr
+
+collections:
+  # ─── INFORMATIONS DE CONTACT ───────────────────────────────────────────────
+  - name: contact
+    label: "📍 Contact & Horaires"
+    files:
+      - name: contact
+        label: "Informations de contact"
+        file: src/data/contact.json
+        fields:
+          - { label: "Nom du magasin", name: nom, widget: string }
+          - { label: "Slogan", name: tagline, widget: string }
+          - { label: "Adresse (rue)", name: adresse, widget: string }
+          - { label: "Ville & code postal", name: ville, widget: string }
+          - { label: "Téléphone", name: telephone, widget: string }
+          - { label: "Email", name: email, widget: string }
+          - label: "Horaires d'ouverture"
+            name: horaires
+            widget: list
+            fields:
+              - { label: "Jour", name: jour, widget: string }
+              - { label: "Horaires (ex: 9h00 – 19h00)", name: heures, widget: string }
+              - { label: "Fermé ce jour ?", name: ferme, widget: boolean, default: false }
+          - label: "Avantages (badges)"
+            name: avantages
+            widget: list
+            field: { label: "Avantage", name: item, widget: string }
+
+  # ─── PAGE D'ACCUEIL ────────────────────────────────────────────────────────
+  - name: home
+    label: "🏠 Page d'accueil"
+    files:
+      - name: home
+        label: "Contenu de la page d'accueil"
+        file: src/data/home.json
+        fields:
+          - { label: "Titre principal (hero)", name: hero_titre, widget: string }
+          - { label: "Sous-titre (hero)", name: hero_sous_titre, widget: text }
+          - { label: "Badge (ex: Opticien depuis 2008)", name: hero_badge, widget: string }
+          - label: "Statistiques clés"
+            name: stats
+            widget: list
+            fields:
+              - { label: "Valeur (ex: 1000+)", name: valeur, widget: string }
+              - { label: "Description", name: label, widget: string }
+          - { label: "Titre section Histoire", name: histoire_titre, widget: string }
+          - { label: "Texte section Histoire", name: histoire_texte, widget: text }
+          - label: "Frise chronologique"
+            name: timeline
+            widget: list
+            fields:
+              - { label: "Année", name: annee, widget: string }
+              - { label: "Titre", name: titre, widget: string }
+              - { label: "Description", name: description, widget: text }
+
+  # ─── ÉQUIPE ────────────────────────────────────────────────────────────────
+  - name: equipe
+    label: "👥 L'Équipe"
+    files:
+      - name: equipe
+        label: "Membres de l'équipe"
+        file: src/data/equipe.json
+        fields:
+          - label: "Membres"
+            name: membres
+            widget: list
+            fields:
+              - { label: "Prénom", name: nom, widget: string }
+              - { label: "Rôle / Titre", name: role, widget: string }
+              - { label: "Expertise / Description courte", name: expertise, widget: string }
+              - { label: "Photo", name: photo, widget: image, required: false }

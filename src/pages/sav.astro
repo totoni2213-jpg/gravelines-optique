@@ -1,0 +1,147 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const reparations = [
+  { title: 'Remplacement de branches', delai: '24h', prix: 'Dès 15€' },
+  { title: 'Ressoudage de monture', delai: '24-48h', prix: 'Dès 20€' },
+  { title: 'Remplacement de plaquettes', delai: 'Immédiat', prix: 'Gratuit*' },
+  { title: 'Ajustement & réglage', delai: 'Immédiat', prix: 'Gratuit' },
+  { title: 'Remplacement de verre cassé', delai: '3-5 jours', prix: 'Sur devis' },
+  { title: 'Nettoyage des ultrasons', delai: 'Immédiat', prix: '5€' },
+  { title: 'Remplacement charnières', delai: '24-48h', prix: 'Dès 10€' },
+  { title: 'Remontage de verre', delai: 'Immédiat', prix: 'Dès 10€' },
+];
+---
+
+<Layout
+  title="SAV & Réparation Lunettes Montivilliers | 24-48h — Gravelines Optique"
+  description="Service après-vente express : réparations 24-48h, ajustements gratuits, garantie 2 ans. Réparation lunettes Montivilliers. Urgences prioritaires."
+>
+  <Header />
+
+  <!-- Hero -->
+  <section class="pt-32 pb-20 bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, #C9A961 1px, transparent 0); background-size: 40px 40px;"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="text-gold text-xs tracking-widest uppercase font-medium mb-4">Service après-vente</div>
+      <h1 class="font-serif text-5xl sm:text-6xl text-white mb-6">
+        SAV & <em class="text-gold">Réparations</em>
+      </h1>
+      <p class="text-white/60 text-lg max-w-2xl mx-auto mb-8">
+        Réparations express en 24-48h, ajustements gratuits, garantie 2 ans.
+        Nous réparons toutes les marques, même achetées ailleurs.
+      </p>
+      <div class="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 rounded-full px-5 py-2 text-gold text-sm">
+        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+        </svg>
+        Urgences traitées en priorité le jour même
+      </div>
+    </div>
+  </section>
+
+  <!-- Garanties -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        {[
+          { icon: '🛡️', title: 'Garantie 2 ans', desc: 'Sur toutes les montures achetées chez nous. Couvre les défauts de fabrication.' },
+          { icon: '⚡', title: 'Express 24-48h', desc: 'La plupart des réparations réalisées en moins de 48h, souvent le jour même.' },
+          { icon: '🔧', title: 'Toutes marques', desc: 'Nous réparons vos lunettes quelle que soit la marque, même achetées ailleurs.' },
+        ].map((item) => (
+          <div class="reveal text-center p-8 border border-cream-dark rounded-sm hover:border-gold transition-colors">
+            <div class="text-4xl mb-4">{item.icon}</div>
+            <h3 class="font-serif text-xl text-dark mb-3">{item.title}</h3>
+            <p class="text-dark/60 text-sm leading-relaxed">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Tarifs -->
+  <section class="py-20 bg-cream">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 reveal">
+        <div class="text-gold text-xs tracking-widest uppercase font-medium mb-3">Nos tarifs</div>
+        <h2 class="font-serif text-4xl text-dark mb-5">Tarifs indicatifs</h2>
+        <p class="text-dark/60">Devis gratuit et sans engagement avant toute intervention.</p>
+      </div>
+
+      <div class="bg-white border border-cream-dark rounded-sm overflow-hidden reveal">
+        <table class="w-full">
+          <thead>
+            <tr class="bg-dark text-white">
+              <th class="text-left px-6 py-4 font-medium text-sm tracking-wide">Type de réparation</th>
+              <th class="text-center px-6 py-4 font-medium text-sm tracking-wide">Délai</th>
+              <th class="text-right px-6 py-4 font-medium text-sm tracking-wide text-gold">Tarif</th>
+            </tr>
+          </thead>
+          <tbody>
+            {reparations.map((rep, i) => (
+              <tr class={`border-b border-cream-dark hover:bg-cream/50 transition-colors ${i % 2 === 0 ? '' : 'bg-cream/30'}`}>
+                <td class="px-6 py-4 text-dark font-medium text-sm">{rep.title}</td>
+                <td class="px-6 py-4 text-center">
+                  <span class="text-xs bg-gold/10 text-gold-dark px-3 py-1 rounded-full font-medium">{rep.delai}</span>
+                </td>
+                <td class="px-6 py-4 text-right text-dark font-medium text-sm">{rep.prix}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <div class="px-6 py-4 bg-cream/50 text-xs text-dark/50">
+          * Gratuit pour les lunettes achetées chez Gravelines Optique. Tarifs indicatifs, devis gratuit avant intervention.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="py-20 bg-dark text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12 reveal">
+        <div class="text-gold text-xs tracking-widest uppercase font-medium mb-3">Comment ça marche</div>
+        <h2 class="font-serif text-4xl text-white mb-5">Déposez vos lunettes, on s'occupe du reste</h2>
+      </div>
+
+      <div class="grid sm:grid-cols-4 gap-6 reveal">
+        {[
+          { step: '1', title: 'Déposez vos lunettes', desc: 'En boutique, du mardi au samedi.' },
+          { step: '2', title: 'Diagnostic gratuit', desc: 'Nous évaluons la réparation nécessaire.' },
+          { step: '3', title: 'Devis en direct', desc: 'On vous explique tout avant d\'intervenir.' },
+          { step: '4', title: 'Récupération', desc: 'Vos lunettes comme neuves en 24-48h.' },
+        ].map((item) => (
+          <div class="text-center">
+            <div class="w-12 h-12 rounded-full border-2 border-gold flex items-center justify-center text-gold font-serif text-lg mx-auto mb-4">{item.step}</div>
+            <h3 class="font-serif text-white text-base mb-2">{item.title}</h3>
+            <p class="text-white/50 text-sm">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 bg-cream">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+      <h2 class="font-serif text-3xl text-dark mb-5">Lunettes cassées ? On les répare.</h2>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="tel:0235209978" class="inline-flex items-center gap-2 bg-dark hover:bg-dark/80 text-white font-semibold px-8 py-4 rounded-sm transition-colors text-sm">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+          </svg>
+          Appelez-nous
+        </a>
+        <a href="/contact" class="inline-flex items-center gap-2 border border-dark/20 hover:border-dark text-dark font-medium px-8 py-4 rounded-sm transition-colors text-sm">
+          Voir les horaires
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

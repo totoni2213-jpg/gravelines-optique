@@ -1,0 +1,23 @@
+{
+  "nom": "Gravelines Optique",
+  "tagline": "Opticien Indépendant à Montivilliers",
+  "adresse": "27 rue Léon Gambetta",
+  "ville": "76290 Montivilliers",
+  "telephone": "02 35 20 99 78",
+  "email": "gravelines.optique@orange.fr",
+  "horaires": [
+    { "jour": "Lundi", "heures": "Fermé", "ferme": true },
+    { "jour": "Mardi", "heures": "9h00 – 12h00 / 14h00 – 19h00", "ferme": false },
+    { "jour": "Mercredi", "heures": "9h00 – 12h00 / 14h00 – 19h00", "ferme": false },
+    { "jour": "Jeudi", "heures": "9h00 – 12h00 / 14h00 – 19h00", "ferme": false },
+    { "jour": "Vendredi", "heures": "9h00 – 12h00 / 14h00 – 19h00", "ferme": false },
+    { "jour": "Samedi", "heures": "9h30 – 12h30 / 14h00 – 18h00", "ferme": false },
+    { "jour": "Dimanche", "heures": "Fermé", "ferme": true }
+  ],
+  "avantages": [
+    "Tiers payant toutes mutuelles",
+    "Parking gratuit",
+    "Accès PMR",
+    "Examen de vue gratuit"
+  ]
+}

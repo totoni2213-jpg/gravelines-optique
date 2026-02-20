@@ -1,0 +1,181 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const services = [
+  {
+    id: 'examen',
+    emoji: '👁️',
+    title: 'Examen de vue',
+    subtitle: 'Gratuit & sans rendez-vous',
+    description: 'Nos opticiens diplômés réalisent un bilan visuel complet pour évaluer précisément votre correction. Résultat immédiat, sans ordonnance nécessaire pour les adultes de plus de 16 ans.',
+    details: [
+      'Mesure de l\'acuité visuelle',
+      'Détection des troubles de la vision (myopie, hypermétropie, astigmatisme, presbytie)',
+      'Conseils personnalisés sur le type de correction adapté',
+      'Compatible avec votre ordonnance médecin/ophtalmologue',
+    ],
+    accent: true,
+  },
+  {
+    id: 'montures',
+    emoji: '👓',
+    title: 'Montures & Verres',
+    subtitle: '1000+ montures en boutique',
+    description: 'Vue, solaires, sport, enfants, créateurs... Nous avons la paire qui vous correspond. Nos opticiens vous accompagnent dans le choix selon votre morphologie, votre style et votre budget.',
+    details: [
+      'Sélection de 1000+ montures en boutique sur 100m²',
+      'Verres personnalisés : Zeiss, Hoya et autres grands verriers',
+      'Montage de vos verres en boutique',
+      'Conseils morphologie pour trouver la monture parfaite',
+    ],
+    accent: false,
+  },
+  {
+    id: 'lentilles',
+    emoji: '💊',
+    title: 'Lentilles de contact',
+    subtitle: 'Adaptation & suivi inclus',
+    description: 'Large gamme de lentilles pour tous les profils. Journalières, mensuelles, torique, multifocale... Notre équipe vous accompagne de l\'essai à la commande régulière.',
+    details: [
+      'Adaptation et premier essai offerts',
+      'Lentilles journalières, mensuelles, bi-mensuelles',
+      'Lentilles toriques (astigmates) et multifocales',
+      'Lentilles de couleur',
+      'Commande en ligne et livraison à domicile',
+    ],
+    accent: false,
+  },
+  {
+    id: 'mutuelle',
+    emoji: '💳',
+    title: 'Tiers Payant',
+    subtitle: 'Toutes mutuelles acceptées',
+    description: 'Nous pratiquons le tiers payant avec toutes les complémentaires santé. Pas d\'avance de frais dans la limite de votre remboursement. Devis gratuit personnalisé.',
+    details: [
+      'Tiers payant toutes mutuelles et complémentaires santé',
+      'Devis transparent et gratuit',
+      'Remboursements Sécurité Sociale + mutuelle gérés pour vous',
+      'Paiement en plusieurs fois sans frais disponible',
+    ],
+    accent: false,
+  },
+  {
+    id: 'domicile',
+    emoji: '🏠',
+    title: 'Service à domicile',
+    subtitle: 'Sur rendez-vous',
+    description: 'Vous êtes à mobilité réduite ou ne pouvez pas vous déplacer ? Nous venons à votre domicile, en EHPAD ou dans les établissements de santé autour de Montivilliers.',
+    details: [
+      'Déplacement sur la zone de Montivilliers et alentours',
+      'Examen de vue à domicile',
+      'Sélection de montures apportées sur place',
+      'Livraison de vos lunettes terminées',
+    ],
+    accent: false,
+  },
+  {
+    id: 'audio',
+    emoji: '🦻',
+    title: 'Audioprothèse',
+    subtitle: 'Bilan auditif gratuit',
+    description: 'Nous proposons également des solutions auditives avec un audioprothésiste partenaire. Bilan auditif gratuit sur rendez-vous dans notre boutique de Montivilliers.',
+    details: [
+      'Bilan auditif complet et gratuit',
+      'Essai d\'appareils auditifs sans engagement',
+      'Tiers payant mutuelles',
+      'Suivi et réglages inclus',
+    ],
+    accent: false,
+  },
+];
+---
+
+<Layout
+  title="Services | Opticien à Montivilliers — Gravelines Optique"
+  description="Services complets : examen de vue gratuit, lentilles, service à domicile, réparations 24-48h. Toutes mutuelles chez votre opticien à Montivilliers."
+>
+  <Header />
+
+  <!-- Hero -->
+  <section class="pt-32 pb-20 bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, #C9A961 1px, transparent 0); background-size: 40px 40px;"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="text-gold text-xs tracking-widest uppercase font-medium mb-4">Ce que nous proposons</div>
+      <h1 class="font-serif text-5xl sm:text-6xl text-white mb-6">
+        Nos <em class="text-gold">Services</em>
+      </h1>
+      <p class="text-white/60 text-lg max-w-2xl mx-auto">
+        Une expertise complète pour prendre soin de votre vue et de votre bien-être visuel,
+        avec une équipe disponible et à l'écoute.
+      </p>
+    </div>
+  </section>
+
+  <!-- Services List -->
+  <section class="py-20 bg-cream">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+      {services.map((service, i) => (
+        <div
+          class={`reveal group rounded-sm border overflow-hidden transition-all duration-300 hover:shadow-lg
+            ${service.accent
+              ? 'bg-dark border-gold text-white'
+              : 'bg-white border-cream-dark hover:border-gold'
+            }`}
+          style={`transition-delay: ${i * 80}ms`}
+        >
+          <div class="p-8 sm:p-10">
+            <div class="flex flex-col sm:flex-row sm:items-start gap-6">
+              <div class={`text-5xl`}>{service.emoji}</div>
+              <div class="flex-1">
+                <div class={`text-xs tracking-widest uppercase font-medium mb-2 ${service.accent ? 'text-gold' : 'text-gold-dark'}`}>
+                  {service.subtitle}
+                </div>
+                <h2 class={`font-serif text-3xl mb-4 ${service.accent ? 'text-white' : 'text-dark'}`}>
+                  {service.title}
+                </h2>
+                <p class={`text-lg leading-relaxed mb-6 ${service.accent ? 'text-white/70' : 'text-dark/60'}`}>
+                  {service.description}
+                </p>
+                <ul class="space-y-2">
+                  {service.details.map((detail) => (
+                    <li class={`flex items-start gap-3 text-sm ${service.accent ? 'text-white/70' : 'text-dark/70'}`}>
+                      <svg class="w-4 h-4 mt-0.5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                      </svg>
+                      {detail}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-dark text-white">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-serif text-4xl text-white mb-5">Une question ? Appelez-nous.</h2>
+      <p class="text-white/60 text-lg mb-8">Notre équipe est disponible du mardi au samedi pour répondre à toutes vos questions.</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="tel:0235209978" class="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-dark font-semibold px-8 py-4 rounded-sm transition-colors text-sm">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+          </svg>
+          02 35 20 99 78
+        </a>
+        <a href="/contact" class="inline-flex items-center gap-2 border border-white/20 hover:border-gold text-white hover:text-gold font-medium px-8 py-4 rounded-sm transition-colors text-sm">
+          Voir les horaires
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

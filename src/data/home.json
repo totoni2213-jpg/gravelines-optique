@@ -1,0 +1,19 @@
+{
+  "hero_titre": "L'optique qui vous ressemble",
+  "hero_sous_titre": "Votre opticien indépendant à Montivilliers. Conseils personnalisés, 1000+ montures et une équipe passionnée à votre service.",
+  "hero_badge": "Opticien Indépendant depuis 2008",
+  "stats": [
+    { "valeur": "+15", "label": "Ans d'expertise" },
+    { "valeur": "1000+", "label": "Montures en boutique" },
+    { "valeur": "30+", "label": "Marques sélectionnées" },
+    { "valeur": "5000+", "label": "Clients satisfaits" }
+  ],
+  "histoire_titre": "Depuis plus de 15 ans à votre service",
+  "histoire_texte": "Nous mettons notre expertise au service de votre vision. Notre passion pour l'optique et notre engagement envers nos clients font de nous votre partenaire de confiance.",
+  "timeline": [
+    { "annee": "2008", "titre": "Ouverture de la boutique", "description": "Naissance de Gravelines Optique à Montivilliers, avec la passion de l'optique indépendante." },
+    { "annee": "2015", "titre": "Extension de nos collections", "description": "Élargissement de notre sélection à plus de 30 marques premium et créateurs." },
+    { "annee": "2020", "titre": "Modernisation complète", "description": "Rénovation de la boutique et introduction des technologies d'essayage virtuel." },
+    { "annee": "2025", "titre": "Nouveaux services premium", "description": "Lancement de l'audioprothèse et du service à domicile pour nos clients." }
+  ]
+}
