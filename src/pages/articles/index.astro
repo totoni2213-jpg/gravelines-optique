@@ -1,0 +1,105 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection } from 'astro:content';
+
+// Get all published articles sorted by date
+let articles: any[] = [];
+try {
+  const allArticles = await getCollection('articles');
+  articles = allArticles
+    .filter((a: any) => a.data.publie !== false)
+    .sort((a: any, b: any) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+} catch (e) {
+  articles = [];
+}
+
+const categories = ['Toutes', 'Actualités', 'Conseils optique', 'Nouveautés', 'Promotions', 'Événements'];
+
+function formatDate(date: string | Date) {
+  return new Date(date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+---
+
+<Layout
+  title="Actualités & Conseils | Gravelines Optique Montivilliers"
+  description="Toute l'actualité de Gravelines Optique : nouveautés, conseils optique, promotions et événements de votre opticien à Montivilliers."
+>
+  <Header />
+
+  <!-- Hero -->
+  <section class="pt-32 pb-20 bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-5">
+      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, #C9A961 1px, transparent 0); background-size: 40px 40px;"></div>
+    </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="text-gold text-xs tracking-widest uppercase font-medium mb-4">Notre blog</div>
+      <h1 class="font-serif text-5xl sm:text-6xl text-white mb-6">
+        Actualités & <em class="text-gold">Conseils</em>
+      </h1>
+      <p class="text-white/60 text-lg max-w-2xl mx-auto">
+        Nouveautés, conseils optique, actualités de la boutique et bons plans — tout ce qu'il faut savoir sur l'optique à Montivilliers.
+      </p>
+    </div>
+  </section>
+
+  <!-- Articles -->
+  <section class="py-20 bg-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      {articles.length === 0 ? (
+        <div class="text-center py-20 text-dark/40">
+          <div class="text-5xl mb-4">📰</div>
+          <p class="font-serif text-2xl mb-2">Les articles arrivent bientôt !</p>
+          <p class="text-sm">Connectez-vous à l'interface d'administration pour publier votre premier article.</p>
+        </div>
+      ) : (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {articles.map((article: any, i: number) => (
+            <a
+              href={`/articles/${article.slug}`}
+              class="reveal group bg-white border border-cream-dark hover:border-gold rounded-sm overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+              style={`transition-delay: ${i * 80}ms`}
+            >
+              {article.data.image && (
+                <div class="aspect-[16/9] overflow-hidden">
+                  <img
+                    src={article.data.image}
+                    alt={article.data.titre}
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </div>
+              )}
+              <div class="p-6">
+                {article.data.categorie && (
+                  <span class="inline-block text-xs font-medium text-gold bg-gold/10 px-3 py-1 rounded-full mb-3">
+                    {article.data.categorie}
+                  </span>
+                )}
+                <h2 class="font-serif text-xl text-dark mb-3 group-hover:text-gold-dark transition-colors leading-snug">
+                  {article.data.titre}
+                </h2>
+                <p class="text-dark/60 text-sm leading-relaxed mb-4 line-clamp-3">
+                  {article.data.description}
+                </p>
+                <div class="flex items-center justify-between">
+                  <span class="text-dark/40 text-xs">{formatDate(article.data.date)}</span>
+                  <span class="text-gold text-xs font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+                    Lire
+                    <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      )}
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

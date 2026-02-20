@@ -1,0 +1,112 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { getCollection, getEntry } from 'astro:content';
+
+export async function getStaticPaths() {
+  try {
+    const articles = await getCollection('articles');
+    return articles.map((article: any) => ({
+      params: { slug: article.slug },
+      props: { article },
+    }));
+  } catch (e) {
+    return [];
+  }
+}
+
+const { article } = Astro.props;
+const { Content } = await article.render();
+
+function formatDate(date: string | Date) {
+  return new Date(date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+---
+
+<Layout
+  title={`${article.data.titre} | Gravelines Optique`}
+  description={article.data.description}
+  image={article.data.image}
+>
+  <Header />
+
+  <!-- Hero article -->
+  <section class="pt-32 pb-0 bg-dark">
+    {article.data.image && (
+      <div class="relative h-64 sm:h-96 overflow-hidden">
+        <img
+          src={article.data.image}
+          alt={article.data.titre}
+          class="w-full h-full object-cover opacity-40"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent"></div>
+      </div>
+    )}
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 py-12 text-white">
+      <div class="flex items-center gap-3 mb-5">
+        <a href="/articles" class="text-gold/70 hover:text-gold text-sm flex items-center gap-1.5 transition-colors">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+          Tous les articles
+        </a>
+        {article.data.categorie && (
+          <>
+            <span class="text-white/20">•</span>
+            <span class="text-xs font-medium text-gold bg-gold/10 border border-gold/20 px-3 py-1 rounded-full">
+              {article.data.categorie}
+            </span>
+          </>
+        )}
+      </div>
+      <h1 class="font-serif text-4xl sm:text-5xl text-white mb-4 leading-tight">
+        {article.data.titre}
+      </h1>
+      <div class="flex items-center gap-4 text-white/50 text-sm">
+        <span>Gravelines Optique</span>
+        <span>•</span>
+        <time datetime={article.data.date.toString()}>{formatDate(article.data.date)}</time>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <section class="py-12 bg-cream">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <article class="prose prose-lg prose-headings:font-serif prose-headings:text-dark prose-a:text-gold prose-strong:text-dark max-w-none">
+        <Content />
+      </article>
+
+      <!-- Share + Back -->
+      <div class="mt-12 pt-8 border-t border-cream-dark flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <a
+          href="/articles"
+          class="inline-flex items-center gap-2 text-dark/60 hover:text-dark text-sm transition-colors"
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+          Retour aux articles
+        </a>
+        <a
+          href="/contact"
+          class="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-dark font-semibold px-6 py-3 rounded-sm transition-colors text-sm"
+        >
+          Nous contacter
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  .prose :global(h2) { @apply mt-8 mb-4 text-2xl; }
+  .prose :global(h3) { @apply mt-6 mb-3 text-xl; }
+  .prose :global(p) { @apply mb-4 text-dark/80 leading-relaxed; }
+  .prose :global(ul) { @apply mb-4 space-y-2; }
+  .prose :global(li) { @apply text-dark/80; }
+  .prose :global(strong) { @apply font-semibold; }
+</style>
