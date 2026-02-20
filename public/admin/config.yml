@@ -8,7 +8,28 @@ public_folder: /images/uploads
 locale: fr
 
 collections:
-  # ─── INFORMATIONS DE CONTACT ───────────────────────────────────────────────
+  # ─── ARTICLES / ACTUALITÉS ──────────────────────────────────────────────────
+  - name: articles
+    label: "📰 Articles & Actualités"
+    folder: src/content/articles
+    create: true
+    delete: true
+    format: frontmatter
+    slug: "{{slug}}"
+    fields:
+      - { label: "Titre", name: titre, widget: string }
+      - { label: "Description courte", name: description, widget: text }
+      - { label: "Date de publication", name: date, widget: datetime, format: "YYYY-MM-DD", default: "" }
+      - { label: "Image principale", name: image, widget: image, required: false }
+      - label: "Catégorie"
+        name: categorie
+        widget: select
+        options: ["Actualités", "Conseils optique", "Nouveautés", "Promotions", "Événements"]
+        required: false
+      - { label: "Publié (visible sur le site)", name: publie, widget: boolean, default: true }
+      - { label: "Contenu de l'article", name: body, widget: markdown }
+
+  # ─── INFORMATIONS DE CONTACT ─────────────────────────────────────────────────
   - name: contact
     label: "📍 Contact & Horaires"
     files:
@@ -34,7 +55,7 @@ collections:
             widget: list
             field: { label: "Avantage", name: item, widget: string }
 
-  # ─── PAGE D'ACCUEIL ────────────────────────────────────────────────────────
+  # ─── PAGE D'ACCUEIL ──────────────────────────────────────────────────────────
   - name: home
     label: "🏠 Page d'accueil"
     files:
@@ -61,7 +82,7 @@ collections:
               - { label: "Titre", name: titre, widget: string }
               - { label: "Description", name: description, widget: text }
 
-  # ─── ÉQUIPE ────────────────────────────────────────────────────────────────
+  # ─── ÉQUIPE ──────────────────────────────────────────────────────────────────
   - name: equipe
     label: "👥 L'Équipe"
     files:
