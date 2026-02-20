@@ -6,12 +6,12 @@ import Footer from '../components/Footer.astro';
 const services = [
   {
     id: 'examen',
-    emoji: '👁️',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.574-3.007-9.964-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>`,
     title: 'Examen de vue',
     subtitle: 'Gratuit & sans rendez-vous',
     description: 'Nos opticiens diplômés réalisent un bilan visuel complet pour évaluer précisément votre correction. Résultat immédiat, sans ordonnance nécessaire pour les adultes de plus de 16 ans.',
     details: [
-      'Mesure de l\'acuité visuelle',
+      "Mesure de l'acuité visuelle",
       'Détection des troubles de la vision (myopie, hypermétropie, astigmatisme, presbytie)',
       'Conseils personnalisés sur le type de correction adapté',
       'Compatible avec votre ordonnance médecin/ophtalmologue',
@@ -20,7 +20,7 @@ const services = [
   },
   {
     id: 'montures',
-    emoji: '👓',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10"><path stroke-linecap="round" stroke-linejoin="round" d="M3 14a4 4 0 1 0 8 0 4 4 0 0 0-8 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M13 14a4 4 0 1 0 8 0 4 4 0 0 0-8 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M11 14h2"/><path stroke-linecap="round" stroke-linejoin="round" d="M3 11 1 9M21 11l2-2"/></svg>`,
     title: 'Montures & Verres',
     subtitle: '1000+ montures en boutique',
     description: 'Vue, solaires, sport, enfants, créateurs... Nous avons la paire qui vous correspond. Nos opticiens vous accompagnent dans le choix selon votre morphologie, votre style et votre budget.',
@@ -34,10 +34,10 @@ const services = [
   },
   {
     id: 'lentilles',
-    emoji: '💊',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M8 12a4 4 0 1 0 8 0 4 4 0 0 0-8 0z"/></svg>`,
     title: 'Lentilles de contact',
     subtitle: 'Adaptation & suivi inclus',
-    description: 'Large gamme de lentilles pour tous les profils. Journalières, mensuelles, torique, multifocale... Notre équipe vous accompagne de l\'essai à la commande régulière.',
+    description: "Large gamme de lentilles pour tous les profils. Journalières, mensuelles, torique, multifocale... Notre équipe vous accompagne de l'essai à la commande régulière.",
     details: [
       'Adaptation et premier essai offerts',
       'Lentilles journalières, mensuelles, bi-mensuelles',
@@ -49,10 +49,10 @@ const services = [
   },
   {
     id: 'mutuelle',
-    emoji: '💳',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>`,
     title: 'Tiers Payant',
     subtitle: 'Toutes mutuelles acceptées',
-    description: 'Nous pratiquons le tiers payant avec toutes les complémentaires santé. Pas d\'avance de frais dans la limite de votre remboursement. Devis gratuit personnalisé.',
+    description: "Nous pratiquons le tiers payant avec toutes les complémentaires santé. Pas d'avance de frais dans la limite de votre remboursement. Devis gratuit personnalisé.",
     details: [
       'Tiers payant toutes mutuelles et complémentaires santé',
       'Devis transparent et gratuit',
@@ -63,10 +63,10 @@ const services = [
   },
   {
     id: 'domicile',
-    emoji: '🏠',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" /></svg>`,
     title: 'Service à domicile',
     subtitle: 'Sur rendez-vous',
-    description: 'Vous êtes à mobilité réduite ou ne pouvez pas vous déplacer ? Nous venons à votre domicile, en EHPAD ou dans les établissements de santé autour de Montivilliers.',
+    description: "Vous êtes à mobilité réduite ou ne pouvez pas vous déplacer ? Nous venons à votre domicile, en EHPAD ou dans les établissements de santé autour de Montivilliers.",
     details: [
       'Déplacement sur la zone de Montivilliers et alentours',
       'Examen de vue à domicile',
@@ -77,13 +77,13 @@ const services = [
   },
   {
     id: 'audio',
-    emoji: '🦻',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10"><path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" /></svg>`,
     title: 'Audioprothèse',
     subtitle: 'Bilan auditif gratuit',
     description: 'Nous proposons également des solutions auditives avec un audioprothésiste partenaire. Bilan auditif gratuit sur rendez-vous dans notre boutique de Montivilliers.',
     details: [
       'Bilan auditif complet et gratuit',
-      'Essai d\'appareils auditifs sans engagement',
+      "Essai d'appareils auditifs sans engagement",
       'Tiers payant mutuelles',
       'Suivi et réglages inclus',
     ],
@@ -117,19 +117,23 @@ const services = [
 
   <!-- Services List -->
   <section class="py-20 bg-cream">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
       {services.map((service, i) => (
         <div
           class={`reveal group rounded-sm border overflow-hidden transition-all duration-300 hover:shadow-lg
             ${service.accent
-              ? 'bg-dark border-gold text-white'
-              : 'bg-white border-cream-dark hover:border-gold'
+              ? 'bg-dark border-gold/40 text-white'
+              : 'bg-white border-cream-dark hover:border-gold/50'
             }`}
           style={`transition-delay: ${i * 80}ms`}
         >
           <div class="p-8 sm:p-10">
-            <div class="flex flex-col sm:flex-row sm:items-start gap-6">
-              <div class={`text-5xl`}>{service.emoji}</div>
+            <div class="flex flex-col sm:flex-row sm:items-start gap-8">
+              <!-- Icon -->
+              <div class={`flex-shrink-0 w-16 h-16 rounded-sm flex items-center justify-center
+                ${service.accent ? 'bg-gold/20 text-gold' : 'bg-gold/10 text-gold group-hover:bg-gold/20'} transition-colors`}>
+                <div set:html={service.icon} />
+              </div>
               <div class="flex-1">
                 <div class={`text-xs tracking-widest uppercase font-medium mb-2 ${service.accent ? 'text-gold' : 'text-gold-dark'}`}>
                   {service.subtitle}
@@ -140,7 +144,7 @@ const services = [
                 <p class={`text-lg leading-relaxed mb-6 ${service.accent ? 'text-white/70' : 'text-dark/60'}`}>
                   {service.description}
                 </p>
-                <ul class="space-y-2">
+                <ul class="space-y-2.5">
                   {service.details.map((detail) => (
                     <li class={`flex items-start gap-3 text-sm ${service.accent ? 'text-white/70' : 'text-dark/70'}`}>
                       <svg class="w-4 h-4 mt-0.5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
