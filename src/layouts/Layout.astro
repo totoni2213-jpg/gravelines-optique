@@ -49,9 +49,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://gravelin
 
     <title>{title}</title>
 
-    <!-- Netlify Identity Widget (for CMS auth) -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-
     <style is:global>
       * {
         box-sizing: border-box;
@@ -66,11 +63,15 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://gravelin
         font-family: 'Fraunces', Georgia, serif;
       }
       .reveal {
-        opacity: 0;
-        transform: translateY(30px);
+        opacity: 1;
+        transform: translateY(0);
         transition: opacity 0.7s ease, transform 0.7s ease;
       }
-      .reveal.visible {
+      .js-ready .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      .js-ready .reveal.visible {
         opacity: 1;
         transform: translateY(0);
       }
@@ -80,6 +81,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://gravelin
     <slot />
 
     <script>
+      // Enable JS animations (content is visible by default without JS)
+      document.documentElement.classList.add('js-ready');
+
       // Intersection Observer for scroll animations
       const observer = new IntersectionObserver(
         (entries) => {
@@ -89,7 +93,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://gravelin
             }
           });
         },
-        { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+        { threshold: 0.05, rootMargin: '0px 0px -20px 0px' }
       );
       document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
@@ -99,17 +103,6 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://gravelin
       menuBtn?.addEventListener('click', () => {
         mobileMenu?.classList.toggle('hidden');
       });
-
-      // Netlify Identity redirect after login
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on('init', (user: any) => {
-          if (!user) {
-            window.netlifyIdentity.on('login', () => {
-              document.location.href = '/admin/';
-            });
-          }
-        });
-      }
     </script>
   </body>
 </html>
