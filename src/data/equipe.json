@@ -1,11 +1,39 @@
 {
   "membres": [
-    { "nom": "Frédéric", "role": "Expert Optique", "expertise": "30 ans d'expérience", "photo": "/images/equipe/frederic-gravelines-optique-e1755087092964.jpg" },
-    { "nom": "Marianne", "role": "Opticienne", "expertise": "Spécialiste lentilles", "photo": "/images/equipe/marianne-gravelines-optique-e1755087080142.jpg" },
-    { "nom": "Sacha", "role": "Opticien", "expertise": "Conseil montures", "photo": "/images/equipe/sacha-gravelines-optique-e1755087101230.jpg" },
-    { "nom": "Antoine", "role": "Opticien", "expertise": "Sport & outdoor", "photo": "/images/equipe/antoine-gravelines-optique-e1755087136572.jpg" },
-    { "nom": "Marine", "role": "Opticienne", "expertise": "Collections enfants", "photo": "/images/equipe/marine-gravelines-optique-e1755087125418.jpg" },
-    { "nom": "Paul", "role": "Opticien", "expertise": "SAV & réparations", "photo": "/images/equipe/paul-gravelines-optique-e1755087147604.jpg" },
-    { "nom": "Raphaël", "role": "Opticien", "expertise": "Verres progressifs", "photo": "/images/equipe/raphael-gravelines-optique-e1755087157882.jpg" }
+    {
+      "nom": "Frédéric",
+      "role": "Expert Optique",
+      "expertise": "30 ans d'expérience"
+    },
+    {
+      "nom": "Marianne",
+      "role": "Responsable administrative",
+      "expertise": "La voix au téléphone"
+    },
+    {
+      "nom": "Sacha",
+      "role": "Opticien",
+      "expertise": "Conseil montures"
+    },
+    {
+      "nom": "Antoine",
+      "role": "Opticien",
+      "expertise": "Sport & outdoor"
+    },
+    {
+      "nom": "Marine",
+      "role": "Opticienne",
+      "expertise": "Collections enfants"
+    },
+    {
+      "nom": "Paul",
+      "role": "Opticien",
+      "expertise": "SAV & réparations"
+    },
+    {
+      "nom": "Raphaël",
+      "role": "Opticien",
+      "expertise": "Verres progressifs"
+    }
   ]
 }
