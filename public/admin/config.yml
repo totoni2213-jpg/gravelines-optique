@@ -82,6 +82,30 @@ collections:
               - { label: "Titre", name: titre, widget: string }
               - { label: "Description", name: description, widget: text }
 
+  # ─── MARQUES ─────────────────────────────────────────────────────────────────
+  - name: marques
+    label: "🏷️ Nos Marques"
+    files:
+      - name: marques
+        label: "Marques et logos"
+        file: src/data/marques.json
+        fields:
+          - label: "Catégories"
+            name: categories
+            widget: list
+            field: { label: "Catégorie", name: item, widget: string }
+          - label: "Marques"
+            name: marques
+            widget: list
+            fields:
+              - { label: "Nom de la marque", name: name, widget: string }
+              - { label: "Logo", name: logo, widget: image, required: false }
+              - label: "Catégorie"
+                name: category
+                widget: select
+                options: ["Iconique", "Créateur", "Luxe", "Mode", "Lifestyle", "Sport", "Design", "Français", "Enfants", "Premium"]
+              - { label: "Afficher sur la page d'accueil", name: featured, widget: boolean, default: false }
+
   # ─── ÉQUIPE ──────────────────────────────────────────────────────────────────
   - name: equipe
     label: "👥 L'Équipe"

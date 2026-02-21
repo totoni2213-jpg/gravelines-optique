@@ -153,6 +153,42 @@ export default defineConfig({
         ],
       },
 
+      // ─── MARQUES ─────────────────────────────────────────────────────────────
+      {
+        name: "marques",
+        label: "🏷️ Nos Marques",
+        path: "src/data",
+        format: "json",
+        match: { include: "marques" },
+        ui: { allowedActions: { create: false, delete: false } },
+        fields: [
+          {
+            type: "string",
+            name: "categories",
+            label: "Catégories disponibles",
+            list: true,
+          },
+          {
+            type: "object",
+            name: "marques",
+            label: "Marques",
+            list: true,
+            ui: { itemProps: (item: any) => ({ label: `${item?.name} — ${item?.category}` }) },
+            fields: [
+              { type: "string", name: "name", label: "Nom de la marque", required: true },
+              { type: "image", name: "logo", label: "Logo" },
+              {
+                type: "string",
+                name: "category",
+                label: "Catégorie",
+                options: ["Iconique", "Créateur", "Luxe", "Mode", "Lifestyle", "Sport", "Design", "Français", "Enfants", "Premium"],
+              },
+              { type: "boolean", name: "featured", label: "Afficher sur la page d'accueil" },
+            ],
+          },
+        ],
+      },
+
       // ─── ÉQUIPE ─────────────────────────────────────────────────────────────
       {
         name: "equipe",

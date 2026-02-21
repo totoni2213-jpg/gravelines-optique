@@ -2,39 +2,14 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import marquesData from '../data/marques.json';
 
-const brands = [
-  { name: 'Ray-Ban', logo: '/logos/rayban-lunettes.png', category: 'Iconique' },
-  { name: 'Lafont', logo: '/logos/lafont-lunettes.png', category: 'Créateur' },
-  { name: 'Morel', logo: '/logos/morel-lunettes.png', category: 'Français' },
-  { name: 'Blackfin', logo: '/logos/blackfin-lunettes.png', category: 'Premium' },
-  { name: 'Nathalie Blanc', logo: '/logos/nathalie-blanc-lunettes.png', category: 'Créateur' },
-  { name: 'De Stijl', logo: '/logos/de-stijl-lunettes.png', category: 'Design' },
-  { name: 'Inès de la Fressange', logo: '/logos/inesdelafressange-lunettes.png', category: 'Luxe' },
-  { name: 'Tommy Hilfiger', logo: '/logos/tommy-hilfiger-lunettes.png', category: 'Lifestyle' },
-  { name: 'David Beckham', logo: '/logos/david-beckham-lunettes.png', category: 'Lifestyle' },
-  { name: 'Vogue', logo: '/logos/vogue-lunettes.png', category: 'Mode' },
-  { name: 'Serge Blanco', logo: '/logos/serge-blanco-lunettes.png', category: 'Sport' },
-  { name: 'Lancel', logo: '/logos/lancel-lunettes.png', category: 'Luxe' },
-  { name: 'IKKS', logo: '/logos/ikks-lunettes.png', category: 'Mode' },
-  { name: 'Eden Park', logo: '/logos/edenpark-lunettes.png', category: 'Sport' },
-  { name: 'Bensimon', logo: '/logos/bensimon-lunettes.png', category: 'Lifestyle' },
-  { name: 'Paname', logo: '/logos/paname-lunettes.png', category: 'Français' },
-  { name: 'Plein les Mirettes', logo: '/logos/pleinlesmirettes-lunettes.png', category: 'Créateur' },
-  { name: 'Eyelet', logo: '/logos/eyelet-lunettes.png', category: 'Design' },
-  { name: 'Pierre', logo: '/logos/pierre-lunettes.png', category: 'Créateur' },
-  { name: 'Dutz', logo: '/logos/dutz-lunettes.png', category: 'Design' },
-  { name: 'Alpine', logo: '/logos/Alpine-lunettes.png', category: 'Sport' },
-  { name: 'Superbolide', logo: '/logos/superbolider-lunettes.png', category: 'Sport' },
-  { name: 'Bushnell', logo: '/logos/bushnell-lunettes.png', category: 'Sport' },
-  { name: 'Karavan Kids', logo: '/logos/karavan-kids-lunettes.png', category: 'Enfants' },
-  { name: 'Maison Lune', logo: '/logos/maison-lune-lunettes.png.avif', category: 'Créateur' },
-];
+const brands = marquesData.marques;
 
 // Duplicate for seamless marquee
 const marqueeBrands = [...brands, ...brands];
 
-const categories = ['Toutes', 'Iconique', 'Créateur', 'Luxe', 'Mode', 'Lifestyle', 'Sport', 'Design', 'Français', 'Enfants', 'Premium'];
+const categories = ['Toutes', ...marquesData.categories];
 ---
 
 <Layout

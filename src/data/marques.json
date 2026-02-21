@@ -1,0 +1,30 @@
+{
+  "categories": ["Iconique", "Créateur", "Luxe", "Mode", "Lifestyle", "Sport", "Design", "Français", "Enfants", "Premium"],
+  "marques": [
+    { "name": "Ray-Ban", "logo": "/logos/rayban-lunettes.png", "category": "Iconique", "featured": true },
+    { "name": "Lafont", "logo": "/logos/lafont-lunettes.png", "category": "Créateur", "featured": true },
+    { "name": "Morel", "logo": "/logos/morel-lunettes.png", "category": "Français", "featured": true },
+    { "name": "Blackfin", "logo": "/logos/blackfin-lunettes.png", "category": "Premium", "featured": true },
+    { "name": "Nathalie Blanc", "logo": "/logos/nathalie-blanc-lunettes.png", "category": "Créateur", "featured": false },
+    { "name": "De Stijl", "logo": "/logos/de-stijl-lunettes.png", "category": "Design", "featured": false },
+    { "name": "Inès de la Fressange", "logo": "/logos/inesdelafressange-lunettes.png", "category": "Luxe", "featured": true },
+    { "name": "Tommy Hilfiger", "logo": "/logos/tommy-hilfiger-lunettes.png", "category": "Lifestyle", "featured": true },
+    { "name": "David Beckham", "logo": "/logos/david-beckham-lunettes.png", "category": "Lifestyle", "featured": true },
+    { "name": "Vogue", "logo": "/logos/vogue-lunettes.png", "category": "Mode", "featured": true },
+    { "name": "Serge Blanco", "logo": "/logos/serge-blanco-lunettes.png", "category": "Sport", "featured": true },
+    { "name": "Lancel", "logo": "/logos/lancel-lunettes.png", "category": "Luxe", "featured": true },
+    { "name": "IKKS", "logo": "/logos/ikks-lunettes.png", "category": "Mode", "featured": true },
+    { "name": "Eden Park", "logo": "/logos/edenpark-lunettes.png", "category": "Sport", "featured": true },
+    { "name": "Bensimon", "logo": "/logos/bensimon-lunettes.png", "category": "Lifestyle", "featured": false },
+    { "name": "Paname", "logo": "/logos/paname-lunettes.png", "category": "Français", "featured": false },
+    { "name": "Plein les Mirettes", "logo": "/logos/pleinlesmirettes-lunettes.png", "category": "Créateur", "featured": false },
+    { "name": "Eyelet", "logo": "/logos/eyelet-lunettes.png", "category": "Design", "featured": false },
+    { "name": "Pierre", "logo": "/logos/pierre-lunettes.png", "category": "Créateur", "featured": false },
+    { "name": "Dutz", "logo": "/logos/dutz-lunettes.png", "category": "Design", "featured": false },
+    { "name": "Alpine", "logo": "/logos/Alpine-lunettes.png", "category": "Sport", "featured": false },
+    { "name": "Superbolide", "logo": "/logos/superbolider-lunettes.png", "category": "Sport", "featured": false },
+    { "name": "Bushnell", "logo": "/logos/bushnell-lunettes.png", "category": "Sport", "featured": false },
+    { "name": "Karavan Kids", "logo": "/logos/karavan-kids-lunettes.png", "category": "Enfants", "featured": false },
+    { "name": "Maison Lune", "logo": "/logos/maison-lune-lunettes.png.avif", "category": "Créateur", "featured": false }
+  ]
+}
