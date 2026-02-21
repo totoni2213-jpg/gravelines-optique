@@ -1,7 +1,7 @@
 {
   "services": [
     {
-      "id": "examen",
+      "id": "examen-de-vue",
       "title": "Examen de vue",
       "subtitle": "Gratuit & sans rendez-vous",
       "description": "Nos opticiens diplômés réalisent un bilan visuel complet pour évaluer précisément votre correction. Résultat immédiat, sans ordonnance nécessaire pour les adultes de plus de 16 ans.",
@@ -11,10 +11,10 @@
         "Conseils personnalisés sur le type de correction adapté",
         "Compatible avec votre ordonnance médecin/ophtalmologue"
       ],
-      "accent": true
+      "accent": false
     },
     {
-      "id": "montures",
+      "id": "montures-verres",
       "title": "Montures & Verres",
       "subtitle": "1000+ montures en boutique",
       "description": "Vue, solaires, sport, enfants, créateurs... Nous avons la paire qui vous correspond. Nos opticiens vous accompagnent dans le choix selon votre morphologie, votre style et votre budget.",
@@ -27,7 +27,7 @@
       "accent": false
     },
     {
-      "id": "lentilles",
+      "id": "lentilles-de-contact",
       "title": "Lentilles de contact",
       "subtitle": "Adaptation & suivi inclus",
       "description": "Large gamme de lentilles pour tous les profils. Journalières, mensuelles, torique, multifocale... Notre équipe vous accompagne de l'essai à la commande régulière.",
@@ -41,7 +41,7 @@
       "accent": false
     },
     {
-      "id": "mutuelle",
+      "id": "tiers-payant",
       "title": "Tiers Payant",
       "subtitle": "Toutes mutuelles acceptées",
       "description": "Nous pratiquons le tiers payant avec toutes les complémentaires santé. Pas d'avance de frais dans la limite de votre remboursement. Devis gratuit personnalisé.",
@@ -54,7 +54,7 @@
       "accent": false
     },
     {
-      "id": "domicile",
+      "id": "service-a-domicile",
       "title": "Service à domicile",
       "subtitle": "Sur rendez-vous",
       "description": "Vous êtes à mobilité réduite ou ne pouvez pas vous déplacer ? Nous venons à votre domicile, en EHPAD ou dans les établissements de santé autour de Montivilliers.",
@@ -67,7 +67,7 @@
       "accent": false
     },
     {
-      "id": "audio",
+      "id": "audioprothese",
       "title": "Audioprothèse",
       "subtitle": "Bilan auditif gratuit",
       "description": "Nous proposons également des solutions auditives avec un audioprothésiste partenaire. Bilan auditif gratuit sur rendez-vous dans notre boutique de Montivilliers.",
