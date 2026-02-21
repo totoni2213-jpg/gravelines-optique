@@ -2,17 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import savData from '../data/sav.json';
 
-const reparations = [
-  { title: 'Remplacement de branches', delai: '24h', prix: 'Dès 15€' },
-  { title: 'Ressoudage de monture', delai: '24-48h', prix: 'Dès 20€' },
-  { title: 'Remplacement de plaquettes', delai: 'Immédiat', prix: 'Gratuit*' },
-  { title: 'Ajustement & réglage', delai: 'Immédiat', prix: 'Gratuit' },
-  { title: 'Remplacement de verre cassé', delai: '3-5 jours', prix: 'Sur devis' },
-  { title: 'Nettoyage des ultrasons', delai: 'Immédiat', prix: '5€' },
-  { title: 'Remplacement charnières', delai: '24-48h', prix: 'Dès 10€' },
-  { title: 'Remontage de verre', delai: 'Immédiat', prix: 'Dès 10€' },
-];
+const { reparations, garanties, etapes } = savData as {
+  reparations: { title: string; delai: string; prix: string }[];
+  garanties: { icon: string; title: string; desc: string }[];
+  etapes: { step: string; title: string; desc: string }[];
+};
 ---
 
 <Layout
@@ -48,11 +44,7 @@ const reparations = [
   <section class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-        {[
-          { icon: '🛡️', title: 'Garantie 2 ans', desc: 'Sur toutes les montures achetées chez nous. Couvre les défauts de fabrication.' },
-          { icon: '⚡', title: 'Express 24-48h', desc: 'La plupart des réparations réalisées en moins de 48h, souvent le jour même.' },
-          { icon: '🔧', title: 'Toutes marques', desc: 'Nous réparons vos lunettes quelle que soit la marque, même achetées ailleurs.' },
-        ].map((item) => (
+        {garanties.map((item) => (
           <div class="reveal text-center p-8 border border-cream-dark rounded-sm hover:border-gold transition-colors">
             <div class="text-4xl mb-4">{item.icon}</div>
             <h3 class="font-serif text-xl text-dark mb-3">{item.title}</h3>
@@ -109,12 +101,7 @@ const reparations = [
       </div>
 
       <div class="grid sm:grid-cols-4 gap-6 reveal">
-        {[
-          { step: '1', title: 'Déposez vos lunettes', desc: 'En boutique, du mardi au samedi.' },
-          { step: '2', title: 'Diagnostic gratuit', desc: 'Nous évaluons la réparation nécessaire.' },
-          { step: '3', title: 'Devis en direct', desc: 'On vous explique tout avant d\'intervenir.' },
-          { step: '4', title: 'Récupération', desc: 'Vos lunettes comme neuves en 24-48h.' },
-        ].map((item) => (
+        {etapes.map((item) => (
           <div class="text-center">
             <div class="w-12 h-12 rounded-full border-2 border-gold flex items-center justify-center text-gold font-serif text-lg mx-auto mb-4">{item.step}</div>
             <h3 class="font-serif text-white text-base mb-2">{item.title}</h3>

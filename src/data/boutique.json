@@ -1,0 +1,16 @@
+{
+  "texte1": "Depuis 2008, Gravelines Optique est votre opticien indépendant à Montivilliers. Ce n'est pas une chaîne, c'est une boutique familiale où chaque client est connu, écouté et conseillé.",
+  "texte2": "Fondée avec la passion de l'optique de qualité et le souci du service personnalisé, notre boutique de plus de 100m² accueille aujourd'hui plus de 1000 montures soigneusement sélectionnées auprès des meilleurs fabricants français et internationaux.",
+  "stats": [
+    { "value": "2008", "label": "Fondée en" },
+    { "value": "100m²", "label": "Surface" },
+    { "value": "1000+", "label": "Montures" },
+    { "value": "7", "label": "Experts" }
+  ],
+  "avantages": [
+    { "icon": "🤝", "title": "Conseil humain", "desc": "Pas de script commercial, juste de l'écoute et de l'expertise." },
+    { "icon": "✨", "title": "Sélection exigeante", "desc": "Nous choisissons chaque marque pour sa qualité, pas pour ses marges." },
+    { "icon": "🅿️", "title": "Parking gratuit", "desc": "Facile d'accès avec un grand parking gratuit à proximité." },
+    { "icon": "♿", "title": "Accès PMR", "desc": "Boutique entièrement accessible aux personnes à mobilité réduite." }
+  ]
+}

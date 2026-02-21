@@ -1,0 +1,23 @@
+{
+  "reparations": [
+    { "title": "Remplacement de branches", "delai": "24h", "prix": "Dès 15€" },
+    { "title": "Ressoudage de monture", "delai": "24-48h", "prix": "Dès 20€" },
+    { "title": "Remplacement de plaquettes", "delai": "Immédiat", "prix": "Gratuit*" },
+    { "title": "Ajustement & réglage", "delai": "Immédiat", "prix": "Gratuit" },
+    { "title": "Remplacement de verre cassé", "delai": "3-5 jours", "prix": "Sur devis" },
+    { "title": "Nettoyage des ultrasons", "delai": "Immédiat", "prix": "5€" },
+    { "title": "Remplacement charnières", "delai": "24-48h", "prix": "Dès 10€" },
+    { "title": "Remontage de verre", "delai": "Immédiat", "prix": "Dès 10€" }
+  ],
+  "garanties": [
+    { "icon": "🛡️", "title": "Garantie 2 ans", "desc": "Sur toutes les montures achetées chez nous. Couvre les défauts de fabrication." },
+    { "icon": "⚡", "title": "Express 24-48h", "desc": "La plupart des réparations réalisées en moins de 48h, souvent le jour même." },
+    { "icon": "🔧", "title": "Toutes marques", "desc": "Nous réparons vos lunettes quelle que soit la marque, même achetées ailleurs." }
+  ],
+  "etapes": [
+    { "step": "1", "title": "Déposez vos lunettes", "desc": "En boutique, du mardi au samedi." },
+    { "step": "2", "title": "Diagnostic gratuit", "desc": "Nous évaluons la réparation nécessaire." },
+    { "step": "3", "title": "Devis en direct", "desc": "On vous explique tout avant d'intervenir." },
+    { "step": "4", "title": "Récupération", "desc": "Vos lunettes comme neuves en 24-48h." }
+  ]
+}

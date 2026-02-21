@@ -269,6 +269,15 @@
       <div class="nav-item" onclick="showSection('equipe')" id="nav-equipe">
         <span class="ni">👥</span> L'Équipe
       </div>
+      <div class="nav-item" onclick="showSection('boutique')" id="nav-boutique">
+        <span class="ni">🏪</span> La Boutique
+      </div>
+      <div class="nav-item" onclick="showSection('services')" id="nav-services">
+        <span class="ni">🛠️</span> Services
+      </div>
+      <div class="nav-item" onclick="showSection('sav')" id="nav-sav">
+        <span class="ni">🔧</span> SAV & Réparations
+      </div>
     </nav>
     <div class="sidebar-footer">
       <button class="btn-logout" onclick="logout()">⬅ Déconnexion</button>
@@ -323,6 +332,9 @@ function showSection(s) {
   if (s === 'dashboard') loadDashboard();
   else if (s === 'articles') loadArticles();
   else if (s === 'marques') loadJsonEditor('marques');
+  else if (s === 'services') loadJsonEditor('services');
+  else if (s === 'sav') loadJsonEditor('sav');
+  else if (s === 'boutique') loadJsonEditor('boutique');
   else loadJsonEditor(s);
 }
 
@@ -438,6 +450,18 @@ async function loadDashboard() {
         <div class="dash-action" onclick="showSection('marques')">
           <div class="da-icon da-gold">🏷️</div>
           <div><strong>Nos Marques</strong><span>Gérer les marques et logos</span></div>
+        </div>
+        <div class="dash-action" onclick="showSection('services')">
+          <div class="da-icon da-blue">🛠️</div>
+          <div><strong>Services</strong><span>Modifier les services proposés</span></div>
+        </div>
+        <div class="dash-action" onclick="showSection('sav')">
+          <div class="da-icon da-green">🔧</div>
+          <div><strong>SAV & Réparations</strong><span>Tarifs et processus SAV</span></div>
+        </div>
+        <div class="dash-action" onclick="showSection('boutique')">
+          <div class="da-icon da-purple">🏪</div>
+          <div><strong>La Boutique</strong><span>Textes et chiffres clés</span></div>
         </div>
       </div>
     `;
@@ -670,7 +694,7 @@ async function delArticle(path, sha, titre) {
 }
 
 // ─── JSON EDITORS ──────────────────────────────────────────────────────────
-const JSON_FILES = { contact:'src/data/contact.json', accueil:'src/data/home.json', equipe:'src/data/equipe.json', marques:'src/data/marques.json' };
+const JSON_FILES = { contact:'src/data/contact.json', accueil:'src/data/home.json', equipe:'src/data/equipe.json', marques:'src/data/marques.json', services:'src/data/services.json', sav:'src/data/sav.json', boutique:'src/data/boutique.json' };
 
 async function loadJsonEditor(section) {
   const main = document.getElementById('main');
@@ -681,6 +705,9 @@ async function loadJsonEditor(section) {
     if (section === 'contact') renderContact(d.sha, json);
     else if (section === 'accueil') renderAccueil(d.sha, json);
     else if (section === 'marques') renderMarques(d.sha, json);
+    else if (section === 'services') renderServices(d.sha, json);
+    else if (section === 'sav') renderSAV(d.sha, json);
+    else if (section === 'boutique') renderBoutique(d.sha, json);
     else renderEquipe(d.sha, json);
   } catch(e) {
     main.innerHTML = `<div class="loading" style="color:var(--red)">Erreur: ${e.message}</div>`;
@@ -880,12 +907,23 @@ function renderEquipe(sha, j) {
 }
 
 function membreItem(m, i) {
+  const photoSrc = m.photo ? `<img src="${esc(m.photo)}" alt="" style="width:100%;height:100%;object-fit:cover;object-position:top">` : '👤';
   return `<div class="obj-item">
     <div class="obj-item-header"><span class="obj-label">Membre ${i+1}</span><button class="btn-rm" onclick="this.closest('.obj-item').remove()">✕ Supprimer</button></div>
-    <div class="form-3col">
-      <div class="form-group"><label>Prénom</label><input class="m-nom" value="${esc(m.nom||'')}" placeholder="Marie"/></div>
-      <div class="form-group"><label>Rôle / Titre</label><input class="m-role" value="${esc(m.role||'')}" placeholder="Opticienne diplômée"/></div>
-      <div class="form-group col-full"><label>Description courte</label><input class="m-exp" value="${esc(m.expertise||'')}" placeholder="Spécialiste adaptation lentilles"/></div>
+    <div style="display:flex;gap:16px;align-items:flex-start;flex-wrap:wrap">
+      <div>
+        <label style="font-size:12px;font-weight:600;color:#4a5568;display:block;margin-bottom:6px">Photo</label>
+        <div class="membre-photo-wrap" onclick="this.querySelector('input[type=file]')?.click()" title="Cliquer pour changer la photo" style="cursor:pointer;width:80px;height:80px;border:2px dashed var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;overflow:hidden;font-size:28px;flex-shrink:0;transition:border-color .2s" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="this.style.borderColor='var(--border)'">
+          ${photoSrc}
+          <input type="file" accept="image/*" style="display:none" onchange="uploadMembrePhoto(this,${i})">
+        </div>
+        <input class="m-photo" type="text" value="${esc(m.photo||'')}" placeholder="/images/equipe/photo.jpg" style="width:80px;font-size:10px;color:#a0aec0;margin-top:4px;border:none;background:transparent;text-align:center;padding:0" readonly>
+      </div>
+      <div class="form-3col" style="flex:1;min-width:200px">
+        <div class="form-group"><label>Prénom</label><input class="m-nom" value="${esc(m.nom||'')}" placeholder="Marie"/></div>
+        <div class="form-group"><label>Rôle / Titre</label><input class="m-role" value="${esc(m.role||'')}" placeholder="Opticienne diplômée"/></div>
+        <div class="form-group col-full"><label>Description courte</label><input class="m-exp" value="${esc(m.expertise||'')}" placeholder="Spécialiste adaptation lentilles"/></div>
+      </div>
     </div>
   </div>`;
 }
@@ -904,6 +942,7 @@ async function saveEquipe(sha) {
       nom: row.querySelector('.m-nom').value,
       role: row.querySelector('.m-role').value,
       expertise: row.querySelector('.m-exp').value,
+      photo: row.querySelector('.m-photo').value,
     })).filter(m=>m.nom||m.role);
     await apiPut(JSON_FILES.equipe, JSON.stringify({membres},null,2), sha, 'Mise à jour Équipe');
     toast('Équipe enregistrée ! Site mis à jour dans 1–2 min.');
@@ -1027,6 +1066,295 @@ async function saveMarques(sha) {
     toast('Erreur: '+e.message,'error');
     btn.disabled = false; btn.innerHTML = '💾 Enregistrer les modifications';
   }
+}
+
+// ── UPLOAD PHOTO ÉQUIPE ──
+async function uploadMembrePhoto(input, idx) {
+  const file = input.files[0];
+  if (!file) return;
+  if (file.size > 5*1024*1024) { toast('Image trop lourde (max 5 Mo)','error'); return; }
+  const item = input.closest('.obj-item');
+  const wrap = item.querySelector('.membre-photo-wrap');
+  const photoInput = item.querySelector('.m-photo');
+  wrap.innerHTML = '<div class="spinner" style="width:20px;height:20px;border-width:2px"></div>';
+  try {
+    const b64 = await fileToB64(file);
+    const raw = b64.split(',')[1];
+    const ext = file.name.split('.').pop().toLowerCase();
+    const nom = item.querySelector('.m-nom').value || 'membre';
+    const fname = `${slug(nom)}-gravelines-optique.${ext}`;
+    const ghPath = `public/images/equipe/${fname}`;
+    await apiPutBinary(ghPath, raw, undefined, `Upload photo équipe: ${fname}`);
+    const photoPath = `/images/equipe/${fname}`;
+    photoInput.value = photoPath;
+    wrap.innerHTML = `<img src="${b64}" alt="" style="width:100%;height:100%;object-fit:cover"><input type="file" accept="image/*" style="display:none" onchange="uploadMembrePhoto(this,${idx})">`;
+    toast('Photo uploadée !');
+  } catch(e) {
+    wrap.innerHTML = `👤<input type="file" accept="image/*" style="display:none" onchange="uploadMembrePhoto(this,${idx})">`;
+    toast('Erreur upload: '+e.message,'error');
+  }
+}
+
+// ── SERVICES ──
+function renderServices(sha, j) {
+  const services = j.services || [];
+  document.getElementById('main').innerHTML = `
+    <div class="page-header">
+      <div><h2>🛠️ Services</h2><p>Gérez les services proposés par la boutique</p></div>
+      <button class="btn-new" onclick="addService()">＋ Ajouter un service</button>
+    </div>
+    <div class="stats-row">
+      <div class="stat-card"><div class="sv">${services.length}</div><div class="sl">Services au total</div></div>
+      <div class="stat-card"><div class="sv">${services.filter(s=>s.accent).length}</div><div class="sl">Mis en avant</div></div>
+      <div class="stat-card"><div class="sv">${services.reduce((n,s)=>n+(s.details?.length||0),0)}</div><div class="sl">Points forts au total</div></div>
+    </div>
+    <div class="editor-wrap">
+      <div class="editor-body">
+        <div id="services-list">
+          ${services.map((s,i) => serviceItem(s,i)).join('')}
+        </div>
+        <button class="btn-add" onclick="addService()" style="margin-top:12px">＋ Ajouter un service</button>
+      </div>
+      <div class="editor-footer">
+        <button class="btn-save" id="save-btn" onclick="saveServices('${sha}')">💾 Enregistrer les modifications</button>
+      </div>
+    </div>`;
+}
+
+function serviceItem(s, i) {
+  return `<div class="obj-item" style="margin-bottom:16px">
+    <div class="obj-item-header">
+      <span class="obj-label">${esc(s.title||'Nouveau service')}</span>
+      <div style="display:flex;align-items:center;gap:12px">
+        <label style="display:flex;align-items:center;gap:6px;font-size:12px;cursor:pointer;color:#4a5568">
+          <input type="checkbox" class="s-accent" ${s.accent?'checked':''}> Fond sombre (mis en avant)
+        </label>
+        <button class="btn-rm" onclick="this.closest('.obj-item').remove()">✕ Supprimer</button>
+      </div>
+    </div>
+    <div class="form-2col">
+      <div class="form-group"><label>Titre du service</label><input class="s-title" value="${esc(s.title||'')}" placeholder="Examen de vue" oninput="this.closest('.obj-item').querySelector('.obj-label').textContent=this.value||'Nouveau service'"/></div>
+      <div class="form-group"><label>Badge / Sous-titre</label><input class="s-subtitle" value="${esc(s.subtitle||'')}" placeholder="Gratuit & sans rendez-vous"/></div>
+      <div class="form-group col-full"><label>Description</label><textarea class="s-desc" rows="3" placeholder="Décrivez ce service...">${esc(s.description||'')}</textarea></div>
+    </div>
+    <div style="margin-top:12px">
+      <label style="font-size:12px;font-weight:600;color:#4a5568;display:block;margin-bottom:6px">Points forts (liste à puces)</label>
+      <div class="list-editor s-details">
+        ${(s.details||[]).map(d => `<div class="list-item"><input type="text" value="${esc(d)}" placeholder="Ex: Mesure de l'acuité visuelle"><button class="btn-rm" onclick="this.parentNode.remove()">✕</button></div>`).join('')}
+      </div>
+      <button class="btn-add" onclick="this.previousElementSibling.insertAdjacentHTML('beforeend','<div class=\\'list-item\\'><input type=\\'text\\' placeholder=\\'Nouveau point\\'><button class=\\'btn-rm\\' onclick=\\'this.parentNode.remove()\\'>✕</button></div>');this.previousElementSibling.lastElementChild.querySelector(\\'input\\').focus()" style="margin-top:4px;font-size:12px;padding:5px 12px">＋ Ajouter un point</button>
+    </div>
+  </div>`;
+}
+
+function addService() {
+  const l = document.getElementById('services-list');
+  const i = l.querySelectorAll('.obj-item').length;
+  l.insertAdjacentHTML('beforeend', serviceItem({title:'',subtitle:'',description:'',details:[],accent:false}, i));
+  l.lastElementChild.querySelector('.s-title').focus();
+}
+
+async function saveServices(sha) {
+  const btn = document.getElementById('save-btn');
+  btn.disabled=true; btn.innerHTML='<span class="spinner-sm"></span> Enregistrement…';
+  try {
+    const services = [...document.querySelectorAll('#services-list .obj-item')].map(row => {
+      const details = [...row.querySelectorAll('.s-details input')].map(i=>i.value.trim()).filter(Boolean);
+      return {
+        id: slug(row.querySelector('.s-title').value || 'service'),
+        title: row.querySelector('.s-title').value.trim(),
+        subtitle: row.querySelector('.s-subtitle').value.trim(),
+        description: row.querySelector('.s-desc').value.trim(),
+        details,
+        accent: row.querySelector('.s-accent').checked
+      };
+    }).filter(s=>s.title);
+    await apiPut(JSON_FILES.services, JSON.stringify({services},null,2), sha, 'Mise à jour Services');
+    toast('Services enregistrés ! Site mis à jour dans 1–2 min.');
+    loadJsonEditor('services');
+  } catch(e) { toast('Erreur: '+e.message,'error'); btn.disabled=false; btn.innerHTML='💾 Enregistrer les modifications'; }
+}
+
+// ── SAV ──
+function renderSAV(sha, j) {
+  document.getElementById('main').innerHTML = `
+    <div class="page-header"><div><h2>🔧 SAV & Réparations</h2><p>Tarifs, garanties et processus de réparation</p></div></div>
+    <div class="editor-wrap">
+      <div class="editor-body">
+        <div class="section-card">
+          <h3>💰 Tableau des tarifs</h3>
+          <div style="display:grid;grid-template-columns:1fr auto auto auto;gap:6px;align-items:center;margin-bottom:8px;font-size:11px;font-weight:700;color:#718096;padding:0 4px">
+            <span>Type de réparation</span><span style="text-align:center;width:90px">Délai</span><span style="text-align:right;width:90px">Tarif</span><span style="width:28px"></span>
+          </div>
+          <div id="reparations-list">
+            ${(j.reparations||[]).map(r => reparationRow(r)).join('')}
+          </div>
+          <button class="btn-add" onclick="addReparation()">＋ Ajouter une réparation</button>
+        </div>
+        <div class="section-card">
+          <h3>🛡️ Garanties & engagements (3 blocs)</h3>
+          <div id="garanties-list">
+            ${(j.garanties||[]).map(g => garantieItem(g)).join('')}
+          </div>
+          <button class="btn-add" onclick="addGarantie()">＋ Ajouter un engagement</button>
+        </div>
+        <div class="section-card">
+          <h3>📋 Étapes du processus (4 étapes max)</h3>
+          <div id="etapes-list">
+            ${(j.etapes||[]).map(e => etapeItem(e)).join('')}
+          </div>
+          <button class="btn-add" onclick="addEtape()">＋ Ajouter une étape</button>
+        </div>
+      </div>
+      <div class="editor-footer">
+        <button class="btn-save" id="save-btn" onclick="saveSAV('${sha}')">💾 Enregistrer les modifications</button>
+      </div>
+    </div>`;
+}
+
+function reparationRow(r) {
+  return `<div class="list-item" style="gap:6px">
+    <input class="r-title" type="text" value="${esc(r.title||'')}" placeholder="Type de réparation" style="flex:2;min-width:0">
+    <input class="r-delai" type="text" value="${esc(r.delai||'')}" placeholder="24-48h" style="width:90px;text-align:center">
+    <input class="r-prix" type="text" value="${esc(r.prix||'')}" placeholder="Dès 15€" style="width:90px;text-align:right">
+    <button class="btn-rm" onclick="this.parentNode.remove()">✕</button>
+  </div>`;
+}
+
+function garantieItem(g) {
+  return `<div class="list-item" style="gap:8px">
+    <input class="g-icon" type="text" value="${esc(g.icon||'')}" placeholder="🛡️" style="width:48px;text-align:center;font-size:18px">
+    <input class="g-title" type="text" value="${esc(g.title||'')}" placeholder="Titre" style="flex:.8">
+    <input class="g-desc" type="text" value="${esc(g.desc||'')}" placeholder="Description courte" style="flex:2">
+    <button class="btn-rm" onclick="this.parentNode.remove()">✕</button>
+  </div>`;
+}
+
+function etapeItem(e) {
+  return `<div class="list-item" style="gap:8px">
+    <input class="e-step" type="text" value="${esc(e.step||'')}" placeholder="1" style="width:40px;text-align:center;font-weight:700">
+    <input class="e-title" type="text" value="${esc(e.title||'')}" placeholder="Titre de l'étape" style="flex:1">
+    <input class="e-desc" type="text" value="${esc(e.desc||'')}" placeholder="Description courte" style="flex:2">
+    <button class="btn-rm" onclick="this.parentNode.remove()">✕</button>
+  </div>`;
+}
+
+function addReparation() {
+  document.getElementById('reparations-list').insertAdjacentHTML('beforeend', reparationRow({title:'',delai:'',prix:''}));
+  document.getElementById('reparations-list').lastElementChild.querySelector('.r-title').focus();
+}
+function addGarantie() {
+  document.getElementById('garanties-list').insertAdjacentHTML('beforeend', garantieItem({icon:'',title:'',desc:''}));
+  document.getElementById('garanties-list').lastElementChild.querySelector('.g-title').focus();
+}
+function addEtape() {
+  const l = document.getElementById('etapes-list');
+  const n = l.querySelectorAll('.list-item').length + 1;
+  l.insertAdjacentHTML('beforeend', etapeItem({step:String(n),title:'',desc:''}));
+  l.lastElementChild.querySelector('.e-title').focus();
+}
+
+async function saveSAV(sha) {
+  const btn = document.getElementById('save-btn');
+  btn.disabled=true; btn.innerHTML='<span class="spinner-sm"></span> Enregistrement…';
+  try {
+    const reparations = [...document.querySelectorAll('#reparations-list .list-item')].map(row => ({
+      title: row.querySelector('.r-title').value.trim(),
+      delai: row.querySelector('.r-delai').value.trim(),
+      prix: row.querySelector('.r-prix').value.trim()
+    })).filter(r=>r.title);
+    const garanties = [...document.querySelectorAll('#garanties-list .list-item')].map(row => ({
+      icon: row.querySelector('.g-icon').value.trim(),
+      title: row.querySelector('.g-title').value.trim(),
+      desc: row.querySelector('.g-desc').value.trim()
+    })).filter(g=>g.title);
+    const etapes = [...document.querySelectorAll('#etapes-list .list-item')].map(row => ({
+      step: row.querySelector('.e-step').value.trim(),
+      title: row.querySelector('.e-title').value.trim(),
+      desc: row.querySelector('.e-desc').value.trim()
+    })).filter(e=>e.title);
+    await apiPut(JSON_FILES.sav, JSON.stringify({reparations,garanties,etapes},null,2), sha, 'Mise à jour SAV');
+    toast('SAV enregistré ! Site mis à jour dans 1–2 min.');
+    loadJsonEditor('sav');
+  } catch(e) { toast('Erreur: '+e.message,'error'); btn.disabled=false; btn.innerHTML='💾 Enregistrer les modifications'; }
+}
+
+// ── BOUTIQUE ──
+function renderBoutique(sha, j) {
+  document.getElementById('main').innerHTML = `
+    <div class="page-header"><div><h2>🏪 La Boutique</h2><p>Textes et chiffres clés de la page boutique</p></div></div>
+    <div class="editor-wrap">
+      <div class="editor-body">
+        <div class="section-card">
+          <h3>📖 Textes de présentation</h3>
+          <div class="form-group"><label>Paragraphe 1 (histoire, identité)</label><textarea id="b-texte1" rows="4" placeholder="Depuis 2008...">${j.texte1||''}</textarea></div>
+          <div class="form-group"><label>Paragraphe 2 (boutique, sélection)</label><textarea id="b-texte2" rows="4" placeholder="Fondée avec la passion...">${j.texte2||''}</textarea></div>
+        </div>
+        <div class="section-card">
+          <h3>📊 Chiffres clés (4 stats)</h3>
+          <div id="boutique-stats">
+            ${(j.stats||[]).map(s => boutiqueStatItem(s)).join('')}
+          </div>
+          <button class="btn-add" onclick="addBoutiqueStat()">＋ Ajouter un chiffre</button>
+        </div>
+        <div class="section-card">
+          <h3>✅ Avantages de la boutique (4 blocs)</h3>
+          <div id="boutique-avantages">
+            ${(j.avantages||[]).map(a => boutiqueAvantageItem(a)).join('')}
+          </div>
+          <button class="btn-add" onclick="addBoutiqueAvantage()">＋ Ajouter un avantage</button>
+        </div>
+      </div>
+      <div class="editor-footer">
+        <button class="btn-save" id="save-btn" onclick="saveBoutique('${sha}')">💾 Enregistrer les modifications</button>
+      </div>
+    </div>`;
+}
+
+function boutiqueStatItem(s) {
+  return `<div class="list-item" style="gap:8px">
+    <input class="bs-value" type="text" value="${esc(s.value||'')}" placeholder="2008" style="width:90px;font-weight:700;font-size:15px">
+    <input class="bs-label" type="text" value="${esc(s.label||'')}" placeholder="Fondée en" style="flex:1">
+    <button class="btn-rm" onclick="this.parentNode.remove()">✕</button>
+  </div>`;
+}
+
+function boutiqueAvantageItem(a) {
+  return `<div class="list-item" style="gap:8px">
+    <input class="ba-icon" type="text" value="${esc(a.icon||'')}" placeholder="🤝" style="width:48px;text-align:center;font-size:18px">
+    <input class="ba-title" type="text" value="${esc(a.title||'')}" placeholder="Titre" style="flex:.8">
+    <input class="ba-desc" type="text" value="${esc(a.desc||'')}" placeholder="Description courte" style="flex:2">
+    <button class="btn-rm" onclick="this.parentNode.remove()">✕</button>
+  </div>`;
+}
+
+function addBoutiqueStat() {
+  document.getElementById('boutique-stats').insertAdjacentHTML('beforeend', boutiqueStatItem({value:'',label:''}));
+  document.getElementById('boutique-stats').lastElementChild.querySelector('.bs-value').focus();
+}
+function addBoutiqueAvantage() {
+  document.getElementById('boutique-avantages').insertAdjacentHTML('beforeend', boutiqueAvantageItem({icon:'',title:'',desc:''}));
+  document.getElementById('boutique-avantages').lastElementChild.querySelector('.ba-title').focus();
+}
+
+async function saveBoutique(sha) {
+  const btn = document.getElementById('save-btn');
+  btn.disabled=true; btn.innerHTML='<span class="spinner-sm"></span> Enregistrement…';
+  try {
+    const stats = [...document.querySelectorAll('#boutique-stats .list-item')].map(row => ({
+      value: row.querySelector('.bs-value').value.trim(),
+      label: row.querySelector('.bs-label').value.trim()
+    })).filter(s=>s.value||s.label);
+    const avantages = [...document.querySelectorAll('#boutique-avantages .list-item')].map(row => ({
+      icon: row.querySelector('.ba-icon').value.trim(),
+      title: row.querySelector('.ba-title').value.trim(),
+      desc: row.querySelector('.ba-desc').value.trim()
+    })).filter(a=>a.title);
+    const json = { texte1: v('b-texte1'), texte2: v('b-texte2'), stats, avantages };
+    await apiPut(JSON_FILES.boutique, JSON.stringify(json,null,2), sha, 'Mise à jour Boutique');
+    toast('Boutique enregistrée ! Site mis à jour dans 1–2 min.');
+    loadJsonEditor('boutique');
+  } catch(e) { toast('Erreur: '+e.message,'error'); btn.disabled=false; btn.innerHTML='💾 Enregistrer les modifications'; }
 }
 
 // ── HELPER ──

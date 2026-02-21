@@ -1,0 +1,83 @@
+{
+  "services": [
+    {
+      "id": "examen",
+      "title": "Examen de vue",
+      "subtitle": "Gratuit & sans rendez-vous",
+      "description": "Nos opticiens diplômés réalisent un bilan visuel complet pour évaluer précisément votre correction. Résultat immédiat, sans ordonnance nécessaire pour les adultes de plus de 16 ans.",
+      "details": [
+        "Mesure de l'acuité visuelle",
+        "Détection des troubles de la vision (myopie, hypermétropie, astigmatisme, presbytie)",
+        "Conseils personnalisés sur le type de correction adapté",
+        "Compatible avec votre ordonnance médecin/ophtalmologue"
+      ],
+      "accent": true
+    },
+    {
+      "id": "montures",
+      "title": "Montures & Verres",
+      "subtitle": "1000+ montures en boutique",
+      "description": "Vue, solaires, sport, enfants, créateurs... Nous avons la paire qui vous correspond. Nos opticiens vous accompagnent dans le choix selon votre morphologie, votre style et votre budget.",
+      "details": [
+        "Sélection de 1000+ montures en boutique sur 100m²",
+        "Verres personnalisés : Zeiss, Hoya et autres grands verriers",
+        "Montage de vos verres en boutique",
+        "Conseils morphologie pour trouver la monture parfaite"
+      ],
+      "accent": false
+    },
+    {
+      "id": "lentilles",
+      "title": "Lentilles de contact",
+      "subtitle": "Adaptation & suivi inclus",
+      "description": "Large gamme de lentilles pour tous les profils. Journalières, mensuelles, torique, multifocale... Notre équipe vous accompagne de l'essai à la commande régulière.",
+      "details": [
+        "Adaptation et premier essai offerts",
+        "Lentilles journalières, mensuelles, bi-mensuelles",
+        "Lentilles toriques (astigmates) et multifocales",
+        "Lentilles de couleur",
+        "Commande en ligne et livraison à domicile"
+      ],
+      "accent": false
+    },
+    {
+      "id": "mutuelle",
+      "title": "Tiers Payant",
+      "subtitle": "Toutes mutuelles acceptées",
+      "description": "Nous pratiquons le tiers payant avec toutes les complémentaires santé. Pas d'avance de frais dans la limite de votre remboursement. Devis gratuit personnalisé.",
+      "details": [
+        "Tiers payant toutes mutuelles et complémentaires santé",
+        "Devis transparent et gratuit",
+        "Remboursements Sécurité Sociale + mutuelle gérés pour vous",
+        "Paiement en plusieurs fois sans frais disponible"
+      ],
+      "accent": false
+    },
+    {
+      "id": "domicile",
+      "title": "Service à domicile",
+      "subtitle": "Sur rendez-vous",
+      "description": "Vous êtes à mobilité réduite ou ne pouvez pas vous déplacer ? Nous venons à votre domicile, en EHPAD ou dans les établissements de santé autour de Montivilliers.",
+      "details": [
+        "Déplacement sur la zone de Montivilliers et alentours",
+        "Examen de vue à domicile",
+        "Sélection de montures apportées sur place",
+        "Livraison de vos lunettes terminées"
+      ],
+      "accent": false
+    },
+    {
+      "id": "audio",
+      "title": "Audioprothèse",
+      "subtitle": "Bilan auditif gratuit",
+      "description": "Nous proposons également des solutions auditives avec un audioprothésiste partenaire. Bilan auditif gratuit sur rendez-vous dans notre boutique de Montivilliers.",
+      "details": [
+        "Bilan auditif complet et gratuit",
+        "Essai d'appareils auditifs sans engagement",
+        "Tiers payant mutuelles",
+        "Suivi et réglages inclus"
+      ],
+      "accent": false
+    }
+  ]
+}

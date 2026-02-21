@@ -3,10 +3,18 @@ import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import equipeData from '../data/equipe.json';
+import boutiqueData from '../data/boutique.json';
 
 const team = equipeData.membres.map((m: { nom: string; role: string; expertise: string; photo: string }) => ({
   name: m.nom, role: m.role, exp: m.expertise, photo: m.photo
 }));
+
+const { texte1, texte2, stats, avantages } = boutiqueData as {
+  texte1: string;
+  texte2: string;
+  stats: { value: string; label: string }[];
+  avantages: { icon: string; title: string; desc: string }[];
+};
 ---
 
 <Layout
@@ -27,7 +35,7 @@ const team = equipeData.membres.map((m: { nom: string; role: string; expertise: 
       </h1>
       <p class="text-white/60 text-lg max-w-2xl mx-auto">
         100m² dédiés à votre vision depuis 2008 à Montivilliers.
-        Une équipe de 7 experts passionnés à votre service.
+        Une équipe de {team.length} experts passionnés à votre service.
       </p>
     </div>
   </section>
@@ -41,22 +49,10 @@ const team = equipeData.membres.map((m: { nom: string; role: string; expertise: 
           <h2 class="font-serif text-4xl sm:text-5xl text-dark mb-6 leading-tight">
             L'optique indépendante<br />au service de <em>votre vision</em>
           </h2>
-          <p class="text-dark/70 text-lg leading-relaxed mb-6">
-            Depuis 2008, Gravelines Optique est votre opticien indépendant à Montivilliers.
-            Ce n'est pas une chaîne, c'est une boutique familiale où chaque client est connu, écouté et conseillé.
-          </p>
-          <p class="text-dark/70 leading-relaxed mb-8">
-            Fondée avec la passion de l'optique de qualité et le souci du service personnalisé,
-            notre boutique de plus de 100m² accueille aujourd'hui plus de 1000 montures soigneusement
-            sélectionnées auprès des meilleurs fabricants français et internationaux.
-          </p>
+          <p class="text-dark/70 text-lg leading-relaxed mb-6">{texte1}</p>
+          <p class="text-dark/70 leading-relaxed mb-8">{texte2}</p>
           <div class="grid grid-cols-2 gap-6">
-            {[
-              { label: 'Fondée en', value: '2008' },
-              { label: 'Surface', value: '100m²' },
-              { label: 'Montures', value: '1000+' },
-              { label: 'Experts', value: '7' },
-            ].map((stat) => (
+            {stats.map((stat) => (
               <div class="border-l-2 border-gold pl-4">
                 <div class="font-serif text-gold text-2xl">{stat.value}</div>
                 <div class="text-dark/50 text-sm">{stat.label}</div>
@@ -102,12 +98,7 @@ const team = equipeData.membres.map((m: { nom: string; role: string; expertise: 
         <h2 class="font-serif text-4xl text-dark mb-5">L'avantage de l'indépendant</h2>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {[
-          { icon: '🤝', title: 'Conseil humain', desc: 'Pas de script commercial, juste de l\'écoute et de l\'expertise.' },
-          { icon: '✨', title: 'Sélection exigeante', desc: 'Nous choisissons chaque marque pour sa qualité, pas pour ses marges.' },
-          { icon: '🅿️', title: 'Parking gratuit', desc: 'Facile d\'accès avec un grand parking gratuit à proximité.' },
-          { icon: '♿', title: 'Accès PMR', desc: 'Boutique entièrement accessible aux personnes à mobilité réduite.' },
-        ].map((item, i) => (
+        {avantages.map((item, i) => (
           <div class="reveal text-center p-8 border border-cream-dark rounded-sm hover:border-gold transition-colors" style={`transition-delay: ${i * 80}ms`}>
             <div class="text-4xl mb-4">{item.icon}</div>
             <h3 class="font-serif text-lg text-dark mb-3">{item.title}</h3>
@@ -123,7 +114,7 @@ const team = equipeData.membres.map((m: { nom: string; role: string; expertise: 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center mb-16 reveal">
         <div class="text-gold text-xs tracking-widest uppercase font-medium mb-3">Notre équipe</div>
-        <h2 class="font-serif text-4xl sm:text-5xl text-dark mb-5">7 Experts à votre service</h2>
+        <h2 class="font-serif text-4xl sm:text-5xl text-dark mb-5">{team.length} Experts à votre service</h2>
         <p class="text-dark/60 text-lg max-w-xl mx-auto">
           Des professionnels diplômés, passionnés par l'optique et dévoués à votre satisfaction.
         </p>
