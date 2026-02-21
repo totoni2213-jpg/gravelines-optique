@@ -1,57 +1,59 @@
 ---
-titre: "Comment se déroule un contrôle de vue chez l'opticien ?"
-description: "Vous n'avez jamais fait de contrôle de vue ou vous ne savez pas à quoi vous attendre ? Voici exactement ce qui se passe, étape par étape."
+titre: "Un contrôle de vue chez l'opticien : à quoi s'attendre ?"
+description: "Vous n'avez jamais fait de contrôle de vue ou vous ne savez pas exactement ce qui vous attend. Voici les étapes précises, en 20 minutes, gratuitement."
 date: 2025-03-20T00:00:00.000Z
 categorie: "Pratique"
 publie: true
-image: "/images/articles/examen-vue.jpg"
+image: "/images/articles/opticien-mesure.jpg"
 ---
 
-Le contrôle de vue fait peur à certaines personnes, souvent parce qu'elles ne savent pas ce qui les attend. Bonne nouvelle : c'est indolore, rapide, et totalement gratuit chez votre opticien.
+Beaucoup de personnes repoussent le contrôle de vue parce qu'elles ne savent pas ce qui les attend. Les gouttes dans les yeux ? Non. Les tests compliqués ? Non. Un rendez-vous long et stressant ? Non plus.
 
-## Durée et déroulement
+Un contrôle de vue chez votre opticien, c'est **20 à 25 minutes**, indolore, gratuit, et sans rendez-vous.
 
-Un contrôle complet dure environ **20 à 30 minutes**. Voici les grandes étapes.
+## L'entretien initial : on commence par vous écouter
 
-## 1. L'entretien initial (5 min)
-
-Votre opticien commence par quelques questions :
+L'opticien commence par quelques questions simples :
 - Portez-vous déjà des lunettes ou des lentilles ?
-- Avez-vous une ordonnance récente ?
-- Avez-vous des gênes particulières (fatigue, maux de tête, flou à certaines distances) ?
-- Quel est votre mode de vie (travail sur écran, conduite, sport...) ?
+- Avez-vous votre ordonnance actuelle ?
+- Avez-vous des gênes particulières — maux de tête, vision floue à certaines distances, yeux qui fatiguent ?
+- Quel est votre quotidien — travail sur écran, conduite, sport ?
 
-Ces informations guident tout le reste de l'examen.
+Ces informations orientent tout le reste de l'examen.
 
-## 2. La mesure de votre correction actuelle (5 min)
+## La lecture de vos verres actuels
 
-Si vous portez déjà des lunettes, l'opticien les passe dans un appareil appelé **frontofocométre** qui lit la correction de vos verres actuels. C'est le point de départ.
+Si vous portez déjà des lunettes, l'opticien les passe dans un appareil appelé **frontofocométre** qui lit la correction de chaque verre en quelques secondes. C'est le point de départ — on compare ensuite avec ce que l'examen révèle.
 
-## 3. L'examen de vue proprement dit (10-15 min)
+## Le test d'acuité visuelle : les lettres et les symboles
 
-**Test d'acuité à distance** : vous regardez des lettres ou des symboles projetés (ou sur un écran) et dites ce que vous voyez. L'opticien ajuste des lentilles progressivement jusqu'à trouver la correction optimale.
+Vous regardez des lettres ou des symboles projetés en face de vous. L'opticien place des lentilles devant vos yeux et vous demande si c'est mieux ou moins bien. Il affine progressivement jusqu'à trouver la correction qui vous donne la vision la plus nette.
 
-**Test binoculaire** : on vérifie que vos deux yeux fonctionnent bien ensemble (vision stéréoscopique, équilibre entre les deux yeux).
+Ce n'est pas un examen où il faut "réussir". Dites simplement ce que vous voyez, même si vous n'êtes pas sûr. "C'est pareil" ou "je ne sais pas" sont des réponses valides.
 
-**Test de près** : si vous avez plus de 40 ans ou signalez des difficultés de près, on mesure l'addition nécessaire pour la presbytie.
+## Le test binoculaire : vos deux yeux ensemble
 
-## 4. La mesure de la tension oculaire (2 min)
+On vérifie que vos deux yeux fonctionnent bien ensemble — qu'ils collaborent harmonieusement plutôt que de se gêner mutuellement.
 
-Un petit "pschitt" d'air sur l'œil. Pas du tout douloureux. Cette mesure détecte une pression oculaire élevée, premier signe possible de glaucome.
+## La tension oculaire : le petit souffle
 
-## 5. La conclusion
+Un petit jet d'air sur l'œil mesure la pression intraoculaire. C'est le test de dépistage du glaucome. Indolore, deux secondes par œil.
 
-Votre opticien vous explique le résultat :
-- Votre correction actuelle est-elle encore adaptée ?
-- Y a-t-il une évolution par rapport à l'ordonnance précédente ?
-- Doit-on vous orienter vers un ophtalmologue ?
+## La conclusion et le conseil
 
-## Ce que l'opticien ne peut pas faire
+L'opticien vous explique ce qu'il a trouvé :
+- Votre correction a-t-elle évolué ?
+- Faut-il changer de lunettes ?
+- Y a-t-il quelque chose qui mérite une consultation chez l'ophtalmologue ?
 
-L'opticien ne peut pas diagnostiquer ni traiter une maladie oculaire. Si quelque chose l'inquiète (tension élevée, signes de pathologie), il vous oriente vers un ophtalmologue.
+Il n'y a pas de pression pour acheter. Si votre correction est toujours bonne, on vous le dit.
+
+## La limite du contrôle chez l'opticien
+
+L'opticien n'est pas médecin. Il peut mesurer, détecter des signes anormaux, et vous orienter. Mais il ne peut pas diagnostiquer ni traiter une maladie oculaire. Si quelque chose l'interpelle, il vous adresse à l'ophtalmologue.
 
 ---
 
-C'est gratuit, sans rendez-vous et sans engagement. Venez quand vous voulez.
+Vous n'avez pas encore fait de contrôle cette année ? Passez sans rendez-vous, c'est gratuit.
 
 📞 **02 35 20 99 78** — 27 rue Léon Gambetta, Montivilliers

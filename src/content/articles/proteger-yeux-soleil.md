@@ -1,53 +1,45 @@
 ---
-titre: "Pourquoi et comment protéger ses yeux du soleil ?"
-description: "Les UV abîment les yeux tout autant que la peau. Pourtant, on y pense beaucoup moins. Ce qu'il faut savoir pour préserver sa vue à long terme."
+titre: "Les UV abîment vos yeux — mais on n'y pense presque jamais"
+description: "On met de la crème solaire sur la peau. Mais les yeux ? Les UV s'y accumulent toute une vie et accélèrent plusieurs maladies oculaires graves. Ce qu'il faut savoir."
 date: 2025-04-01T00:00:00.000Z
 categorie: "Santé oculaire"
 publie: true
-image: "/images/articles/lunettes-soleil.jpg"
+image: "/images/articles/personne-soleil.jpg"
 ---
 
-On pense à la crème solaire pour protéger notre peau, mais on oublie souvent nos yeux. Pourtant, les rayons UV sont tout aussi dangereux pour la vision — et les effets s'accumulent tout au long de la vie.
-
-## Les UV, c'est quoi exactement ?
-
-Les ultraviolets sont des rayons invisibles émis par le soleil. Il en existe trois types :
-- **UVA** : passent en profondeur dans l'œil, atteignent la rétine
-- **UVB** : absorbés par la cornée et le cristallin
-- **UVC** : bloqués par l'atmosphère, ne nous atteignent pas
+Chaque été, on pense à protéger sa peau. Les yeux, on y pense beaucoup moins. Pourtant, les rayons UV s'accumulent dans les yeux tout au long de la vie — et les conséquences, elles, n'arrivent que des décennies plus tard.
 
 ## Ce que les UV font à vos yeux
 
-**À court terme :**
-- **Kératite** (brûlure de la cornée) : très douloureuse, comme avoir du sable dans les yeux. Elle survient après une forte exposition sans protection (neige, eau, soudure). Elle guérit, mais c'est très désagréable.
+**À court terme :** une exposition intense sans protection peut provoquer une **kératite** — une brûlure de la cornée. C'est extrêmement douloureux (sensation de sable dans les yeux, larmes, sensibilité à la lumière). Elle guérit en quelques jours, mais c'est une expérience à ne pas répéter.
 
-**À long terme (exposition cumulée sur des années) :**
+**À long terme, sur des années :**
 - **Cataracte précoce** : les UV accélèrent l'opacification du cristallin
-- **DMLA** : les UV contribuent à la détérioration de la macula
+- **DMLA** : les UV contribuent à la dégradation de la zone centrale de la rétine
 - **Ptérygion** : excroissance de tissu sur la cornée, courante chez les personnes très exposées
+
+Ces pathologies ne font pas mal au moment où elles se développent. On ne s'en rend compte que quand la vision commence à baisser.
 
 ## Quand le risque est le plus élevé
 
-- **À la montagne** : l'atmosphère filtre moins les UV en altitude. La neige réfléchit jusqu'à 90% des UV.
-- **Au bord de l'eau** : la mer et les surfaces d'eau réfléchissent 20 à 25% des UV
-- **En plein midi** : l'intensité UV est maximale entre 11h et 15h
-- **Même par temps nuageux** : les nuages ne filtrent qu'une partie des UV
+La neige réfléchit **jusqu'à 90% des UV** — le ski sans protection solaire est l'une des causes les plus fréquentes de kératite. L'eau réfléchit 20 à 25%. Et les nuages ? Ils ne filtrent pas grand-chose — par temps couvert, les UV passent quand même.
 
-## La protection efficace
+L'intensité est maximale **entre 11h et 15h**, et augmente avec l'altitude.
 
-Une bonne paire de lunettes de soleil doit :
-- Porter le **marquage CE** (obligatoire en Europe)
-- Garantir une **protection UV400** (bloque tous les UV jusqu'à 400nm)
-- Avoir des verres **catégorie 2 ou 3** pour un usage courant
+## Ce que doit garantir une bonne paire de soleil
 
-La taille compte aussi : plus les verres sont grands et enveloppants, moins les UV passent sur les côtés.
+- Le **marquage CE** (obligatoire en Europe pour la vente)
+- La mention **UV400** ou **100% UV** (bloque tous les UV jusqu'à 400nm)
+- Une **catégorie de filtre** adaptée : catégorie 3 pour la plage ou la montagne, catégorie 2 pour un usage courant
 
-## Les enfants, une priorité
+La couleur des verres ne dit rien de la protection UV — un verre noir sans traitement UV est pire qu'un verre clair avec traitement, parce que vos pupilles se dilatent sous le verre sombre et laissent entrer plus de rayons nocifs.
 
-Les yeux des enfants laissent passer beaucoup plus d'UV que ceux des adultes (cristallin plus transparent). Mettez des lunettes de soleil adaptées à vos enfants dès que le soleil est présent.
+## Pour les enfants, c'est encore plus important
+
+Le cristallin d'un enfant est beaucoup plus transparent que celui d'un adulte — il laisse passer bien plus d'UV jusqu'à la rétine. Les dommages s'accumulent dès l'enfance. Équipez vos enfants en lunettes de soleil certifiées dès que le soleil est là.
 
 ---
 
-Nous avons une sélection de solaires pour toute la famille, avec protection UV400 garantie.
+Nous avons une sélection de lunettes de soleil pour toute la famille, avec protection UV400 garantie. Venez les essayer.
 
 📞 **02 35 20 99 78** — 27 rue Léon Gambetta, Montivilliers

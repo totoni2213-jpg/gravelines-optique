@@ -1,52 +1,56 @@
 ---
 titre: "Comment savoir si mon enfant voit mal ?"
-description: "Les enfants ne savent pas qu'ils voient mal — ils n'ont pas de point de comparaison. Voici les signes à surveiller et pourquoi agir tôt est crucial."
+description: "Votre enfant se rapproche de la télé, plisse les yeux, se plaint de maux de tête après l'école ? Ces signaux méritent attention. Un enfant qui voit mal ne le sait jamais."
 date: 2025-03-08T00:00:00.000Z
 categorie: "Enfants"
 publie: true
-image: "/images/articles/enfant-lunettes.jpg"
+image: "/images/articles/enfant-classe.jpg"
 ---
 
-Un enfant qui voit mal ne se plaint généralement pas. Il n'a aucun moyen de savoir que sa vision n'est pas normale, puisqu'il n'a jamais vu autrement. C'est aux adultes qui l'entourent d'être attentifs aux signaux.
+Un enfant qui voit mal ne le dit pas. Il ne peut pas le dire. Il n'a aucun point de comparaison : pour lui, tout le monde voit comme ça. Il a simplement appris à vivre avec une vision dégradée, en compensant du mieux qu'il peut.
 
-## Les signes à surveiller
+Résultat : beaucoup d'enfants arrivent en CP avec un défaut visuel non détecté. Et ce qui ressemble à de l'inattention, de la lenteur ou un manque d'intérêt pour la lecture est parfois juste... de la myopie.
 
-### À la maison
-- Il se rapproche **très près de la télévision** pour regarder
-- Il tient les livres ou les jeux très **proches de son visage**
-- Il **plisse les yeux** fréquemment pour regarder au loin
-- Il **ferme un œil** pour regarder quelque chose
-- Il **se frotte souvent les yeux** (fatigue visuelle)
-- Il évite les activités nécessitant une vision fine
+## Les signaux à surveiller à la maison
 
-### À l'école
-- Il n'arrive pas à lire ce qui est écrit au tableau (il ne copie pas ou copie mal)
-- Il perd souvent sa place en lisant
-- Il a du mal à se concentrer sur les lectures prolongées
+**Il se rapproche beaucoup de la télévision** — même quand personne ne lui demande.
+
+**Il tient les livres ou dessins très près de ses yeux** lors d'activités de près.
+
+**Il plisse fréquemment les yeux** pour regarder au loin. Ce réflexe involontaire est l'un des signes les plus fiables.
+
+**Il ferme un œil** pour regarder — souvent signe qu'un œil voit mieux que l'autre, ou d'un strabisme.
+
+**Il se frotte souvent les yeux** en dehors de la fatigue ou du sommeil.
+
+**Il trébuche ou manque d'adresse** dans les activités manuelles et de coordination.
+
+## Les signaux à surveiller à l'école
+
+- Il ne copie pas ce qui est écrit au tableau, ou copie avec des erreurs
+- Il perd sa place quand il lit, relit les mêmes lignes
+- Il évite la lecture ou s'en lasse très rapidement
 - Ses résultats baissent sans raison apparente
-- Il se plaint de maux de tête après l'école
+- Il se plaint de maux de tête en fin de journée scolaire
 
-### Des comportements particuliers
-- Il **incline la tête** d'un côté pour regarder
-- Un **œil qui louche** ou dévie (même légèrement, même par intermittence)
-- Il butte souvent contre les objets, mauvaise coordination
+**Un enseignant qui signale un manque d'attention est parfois en train de décrire un problème visuel.**
 
-## Pourquoi c'est important d'agir vite
+## Un signe particulier : l'inclinaison de la tête
 
-**Avant 7-8 ans**, le système visuel est encore en développement. Si un défaut visuel n'est pas corrigé pendant cette période, le cerveau peut "abandonner" l'œil qui voit moins bien — c'est l'amblyopie. Une fois passé cet âge, la correction est beaucoup plus difficile.
+Si votre enfant tourne ou penche régulièrement la tête d'un côté pour regarder, ne l'ignorez pas. Ce comportement compense souvent un strabisme ou un déséquilibre entre les deux yeux.
 
-Un enfant qui voit mal peut être perçu à tort comme **distrait, peu attentif ou en difficulté scolaire** alors qu'il souffre simplement d'un trouble visuel non détecté.
+## Pourquoi agir vite ?
 
-## Quand et qui consulter ?
+Avant 7-8 ans, le système visuel est encore en développement. C'est la fenêtre d'opportunité. Un trouble visuel non détecté pendant cette période peut entraîner une **amblyopie** (œil paresseux) — une perte visuelle difficile à récupérer une fois les connexions cérébrales fixées.
 
-- **Votre opticien** peut faire un premier bilan et vous orienter
-- **Le médecin traitant** lors des bilans obligatoires
-- **L'ophtalmologue pédiatrique** pour un bilan complet et une prescription si nécessaire
+Un enfant bien corrigé dès le départ a toutes les chances de développer une vision normale et de progresser sereinement à l'école.
 
-Le contrôle de vue **avant l'entrée au CP** est fortement recommandé, même sans signe apparent.
+## Quand faire le premier bilan ?
+
+**Avant l'entrée en CP** (5-6 ans), même sans signe apparent. Et dès que vous observez l'un des comportements décrits ci-dessus — quel que soit l'âge.
 
 ---
 
-Vous avez un doute sur la vision de votre enfant ? Passez nous voir, le contrôle est gratuit.
+Un doute sur la vision de votre enfant ? Passez nous voir, le contrôle est gratuit. On prend le temps.
 
 📞 **02 35 20 99 78** — 27 rue Léon Gambetta, Montivilliers

@@ -1,61 +1,72 @@
 ---
 titre: "Comment lire son ordonnance de lunettes ?"
-description: "OD, OG, Sph, Cyl, Add... Votre ordonnance ressemble à un code secret ? On vous traduit tout en langage simple."
+description: "OD, OG, Sph, Cyl, Axe, Add... Votre ordonnance ressemble à un code secret ? On vous traduit chaque chiffre en langage simple, avec un exemple concret."
 date: 2025-01-20T00:00:00.000Z
 categorie: "Pratique"
 publie: true
-image: "/images/articles/examen-vue.jpg"
+image: "/images/articles/ordonnance.jpg"
 ---
 
-Vous avez en main votre ordonnance de lunettes et vous ne savez pas quoi en faire ? Pas de panique. On vous explique ce que signifie chaque terme.
+Vous repartez de chez l'ophtalmologue avec une feuille couverte de chiffres et d'abréviations obscures. OD, OG, Sph -1,75, Cyl -0,50, Axe 85, Add +2,00... Qu'est-ce que ça veut dire, et à quoi ça correspond dans votre vie réelle ?
 
-## Les abréviations de base
+On vous traduit tout, sans jargon.
 
-**OD** = Œil Droit (parfois noté *RE* pour Right Eye)
-**OG** = Œil Gauche (parfois noté *LE* pour Left Eye)
+## Les deux premières lettres : vos deux yeux
 
-Les deux yeux sont presque toujours différents — c'est tout à fait normal.
+**OD** = Œil Droit
+**OG** = Œil Gauche
 
-## Les valeurs principales
+*(parfois noté RE et LE en anglais sur certains logiciels)*
 
-### Sph (Sphère)
-C'est la puissance principale de correction.
-- Un **chiffre négatif** (ex : -2,00) = myopie → vous voyez mal de loin
-- Un **chiffre positif** (ex : +1,50) = hypermétropie → vous forcez pour voir de près
+Vos deux yeux ont presque toujours des corrections différentes. C'est parfaitement normal — et votre opticien fabrique deux verres distincts.
 
-### Cyl (Cylindre)
-Présent seulement si vous avez de l'astigmatisme. Il peut être positif ou négatif selon la convention du praticien.
+## Sph : votre correction principale
 
-### Axe
-Toujours associé au cylindre, il indique l'orientation de l'astigmatisme en degrés (entre 0° et 180°).
+La **sphère** (Sph) indique si vous êtes myope ou hypermétrope, et à quel degré.
 
-### Add (Addition)
-Ce chiffre n'apparaît que si vous avez de la presbytie. Il représente la puissance supplémentaire ajoutée pour la vision de près. Il est toujours positif (entre +0,75 et +3,50).
+- Un chiffre **négatif** (-1,50, -3,00...) = myopie → vous voyez flou de loin
+- Un chiffre **positif** (+1,00, +2,50...) = hypermétropie → vos yeux forcent, surtout de près
+
+## Cyl et Axe : l'astigmatisme
+
+Si vous avez de l'astigmatisme, votre ordonnance comporte deux valeurs supplémentaires :
+
+- **Cyl** (cylindre) : l'intensité de l'astigmatisme
+- **Axe** : l'orientation, exprimée en degrés (de 0 à 180°)
+
+Ces deux valeurs vont toujours ensemble. Si le Cyl est absent ou à 0, vous n'avez pas d'astigmatisme.
+
+## Add : la presbytie
+
+L'**addition** (Add) apparaît uniquement si vous avez de la presbytie. C'est la puissance supplémentaire ajoutée pour voir de près. Elle est toujours **positive** et comprise entre +0,75 et +3,50.
+
+Elle est souvent identique pour les deux yeux.
 
 ## Un exemple concret
 
-| | OD | OG |
-|--|----|----|
-| Sph | -1,50 | -2,00 |
+Voici une ordonnance réelle :
+
+|  | Œil droit | Œil gauche |
+|--|-----------|------------|
+| Sph | -1,75 | -2,25 |
 | Cyl | -0,50 | — |
 | Axe | 90° | — |
 | Add | +1,75 | +1,75 |
 
-**Lecture :** Cet exemple montre une personne myope, légèrement astigmate de l'œil droit, et presbyte.
+**Ce que ça dit :** cette personne est myope (correction négative), légèrement astigmate de l'œil droit seulement, et presbyte (Add +1,75 = presbytie débutante à modérée).
 
-## Ce que vous n'avez pas à comprendre
+## Ce que vous n'avez pas à mesurer vous-même
 
-L'écart pupillaire (EP ou DP) est la distance entre vos deux pupilles, mesurée en millimètres. C'est votre opticien qui la mesure avec précision lors de la prise en charge.
+L'**écart pupillaire** (EP ou PD) — la distance entre vos deux pupilles — est mesuré par votre opticien avec précision. C'est lui qui permet de centrer parfaitement les verres sur vos yeux. Ne cherchez pas à le calculer vous-même avec une règle.
 
 ## Combien de temps est valable une ordonnance ?
 
-- **3 ans** pour les adultes de 16 à 42 ans
-- **3 ans** pour les adultes de plus de 42 ans (renouvellement possible par l'opticien sous conditions)
+- **5 ans** pour les adultes de 16 à 42 ans
+- **3 ans** pour les adultes de plus de 42 ans *(votre opticien peut renouveler sous conditions)*
 - **1 an** pour les enfants de moins de 16 ans
-- **1 an** si la correction a évolué de plus de 0,50 dioptrie
 
 ---
 
-Vous avez votre ordonnance et souhaitez un devis ? Venez nous voir, c'est gratuit et sans engagement.
+Vous avez votre ordonnance en main ? Venez, on calcule votre prise en charge mutuelle immédiatement, sans engagement.
 
 📞 **02 35 20 99 78** — 27 rue Léon Gambetta, Montivilliers

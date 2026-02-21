@@ -1,54 +1,54 @@
 ---
-titre: "La sécheresse oculaire : pourquoi mes yeux piquent-ils ?"
-description: "Yeux qui brûlent, qui piquent, qui larmoient... La sécheresse oculaire touche des millions de personnes. Causes et solutions expliquées simplement."
+titre: "Yeux secs : pourquoi vos yeux piquent et que faire"
+description: "Brûlures, picotements, larmoiements... La sécheresse oculaire est plus fréquente que vous ne le pensez — surtout avec les écrans et la climatisation. Les vraies solutions."
 date: 2025-02-10T00:00:00.000Z
 categorie: "Santé oculaire"
 publie: true
-image: "/images/articles/ecrans-yeux.jpg"
+image: "/images/articles/gouttes-yeux.jpg"
 ---
 
-Vos yeux piquent, brûlent, ont l'impression d'avoir du sable dedans ? Vous avez peut-être la sécheresse oculaire. C'est l'un des problèmes oculaires les plus courants, et pourtant souvent mal compris.
+Vos yeux brûlent après une journée de bureau. Ils piquent quand vous conduisez avec la climatisation. Et paradoxalement, ils larmoient par moment alors que vous n'avez pas pleuré. C'est le paradoxe de la sécheresse oculaire : des yeux secs qui coulent.
 
-## Comment fonctionnent normalement les yeux ?
+Ce trouble touche **30% des adultes** en France. Et il s'aggrave avec les écrans, la climatisation, le port de lentilles et l'âge. La bonne nouvelle : des solutions simples existent.
 
-Vos yeux sont recouverts en permanence d'un **film lacrymal**, une fine couche de larmes qui les protège, les hydrate et les nourrit. Ce film se renouvelle à chaque clignement des paupières.
+## Le film lacrymal : le bouclier de vos yeux
 
-La sécheresse oculaire survient quand ce film est insuffisant ou de mauvaise qualité.
+Vos yeux sont recouverts en permanence d'un film de larmes invisible — le film lacrymal. Il les hydrate, les nourrit et les protège. Ce film se renouvelle à chaque clignement de paupières.
 
-## Les symptômes — parfois surprenants
+Quand ce film est insuffisant ou de mauvaise qualité, les yeux deviennent secs, irrités, vulnérables.
 
-- Yeux qui brûlent ou piquent
-- Sensation de **corps étranger** (comme du sable)
-- Rougeurs
-- Vision floue qui s'améliore en clignant des yeux
-- **Larmoiements excessifs** ← oui, paradoxalement ! L'œil sec produit des larmes réflexes de mauvaise qualité en réaction à l'irritation
+## Pourquoi autant de larmoiements avec des yeux secs ?
+
+C'est la confusion la plus fréquente. Quand vos yeux sont irrités par la sécheresse, ils déclenchent une production réflexe de larmes pour compenser. Mais ces larmes d'urgence sont de mauvaise qualité : elles coulent sans vraiment hydrater.
 
 ## Les causes les plus fréquentes
 
-**Les écrans** : quand on fixe un écran, on cligne des yeux beaucoup moins souvent (on passe de 15 à 5 clignements par minute). Le film lacrymal s'évapore.
+**Les écrans** : vous clignez des yeux 15 fois par minute normalement. Devant un écran, vous passez à 5 fois. Le film lacrymal s'évapore entre chaque clignement.
 
-**L'air conditionné et le chauffage** : assèchent l'atmosphère.
+**La climatisation et le chauffage** : l'air sec aspire littéralement l'humidité à la surface de l'œil. Bureaux, voitures, avions — des environnements redoutables.
 
-**L'âge** : la production lacrymale diminue naturellement après 40-50 ans, surtout chez les femmes après la ménopause.
+**L'âge** : après 50 ans, et surtout après la ménopause, la production lacrymale diminue naturellement.
 
-**Les lentilles de contact** : elles absorbent une partie des larmes.
+**Les lentilles de contact** : elles absorbent une partie des larmes et peuvent aggraver une sécheresse existante.
 
-**Certains médicaments** : antihistaminiques, antidépresseurs, certains traitements contre l'hypertension.
+**Certains médicaments** : antihistaminiques, antidépresseurs, bêtabloquants, pilule contraceptive.
 
-## Les solutions simples
+## Ce qui fonctionne vraiment
 
-- **Larmes artificielles** (collyres lubrifiants) : en pharmacie, sans ordonnance. Choisissez de préférence des versions sans conservateurs (en unidoses)
-- **La règle du 20-20-20** : toutes les 20 minutes d'écran, regarder à 6 mètres pendant 20 secondes
-- **Humidifier l'air** de votre bureau ou chambre
-- **Fermer consciemment les yeux** plus souvent en regardant un écran
-- **Compresses chaudes** sur les paupières : fluidifient les glandes qui produisent la couche grasse des larmes
+**Les larmes artificielles** restent la solution de première intention. Choisissez de préférence des versions **sans conservateurs** (unidoses ou flacons avec système de conservation sans conservateur) — les conservateurs peuvent eux-mêmes irriter les yeux à la longue.
 
-## Quand consulter ?
+**La règle du 20-20-20** : toutes les 20 minutes devant un écran, regardez à 6 mètres pendant 20 secondes. Ça suffit à relancer le réflexe de clignement.
 
-Si la gêne est chronique ou intense, consultez un ophtalmologue. Il existe des traitements plus poussés (bouchons lacrymaux, collyres spécialisés, etc.).
+**Les compresses chaudes** (45°C, 10 minutes) fluidifient les glandes de Meibomius dans vos paupières — celles qui produisent la couche grasse protectrice des larmes.
+
+**Humidifier votre bureau** avec un petit humidificateur : efficace et peu coûteux.
+
+## Et si vous portez des lentilles ?
+
+Certaines lentilles sont beaucoup mieux adaptées aux yeux secs que d'autres. Si vous souffrez de sécheresse avec vos lentilles actuelles, ce n'est pas une fatalité — venez en parler avec nous.
 
 ---
 
-Si vous portez des lentilles et souffrez de sécheresse, venez nous en parler. Il existe des lentilles bien mieux adaptées aux yeux secs.
+Des yeux qui piquent en permanence méritent un regard professionnel. Venez, on trouve la cause ensemble.
 
 📞 **02 35 20 99 78** — 27 rue Léon Gambetta, Montivilliers

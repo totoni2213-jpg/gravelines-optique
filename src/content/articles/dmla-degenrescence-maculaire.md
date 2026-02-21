@@ -1,51 +1,55 @@
 ---
-titre: "La DMLA : qu'est-ce que la dégénérescence maculaire ?"
-description: "La DMLA est la première cause de malvoyance après 50 ans en France. Comprendre cette maladie permet d'agir à temps pour préserver sa vision."
+titre: "La DMLA : quand le centre de la vision s'efface"
+description: "Première cause de malvoyance après 50 ans en France. La DMLA touche la zone la plus précieuse de votre rétine. Ce qu'il faut savoir pour agir à temps."
 date: 2025-02-05T00:00:00.000Z
 categorie: "Santé oculaire"
 publie: true
 image: "/images/articles/oeil-vue.jpg"
 ---
 
-La DMLA (Dégénérescence Maculaire Liée à l'Âge) touche plus de 1,5 million de Français et représente la principale cause de malvoyance chez les personnes de plus de 50 ans. Mieux la comprendre, c'est mieux la prévenir.
+Lire un livre, reconnaître un visage, regarder la télévision, conduire : toutes ces activités dépendent d'une minuscule zone au fond de votre œil — la macula. La DMLA, c'est la détérioration progressive de cette zone. Et quand elle s'abîme, c'est le centre de votre vie visuelle qui disparaît.
 
-## C'est quoi la macula ?
+En France, **1,5 million de personnes** sont touchées. C'est la première cause de malvoyance après 50 ans.
 
-La macula est une petite zone centrale de la rétine, d'environ 5mm de diamètre. C'est elle qui est responsable de la **vision centrale précise** : lire, reconnaître les visages, voir les détails fins.
+## Pourquoi la macula est-elle si importante ?
 
-Quand la macula se détériore, c'est cette vision centrale qui est touchée en premier. La vision périphérique (sur les côtés) est souvent préservée, ce qui explique que les personnes atteintes ne deviennent pas aveugles mais ont une grande difficulté dans les activités quotidiennes.
+La rétine couvre le fond de votre œil comme un écran. Mais elle n'est pas uniforme. Au centre, il y a la **macula** — une zone de quelques millimètres seulement, mais qui gère 90% de la vision fine et des couleurs.
+
+Tout ce qui demande de la précision — lire, distinguer les traits d'un visage, voir les détails — passe par la macula.
+
+Quand elle se dégrade, la vision périphérique reste souvent préservée. Mais les activités essentielles du quotidien deviennent de plus en plus difficiles.
 
 ## Les deux formes de DMLA
 
-**DMLA sèche (atrophique)** : la plus courante (90% des cas). Elle évolue lentement sur plusieurs années. Les cellules de la macula s'atrophient progressivement. Il n'existe pas encore de traitement curatif, mais on peut en ralentir la progression.
+**La DMLA sèche (la plus fréquente : 90% des cas)** s'installe lentement sur des années. Les cellules de la macula s'atrophient progressivement. À ce jour, il n'existe pas de traitement curatif, mais on peut ralentir la progression avec un suivi régulier et des mesures préventives.
 
-**DMLA humide (exsudative)** : moins fréquente mais plus grave. Des vaisseaux anormaux se forment sous la rétine et peuvent provoquer une perte de vision rapide. Elle se traite par injections intravitréennes (IVT), souvent avec de bons résultats si traitée tôt.
+**La DMLA humide (plus rare, plus agressive)** évolue rapidement. Des vaisseaux sanguins anormaux se forment sous la rétine et peuvent causer une perte de vision en quelques semaines. Elle se traite par des injections intravitréennes (IVT), souvent avec de bons résultats si le diagnostic est précoce.
 
-## Les signes d'alerte
+## Les premiers signes à ne pas ignorer
 
-- Les lignes droites (carrelage, grilles, cadres de portes) semblent **déformées ou courbes**
-- Une **tache floue ou sombre** au centre du champ visuel
-- Les couleurs paraissent moins vives
-- Besoin de plus de lumière pour lire
+- Les lignes droites (carrelage, cadre de porte, bords d'une page) vous semblent **ondulées ou déformées**
+- Une **tache floue ou grise** apparaît au centre de votre vision
+- Vous avez besoin de **plus de lumière** qu'avant pour lire confortablement
+- Les couleurs vous semblent moins vives
 
-**Outil simple à la maison : la grille d'Amsler.** Regardez un quadrillage régulier en couvrant un œil. Si les lignes vous semblent ondulées, consultez rapidement.
+**Test simple à faire à la maison : la grille d'Amsler.** Couvrez un œil, regardez un quadrillage régulier. Si les lignes vous semblent courbes ou si des zones manquent, consultez un ophtalmologue rapidement.
 
 ## Les facteurs de risque
 
-- L'âge (après 50 ans, risque croissant)
-- Le tabagisme (multiplie le risque par 3)
-- Les facteurs génétiques (antécédents familiaux)
-- L'exposition excessive aux UV sans protection solaire
+- **L'âge** (après 50 ans, risque qui augmente régulièrement)
+- **Le tabagisme** (il multiplie le risque par 3 — c'est l'un des plus grands facteurs modifiables)
+- **Les antécédents familiaux**
+- Une **exposition prolongée au soleil** sans protection UV
 
 ## La prévention
 
-- Porter des lunettes de soleil avec protection UV400
-- Ne pas fumer
-- Alimentation riche en antioxydants (légumes verts, poissons gras)
-- Contrôle ophtalmologique annuel après 50 ans
+- Porter des lunettes de soleil UV400 — pour de vrai, pas juste pour le style
+- Ne pas fumer, ou s'arrêter
+- Une alimentation riche en légumes verts feuillus et poissons gras (omega-3)
+- Un contrôle ophtalmologique annuel après 50 ans
 
 ---
 
-Si vous constatez une déformation de votre vision centrale, consultez un ophtalmologue sans attendre.
+Vous avez remarqué une déformation au centre de votre vision ? Consultez rapidement un ophtalmologue — et passez nous voir pour votre suivi optique.
 
 📞 **02 35 20 99 78** — 27 rue Léon Gambetta, Montivilliers

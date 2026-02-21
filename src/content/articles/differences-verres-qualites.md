@@ -1,52 +1,52 @@
 ---
-titre: "Pourquoi certains verres coûtent-ils plus cher que d'autres ?"
-description: "Entre un verre à 30€ et un verre à 300€, quelle est la vraie différence ? On vous explique sans jargon ce qui justifie les différences de prix."
+titre: "Pourquoi les verres optiques ont-ils des prix si différents ?"
+description: "Entre un verre à 30 € et un verre à 300 €, quelle est la vraie différence ? On vous explique sans jargon ce qui justifie les écarts de prix — et ce qui ne l'est pas."
 date: 2025-04-18T00:00:00.000Z
 categorie: "Pratique"
 publie: true
-image: "/images/articles/verres-progressifs.jpg"
+image: "/images/articles/verre-optique.jpg"
 ---
 
-Le prix des verres optiques varie énormément. Beaucoup de gens ont l'impression de ne pas comprendre pourquoi. Voici une explication honnête et simple.
+On vous présente deux paires de lunettes côte à côte. Elles se ressemblent. Mais l'une coûte 100 € et l'autre 600 €. Qu'est-ce qui justifie l'écart ? La réponse honnête : parfois beaucoup, parfois pas grand-chose.
 
-## Ce qui fait le prix d'un verre
+## Ce qui fait vraiment la différence
 
-### 1. L'indice de réfraction
-Un verre avec un indice élevé (1.67, 1.74) est plus fin pour la même correction qu'un verre à indice bas (1.5). Pour les corrections fortes, c'est une vraie différence esthétique et de confort. Plus l'indice est élevé, plus le verre coûte cher.
+### L'indice de réfraction
 
-### 2. Le type de verre
-- **Verre simple (monofocal)** : une seule correction, le moins cher
-- **Verre progressif** : technologie complexe, plus cher
-- **Verre de bureau (occupationnel)** : entre les deux
+Un verre d'indice élevé (1.67, 1.74) est **plus fin** pour une même correction qu'un verre bas de gamme (indice 1.5). Pour les corrections fortes, c'est une différence visible et confortable. Pour les corrections légères, ça change peu.
 
-### 3. La personnalisation
-Un verre standard est calculé de manière générique. Un verre personnalisé est calculé en tenant compte de votre écart pupillaire exact, de l'inclinaison de votre monture, de votre distance verre-œil, de votre posture...
+Plus l'indice est élevé, plus le verre est cher — mais pour une correction de -1, c'est rarement justifié.
 
-Cette personnalisation améliore vraiment le confort, surtout pour les progressifs. Mais elle a un coût.
+### Le type de verre
 
-### 4. Les traitements de surface
-- Antireflets (de base à premium)
-- Anti-rayures
-- Anti-saleté / anti-eau
-- Filtre UV
-- Filtre lumière bleue
+- **Verre monofocal** (une seule correction) : technologie simple, le moins cher
+- **Verre progressif** : intègre plusieurs zones de vision dans un seul verre — technologie complexe, prix plus élevé
+- **Verre de bureau** : intermédiaire entre les deux
 
-Chaque traitement ajouté augmente le prix.
+### La personnalisation
 
-## La différence ressentie en pratique
+Un verre standard est calculé de façon générique. Un verre personnalisé intègre votre écart pupillaire exact, l'inclinaison de votre monture, la distance entre vos yeux et le verre, votre posture habituelle.
 
-Pour les **corrections simples** (myopie légère, pas d'astigmatisme), un verre entrée de gamme bien centré peut très bien faire l'affaire.
+Pour les verres simples, cette personnalisation change peu. Pour les progressifs, **elle change vraiment le confort** — les zones de vision sont plus larges, les distorsions périphériques moindres.
 
-Pour les **corrections complexes ou les progressifs**, la différence de qualité entre un verre standard et un verre haut de gamme est souvent bien réelle : zones de vision plus larges, adaptation plus rapide, moins de distorsions sur les côtés.
+### Les traitements de surface
 
-## Ce que nous vous conseillons honnêtement
+Antireflets, anti-rayures, déperlant (l'eau glisse), filtre UV arrière, filtre lumière bleue... Chaque couche ajoutée augmente le prix. Certaines sont utiles selon votre usage, d'autres moins.
 
-Nous vous présentons toujours les options du 100% Santé (sans reste à charge) en premier. Si une option payante apporte un vrai bénéfice pour votre situation, on vous l'explique clairement avec des mots simples — sans vous forcer.
+## La vérité pratique
 
-Il n'y a pas de "mauvais" verre. Il y a des verres adaptés à votre correction, votre budget et vos besoins.
+Pour une **correction simple** (myopie légère, pas d'astigmatisme), un verre entrée de gamme bien centré fait très bien son travail. L'investissement dans un verre premium est difficile à justifier.
+
+Pour les **corrections fortes ou les progressifs**, la différence de qualité entre un verre standard et un haut de gamme est souvent perceptible : adaptation plus rapide, zones de vision plus larges, moins de fatigue. Ici, le prix peut être justifié.
+
+## Ce qu'on vous dit franchement
+
+Nous vous présentons toujours les options 100% Santé en premier — sans reste à charge. Si une option payante apporte un vrai bénéfice dans votre cas, on vous l'explique clairement. Sinon, on vous le dit aussi.
+
+Il n'y a pas de "mauvais" verre. Il y a des verres adaptés à votre correction, votre quotidien et votre budget.
 
 ---
 
-Venez avec votre ordonnance, on vous explique vos options en toute transparence.
+Venez avec votre ordonnance — on vous explique vos options en toute transparence, sans pression.
 
 📞 **02 35 20 99 78** — 27 rue Léon Gambetta, Montivilliers

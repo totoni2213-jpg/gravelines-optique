@@ -1,0 +1,1 @@
+{"functions":[{"bundler":"zisi","buildData":{"runtimeAPIVersion":1},"mainFile":"/Users/thomasg/gravelines-optique/netlify/functions/cms.js","name":"cms","priority":10,"runtimeVersion":"nodejs22.x","path":"/Users/thomasg/gravelines-optique/.netlify/functions/cms.zip","runtime":"js"}],"system":{"arch":"arm64","platform":"darwin"},"timestamp":1771678709029,"version":1}

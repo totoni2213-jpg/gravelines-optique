@@ -1,60 +1,62 @@
 ---
 titre: "Comment choisir ses lunettes selon la forme de son visage ?"
-description: "Rond, ovale, carré, cœur... Chaque morphologie a des montures qui lui vont mieux. Des conseils simples pour ne pas se tromper."
+description: "Ovale, carré, rond, cœur... Les règles qu'on cite partout sont vraies. Mais la monture parfaite, c'est surtout celle dans laquelle vous vous sentez bien. On vous aide à trouver."
 date: 2025-02-20T00:00:00.000Z
 categorie: "Pratique"
 publie: true
-image: "/images/articles/lunettes-table.jpg"
+image: "/images/articles/lunettes-essayage.jpg"
 ---
 
-Choisir une monture, c'est souvent intimidant. On hésite, on essaie, on ne sait plus. Pourtant, quelques règles simples permettent de guider le choix. Et surtout : **il n'y a pas de règles absolues**. Ce qui compte, c'est que vous vous sentiez bien.
+Il n'y a pas de monture qui "va à tout le monde". Il n'y a pas non plus de monture qui "ne va à personne". Il y a votre visage, votre personnalité, votre style — et un opticien capable de vous aider à trouver.
 
-## Identifier la forme de son visage
+Cela dit, quelques principes simples permettent d'affiner rapidement.
 
-Attachez vos cheveux en arrière, regardez-vous dans un miroir et demandez-vous : est-ce que mon visage est...
+## D'abord, identifier la forme de votre visage
 
-**Ovale** : plus long que large, légèrement arrondi. C'est la forme dite "universelle" — presque toutes les montures conviennent.
+Attachez vos cheveux, prenez du recul devant un miroir et observez le contour global de votre visage.
 
-**Rond** : visage aussi long que large, joues pleines, peu d'angles.
+**Ovale** : légèrement plus long que large, joues douces. La forme la plus "universelle" — presque tout vous ira.
+
+**Rond** : aussi large que long, joues pleines, peu d'angles.
 
 **Carré** : front, pommettes et mâchoire de largeur similaire, angles marqués.
 
-**Rectangle / Allongé** : plus long que large, avec des côtés quasi parallèles.
+**Allongé** : visage nettement plus long que large, front et mâchoire de largeur proche.
 
 **En cœur** : front large, menton fin et pointu.
 
 **En losange** : pommettes larges, front et menton plus étroits.
 
-## Ce qui va bien à chaque morphologie
+## Les conseils par morphologie
 
-### Visage rond
-Privilégiez les **formes angulaires** : rectangulaires, carrées. Elles allongent visuellement le visage. Évitez les montures trop rondes.
+**Visage rond** → Les formes angulaires (rectangulaires, carrées) allongent visuellement le visage. Évitez les montures très rondes qui accentuent l'arrondi.
 
-### Visage carré
-Les **formes rondes ou ovales** adoucissent les angles. Les montures légèrement remontées aux coins (cat-eye discret) fonctionnent bien.
+**Visage carré** → Les formes rondes ou ovales adoucissent les angles marqués. Un cadre légèrement remonté aux coins (cat-eye discret) fonctionne très bien.
 
-### Visage rectangle / allongé
-Choisissez des montures **larges et hautes** pour "raccourcir" visuellement le visage. Les formes arrondies ou légèrement angulaires conviennent bien.
+**Visage allongé** → Choisissez des montures larges et hautes pour "raccourcir" visuellement le visage. Les formes rondes ou avec une forte présence sur le haut conviennent.
 
-### Visage en cœur
-Les montures **plus larges en bas** équilibrent le bas du visage. Les formes ovales et légèrement carrées fonctionnent bien. Évitez les montures très remontées ou cat-eye prononcés.
+**Visage en cœur** → Les montures plus larges en bas équilibrent le menton fin. Les formes ovales et légèrement carré fonctionnent bien. Évitez les cat-eye très prononcés qui agrandissent encore le front.
 
-### Visage ovale
-La chance : tout vous va ! C'est le moment d'oser les formes originales ou les tendances.
+**Visage ovale** → Votre chance : tout vous va. C'est le moment d'oser les formes originales et les tendances.
 
-## Ce qui compte au-delà de la morphologie
+## Ce que les règles ne vous disent pas
 
-- **La taille des verres** par rapport à votre écart pupillaire (votre opticien mesure ça)
-- **La couleur** de la monture par rapport à votre teint et la couleur de vos yeux et cheveux
-- **Votre personnalité** : discret ou affirmé ?
-- **Votre activité** : lunettes de bureau, lunettes du quotidien, lunettes de sport ?
+La forme du visage, c'est un point de départ. Mais d'autres facteurs comptent autant :
 
-## Le meilleur conseil
+**La taille de vos yeux et l'écart pupillaire** : votre opticien le mesure pour centrer parfaitement les verres. Une monture trop large ou trop étroite par rapport à votre visage ne vous ira pas, quelle que soit sa forme.
 
-Essayez beaucoup de montures. Les préjugés sont souvent trompeurs. Ce que vous n'auriez jamais imaginé porter peut parfaitement vous aller. Nos opticiens sont là pour vous guider avec un regard neutre et bienveillant.
+**Votre teint et la couleur de vos yeux** : une monture acétate marron chaud mettra en valeur des yeux noisette, une monture noire mat ira sur presque tous les teints.
+
+**Votre style** : discret ou affirmé ? Une monture qui correspond à votre personnalité, c'est une monture que vous porterez avec plaisir pendant 2 ou 3 ans.
+
+**Ce que vous aimez** : si une monture vous fait sourire quand vous vous regardez dans le miroir, c'est souvent le meilleur signe.
+
+## Le conseil le plus utile
+
+Essayez au moins **dix paires** lors de votre visite. Les premières servent à éliminer, les dernières à affiner. Les montures qui vous surprennent le mieux sont souvent celles que vous n'auriez jamais choisies seul.
 
 ---
 
-Venez essayer sans pression dans notre boutique. On prend le temps qu'il faut.
+Venez essayer chez nous. Notre équipe a le regard exercé et le sens de l'honnêteté — on vous dira ce qui vous va vraiment.
 
 📞 **02 35 20 99 78** — 27 rue Léon Gambetta, Montivilliers

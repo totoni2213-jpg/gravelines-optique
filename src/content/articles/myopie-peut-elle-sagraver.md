@@ -1,48 +1,44 @@
 ---
-titre: "La myopie peut-elle s'aggraver ?"
-description: "\"Ma myopie empire chaque année\" : cette inquiétude est fréquente. Pourquoi la myopie progresse-t-elle et comment la ralentir ?"
+titre: "La myopie peut-elle s'aggraver — et peut-on la ralentir ?"
+description: "La myopie progresse souvent pendant l'enfance et l'adolescence. Comprendre pourquoi permet d'agir. Et il existe des solutions concrètes pour freiner cette progression."
 date: 2025-03-10T00:00:00.000Z
 categorie: "Enfants"
 publie: true
 image: "/images/articles/enfant-lunettes.jpg"
 ---
 
-Beaucoup de myopes, surtout les jeunes, voient leur correction augmenter régulièrement. C'est inquiétant, mais comprendre pourquoi permet d'agir.
+"Sa correction a encore augmenté." C'est ce que beaucoup de parents entendent chaque année chez l'ophtalmologue. Une inquiétude légitime — d'autant qu'il existe aujourd'hui des façons concrètes de ralentir la progression.
 
 ## Pourquoi la myopie progresse
 
-La myopie est liée à la longueur de l'œil. Pendant l'enfance et l'adolescence, l'œil grandit — et si cet allongement est trop important, la myopie augmente.
+La myopie est liée à la longueur de l'œil. Quand l'œil s'allonge trop, les images se forment en avant de la rétine plutôt que dessus — et la vision de loin devient floue.
 
-La croissance de l'œil s'accélère souvent pendant les **périodes de croissance générale** (7-15 ans). La myopie se stabilise en général entre **18 et 25 ans**, quand la croissance corporelle s'arrête.
+Pendant l'enfance et l'adolescence, **l'œil grandit** — et si cet allongement est excessif, la myopie augmente. La progression est souvent rapide entre **7 et 15 ans**, puis ralentit progressivement. Pour la majorité des jeunes myopes, la correction se stabilise entre **18 et 25 ans**, avec la fin de la croissance.
 
-## Les facteurs qui accélèrent la progression
+## Ce qui accélère la progression
 
-**Génétique** : si vos deux parents sont myopes, votre risque d'être myope et de progresser rapidement est plus élevé.
+**La génétique** joue un rôle important. Si vos deux parents sont myopes, votre enfant a un risque élevé d'être myope et de progresser rapidement.
 
-**Travail de près intensif** : lecture prolongée, écrans — l'œil reste en accommodation (mise au point rapprochée) pendant de longues périodes.
+**Le travail de près intensif** — lecture prolongée, écrans — maintient l'œil en accommodation constante. Des études suggèrent un lien avec la progression.
 
-**Manque de lumière naturelle** : des études montrent clairement que les enfants qui passent du temps dehors développent moins vite leur myopie. La lumière naturelle intense semble freiner l'allongement de l'œil.
+**Le manque de lumière naturelle.** C'est le facteur le plus étudié ces dernières années : les enfants qui passent du temps dehors, à la lumière naturelle, développent leur myopie moins vite. Ce n'est pas l'activité physique en elle-même, c'est **la lumière naturelle intense** qui semble freiner l'allongement de l'œil.
 
-## Comment ralentir la progression ?
+## Comment ralentir la progression
 
-### Pour les enfants et adolescents
+**2 heures de temps dehors par jour** : le consensus scientifique actuel est clair. La lumière naturelle est le facteur le plus efficace et le plus accessible.
 
-**Passer du temps dehors** : 2 heures par jour de lumière naturelle est le facteur le plus efficace démontré à ce jour. Ce n'est pas le sport en lui-même qui compte, c'est la lumière naturelle.
+**Les verres de contrôle de myopie** : des verres spécialement conçus (optique périphérique modifiée) réduisent la stimulation qui provoque l'allongement de l'œil. Ils sont prescrits par l'ophtalmologue et peuvent faire une vraie différence.
 
-**Les verres de contrôle de myopie** : il existe des verres spécialement conçus pour réduire la progression. Votre ophtalmologue peut les prescrire.
+**Les lentilles ortho-K** : portées la nuit, elles remodelent temporairement la cornée et ralentissent la progression. Une option à discuter avec l'ophtalmologue selon le profil de l'enfant.
 
-**Limiter (mais pas interdire) les écrans** : faire des pauses, regarder au loin régulièrement.
-
-### Pour les adultes
-
-À partir de 20-25 ans, la myopie se stabilise naturellement pour la majorité. Si votre correction continue d'évoluer après cet âge, consultez un ophtalmologue.
+**Des pauses régulières** lors des sessions de lecture ou d'écran.
 
 ## Une myopie forte est-elle dangereuse ?
 
-Une myopie supérieure à -6 dioptries (myopie forte) est associée à un risque légèrement plus élevé de certaines pathologies rétiniennes à long terme. Un suivi ophtalmologique régulier est alors particulièrement important.
+Une myopie supérieure à -6 dioptries (myopie forte) est associée à long terme à un risque un peu plus élevé de pathologies rétiniennes. Un **suivi ophtalmologique régulier** est alors particulièrement important.
 
 ---
 
-Votre enfant est myope et vous voyez sa correction évoluer ? Venez en parler avec nous.
+Votre enfant est myope et sa correction évolue chaque année ? Venez en parler, on fait le point ensemble.
 
 📞 **02 35 20 99 78** — 27 rue Léon Gambetta, Montivilliers

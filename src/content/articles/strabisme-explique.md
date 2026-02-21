@@ -1,50 +1,54 @@
 ---
-titre: "Le strabisme : quand un œil ne regarde pas dans la même direction"
-description: "Un œil qui dévie vers l'intérieur ou l'extérieur, c'est le strabisme. On vous explique ses causes, ses conséquences et son traitement."
+titre: "Le strabisme : bien plus qu'un œil qui louche"
+description: "Le strabisme touche 4% des enfants. Ce n'est pas anodin et ce n'est pas une question esthétique — c'est un trouble qui affecte le développement visuel et doit être traité tôt."
 date: 2025-01-25T00:00:00.000Z
-categorie: "Défauts visuels"
+categorie: "Enfants"
 publie: true
-image: "/images/articles/enfant-lunettes.jpg"
+image: "/images/articles/bebe-lunettes.jpg"
 ---
 
-Le strabisme, c'est quand les deux yeux ne regardent pas dans la même direction au même moment. Un œil pointe droit devant, l'autre dévie vers l'intérieur, l'extérieur, le haut ou le bas. Il touche environ 4% des enfants.
+"Il louche un peu, ça passera avec l'âge." Cette phrase rassurante, on l'entend parfois de l'entourage. Mais dans la plupart des cas, le strabisme ne se corrige pas spontanément. Et plus on attend, plus le traitement est difficile.
 
-## Les différents types de strabisme
+**4% des enfants** sont concernés. Presque tous peuvent être traités efficacement si le diagnostic est posé tôt.
 
-**Strabisme convergent** (ésotropie) : l'œil dévie vers le nez. C'est le plus fréquent chez l'enfant.
+## Qu'est-ce que le strabisme ?
 
-**Strabisme divergent** (exotropie) : l'œil s'écarte vers l'extérieur. Plus courant chez l'adulte.
+Nos deux yeux fonctionnent ensemble comme une paire de caméras parfaitement synchronisées. Pour maintenir cet alignement, six muscles autour de chaque œil travaillent en coordination permanente.
 
-**Strabisme vertical** : l'œil monte ou descend. Plus rare.
+Le strabisme, c'est quand cette coordination se rompt : un œil regarde droit devant, l'autre dévie vers l'intérieur (strabisme convergent, le plus fréquent chez l'enfant), l'extérieur, le haut ou le bas.
 
-## Pourquoi ça arrive ?
+## Ce que le cerveau fait pour compenser
 
-Nos deux yeux doivent normalement travailler parfaitement ensemble. Pour ça, six muscles autour de chaque œil coordonnent leurs mouvements. Le strabisme survient quand cette coordination est perturbée, souvent à cause de :
+Avoir deux yeux qui regardent dans des directions différentes devrait provoquer une double vision permanente. Pour éviter ça, le cerveau fait quelque chose d'ingénieux — et de problématique : **il supprime l'image de l'œil dévié**.
 
-- Une hypermétropie importante non corrigée (l'effort d'accommodation tire les yeux vers l'intérieur)
-- Une faiblesse d'un muscle oculomoteur
-- Une amblyopie préexistante
-- Parfois, une cause neurologique
+À court terme, le problème de double vision est résolu. Mais à long terme, l'œil ignoré n'est plus stimulé. Il ne se développe plus. C'est l'amblyopie qui s'installe — et la vision de cet œil peut baisser de façon significative.
 
-## Le strabisme est-il douloureux ?
+## Les causes
 
-Non. Mais pour éviter la double vision, le cerveau de l'enfant va automatiquement **ignorer l'image de l'œil dévié**. Ce mécanisme, s'il dure trop longtemps, entraîne une amblyopie (voir notre article sur l'œil paresseux).
+**L'hypermétropie non corrigée** est la cause la plus fréquente de strabisme convergent chez l'enfant. Pour voir net malgré leur hypermétropie, les yeux de l'enfant convergent trop — les muscles tirent les deux yeux vers l'intérieur.
 
-## Le traitement
+**Un déséquilibre musculaire** entre les muscles oculomoteurs peut aussi causer un strabisme indépendamment de la correction.
 
-Le traitement du strabisme est multidisciplinaire et peut combiner :
+**Une amblyopie préexistante** : un œil qui voit déjà moins bien peut progressivement dévier.
 
-1. **La correction optique** : des lunettes corrigent l'hypermétropie qui peut provoquer le strabisme
-2. **L'occlusion** : cacher l'œil dominant pour traiter l'amblyopie associée
-3. **La rééducation orthoptique** : des exercices pour entraîner la coordination des yeux
-4. **La chirurgie** : si nécessaire, pour rééquilibrer la tension des muscles oculaires
+## Le traitement : plusieurs leviers
 
-## À quel âge traiter ?
+Le traitement du strabisme combine souvent plusieurs approches :
 
-Le plus tôt possible. Le système visuel de l'enfant est plastique jusqu'à environ 7-8 ans. Passé cet âge, les traitements sont moins efficaces.
+**Les lunettes** : si l'hypermétropie est en cause, une correction adaptée peut suffire à redresser l'œil. C'est parfois spectaculaire — l'œil se remet droit dès la première semaine de port.
+
+**L'occlusion** : cacher l'œil dominant pour traiter l'amblyopie associée et forcer l'œil faible à travailler.
+
+**La rééducation orthoptique** : des exercices pour améliorer la coordination des deux yeux.
+
+**La chirurgie** : quand les autres traitements ne suffisent pas, une intervention sur les muscles oculaires peut rétablir l'alignement. Elle est souvent réalisée après 4-5 ans.
+
+## Ce qu'on peut attendre
+
+Un strabisme traité tôt peut aboutir à une vision binoculaire normale et à une esthétique parfaitement satisfaisante. Mais le temps joue contre vous — chaque mois qui passe rend le traitement plus long et les résultats moins prévisibles.
 
 ---
 
-Votre enfant semble loucher ? N'attendez pas, consultez rapidement un ophtalmologue. Votre opticien peut vous orienter.
+Votre enfant semble loucher, même par intermittence ? Consultez rapidement — votre opticien peut faire un premier bilan et vous orienter.
 
 📞 **02 35 20 99 78** — 27 rue Léon Gambetta, Montivilliers

@@ -1,57 +1,55 @@
 ---
-titre: "Comment fonctionne le remboursement de mes lunettes ?"
-description: "Sécurité sociale, mutuelle, 100% Santé, reste à charge... Le remboursement des lunettes peut sembler compliqué. On vous explique tout simplement."
+titre: "Remboursement de lunettes : qui paie quoi ?"
+description: "Sécu, mutuelle, 100% Santé, reste à charge, tiers payant... Le système de remboursement des lunettes est souvent confus. On vous l'explique simplement, avec des exemples concrets."
 date: 2025-03-12T00:00:00.000Z
 categorie: "Pratique"
 publie: true
-image: "/images/articles/examen-vue.jpg"
+image: "/images/articles/medicaments-sante.jpg"
 ---
 
-Le financement des lunettes est souvent une source de confusion. Qui rembourse quoi ? Combien ? À quelle fréquence ? Voici les réponses claires.
+"Combien vont me rembourser mes lunettes ?" C'est l'une des premières questions qu'on nous pose en boutique. Et la réponse varie énormément selon votre mutuelle, votre correction et la monture choisie.
 
-## Les deux niveaux de remboursement
+Voici comment ça fonctionne — en clair.
 
-### 1. L'Assurance Maladie (Sécurité Sociale)
-L'Assurance Maladie rembourse une base fixe, très faible :
-- **2 €** pour une monture (panier 100% Santé) ou une base tarifée pour une monture libre
-- Un montant forfaitaire pour les verres selon la correction
+## Le principe général : deux niveaux de remboursement
 
-Cette base est symbolique. L'essentiel du remboursement vient de la mutuelle.
+**La Sécurité Sociale** prend en charge une base forfaitaire très faible. Elle rembourse 2 € sur une monture et des montants fixes très limités sur les verres. C'est symbolique.
 
-### 2. La mutuelle (complémentaire santé)
-Votre mutuelle complète le remboursement selon votre contrat. Les niveaux de remboursement varient énormément d'un contrat à l'autre.
+**Votre mutuelle** complète le reste, selon les garanties de votre contrat. C'est là que se joue l'essentiel du remboursement.
 
-## Le 100% Santé : la solution sans reste à charge
+## Le 100% Santé : zéro centime à débourser
 
-Depuis 2020, des équipements entiers sont remboursés à **100%** sans rien débourser :
+Depuis 2020, une sélection complète de lunettes est remboursée à **100%** — Sécurité Sociale + mutuelle paient tout, vous ne payez rien.
 
-- Une monture parmi une sélection (17 modèles)
-- Des verres adaptés à votre correction
-- Un traitement antireflets inclus
+Cela concerne :
+- Des **montures** parmi une sélection de 17 modèles pour adultes (bien plus esthétiques qu'avant)
+- Des **verres** adaptés à votre correction, y compris progressifs pour la presbytie
+- Un **traitement antireflets** de base inclus
 
-La Sécurité Sociale + votre mutuelle couvrent la totalité. **Vous ne payez rien.**
+La seule condition : avoir une mutuelle "responsable" — ce qui couvre la quasi-totalité des contrats en France.
 
-Condition : avoir une mutuelle "responsable" (la grande majorité des contrats en France).
+## Si vous choisissez hors 100% Santé
 
-## Pour les équipements hors 100% Santé
+Vous avez évidemment le droit de choisir une monture ou des verres qui ne font pas partie de la sélection 100% Santé. Dans ce cas, votre mutuelle rembourse selon son barème, et **vous payez la différence**.
 
-Si vous choisissez une monture ou des verres hors de la sélection 100% Santé, vous payez la différence. Votre mutuelle rembourse selon son barème. Le reste à charge dépend entièrement de votre contrat.
+Ce reste à charge dépend entièrement de votre contrat mutuelle — certains contrats couvrent 200€ de monture, d'autres 80€. Notre logiciel de tiers payant calcule ça en temps réel.
 
-## La périodicité
+## Les délais entre deux remboursements
 
-Vous ne pouvez pas changer de lunettes chaque mois ! Il existe un délai minimal entre deux remboursements :
-- **2 ans** pour les adultes
+Vous ne pouvez pas renouveler vos lunettes toutes les semaines !
+
+- **2 ans** pour les adultes (entre deux équipements pris en charge)
 - **1 an** pour les enfants de moins de 16 ans
-- **1 an** si votre correction a évolué de plus de 0,5 dioptrie (sur justificatif médical)
+- **1 an** si votre correction a évolué de plus de 0,5 dioptrie (sur présentation d'une nouvelle ordonnance)
 
-## Le tiers payant
+## Le tiers payant : vous n'avancez rien
 
-Chez votre opticien, vous pouvez bénéficier du **tiers payant** : vous ne payez que votre reste à charge, et l'opticien se charge de facturer directement la Sécu et la mutuelle. Pratique : pas besoin d'avancer l'argent.
+Chez nous, nous pratiquons le **tiers payant avec toutes les mutuelles**. Concrètement : vous ne payez que votre éventuel reste à charge. On facture directement la Sécurité Sociale et votre mutuelle.
 
-Nous pratiquons le tiers payant avec toutes les mutuelles.
+Apportez simplement votre carte Vitale et votre carte mutuelle. On fait le reste.
 
 ---
 
-Apportez votre carte Vitale et votre carte mutuelle, et on calcule votre prise en charge en direct, gratuitement.
+Venez avec votre ordonnance, on vous dit immédiatement ce que vous paierez réellement — sans surprise.
 
 📞 **02 35 20 99 78** — 27 rue Léon Gambetta, Montivilliers

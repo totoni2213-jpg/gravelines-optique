@@ -1,50 +1,56 @@
 ---
-titre: "Comment bien entretenir ses lunettes ?"
-description: "Un chiffon de mauvaise qualité, un souffle sur les verres, une voiture trop chaude... Ces gestes du quotidien abîment vos lunettes sans que vous le sachiez."
+titre: "Comment bien entretenir ses lunettes — et éviter les erreurs communes"
+description: "Souffler sur les verres, essuyer avec un coin de t-shirt, laisser ses lunettes dans la voiture... Ces gestes du quotidien abîment vos lunettes sans que vous le sachiez."
 date: 2025-03-22T00:00:00.000Z
 categorie: "Pratique"
 publie: true
-image: "/images/articles/lunettes-table.jpg"
+image: "/images/articles/nettoyage-lunettes.jpg"
 ---
 
-Une bonne paire de lunettes coûte cher et peut durer plusieurs années — si on en prend soin. Voici les bons réflexes à adopter et les erreurs à ne plus jamais faire.
+Une bonne paire de lunettes avec des verres bien traités peut facilement durer 3 ou 4 ans — si on en prend soin. La plupart des rayures et dégradations qu'on voit en boutique ont une cause simple : de mauvaises habitudes au quotidien.
 
-## Nettoyer les verres : la bonne méthode
+Voici ce qui abîme réellement vos lunettes, et comment éviter ça.
 
-### Ce qu'il faut faire
-1. **Rincez d'abord** sous un filet d'eau tiède pour éliminer les poussières (essuyer des poussières sèches raye les verres)
-2. Ajoutez une **petite goutte de liquide vaisselle doux** et frottez doucement les deux faces avec les doigts
+## La principale erreur : essuyer des verres secs
+
+Vous enlevez vos lunettes, vous les essuyez rapidement avec le coin de votre chemise. Ça semble inoffensif. C'est pourtant l'une des choses les plus abrasives que vous puissiez faire.
+
+Les poussières et microparticules sur les verres agissent comme du papier de verre quand on les frotte à sec. Avec un traitement antireflets, les rayures apparaissent en quelques semaines.
+
+**La bonne méthode :**
+1. Rincez d'abord les verres sous un filet d'eau tiède — pour emporter les poussières sans les frotter
+2. Ajoutez une micro-goutte de liquide vaisselle doux et frottez doucement avec les doigts
 3. Rincez abondamment
-4. Séchez avec un **chiffon en microfibre propre** (doux, circulaire)
+4. Séchez avec un chiffon microfibre propre, en mouvements circulaires doux
 
-### Ce qu'il ne faut jamais faire
-- ❌ **Souffler sur les verres** : la salive est légèrement acide et attaque les traitements
-- ❌ **Utiliser un coin de vêtement, un mouchoir, un essuie-tout** : ils rayent les verres
-- ❌ **Produits ménagers, alcool, acétone** : détruisent les traitements
-- ❌ **Essuyer des verres secs à la main** : les poussières agissent comme du papier de verre
+## Ce qu'il ne faut jamais faire
 
-## Ranger ses lunettes correctement
+❌ **Souffler sur les verres** : la buée de salive est légèrement acide et attaque les traitements des verres avec le temps.
 
-- Toujours les ranger dans leur **étui**, verres vers le haut
-- Ne jamais les poser à l'envers directement sur une surface (les verres se rayent)
-- Ne pas les laisser dans une **voiture en été** : la chaleur déforme les montures plastique et altère les traitements des verres (certains traitements s'écaillent au-delà de 50°C)
+❌ **Essuyer avec un mouchoir, un essuie-tout, ou un coin de vêtement** : ces matières rayent.
 
-## Les réglages et petites réparations
+❌ **Utiliser de l'alcool ou des produits ménagers** : ils dissolvent les traitements antireflets et anti-rayures.
 
-Les branches se desserrent, les plaquettes s'usent, la monture se déforme légèrement avec le temps. C'est normal.
+❌ **Laisser les lunettes dans la voiture en été** : les habitacles peuvent dépasser 60°C. À cette température, les traitements des verres s'écaillent et les montures en plastique se déforment.
 
-**Ne forcez jamais** sur une branche trop serrée ou trop lâche. Passez chez votre opticien : le réglage est **gratuit et rapide**, quelques minutes suffisent.
+❌ **Poser les lunettes verres contre une surface** : même un tissu doux peut rayer si un grain de poussière s'est glissé dessous.
 
-De même, si une vis est desserrée, n'attendez pas qu'elle tombe. On la resserre gratuitement en boutique.
+## Le rangement
 
-## Révision complète annuelle recommandée
+Toujours dans l'étui, verres vers le haut. L'étui rigide protège contre les chocs. Même si c'est fastidieux, c'est la seule façon de vraiment protéger vos verres.
 
-Une fois par an, votre opticien peut réaliser un **nettoyage aux ultrasons** de votre monture (enlève tous les dépôts dans les coins et sous les plaquettes), vérifier les vis, ressortir la monture si besoin.
+## Les réglages : ne forcez jamais
 
-C'est gratuit chez Gravelines Optique, même pour des lunettes achetées ailleurs.
+Si une branche est trop serrée, ne la forcez pas. Si une vis se desserre, ne la perdez pas. Passez chez votre opticien — c'est gratuit et ça prend 3 minutes.
+
+Une monture qui "tire" d'un côté, une branche qui se ferme trop facilement, des plaquettes de nez usées : autant de petits problèmes qui, réglés rapidement, prolongent la vie de vos lunettes.
+
+## La révision annuelle
+
+Une fois par an, nous proposons un **nettoyage complet aux ultrasons** de votre monture, une vérification de toutes les vis et un réglage précis. C'est gratuit chez Gravelines Optique — même pour des lunettes achetées ailleurs.
 
 ---
 
-Passez quand vous voulez pour un réglage ou un nettoyage. Aucun rendez-vous nécessaire.
+Passez quand vous voulez pour un réglage ou un nettoyage. Sans rendez-vous, en quelques minutes.
 
 📞 **02 35 20 99 78** — 27 rue Léon Gambetta, Montivilliers

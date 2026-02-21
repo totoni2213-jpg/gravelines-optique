@@ -1,60 +1,67 @@
 ---
 titre: "Comment bien choisir ses lunettes de soleil ?"
-description: "Toutes les lunettes teintées ne protègent pas vraiment des UV. Voici ce qu'il faut savoir pour choisir une vraie paire de soleil, pas juste un accessoire de mode."
+description: "Une paire achetée en marché ou dans une boutique de mode protège-t-elle vraiment ? Pas toujours. Voici ce qu'il faut absolument vérifier avant d'acheter."
 date: 2025-03-01T00:00:00.000Z
 categorie: "Pratique"
 publie: true
-image: "/images/articles/lunettes-soleil.jpg"
+image: "/images/articles/plage-ete.jpg"
 ---
 
-En été, beaucoup de personnes achètent des lunettes de soleil sur un marché ou dans une boutique de mode sans se demander si elles protègent vraiment. Voici ce que vous devez savoir.
+Voici une information qui surprend toujours : **des verres très foncés sans filtre UV sont pires que rien**.
 
-## Pourquoi protéger ses yeux du soleil ?
+Pourquoi ? Parce que les verres sombres dilatent votre pupille — elle croit être à l'ombre. Mais si les UV passent quand même à travers les verres, votre œil en absorbe encore plus qu'à l'air libre. Un piège classique des lunettes de bazar.
 
-Les rayons ultraviolets (UV) sont dangereux pour les yeux, tout comme pour la peau. Une exposition prolongée et non protégée peut, sur le long terme, favoriser :
-- La **cataracte** (opacification du cristallin)
+## Ce que les UV font à vos yeux sur le long terme
+
+On parle beaucoup de la protection solaire pour la peau. Bien moins pour les yeux. Pourtant, les UV sont tout aussi agressifs pour la cornée, le cristallin et la rétine.
+
+Une exposition cumulée sur des années peut contribuer à :
+- Une **cataracte précoce** (opacification du cristallin)
 - La **DMLA** (dégénérescence maculaire liée à l'âge)
 - Des lésions de la cornée ou de la conjonctive
 
-## Le marquage CE : le minimum indispensable
+Et contrairement à la peau, les yeux ne bronzent pas. Ils ne s'adaptent pas. Ils s'abîment.
 
-Toutes les lunettes vendues en Europe doivent porter le **marquage CE**, qui garantit une protection contre les UV jusqu'à 400nm (UV400).
+## Le seul critère qui compte vraiment : le marquage CE + UV400
 
-Si vos lunettes n'ont pas ce marquage, elles ne protègent pas vos yeux — même si les verres sont très foncés. Un verre très foncé sans filtre UV est pire qu'un verre clair : la pupille se dilate dans l'obscurité et laisse entrer plus de rayons UV.
+Toutes les lunettes de soleil vendues en Europe doivent porter le **marquage CE** — il garantit une protection contre 100% des UV jusqu'à 400 nanomètres.
 
-## Les catégories de filtration
+Sans ce marquage, vous achetez un accessoire de mode, pas une protection.
 
-Les verres solaires sont classés de 0 à 4 selon leur filtration lumineuse :
+## Les catégories de filtration : choisissez selon votre activité
 
-| Catégorie | Usage recommandé |
-|-----------|-----------------|
-| 0-1 | Usage mode, nuageux |
-| 2 | Ensoleillement moyen |
-| 3 | Fort ensoleillement, plage, voile |
-| 4 | Très forte luminosité, glacier, montagne |
+| Catégorie | Filtration lumineuse | Pour quoi ? |
+|-----------|---------------------|-------------|
+| 1 | Légère (20–57%) | Temps nuageux, usage intérieur/extérieur |
+| 2 | Modérée (8–20%) | Usage courant en ville |
+| 3 | Élevée (3–8%) | Fort soleil, plage, voile |
+| 4 | Très élevée (moins de 3%) | Glacier, haute montagne |
 
-**Pour un usage quotidien en Normandie**, la catégorie 3 est un bon compromis.
+**Pour un usage quotidien en Normandie**, la catégorie 2 ou 3 est un bon choix. La catégorie 4 est inadaptée à la conduite (trop sombre).
 
 ## Polarisé ou pas ?
 
-Les verres polarisants éliminent les reflets horizontaux (sur l'eau, la route mouillée, le capot d'une voiture). Ils sont particulièrement appréciés pour :
-- Conduire
-- Les activités nautiques (voile, pêche)
-- Le ski
+Les verres polarisants éliminent les reflets horizontaux — sur l'eau, la route mouillée, le capot. C'est très appréciable pour :
 
-Pour un usage ville et plage ordinaire, les verres non polarisés font très bien l'affaire.
+- La conduite (réduction de l'éblouissement)
+- La pêche et la voile (voir sous la surface de l'eau)
+- Le ski (réduction des reflets sur la neige)
 
-## Et si je porte des lunettes de vue ?
+Pour un usage en ville, c'est un confort, pas une nécessité.
 
-Plusieurs solutions :
-- **Verres solaires correcteurs** : vos lunettes de soleil avec votre correction
-- **Surlunettes** : se portent par-dessus vos lunettes habituelles
-- **Verres photochromiques** : s'assombrissent automatiquement à la lumière
+## Et si vous portez des lunettes de vue ?
 
-Votre opticien peut vous faire un devis.
+Plusieurs options s'offrent à vous :
+- **Verres solaires correcteurs** : vos lunettes de soleil avec votre correction intégrée
+- **Surlunettes** : se portent par-dessus vos lunettes habituelles, pratiques et économiques
+- **Verres photochromiques** : s'assombrissent automatiquement dehors (voir notre article dédié)
+
+## Les enfants, une priorité absolue
+
+Les yeux des enfants laissent passer **deux à trois fois plus d'UV** que ceux des adultes (leur cristallin est encore très transparent). Protégez-les dès que le soleil est présent — pas seulement à la plage.
 
 ---
 
-Venez voir notre sélection de solaires dans notre boutique. Toutes respectent la norme CE et UV400.
+Toutes nos lunettes de soleil sont certifiées UV400. Venez essayer — c'est aussi une question de style !
 
 📞 **02 35 20 99 78** — 27 rue Léon Gambetta, Montivilliers
