@@ -6,116 +6,227 @@ import marquesData from '../data/marques.json';
 
 const brands = marquesData.marques;
 
-// Duplicate for seamless marquee
-const marqueeBrands = [...brands, ...brands];
+// Three copies for seamless infinite loop
+const strip1 = [...brands, ...brands, ...brands];
+const strip2 = [...brands].reverse();
+const strip2x = [...strip2, ...strip2, ...strip2];
 
-const categories = ['Toutes', ...marquesData.categories];
+// Only keep categories that actually have brands
+const usedCats = marquesData.categories.filter(c =>
+  brands.some((b: { category: string }) => b.category === c)
+);
+const categories = ['Toutes', ...usedCats];
+
+// Count per category
+const countByCat: Record<string, number> = {};
+categories.forEach(c => {
+  countByCat[c] = c === 'Toutes' ? brands.length : brands.filter((b: { category: string }) => b.category === c).length;
+});
 ---
 
 <Layout
   title="Nos Marques | Opticien à Montivilliers — Gravelines Optique"
-  description="30+ marques de lunettes : Ray-Ban, Lafont, David Beckham, IKKS enfants. Exclusivités. Essayage gratuit en boutique chez votre opticien à Montivilliers."
+  description="30+ marques de lunettes : Ray-Ban, Lafont, David Beckham, IKKS enfants. Essayage gratuit en boutique chez votre opticien à Montivilliers."
 >
   <Header />
 
-  <!-- Hero -->
-  <section class="pt-32 pb-20 bg-dark text-white relative overflow-hidden">
-    <div class="absolute inset-0 opacity-[0.04]">
-      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, #C9A961 1px, transparent 0); background-size: 40px 40px;"></div>
+  <!-- ─── HERO ─────────────────────────────────────────────────────────── -->
+  <section class="pt-32 pb-24 bg-dark text-white relative overflow-hidden">
+    <!-- Dot grid -->
+    <div class="absolute inset-0 opacity-[0.035]"
+      style="background-image: radial-gradient(circle at 1.5px 1.5px, #C9A961 1px, transparent 0); background-size: 36px 36px;">
     </div>
+    <!-- Large blurred glow -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-gold/5 blur-[120px] pointer-events-none"></div>
+
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div class="text-gold text-xs tracking-widest uppercase font-medium mb-4">Notre sélection</div>
-      <h1 class="font-serif text-6xl sm:text-7xl text-white mb-6 leading-tight">
-        30+ Marques<br/><em class="text-gold">d'Exception</em>
-      </h1>
-      <div class="w-16 h-px bg-gold mx-auto mb-8"></div>
-      <p class="text-white/50 text-lg max-w-xl mx-auto">
-        Des créateurs indépendants aux grandes maisons, nous sélectionnons avec exigence
-        chaque marque pour vous offrir le meilleur de l'optique.
-      </p>
-    </div>
-  </section>
-
-  <!-- Marquee strip -->
-  <div class="marquee-wrapper bg-dark border-t border-white/8">
-    <div class="marquee-track">
-      {marqueeBrands.map((brand) => (
-        <div class="marquee-item group">
-          <img
-            src={brand.logo}
-            alt={brand.name}
-            class="h-7 max-w-none object-contain brightness-0 invert opacity-25 group-hover:opacity-60 transition-opacity duration-300"
-            loading="lazy"
-            onerror="this.parentElement.style.display='none'"
-          />
-        </div>
-      ))}
-    </div>
-  </div>
-
-  <!-- Brands Grid -->
-  <section class="py-20 bg-cream">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-      <!-- Filter tabs -->
-      <div class="flex flex-wrap gap-2 mb-14 reveal">
-        {categories.map((cat) => (
-          <button
-            data-filter={cat}
-            class={`filter-btn px-4 py-2 text-xs font-medium rounded-full border transition-all duration-200 tracking-wide
-              ${cat === 'Toutes'
-                ? 'bg-dark text-white border-dark'
-                : 'border-dark/15 text-dark/50 hover:border-dark hover:text-dark'
-              }`}
-          >
-            {cat}
-          </button>
-        ))}
+      <div class="inline-flex items-center gap-2 bg-white/[0.06] border border-white/10 rounded-full px-5 py-2 text-gold text-xs tracking-widest uppercase font-medium mb-8 backdrop-blur-sm">
+        <span class="w-1.5 h-1.5 bg-gold rounded-full"></span>
+        Sélection exclusive
       </div>
+      <h1 class="font-serif text-6xl sm:text-8xl text-white mb-6 leading-[0.95] tracking-tight">
+        {brands.length}+&nbsp;<em class="text-gold italic">Marques</em><br/>
+        <span class="text-white/30 text-5xl sm:text-6xl">d'Exception</span>
+      </h1>
+      <div class="w-12 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto my-8"></div>
+      <p class="text-white/45 text-base max-w-md mx-auto leading-relaxed">
+        Des créateurs indépendants aux grandes maisons — chaque marque
+        sélectionnée avec exigence pour vous offrir le meilleur.
+      </p>
 
-      <!-- Grid -->
-      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-px bg-cream-dark" id="brands-grid">
-        {brands.map((brand, i) => (
-          <div
-            class="brand-card reveal group bg-white hover:bg-dark/[0.03] p-8 flex flex-col items-center justify-center gap-4 transition-all duration-300 cursor-pointer aspect-square"
-            data-category={brand.category}
-            style={`transition-delay: ${i * 30}ms`}
-          >
-            <img
-              src={brand.logo}
-              alt={`Logo ${brand.name}`}
-              class="max-h-12 max-w-full object-contain grayscale group-hover:grayscale-0 opacity-50 group-hover:opacity-90 transition-all duration-400"
-              loading="lazy"
-              onerror="this.style.display='none'; this.nextElementSibling.style.display='block';"
-            />
-            <div class="hidden font-serif text-dark text-sm text-center">{brand.name}</div>
-            <div class="flex flex-col items-center gap-1.5">
-              <div class="text-dark/40 text-xs group-hover:text-dark/70 transition-colors font-medium">{brand.name}</div>
-              <span class="text-xs px-2.5 py-0.5 bg-cream-dark rounded-full text-dark/40 group-hover:bg-gold/10 group-hover:text-gold-dark transition-colors">
-                {brand.category}
-              </span>
-            </div>
+      <!-- Mini stats -->
+      <div class="flex items-center justify-center gap-10 mt-12">
+        {[
+          { val: brands.length + '+', label: 'Marques' },
+          { val: usedCats.length.toString(), label: 'Catégories' },
+          { val: '2008', label: 'Depuis' },
+        ].map(s => (
+          <div class="text-center">
+            <div class="font-serif text-gold text-2xl font-bold">{s.val}</div>
+            <div class="text-white/30 text-xs uppercase tracking-widest mt-0.5">{s.label}</div>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="py-24 bg-dark text-white">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+  <!-- ─── DUAL MARQUEE ──────────────────────────────────────────────────── -->
+  <div class="marquee-section bg-dark border-y border-white/[0.06] py-0 overflow-hidden">
+    <!-- Gold accent line top -->
+    <div class="h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent"></div>
+
+    <!-- Strip 1 — left to right -->
+    <div class="marquee-wrap py-4">
+      <div class="marquee-track">
+        {strip1.map((brand: { logo: string; name: string }) => (
+          <div class="marquee-item">
+            <img
+              src={brand.logo}
+              alt={brand.name}
+              loading="lazy"
+              onerror="this.parentElement.style.display='none'"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Thin gold separator -->
+    <div class="h-px mx-8 bg-white/[0.06]"></div>
+
+    <!-- Strip 2 — right to left -->
+    <div class="marquee-wrap marquee-reversed py-4">
+      <div class="marquee-track-rev">
+        {strip2x.map((brand: { logo: string; name: string }) => (
+          <div class="marquee-item">
+            <img
+              src={brand.logo}
+              alt={brand.name}
+              loading="lazy"
+              onerror="this.parentElement.style.display='none'"
+            />
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Gold accent line bottom -->
+    <div class="h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent"></div>
+  </div>
+
+  <!-- ─── BRANDS SHOWCASE ───────────────────────────────────────────────── -->
+  <section class="py-24 bg-[#080808] min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <!-- Section header -->
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12 reveal">
+        <div>
+          <div class="text-gold text-xs tracking-widest uppercase font-medium mb-3">Toutes nos marques</div>
+          <h2 class="font-serif text-4xl text-white leading-tight">
+            Explorer la collection
+          </h2>
+        </div>
+        <p class="text-white/30 text-sm max-w-xs sm:text-right leading-relaxed">
+          Cliquez sur une catégorie pour filtrer. Toutes les marques sont disponibles en boutique.
+        </p>
+      </div>
+
+      <!-- Category filter — scrollable pills -->
+      <div class="filter-scroll-wrap mb-12 reveal">
+        <div class="flex gap-2 overflow-x-auto pb-1 filter-pills">
+          {categories.map((cat) => (
+            <button
+              data-filter={cat}
+              class={`filter-btn flex-shrink-0 flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium tracking-wide border transition-all duration-200 whitespace-nowrap
+                ${cat === 'Toutes'
+                  ? 'bg-gold text-[#080808] border-gold font-bold active'
+                  : 'text-white/40 border-white/10 hover:text-white/80 hover:border-white/30'
+                }`}
+            >
+              {cat}
+              <span class={`text-[10px] font-bold rounded-full px-1.5 py-0.5 min-w-[18px] text-center leading-none
+                ${cat === 'Toutes' ? 'bg-[#080808]/20 text-[#080808]' : 'bg-white/8 text-white/40'}`}>
+                {countByCat[cat]}
+              </span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Brands Grid -->
+      <div
+        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3"
+        id="brands-grid"
+      >
+        {brands.map((brand: { name: string; logo: string; category: string; featured: boolean }, i: number) => (
+          <div
+            class="brand-card reveal group"
+            data-category={brand.category}
+            style={`transition-delay: ${(i % 15) * 40}ms`}
+          >
+            <!-- Logo frame (white bg so colors always show) -->
+            <div class="logo-frame">
+              <img
+                src={brand.logo}
+                alt={`Logo ${brand.name}`}
+                loading="lazy"
+                onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+              />
+              <!-- Fallback -->
+              <div class="logo-fallback" style="display:none">
+                <span>{brand.name[0]}</span>
+              </div>
+            </div>
+
+            <!-- Info -->
+            <div class="card-info">
+              <div class="brand-name">{brand.name}</div>
+              <div class="brand-cat">{brand.category}</div>
+            </div>
+
+            <!-- Hover glow overlay -->
+            <div class="card-glow" aria-hidden="true"></div>
+
+            {brand.featured && (
+              <div class="featured-dot" title="Marque phare"></div>
+            )}
+          </div>
+        ))}
+      </div>
+
+      <!-- Empty state -->
+      <div id="empty-state" class="hidden text-center py-20 text-white/20">
+        <div class="text-5xl mb-4">🔍</div>
+        <p class="text-lg">Aucune marque dans cette catégorie.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ─── CTA ───────────────────────────────────────────────────────────── -->
+  <section class="py-28 bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.03]"
+      style="background-image: radial-gradient(circle at 1.5px 1.5px, #C9A961 1px, transparent 0); background-size: 36px 36px;">
+    </div>
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent"></div>
+    <div class="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <div class="text-gold text-xs tracking-widest uppercase font-medium mb-5">Sans rendez-vous</div>
-      <h2 class="font-serif text-5xl text-white mb-6">Essayage gratuit<br/><em class="text-gold">en boutique</em></h2>
-      <div class="w-16 h-px bg-gold mx-auto mb-8"></div>
-      <p class="text-white/50 text-lg mb-10">
-        Venez essayer toutes nos montures sans obligation d'achat. Notre équipe vous conseille
-        selon votre morphologie, votre style et votre correction.
+      <h2 class="font-serif text-5xl sm:text-6xl text-white mb-6 leading-tight">
+        Essayage gratuit<br/><em class="text-gold">en boutique</em>
+      </h2>
+      <div class="w-12 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto mb-8"></div>
+      <p class="text-white/40 text-base mb-10 max-w-sm mx-auto leading-relaxed">
+        Venez essayer toutes nos montures. Notre équipe vous conseille selon votre
+        morphologie, votre style et votre correction.
       </p>
       <a
         href="/contact"
-        class="inline-flex items-center gap-3 bg-gold hover:bg-gold-dark text-dark font-semibold px-9 py-4 rounded-sm transition-colors duration-200 text-sm tracking-widest uppercase"
+        class="inline-flex items-center gap-3 bg-gold hover:bg-gold-dark text-dark font-bold px-10 py-4 rounded-sm transition-all duration-200 text-sm tracking-widest uppercase hover:scale-[1.02]"
       >
-        Prendre rendez-vous
+        Voir les horaires
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+        </svg>
       </a>
     </div>
   </section>
@@ -124,53 +235,255 @@ const categories = ['Toutes', ...marquesData.categories];
 </Layout>
 
 <style>
-  .marquee-wrapper {
-    overflow: hidden;
-    padding: 1.5rem 0;
+  /* ── MARQUEE ─────────────────────────────────────────────────────────── */
+  .marquee-section { position: relative; }
+
+  .marquee-wrap { overflow: hidden; position: relative; }
+
+  /* Fade masks on edges */
+  .marquee-wrap::before,
+  .marquee-wrap::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 120px;
+    z-index: 2;
+    pointer-events: none;
   }
+  .marquee-wrap::before {
+    left: 0;
+    background: linear-gradient(to right, #0a0a0a, transparent);
+  }
+  .marquee-wrap::after {
+    right: 0;
+    background: linear-gradient(to left, #0a0a0a, transparent);
+  }
+
   .marquee-track {
     display: flex;
     align-items: center;
-    animation: marquee 50s linear infinite;
+    animation: marquee-ltr 55s linear infinite;
     width: max-content;
   }
+  .marquee-track-rev {
+    display: flex;
+    align-items: center;
+    animation: marquee-rtl 48s linear infinite;
+    width: max-content;
+  }
+
+  /* Pause on hover */
+  .marquee-section:hover .marquee-track,
+  .marquee-section:hover .marquee-track-rev {
+    animation-play-state: paused;
+  }
+
   .marquee-item {
     flex-shrink: 0;
-    padding: 0 3rem;
+    padding: 0 2.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  @keyframes marquee {
+  .marquee-item img {
+    height: 28px;
+    max-width: none;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.55;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  .marquee-item:hover img {
+    opacity: 1;
+  }
+
+  @keyframes marquee-ltr {
     from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    to   { transform: translateX(-33.333%); }
+  }
+  @keyframes marquee-rtl {
+    from { transform: translateX(-33.333%); }
+    to   { transform: translateX(0); }
+  }
+
+  /* ── FILTER PILLS ────────────────────────────────────────────────────── */
+  .filter-pills::-webkit-scrollbar { display: none; }
+  .filter-pills { -ms-overflow-style: none; scrollbar-width: none; }
+
+  .filter-btn.active {
+    background: #C9A961;
+    color: #080808;
+    border-color: #C9A961;
+    font-weight: 700;
+  }
+  .filter-btn.active span {
+    background: rgba(8,8,8,0.18);
+    color: #080808;
+  }
+
+  /* ── BRAND CARDS ─────────────────────────────────────────────────────── */
+  .brand-card {
+    position: relative;
+    background: #111111;
+    border: 1px solid rgba(255, 255, 255, 0.055);
+    border-radius: 16px;
+    padding: 20px 16px 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    cursor: default;
+    overflow: hidden;
+    transition: transform 0.35s cubic-bezier(.22,1,.36,1),
+                border-color 0.35s ease,
+                box-shadow 0.35s ease;
+  }
+
+  .brand-card:hover {
+    transform: translateY(-5px) scale(1.01);
+    border-color: rgba(201, 169, 97, 0.45);
+    box-shadow:
+      0 24px 64px rgba(0,0,0,0.6),
+      0 0 0 1px rgba(201,169,97,0.08),
+      0 8px 32px rgba(201,169,97,0.1);
+  }
+
+  /* White background logo frame — so logos show in full color */
+  .logo-frame {
+    width: 100%;
+    aspect-ratio: 3/2;
+    background: #fff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 14px 16px;
+    transition: box-shadow 0.35s ease;
+  }
+
+  .brand-card:hover .logo-frame {
+    box-shadow: 0 2px 20px rgba(0,0,0,0.4);
+  }
+
+  .logo-frame img {
+    max-height: 52px;
+    max-width: 100%;
+    object-fit: contain;
+    transition: transform 0.35s cubic-bezier(.22,1,.36,1);
+  }
+
+  .brand-card:hover .logo-frame img {
+    transform: scale(1.06);
+  }
+
+  .logo-fallback {
+    width: 52px;
+    height: 52px;
+    background: #f0f0f0;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: 700;
+    color: #666;
+    font-family: serif;
+  }
+
+  /* Card info */
+  .card-info {
+    text-align: center;
+    width: 100%;
+  }
+  .brand-name {
+    font-size: 12.5px;
+    font-weight: 600;
+    color: rgba(255,255,255,0.8);
+    letter-spacing: 0.02em;
+    line-height: 1.3;
+    margin-bottom: 5px;
+    transition: color 0.25s;
+  }
+  .brand-card:hover .brand-name {
+    color: #fff;
+  }
+  .brand-cat {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(201,169,97,0.6);
+    transition: color 0.25s;
+  }
+  .brand-card:hover .brand-cat {
+    color: #C9A961;
+  }
+
+  /* Gold glow overlay on hover */
+  .card-glow {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% -10%, rgba(201,169,97,0.12) 0%, transparent 65%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s ease;
+    border-radius: 16px;
+  }
+  .brand-card:hover .card-glow {
+    opacity: 1;
+  }
+
+  /* Featured dot */
+  .featured-dot {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 6px;
+    height: 6px;
+    background: #C9A961;
+    border-radius: 50%;
+    box-shadow: 0 0 6px rgba(201,169,97,0.8);
   }
 </style>
 
 <script>
-  // Filter functionality
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const brandCards = document.querySelectorAll('.brand-card');
+  // ── FILTER ──────────────────────────────────────────────────────────────
+  const filterBtns = document.querySelectorAll<HTMLButtonElement>('.filter-btn');
+  const brandCards = document.querySelectorAll<HTMLElement>('.brand-card');
+  const emptyState = document.getElementById('empty-state');
 
   filterBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
-      const filter = btn.getAttribute('data-filter');
+      const filter = btn.getAttribute('data-filter') || 'Toutes';
 
-      filterBtns.forEach((b) => {
-        b.classList.remove('bg-dark', 'text-white', 'border-dark');
-        b.classList.add('border-dark/15', 'text-dark/50');
+      // Update active state
+      filterBtns.forEach(b => {
+        b.classList.remove('active', 'bg-gold', 'text-[#080808]', 'border-gold', 'font-bold');
+        b.classList.add('text-white/40', 'border-white/10');
       });
-      btn.classList.add('bg-dark', 'text-white', 'border-dark');
-      btn.classList.remove('border-dark/15', 'text-dark/50');
+      btn.classList.add('active');
+      btn.classList.remove('text-white/40', 'border-white/10');
 
-      brandCards.forEach((card) => {
+      // Filter cards
+      let visible = 0;
+      brandCards.forEach((card, i) => {
         const category = card.getAttribute('data-category');
-        if (filter === 'Toutes' || category === filter) {
-          (card as HTMLElement).style.display = 'flex';
+        const show = filter === 'Toutes' || category === filter;
+        if (show) {
+          card.style.display = 'flex';
+          card.style.transitionDelay = `${(visible % 15) * 35}ms`;
+          visible++;
         } else {
-          (card as HTMLElement).style.display = 'none';
+          card.style.display = 'none';
         }
       });
+
+      if (emptyState) {
+        emptyState.classList.toggle('hidden', visible > 0);
+      }
     });
   });
 </script>
