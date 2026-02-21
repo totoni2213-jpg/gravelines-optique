@@ -141,6 +141,48 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"articles": {
+"100-pour-cent-sante-optique.md": {
+	id: "100-pour-cent-sante-optique.md";
+  slug: "100-pour-cent-sante-optique";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"a-quelle-frequence-controler-sa-vue.md": {
+	id: "a-quelle-frequence-controler-sa-vue.md";
+  slug: "a-quelle-frequence-controler-sa-vue";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"age-premier-lunettes-enfant.md": {
+	id: "age-premier-lunettes-enfant.md";
+  slug: "age-premier-lunettes-enfant";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"amblyopie-oeil-paresseux.md": {
+	id: "amblyopie-oeil-paresseux.md";
+  slug: "amblyopie-oeil-paresseux";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"antireflets-a-quoi-ca-sert.md": {
+	id: "antireflets-a-quoi-ca-sert.md";
+  slug: "antireflets-a-quoi-ca-sert";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"bien-entretenir-ses-lunettes.md": {
+	id: "bien-entretenir-ses-lunettes.md";
+  slug: "bien-entretenir-ses-lunettes";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
 "bienvenue.md": {
 	id: "bienvenue.md";
   slug: "bienvenue";
@@ -148,9 +190,205 @@ declare module 'astro:content' {
   collection: "articles";
   data: InferEntrySchema<"articles">
 } & { render(): Render[".md"] };
-"ray-ban-meta-2025.md": {
-	id: "ray-ban-meta-2025.md";
-  slug: "ray-ban-meta-2025";
+"cataracte-tout-comprendre.md": {
+	id: "cataracte-tout-comprendre.md";
+  slug: "cataracte-tout-comprendre";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"choisir-lunettes-forme-visage.md": {
+	id: "choisir-lunettes-forme-visage.md";
+  slug: "choisir-lunettes-forme-visage";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"choisir-lunettes-soleil.md": {
+	id: "choisir-lunettes-soleil.md";
+  slug: "choisir-lunettes-soleil";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"comment-lire-son-ordonnance.md": {
+	id: "comment-lire-son-ordonnance.md";
+  slug: "comment-lire-son-ordonnance";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"differences-verres-qualites.md": {
+	id: "differences-verres-qualites.md";
+  slug: "differences-verres-qualites";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"dmla-degenrescence-maculaire.md": {
+	id: "dmla-degenrescence-maculaire.md";
+  slug: "dmla-degenrescence-maculaire";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"ecrans-mauvais-pour-les-yeux.md": {
+	id: "ecrans-mauvais-pour-les-yeux.md";
+  slug: "ecrans-mauvais-pour-les-yeux";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"enfant-voit-mal-comment-savoir.md": {
+	id: "enfant-voit-mal-comment-savoir.md";
+  slug: "enfant-voit-mal-comment-savoir";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"examen-vue-comment-ca-se-passe.md": {
+	id: "examen-vue-comment-ca-se-passe.md";
+  slug: "examen-vue-comment-ca-se-passe";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"fatigue-visuelle-solutions.md": {
+	id: "fatigue-visuelle-solutions.md";
+  slug: "fatigue-visuelle-solutions";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"glaucome-quest-ce-que-cest.md": {
+	id: "glaucome-quest-ce-que-cest.md";
+  slug: "glaucome-quest-ce-que-cest";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"lentilles-de-contact-les-bases.md": {
+	id: "lentilles-de-contact-les-bases.md";
+  slug: "lentilles-de-contact-les-bases";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"lunettes-ou-lentilles.md": {
+	id: "lunettes-ou-lentilles.md";
+  slug: "lunettes-ou-lentilles";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"maux-de-tete-et-vision.md": {
+	id: "maux-de-tete-et-vision.md";
+  slug: "maux-de-tete-et-vision";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"mouches-volantes-floaters.md": {
+	id: "mouches-volantes-floaters.md";
+  slug: "mouches-volantes-floaters";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"myopie-peut-elle-sagraver.md": {
+	id: "myopie-peut-elle-sagraver.md";
+  slug: "myopie-peut-elle-sagraver";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"proteger-yeux-soleil.md": {
+	id: "proteger-yeux-soleil.md";
+  slug: "proteger-yeux-soleil";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"quest-ce-que-la-myopie.md": {
+	id: "quest-ce-que-la-myopie.md";
+  slug: "quest-ce-que-la-myopie";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"quest-ce-que-la-presbytie.md": {
+	id: "quest-ce-que-la-presbytie.md";
+  slug: "quest-ce-que-la-presbytie";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"quest-ce-que-lastigmatisme.md": {
+	id: "quest-ce-que-lastigmatisme.md";
+  slug: "quest-ce-que-lastigmatisme";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"quest-ce-que-lhypermetropie.md": {
+	id: "quest-ce-que-lhypermetropie.md";
+  slug: "quest-ce-que-lhypermetropie";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"quest-ce-quun-opticien.md": {
+	id: "quest-ce-quun-opticien.md";
+  slug: "quest-ce-quun-opticien";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"remboursement-lunettes-comment-ca-marche.md": {
+	id: "remboursement-lunettes-comment-ca-marche.md";
+  slug: "remboursement-lunettes-comment-ca-marche";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"secheresse-oculaire-comprendre.md": {
+	id: "secheresse-oculaire-comprendre.md";
+  slug: "secheresse-oculaire-comprendre";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"strabisme-explique.md": {
+	id: "strabisme-explique.md";
+  slug: "strabisme-explique";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"verres-photochromiques-expliques.md": {
+	id: "verres-photochromiques-expliques.md";
+  slug: "verres-photochromiques-expliques";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"verres-progressifs-comment-ca-marche.md": {
+	id: "verres-progressifs-comment-ca-marche.md";
+  slug: "verres-progressifs-comment-ca-marche";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"vision-binoculaire-les-deux-yeux.md": {
+	id: "vision-binoculaire-les-deux-yeux.md";
+  slug: "vision-binoculaire-les-deux-yeux";
+  body: string;
+  collection: "articles";
+  data: InferEntrySchema<"articles">
+} & { render(): Render[".md"] };
+"vision-couleurs-daltonisme.md": {
+	id: "vision-couleurs-daltonisme.md";
+  slug: "vision-couleurs-daltonisme";
   body: string;
   collection: "articles";
   data: InferEntrySchema<"articles">

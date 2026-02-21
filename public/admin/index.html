@@ -196,6 +196,21 @@
     .horaire-row input:focus { border-color: var(--gold); }
     .horaire-toggle { display: flex; align-items: center; gap: 6px; font-size: 12px; color: #718096; white-space: nowrap; }
 
+    /* ── MARQUE ITEM ── */
+    .marque-item { border: 1px solid var(--border); border-radius: 10px; padding: 16px; margin-bottom: 10px; display: flex; align-items: center; gap: 14px; background: white; transition: border-color 0.2s; }
+    .marque-item:hover { border-color: #cbd5e0; }
+    .marque-logo-preview { width: 60px; height: 40px; border-radius: 6px; background: #f7fafc; display: flex; align-items: center; justify-content: center; flex-shrink: 0; overflow: hidden; border: 1px solid var(--border); }
+    .marque-logo-preview img { max-width: 100%; max-height: 100%; object-fit: contain; }
+    .marque-fields { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 8px; align-items: center; }
+    .marque-fields input, .marque-fields select { padding: 7px 10px; border: 2px solid var(--border); border-radius: 6px; font-size: 13px; outline: none; transition: border-color 0.2s; }
+    .marque-fields input:focus, .marque-fields select:focus { border-color: var(--gold); }
+    .marque-actions { display: flex; flex-direction: column; gap: 4px; flex-shrink: 0; align-items: center; }
+    .marque-featured { display: flex; align-items: center; gap: 4px; font-size: 11px; color: #718096; white-space: nowrap; }
+    .marque-featured .star { cursor: pointer; font-size: 18px; transition: transform 0.15s; }
+    .marque-featured .star:hover { transform: scale(1.2); }
+    .marque-upload-btn { padding: 4px 8px; background: #edf2f7; border: none; border-radius: 5px; cursor: pointer; font-size: 11px; color: #4a5568; transition: background 0.15s; white-space: nowrap; }
+    .marque-upload-btn:hover { background: #e2e8f0; }
+
     /* ── DEPLOY BANNER ── */
     .deploy-banner { background: linear-gradient(135deg, rgba(201,169,97,0.1), rgba(201,169,97,0.05)); border: 1px solid rgba(201,169,97,0.3); border-radius: 10px; padding: 14px 18px; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; font-size: 13px; color: #744210; }
     .deploy-banner .db-icon { font-size: 20px; }
@@ -240,6 +255,9 @@
       <div class="nav-section">Contenu</div>
       <div class="nav-item" onclick="showSection('articles')" id="nav-articles">
         <span class="ni">📰</span> Articles
+      </div>
+      <div class="nav-item" onclick="showSection('marques')" id="nav-marques">
+        <span class="ni">🏷️</span> Marques
       </div>
       <div class="nav-section">Paramètres du site</div>
       <div class="nav-item" onclick="showSection('contact')" id="nav-contact">
@@ -304,6 +322,7 @@ function showSection(s) {
   document.getElementById(`nav-${s}`)?.classList.add('active');
   if (s === 'dashboard') loadDashboard();
   else if (s === 'articles') loadArticles();
+  else if (s === 'marques') loadJsonEditor('marques');
   else loadJsonEditor(s);
 }
 
@@ -415,6 +434,10 @@ async function loadDashboard() {
         <div class="dash-action" onclick="showSection('equipe')">
           <div class="da-icon da-purple">👥</div>
           <div><strong>L'Équipe</strong><span>Mettre à jour les membres</span></div>
+        </div>
+        <div class="dash-action" onclick="showSection('marques')">
+          <div class="da-icon da-gold">🏷️</div>
+          <div><strong>Nos Marques</strong><span>Gérer les marques et logos</span></div>
         </div>
       </div>
     `;
@@ -647,7 +670,7 @@ async function delArticle(path, sha, titre) {
 }
 
 // ─── JSON EDITORS ──────────────────────────────────────────────────────────
-const JSON_FILES = { contact:'src/data/contact.json', accueil:'src/data/home.json', equipe:'src/data/equipe.json' };
+const JSON_FILES = { contact:'src/data/contact.json', accueil:'src/data/home.json', equipe:'src/data/equipe.json', marques:'src/data/marques.json' };
 
 async function loadJsonEditor(section) {
   const main = document.getElementById('main');
@@ -657,6 +680,7 @@ async function loadJsonEditor(section) {
     const json = JSON.parse(b64d(d.content));
     if (section === 'contact') renderContact(d.sha, json);
     else if (section === 'accueil') renderAccueil(d.sha, json);
+    else if (section === 'marques') renderMarques(d.sha, json);
     else renderEquipe(d.sha, json);
   } catch(e) {
     main.innerHTML = `<div class="loading" style="color:var(--red)">Erreur: ${e.message}</div>`;
@@ -885,6 +909,124 @@ async function saveEquipe(sha) {
     toast('Équipe enregistrée ! Site mis à jour dans 1–2 min.');
     loadJsonEditor('equipe');
   } catch(e) { toast('Erreur: '+e.message,'error'); btn.disabled=false; btn.innerHTML='💾 Enregistrer les modifications'; }
+}
+
+// ─── MARQUES ────────────────────────────────────────────────────────────────
+const MARQUE_CATS = ['Iconique','Créateur','Luxe','Mode','Lifestyle','Sport','Design','Français','Enfants','Premium'];
+
+function renderMarques(sha, j) {
+  const marques = j.marques || [];
+  const featured = marques.filter(m => m.featured).length;
+  document.getElementById('main').innerHTML = `
+    <div class="page-header">
+      <div><h2>🏷️ Nos Marques</h2><p>Gérez les marques affichées sur le site</p></div>
+      <button class="btn-new" onclick="addMarque()">＋ Ajouter une marque</button>
+    </div>
+    <div class="stats-row">
+      <div class="stat-card"><div class="sv">${marques.length}</div><div class="sl">Marques au total</div></div>
+      <div class="stat-card"><div class="sv">${featured}</div><div class="sl">En vedette (accueil)</div></div>
+      <div class="stat-card"><div class="sv">${MARQUE_CATS.length}</div><div class="sl">Catégories</div></div>
+    </div>
+    <div class="editor-wrap">
+      <div class="editor-body" style="padding:16px 20px">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:14px;font-size:12px;color:#718096">
+          <span>⭐ = Affiché sur la page d'accueil</span>
+          <span style="margin-left:auto">📷 = Cliquer pour changer le logo</span>
+        </div>
+        <div id="marques-list">
+          ${marques.map((m,i) => marqueItem(m,i)).join('')}
+        </div>
+        <button class="btn-add" onclick="addMarque()" style="margin-top:12px">＋ Ajouter une marque</button>
+      </div>
+      <div class="editor-footer">
+        <button class="btn-save" id="save-btn" onclick="saveMarques('${sha}')">💾 Enregistrer les modifications</button>
+      </div>
+    </div>`;
+}
+
+function marqueItem(m, i) {
+  const catOptions = MARQUE_CATS.map(c => `<option ${m.category===c?'selected':''}>${c}</option>`).join('');
+  const logoSrc = m.logo ? `<img src="${esc(m.logo)}" alt="" onerror="this.parentNode.innerHTML='🏷️'">` : '🏷️';
+  return `<div class="marque-item" data-idx="${i}">
+    <div class="marque-logo-preview" title="Cliquer pour changer le logo" onclick="this.querySelector('input')?.click()" style="cursor:pointer">
+      ${logoSrc}
+      <input type="file" accept="image/*" style="display:none" onchange="uploadMarqueLogo(this,${i})">
+    </div>
+    <div class="marque-fields">
+      <input class="mq-name" type="text" value="${esc(m.name||'')}" placeholder="Nom de la marque">
+      <select class="mq-cat">
+        <option value="">— Catégorie —</option>
+        ${catOptions}
+      </select>
+      <input class="mq-logo" type="text" value="${esc(m.logo||'')}" placeholder="Chemin du logo (ex: /logos/marque.png)" style="grid-column:1/-1;font-size:11px;color:#718096">
+    </div>
+    <div class="marque-actions">
+      <div class="marque-featured">
+        <span class="star" onclick="toggleFeatured(this)" title="Afficher sur la page d'accueil">${m.featured ? '⭐' : '☆'}</span>
+      </div>
+      <button class="btn-rm" onclick="this.closest('.marque-item').remove()" title="Supprimer" style="margin-top:4px">✕</button>
+    </div>
+  </div>`;
+}
+
+function addMarque() {
+  const list = document.getElementById('marques-list');
+  const i = list.querySelectorAll('.marque-item').length;
+  list.insertAdjacentHTML('beforeend', marqueItem({name:'',logo:'',category:'',featured:false}, i));
+  list.lastElementChild.querySelector('.mq-name').focus();
+}
+
+function toggleFeatured(star) {
+  star.textContent = star.textContent === '⭐' ? '☆' : '⭐';
+}
+
+async function uploadMarqueLogo(input, idx) {
+  const file = input.files[0];
+  if (!file) return;
+  if (file.size > 5*1024*1024) { toast('Image trop lourde (max 5 Mo)','error'); return; }
+
+  const item = input.closest('.marque-item');
+  const preview = item.querySelector('.marque-logo-preview');
+  const logoInput = item.querySelector('.mq-logo');
+  preview.innerHTML = '<div class="spinner" style="width:20px;height:20px;border-width:2px"></div>';
+
+  try {
+    const b64 = await fileToB64(file);
+    const raw = b64.split(',')[1];
+    const ext = file.name.split('.').pop().toLowerCase();
+    const fname = `${slug(item.querySelector('.mq-name').value || 'marque')}-lunettes.${ext}`;
+    const ghPath = `public/logos/${fname}`;
+
+    await apiPutBinary(ghPath, raw, undefined, `Upload logo: ${fname}`);
+
+    const logoPath = `/logos/${fname}`;
+    logoInput.value = logoPath;
+    preview.innerHTML = `<img src="${b64}" alt=""><input type="file" accept="image/*" style="display:none" onchange="uploadMarqueLogo(this,${idx})">`;
+    toast('Logo uploadé !');
+  } catch(e) {
+    preview.innerHTML = '🏷️<input type="file" accept="image/*" style="display:none" onchange="uploadMarqueLogo(this,' + idx + ')">';
+    toast('Erreur upload: '+e.message,'error');
+  }
+}
+
+async function saveMarques(sha) {
+  const btn = document.getElementById('save-btn');
+  btn.disabled = true; btn.innerHTML = '<span class="spinner-sm"></span> Enregistrement…';
+  try {
+    const marques = [...document.querySelectorAll('#marques-list .marque-item')].map(row => ({
+      name: row.querySelector('.mq-name').value.trim(),
+      logo: row.querySelector('.mq-logo').value.trim(),
+      category: row.querySelector('.mq-cat').value,
+      featured: row.querySelector('.star').textContent === '⭐'
+    })).filter(m => m.name);
+    const json = { categories: MARQUE_CATS, marques };
+    await apiPut(JSON_FILES.marques, JSON.stringify(json, null, 2), sha, 'Mise à jour Marques');
+    toast('Marques enregistrées ! Site mis à jour dans 1–2 min.');
+    loadJsonEditor('marques');
+  } catch(e) {
+    toast('Erreur: '+e.message,'error');
+    btn.disabled = false; btn.innerHTML = '💾 Enregistrer les modifications';
+  }
 }
 
 // ── HELPER ──

@@ -4,21 +4,9 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import contactData from '../data/contact.json';
 import homeData from '../data/home.json';
+import marquesData from '../data/marques.json';
 
-const brands = [
-  { name: 'Ray-Ban', logo: '/logos/rayban-lunettes.png' },
-  { name: 'Lafont', logo: '/logos/lafont-lunettes.png' },
-  { name: 'Morel', logo: '/logos/morel-lunettes.png' },
-  { name: 'IKKS', logo: '/logos/ikks-lunettes.png' },
-  { name: 'Blackfin', logo: '/logos/blackfin-lunettes.png' },
-  { name: 'Tommy Hilfiger', logo: '/logos/tommy-hilfiger-lunettes.png' },
-  { name: 'David Beckham', logo: '/logos/david-beckham-lunettes.png' },
-  { name: 'Vogue', logo: '/logos/vogue-lunettes.png' },
-  { name: 'Serge Blanco', logo: '/logos/serge-blanco-lunettes.png' },
-  { name: 'Lancel', logo: '/logos/lancel-lunettes.png' },
-  { name: 'Inès de la Fressange', logo: '/logos/inesdelafressange-lunettes.png' },
-  { name: 'Eden Park', logo: '/logos/edenpark-lunettes.png' },
-];
+const brands = marquesData.marques.filter((m: { featured: boolean }) => m.featured);
 
 // Duplicate for seamless marquee loop
 const marqueeBrands = [...brands, ...brands];
@@ -198,7 +186,7 @@ const avantages = contactData.avantages;
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 reveal">
         <div>
           <div class="text-gold text-xs tracking-widest uppercase font-medium mb-3">Nos partenaires</div>
-          <h2 class="font-serif text-5xl sm:text-6xl text-dark">30+ Marques</h2>
+          <h2 class="font-serif text-5xl sm:text-6xl text-dark">{marquesData.marques.length}+ Marques</h2>
         </div>
         <a
           href="/marques"
