@@ -19,69 +19,78 @@ const { texte1, texte2, stats, avantages } = boutiqueData as {
 
 <Layout
   title="La Boutique | Opticien à Montivilliers — Gravelines Optique"
-  description="Votre opticien à Montivilliers : Gravelines Optique. Une boutique de +100m². Ouvert du mardi au samedi. Prise de rendez-vous en ligne."
+  description="Votre opticien à Montivilliers : Gravelines Optique. Une boutique de +100m² avec 7 experts passionnés. Ouvert du mardi au samedi."
 >
   <Header />
 
-  <!-- Hero -->
-  <section class="pt-32 pb-20 bg-dark text-white relative overflow-hidden">
-    <div class="absolute inset-0 opacity-5">
-      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, #C9A961 1px, transparent 0); background-size: 40px 40px;"></div>
-    </div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div class="text-gold text-xs tracking-widest uppercase font-medium mb-4">Qui sommes-nous</div>
-      <h1 class="font-serif text-5xl sm:text-6xl text-white mb-6">
-        La <em class="text-gold">Boutique</em>
+  <!-- ══ HERO ══════════════════════════════════════════════════════════════ -->
+  <section class="pt-[74px] bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-dots-dark pointer-events-none"></div>
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent"></div>
+    <div class="absolute -right-32 top-12 w-80 h-80 rounded-full bg-gold/[0.04] blur-3xl pointer-events-none"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 text-center">
+      <span class="section-label mb-5 block justify-center">Qui sommes-nous</span>
+      <h1 class="font-serif text-[clamp(2.8rem,7vw,5rem)] text-white mb-6 leading-[1.05]">
+        La <em class="text-gold italic">Boutique</em>
       </h1>
-      <p class="text-white/60 text-lg max-w-2xl mx-auto">
-        100m² dédiés à votre vision depuis 2008 à Montivilliers.
-        Une équipe de {team.length} experts passionnés à votre service.
+      <p class="text-white/50 text-lg max-w-xl mx-auto leading-relaxed">
+        100m² dédiés à votre vision depuis 2008 à Montivilliers.<br />
+        Une équipe de <strong class="text-white/70">{team.length} experts</strong> passionnés à votre service.
       </p>
     </div>
   </section>
 
-  <!-- Notre ADN -->
+  <!-- ══ NOTRE ADN ═════════════════════════════════════════════════════════ -->
   <section class="py-24 bg-cream">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
-        <div class="reveal">
-          <div class="text-gold text-xs tracking-widest uppercase font-medium mb-4">Notre histoire</div>
-          <h2 class="font-serif text-4xl sm:text-5xl text-dark mb-6 leading-tight">
-            L'optique indépendante<br />au service de <em>votre vision</em>
+      <div class="grid lg:grid-cols-2 gap-16 lg:gap-20 items-center">
+
+        <!-- Text -->
+        <div class="reveal order-2 lg:order-1">
+          <span class="section-label mb-5 block" style="--gold: #B8924A; color: var(--gold);">Notre histoire</span>
+          <h2 class="font-serif text-[2.2rem] sm:text-[2.8rem] text-dark mb-7 leading-tight">
+            L'optique indépendante<br />au service de <em class="text-gold italic">votre vision</em>
           </h2>
-          <p class="text-dark/70 text-lg leading-relaxed mb-6">{texte1}</p>
-          <p class="text-dark/70 leading-relaxed mb-8">{texte2}</p>
-          <div class="grid grid-cols-2 gap-6">
+          <p class="text-dark/65 text-[1.05rem] leading-[1.85] mb-5">{texte1}</p>
+          <p class="text-dark/55 leading-[1.85] mb-10">{texte2}</p>
+
+          <!-- Stats -->
+          <div class="grid grid-cols-2 gap-5">
             {stats.map((stat) => (
-              <div class="border-l-2 border-gold pl-4">
-                <div class="font-serif text-gold text-2xl">{stat.value}</div>
-                <div class="text-dark/50 text-sm">{stat.label}</div>
+              <div class="group border-l-2 border-gold/40 hover:border-gold pl-5 transition-colors duration-300">
+                <div class="font-serif text-gold text-[1.8rem] italic">{stat.value}</div>
+                <div class="text-dark/45 text-[12.5px] font-medium tracking-wide">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
 
-        <div class="reveal space-y-4">
-          <div class="rounded-sm overflow-hidden aspect-[4/3]">
-            <img
-              src="/images/boutique/Devanture_gravelines_optique.webp"
-              alt="Devanture Gravelines Optique Montivilliers"
-              class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-            />
-          </div>
-          <div class="grid grid-cols-2 gap-4">
-            <div class="rounded-sm overflow-hidden aspect-square">
+        <!-- Photos -->
+        <div class="reveal order-1 lg:order-2">
+          <div class="grid grid-cols-3 grid-rows-2 gap-3 h-[420px] sm:h-[480px]">
+            <!-- Main photo -->
+            <div class="col-span-2 row-span-2 rounded-sm overflow-hidden relative">
+              <img
+                src="/images/boutique/Devanture_gravelines_optique.webp"
+                alt="Devanture Gravelines Optique Montivilliers"
+                class="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-dark/30 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+            <!-- Secondary photos -->
+            <div class="rounded-sm overflow-hidden">
               <img
                 src="/images/boutique/Interieur_boutique_gravelines_optique.jpg"
-                alt="Intérieur boutique Gravelines Optique"
-                class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                alt="Intérieur boutique"
+                class="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
               />
             </div>
-            <div class="rounded-sm overflow-hidden aspect-square">
+            <div class="rounded-sm overflow-hidden">
               <img
                 src="/images/boutique/Presentation_Lunettes_Presentoir_gravelines_optique.jpg"
-                alt="Présentoir lunettes Gravelines Optique"
-                class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                alt="Présentoir lunettes"
+                class="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
               />
             </div>
           </div>
@@ -90,70 +99,106 @@ const { texte1, texte2, stats, avantages } = boutiqueData as {
     </div>
   </section>
 
-  <!-- Avantages -->
-  <section class="py-20 bg-white">
+  <!-- ══ AVANTAGES ═════════════════════════════════════════════════════════ -->
+  <section class="py-20 bg-white relative overflow-hidden">
+    <div class="absolute top-0 left-0 right-0 h-px bg-cream-dark"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12 reveal">
-        <div class="text-gold text-xs tracking-widest uppercase font-medium mb-3">Pourquoi nous choisir</div>
-        <h2 class="font-serif text-4xl text-dark mb-5">L'avantage de l'indépendant</h2>
+
+      <div class="text-center mb-14 reveal">
+        <span class="section-label mb-4 block justify-center" style="--gold: #B8924A; color: var(--gold);">Pourquoi nous choisir</span>
+        <h2 class="font-serif text-[2.2rem] sm:text-[2.8rem] text-dark">L'avantage de <em class="text-gold italic">l'indépendant</em></h2>
       </div>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {avantages.map((item, i) => (
-          <div class="reveal text-center p-8 border border-cream-dark rounded-sm hover:border-gold transition-colors" style={`transition-delay: ${i * 80}ms`}>
-            <div class="text-4xl mb-4">{item.icon}</div>
-            <h3 class="font-serif text-lg text-dark mb-3">{item.title}</h3>
-            <p class="text-dark/60 text-sm leading-relaxed">{item.desc}</p>
+          <div
+            class="reveal group relative p-8 border border-cream-dark/80 bg-cream/30 rounded-sm hover:border-gold/40 hover:bg-white hover:shadow-card-hover transition-all duration-400"
+            style={`transition-delay: ${i * 80}ms`}
+          >
+            <!-- Number -->
+            <div class="absolute top-5 right-5 text-[10px] font-bold text-dark/10 group-hover:text-gold/20 transition-colors">
+              {String(i + 1).padStart(2, '0')}
+            </div>
+            <!-- Icon -->
+            <div class="text-[2.2rem] mb-5 group-hover:scale-110 transition-transform duration-300 inline-block">{item.icon}</div>
+            <h3 class="font-serif text-[1.1rem] text-dark mb-3 group-hover:text-dark transition-colors">{item.title}</h3>
+            <p class="text-dark/50 text-[13.5px] leading-relaxed">{item.desc}</p>
+            <!-- Bottom accent -->
+            <div class="absolute bottom-0 left-6 right-6 h-[2px] bg-gradient-to-r from-transparent via-gold/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400"></div>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- L'Équipe -->
-  <section class="py-24 bg-cream">
+  <!-- ══ L'ÉQUIPE ══════════════════════════════════════════════════════════ -->
+  <section class="py-24 bg-cream relative overflow-hidden">
+    <div class="absolute top-0 left-0 right-0 h-px bg-cream-dark"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-px bg-cream-dark"></div>
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
       <div class="text-center mb-16 reveal">
-        <div class="text-gold text-xs tracking-widest uppercase font-medium mb-3">Notre équipe</div>
-        <h2 class="font-serif text-4xl sm:text-5xl text-dark mb-5">{team.length} Experts à votre service</h2>
-        <p class="text-dark/60 text-lg max-w-xl mx-auto">
+        <span class="section-label mb-4 block justify-center" style="--gold: #B8924A; color: var(--gold);">Notre équipe</span>
+        <h2 class="font-serif text-[2.2rem] sm:text-[2.8rem] text-dark mb-5">
+          {team.length} experts <em class="text-gold italic">à votre service</em>
+        </h2>
+        <p class="text-dark/50 text-[1.05rem] max-w-md mx-auto leading-relaxed">
           Des professionnels diplômés, passionnés par l'optique et dévoués à votre satisfaction.
         </p>
       </div>
 
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-5">
         {team.map((member, i) => (
           <div
-            class="reveal group text-center"
-            style={`transition-delay: ${i * 80}ms`}
+            class="reveal group relative overflow-hidden rounded-sm bg-white border border-cream-dark/60 hover:border-gold/30 hover:shadow-card-hover transition-all duration-400"
+            style={`transition-delay: ${i * 70}ms`}
           >
-            <div class="w-28 h-28 rounded-full border-2 border-gold/30 group-hover:border-gold mx-auto mb-4 transition-colors duration-300 overflow-hidden">
+            <!-- Photo -->
+            <div class="aspect-[3/4] overflow-hidden bg-cream-dark/50">
               <img
                 src={member.photo}
                 alt={member.name}
-                class="w-full h-full object-cover object-top group-hover:scale-110 transition-transform duration-500"
+                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
               />
             </div>
-            <h3 class="font-serif text-dark text-lg mb-1">{member.name}</h3>
-            <div class="text-gold text-xs font-medium uppercase tracking-wide mb-1">{member.role}</div>
-            <div class="text-dark/50 text-xs">{member.exp}</div>
+
+            <!-- Info -->
+            <div class="p-5">
+              <h3 class="font-serif text-dark text-[1.05rem] mb-0.5">{member.name}</h3>
+              <div class="text-gold text-[10.5px] font-bold uppercase tracking-[0.12em] mb-1">{member.role}</div>
+              <div class="text-dark/40 text-[12px]">{member.exp}</div>
+            </div>
+
+            <!-- Hover overlay accent -->
+            <div class="absolute inset-x-0 bottom-0 h-[2px] bg-gradient-to-r from-transparent via-gold to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400"></div>
           </div>
         ))}
       </div>
-
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="py-20 bg-dark text-white">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="font-serif text-4xl text-white mb-5">Venez nous rencontrer</h2>
-      <p class="text-white/60 text-lg mb-8">
+  <!-- ══ CTA ════════════════════════════════════════════════════════════════ -->
+  <section class="py-20 bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-dots-dark pointer-events-none"></div>
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent"></div>
+
+    <div class="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-serif text-[2.2rem] sm:text-[2.8rem] text-white mb-5">Venez nous rencontrer</h2>
+      <p class="text-white/45 text-lg mb-10 leading-relaxed">
         27 rue Léon Gambetta, 76290 Montivilliers<br />
-        Ouvert du mardi au samedi
+        <span class="text-white/30 text-base">Ouvert du mardi au samedi</span>
       </p>
-      <a href="/contact" class="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-dark font-semibold px-8 py-4 rounded-sm transition-colors text-sm">
-        Voir les horaires & accès
-      </a>
+      <div class="flex flex-col xs:flex-row gap-3.5 justify-center">
+        <a href="/contact" class="btn-primary">
+          Voir les horaires & accès
+        </a>
+        <a href="tel:0235209978" class="btn-outline-white">
+          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+          </svg>
+          02 35 20 99 78
+        </a>
+      </div>
     </div>
   </section>
 

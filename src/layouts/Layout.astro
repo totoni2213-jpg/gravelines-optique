@@ -39,49 +39,279 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://gravelin
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/logos/logo-gravelines-optique.png" />
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts — preconnect first for perf -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@300;400;500;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,300;1,9..144,400;1,9..144,500&family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
     />
 
     <title>{title}</title>
 
     <style is:global>
-      * {
-        box-sizing: border-box;
+      /* ─── Reset & Base ─────────────────────────────────────────────────── */
+      *, *::before, *::after { box-sizing: border-box; }
+
+      :root {
+        --gold:        #C9A961;
+        --gold-light:  #D4BC7E;
+        --gold-dark:   #B8924A;
+        --dark:        #0A0A0A;
+        --cream:       #F8F4EE;
+        --cream-dark:  #EDE8DF;
+        --radius:      4px;
+        --ease-expo:   cubic-bezier(0.16, 1, 0.3, 1);
+        --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
       }
+
+      html { scroll-behavior: smooth; }
+
       body {
         font-family: 'Inter', system-ui, sans-serif;
-        background-color: #F8F4EE;
+        background-color: var(--cream);
         color: #1A1A1A;
         -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-rendering: optimizeLegibility;
+        line-height: 1.6;
       }
-      h1, h2, h3, h4, h5 {
+
+      h1, h2, h3, h4, h5, h6 {
         font-family: 'Fraunces', Georgia, serif;
+        line-height: 1.1;
+        letter-spacing: -0.01em;
       }
+
+      /* ─── Custom Scrollbar ─────────────────────────────────────────────── */
+      ::-webkit-scrollbar { width: 5px; height: 5px; }
+      ::-webkit-scrollbar-track { background: #0A0A0A; }
+      ::-webkit-scrollbar-thumb {
+        background: #C9A961;
+        border-radius: 10px;
+      }
+      ::-webkit-scrollbar-thumb:hover { background: #D4BC7E; }
+
+      /* ─── Selection ────────────────────────────────────────────────────── */
+      ::selection {
+        background: rgba(201, 169, 97, 0.25);
+        color: #0A0A0A;
+      }
+
+      /* ─── Focus Styles ─────────────────────────────────────────────────── */
+      :focus-visible {
+        outline: 2px solid var(--gold);
+        outline-offset: 3px;
+        border-radius: var(--radius);
+      }
+
+      /* ─── Scroll Reveal Animation ──────────────────────────────────────── */
       .reveal {
         opacity: 1;
         transform: translateY(0);
-        transition: opacity 0.7s ease, transform 0.7s ease;
+        transition: opacity 0.75s var(--ease-expo), transform 0.75s var(--ease-expo);
       }
       .js-ready .reveal {
         opacity: 0;
-        transform: translateY(30px);
+        transform: translateY(28px);
       }
       .js-ready .reveal.visible {
         opacity: 1;
         transform: translateY(0);
       }
+
+      /* Staggered reveal delays */
+      .reveal-delay-1 { transition-delay: 80ms; }
+      .reveal-delay-2 { transition-delay: 160ms; }
+      .reveal-delay-3 { transition-delay: 240ms; }
+      .reveal-delay-4 { transition-delay: 320ms; }
+      .reveal-delay-5 { transition-delay: 400ms; }
+      .reveal-delay-6 { transition-delay: 480ms; }
+
+      /* ─── Fancy Link Underline ─────────────────────────────────────────── */
+      .link-underline {
+        background-image: linear-gradient(var(--gold), var(--gold));
+        background-size: 0% 1px;
+        background-repeat: no-repeat;
+        background-position: left bottom;
+        transition: background-size 0.3s var(--ease-expo);
+      }
+      .link-underline:hover { background-size: 100% 1px; }
+
+      /* ─── Gold Shimmer Text ────────────────────────────────────────────── */
+      .text-shimmer {
+        background: linear-gradient(
+          90deg,
+          #C9A961 0%,
+          #F5EDDA 40%,
+          #C9A961 60%,
+          #B8924A 100%
+        );
+        background-size: 200% auto;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: shimmer 3s linear infinite;
+      }
+
+      @keyframes shimmer {
+        from { background-position: 0% center; }
+        to   { background-position: 200% center; }
+      }
+
+      /* ─── Section Label ────────────────────────────────────────────────── */
+      .section-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.65rem;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+      .section-label::before {
+        content: '';
+        display: block;
+        width: 24px;
+        height: 1px;
+        background: var(--gold);
+        opacity: 0.6;
+        flex-shrink: 0;
+      }
+
+      /* ─── Gold Divider ─────────────────────────────────────────────────── */
+      .gold-divider {
+        width: 40px;
+        height: 2px;
+        background: linear-gradient(90deg, var(--gold), transparent);
+        border-radius: 2px;
+      }
+
+      /* ─── Gradient Borders ─────────────────────────────────────────────── */
+      .border-gold-gradient {
+        border: 1px solid transparent;
+        background-clip: padding-box;
+        position: relative;
+      }
+      .border-gold-gradient::after {
+        content: '';
+        position: absolute;
+        inset: -1px;
+        background: linear-gradient(135deg, rgba(201,169,97,0.4), transparent, rgba(201,169,97,0.2));
+        border-radius: inherit;
+        z-index: -1;
+      }
+
+      /* ─── Button Base ──────────────────────────────────────────────────── */
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--gold);
+        color: var(--dark);
+        font-size: 0.8125rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 14px 32px;
+        border-radius: var(--radius);
+        transition: all 0.25s var(--ease-expo);
+        position: relative;
+        overflow: hidden;
+      }
+      .btn-primary::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, rgba(255,255,255,0.15), transparent);
+        opacity: 0;
+        transition: opacity 0.25s;
+      }
+      .btn-primary:hover::before { opacity: 1; }
+      .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 24px rgba(201,169,97,0.35); }
+      .btn-primary:active { transform: translateY(0); }
+
+      .btn-outline-dark {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        border: 1.5px solid rgba(26,26,26,0.18);
+        color: rgba(26,26,26,0.65);
+        font-size: 0.8125rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        padding: 13px 28px;
+        border-radius: var(--radius);
+        transition: all 0.25s var(--ease-expo);
+      }
+      .btn-outline-dark:hover {
+        border-color: rgba(26,26,26,0.6);
+        color: #1A1A1A;
+        transform: translateY(-1px);
+      }
+
+      .btn-outline-white {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        border: 1.5px solid rgba(255,255,255,0.18);
+        color: rgba(255,255,255,0.75);
+        font-size: 0.8125rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        padding: 13px 28px;
+        border-radius: var(--radius);
+        transition: all 0.25s var(--ease-expo);
+      }
+      .btn-outline-white:hover {
+        border-color: rgba(255,255,255,0.5);
+        color: #fff;
+        transform: translateY(-1px);
+      }
+
+      /* ─── Dot Pattern Background ───────────────────────────────────────── */
+      .bg-dots-dark {
+        background-image: radial-gradient(circle at 2px 2px, rgba(201,169,97,0.07) 1px, transparent 0);
+        background-size: 36px 36px;
+      }
+      .bg-dots-light {
+        background-image: radial-gradient(circle at 2px 2px, rgba(201,169,97,0.18) 1px, transparent 0);
+        background-size: 36px 36px;
+      }
+
+      /* ─── Page Transition ──────────────────────────────────────────────── */
+      @keyframes pageIn {
+        from { opacity: 0; transform: translateY(8px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
+      main, body > * {
+        animation: pageIn 0.4s var(--ease-expo) both;
+      }
+
+      /* ─── Prose Improvements ───────────────────────────────────────────── */
+      .prose-article h2 { font-family: 'Fraunces', Georgia, serif; font-size: 1.6rem; font-weight: 500; color: #0A0A0A; margin-top: 2.5rem; margin-bottom: 1rem; }
+      .prose-article h3 { font-family: 'Fraunces', Georgia, serif; font-size: 1.25rem; font-weight: 500; color: #0A0A0A; margin-top: 2rem; margin-bottom: 0.75rem; }
+      .prose-article p  { color: rgba(26,26,26,0.78); line-height: 1.85; margin-bottom: 1.25rem; font-size: 1.0625rem; }
+      .prose-article ul { margin-bottom: 1.25rem; padding-left: 1rem; }
+      .prose-article li { color: rgba(26,26,26,0.78); line-height: 1.7; margin-bottom: 0.4rem; padding-left: 0.25rem; }
+      .prose-article strong { color: #0A0A0A; font-weight: 600; }
+      .prose-article a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+      .prose-article a:hover { color: var(--gold-dark); }
+
+      /* ─── Utilities ────────────────────────────────────────────────────── */
+      .scrollbar-hide::-webkit-scrollbar { display: none; }
+      .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+      .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+      .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
     </style>
   </head>
   <body>
     <slot />
 
     <script>
-      // Enable JS animations (content is visible by default without JS)
+      // Enable JS animations
       document.documentElement.classList.add('js-ready');
 
       // Intersection Observer for scroll animations
@@ -90,19 +320,96 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || "https://gravelin
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               entry.target.classList.add('visible');
+              observer.unobserve(entry.target); // once is enough
             }
           });
         },
-        { threshold: 0.05, rootMargin: '0px 0px -20px 0px' }
+        { threshold: 0.06, rootMargin: '0px 0px -30px 0px' }
       );
       document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
-      // Mobile menu toggle
+      // Mobile menu toggle (delegated to Header)
       const menuBtn = document.getElementById('menu-btn');
       const mobileMenu = document.getElementById('mobile-menu');
-      menuBtn?.addEventListener('click', () => {
-        mobileMenu?.classList.toggle('hidden');
-      });
+      const menuOverlay = document.getElementById('menu-overlay');
+
+      function toggleMenu(open?: boolean) {
+        const isOpen = mobileMenu?.classList.contains('menu-open');
+        const shouldOpen = open !== undefined ? open : !isOpen;
+        if (shouldOpen) {
+          mobileMenu?.classList.add('menu-open');
+          mobileMenu?.classList.remove('menu-closed');
+          menuOverlay?.classList.remove('hidden');
+          document.body.style.overflow = 'hidden';
+        } else {
+          mobileMenu?.classList.remove('menu-open');
+          mobileMenu?.classList.add('menu-closed');
+          menuOverlay?.classList.add('hidden');
+          document.body.style.overflow = '';
+        }
+      }
+
+      menuBtn?.addEventListener('click', () => toggleMenu());
+      menuOverlay?.addEventListener('click', () => toggleMenu(false));
+
+      // Scroll-aware header
+      const header = document.getElementById('site-header');
+      let lastScroll = 0;
+
+      function updateHeader() {
+        const scrollY = window.scrollY;
+        if (!header) return;
+
+        if (scrollY > 60) {
+          header.classList.add('header-scrolled');
+        } else {
+          header.classList.remove('header-scrolled');
+        }
+
+        // Hide on fast scroll down, show on scroll up
+        if (scrollY > lastScroll + 8 && scrollY > 200) {
+          header.classList.add('header-hidden');
+        } else if (scrollY < lastScroll - 4) {
+          header.classList.remove('header-hidden');
+        }
+        lastScroll = scrollY;
+      }
+
+      window.addEventListener('scroll', updateHeader, { passive: true });
+      updateHeader();
     </script>
+
+    <style is:global>
+      /* Header scroll states */
+      #site-header {
+        transition: background-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s cubic-bezier(0.16,1,0.3,1), border-color 0.4s ease;
+      }
+      #site-header.header-scrolled {
+        background-color: rgba(10,10,10,0.98) !important;
+        box-shadow: 0 1px 20px rgba(0,0,0,0.4);
+        border-bottom-color: rgba(201,169,97,0.12) !important;
+      }
+      #site-header.header-hidden {
+        transform: translateY(-100%);
+      }
+
+      /* Mobile menu animation */
+      #mobile-menu {
+        transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.16,1,0.3,1);
+        transform: translateY(-8px);
+        opacity: 0;
+        pointer-events: none;
+      }
+      #mobile-menu.menu-open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+      #mobile-menu.menu-closed {
+        transform: translateY(-8px);
+        opacity: 0;
+        pointer-events: none;
+      }
+    </style>
   </body>
 </html>

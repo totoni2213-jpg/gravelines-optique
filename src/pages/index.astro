@@ -7,45 +7,49 @@ import homeData from '../data/home.json';
 import marquesData from '../data/marques.json';
 
 const brands = marquesData.marques.filter((m: { featured: boolean }) => m.featured);
-
-// Duplicate for seamless marquee loop
 const marqueeBrands = [...brands, ...brands];
 
 const services = [
   {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.574-3.007-9.964-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>`,
+    num: '01',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.574-3.007-9.964-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>`,
     title: 'Examen de vue',
     desc: 'Bilan visuel complet et gratuit par nos opticiens diplômés. Résultat immédiat.',
     link: '/services',
   },
   {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="M3 14a4 4 0 1 0 8 0 4 4 0 0 0-8 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M13 14a4 4 0 1 0 8 0 4 4 0 0 0-8 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M11 14h2"/><path stroke-linecap="round" stroke-linejoin="round" d="M3 11 1 9M21 11l2-2"/></svg>`,
+    num: '02',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 14a4 4 0 1 0 8 0 4 4 0 0 0-8 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M13 14a4 4 0 1 0 8 0 4 4 0 0 0-8 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M11 14h2"/><path stroke-linecap="round" stroke-linejoin="round" d="M3 11 1 9M21 11l2-2"/></svg>`,
     title: '1000+ Montures',
-    desc: 'Une sélection rigoureuse des meilleures marques, pour tous les goûts et tous les budgets.',
+    desc: 'Une sélection rigoureuse des meilleures marques, pour tous les goûts et budgets.',
     link: '/marques',
   },
   {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M8 12a4 4 0 1 0 8 0 4 4 0 0 0-8 0z"/></svg>`,
+    num: '03',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M8 12a4 4 0 1 0 8 0 4 4 0 0 0-8 0z"/></svg>`,
     title: 'Lentilles de contact',
     desc: 'Large gamme de lentilles journalières, mensuelles et de couleur. Adaptation incluse.',
     link: '/services',
   },
   {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" /></svg>`,
+    num: '04',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" /></svg>`,
     title: 'SAV Express 24-48h',
-    desc: "Réparations rapides, ajustements gratuits, garantie 2 ans sur toute la monture.",
+    desc: 'Réparations rapides, ajustements gratuits, garantie 2 ans sur toutes les montures.',
     link: '/sav',
   },
   {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>`,
+    num: '05',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>`,
     title: 'Tiers Payant',
-    desc: "Nous acceptons toutes les mutuelles en tiers payant. Pas d'avance de frais.",
+    desc: "Toutes les mutuelles acceptées. Aucune avance de frais dans la limite de votre remboursement.",
     link: '/services',
   },
   {
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" /></svg>`,
+    num: '06',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" /></svg>`,
     title: 'Service à domicile',
-    desc: 'Vous ne pouvez pas vous déplacer ? Nous venons chez vous sur rendez-vous.',
+    desc: "Vous ne pouvez pas vous déplacer ? Nous venons chez vous sur rendez-vous.",
     link: '/services',
   },
 ];
@@ -61,114 +65,157 @@ const avantages = contactData.avantages;
 >
   <Header />
 
-  <!-- HERO -->
-  <section class="relative min-h-screen flex items-center justify-center bg-dark overflow-hidden pt-20">
-    <!-- Background Photo -->
+  <!-- ══════════════════════════════════════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="relative min-h-screen flex items-center justify-center bg-dark overflow-hidden pt-[74px]">
+
+    <!-- Background photo -->
     <div class="absolute inset-0">
       <img
         src="/images/boutique/Devanture_gravelines_optique.webp"
         alt="Gravelines Optique Montivilliers"
-        class="w-full h-full object-cover opacity-25"
+        class="w-full h-full object-cover opacity-20 scale-105"
+        style="transform-origin: center center;"
       />
-      <div class="absolute inset-0 bg-gradient-to-b from-dark/50 via-dark/70 to-dark"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-dark/60 via-dark/75 to-dark"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-dark/50 via-transparent to-dark/30"></div>
     </div>
 
-    <!-- Gold top line -->
-    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold to-transparent"></div>
+    <!-- Background decoration -->
+    <div class="absolute inset-0 bg-dots-dark pointer-events-none"></div>
+    <div class="absolute top-1/4 right-1/4 w-96 h-96 rounded-full bg-gold/[0.04] blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-1/4 left-1/6 w-64 h-64 rounded-full bg-gold/[0.03] blur-2xl pointer-events-none"></div>
 
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-      <!-- Badge -->
-      <div class="inline-flex items-center gap-2 bg-white/5 border border-white/10 rounded-full px-5 py-2 text-gold text-xs tracking-widest uppercase mb-10">
-        <span class="w-1.5 h-1.5 rounded-full bg-gold inline-block animate-pulse"></span>
-        {homeData.hero_badge}
-      </div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full">
+      <div class="max-w-4xl mx-auto text-center">
 
-      <h1 class="font-serif text-6xl sm:text-7xl lg:text-8xl text-white leading-[0.95] mb-8 tracking-tight">
-        {homeData.hero_titre.split(' ').slice(0, -3).join(' ')}<br />
-        <em class="text-gold"> {homeData.hero_titre.split(' ').slice(-3).join(' ')}</em>
-      </h1>
+        <!-- Badge -->
+        <div class="inline-flex items-center gap-2.5 border border-gold/25 bg-gold/[0.07] backdrop-blur-sm rounded-full px-5 py-2.5 mb-10">
+          <span class="w-1.5 h-1.5 rounded-full bg-gold animate-pulse-slow flex-shrink-0"></span>
+          <span class="text-gold text-[11px] font-semibold tracking-[0.2em] uppercase">{homeData.hero_badge}</span>
+        </div>
 
-      <p class="text-white/50 text-lg sm:text-xl max-w-xl mx-auto leading-relaxed mb-12">
-        {homeData.hero_sous_titre}
-      </p>
+        <!-- Headline -->
+        <h1 class="font-serif text-[clamp(3rem,8vw,5.5rem)] text-white leading-[1.0] mb-7 tracking-tight">
+          Opticien Montivilliers<br />
+          <em class="text-gold italic not-italic" style="font-style: italic;">depuis 2008</em>
+        </h1>
 
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a
-          href="/contact"
-          class="inline-flex items-center gap-3 bg-gold hover:bg-gold-dark text-dark font-semibold px-9 py-4 rounded-sm transition-all duration-200 text-sm tracking-widest uppercase"
-        >
-          Prendre rendez-vous
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-          </svg>
-        </a>
-        <a
-          href="/marques"
-          class="inline-flex items-center gap-3 border border-white/15 hover:border-white/40 text-white/70 hover:text-white font-medium px-9 py-4 rounded-sm transition-all duration-200 text-sm tracking-widest uppercase"
-        >
-          Nos marques
-        </a>
-      </div>
+        <!-- Subline -->
+        <p class="text-white/45 text-lg sm:text-xl max-w-lg mx-auto leading-relaxed mb-12 font-light">
+          {homeData.hero_sous_titre}
+        </p>
 
-      <!-- Quick avantages -->
-      <div class="flex flex-wrap justify-center gap-6 mt-16 text-xs text-white/35 tracking-wide">
-        {avantages.map((av: string) => (
-          <span class="flex items-center gap-2">
-            <svg class="w-3.5 h-3.5 text-gold/60" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+        <!-- CTA buttons -->
+        <div class="flex flex-col xs:flex-row gap-3.5 justify-center mb-14">
+          <a href="/contact" class="btn-primary">
+            Prendre rendez-vous
+            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
-            {av}
-          </span>
-        ))}
+          </a>
+          <a href="/marques" class="btn-outline-white">
+            Découvrir nos marques
+          </a>
+        </div>
+
+        <!-- Trust signals -->
+        <div class="flex flex-wrap justify-center gap-x-8 gap-y-3 text-[12px] text-white/30 tracking-wide">
+          {avantages.map((av: string) => (
+            <span class="flex items-center gap-2">
+              <svg class="w-3.5 h-3.5 text-gold/50 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              {av}
+            </span>
+          ))}
+        </div>
       </div>
     </div>
 
-    <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/20 animate-bounce">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+    <!-- Scroll cue -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/20 animate-bounce">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9l-7 7-7-7"/>
       </svg>
     </div>
   </section>
 
-  <!-- STATS -->
-  <section class="bg-dark border-t border-white/8">
+  <!-- ══════════════════════════════════════════════════════════════════════
+       STATS BAR
+  ═══════════════════════════════════════════════════════════════════════ -->
+  <section class="bg-dark border-t border-white/[0.06]">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/8">
-        {stats.map((stat: { value: string; label: string }) => (
-          <div class="py-10 px-8 text-center">
-            <div class="font-serif text-4xl sm:text-5xl text-gold mb-2 italic">{stat.value}</div>
-            <div class="text-white/40 text-xs tracking-widest uppercase">{stat.label}</div>
+      <div class="grid grid-cols-2 lg:grid-cols-4">
+        {stats.map((stat: { value: string; label: string }, i: number) => (
+          <div class={`py-10 px-8 text-center relative ${i < stats.length - 1 ? 'border-r border-white/[0.06]' : ''}`}>
+            <div
+              class="font-serif text-[2.8rem] sm:text-[3.5rem] text-gold mb-1.5 italic leading-none stat-number"
+              data-target={stat.value}
+            >
+              {stat.value}
+            </div>
+            <div class="text-white/35 text-[10.5px] tracking-[0.15em] uppercase font-medium">{stat.label}</div>
+            {/* Subtle divider bottom on mobile (2 top / 2 bottom) */}
+            {i < 2 && <div class="absolute bottom-0 left-6 right-6 h-px bg-white/[0.06] lg:hidden"></div>}
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- SERVICES -->
+  <!-- ══════════════════════════════════════════════════════════════════════
+       SERVICES
+  ═══════════════════════════════════════════════════════════════════════ -->
   <section class="py-28 bg-cream">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-20 reveal">
-        <div class="text-gold text-xs tracking-widest uppercase font-medium mb-4">Ce que nous faisons</div>
-        <h2 class="font-serif text-5xl sm:text-6xl text-dark mb-5">Nos Services</h2>
-        <div class="w-16 h-px bg-gold mx-auto mt-6"></div>
+
+      <!-- Section header -->
+      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-16 reveal">
+        <div>
+          <span class="section-label mb-4 block">Ce que nous faisons</span>
+          <h2 class="font-serif text-[2.8rem] sm:text-[3.5rem] text-dark leading-tight">
+            Nos <em class="text-gold italic">Services</em>
+          </h2>
+        </div>
+        <a href="/services" class="btn-outline-dark self-start sm:self-auto flex-shrink-0">
+          Tous les services
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+          </svg>
+        </a>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-cream-dark">
+      <!-- Services grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-px bg-cream-dark/60">
         {services.map((service, i) => (
           <a
             href={service.link}
-            class="reveal group bg-white hover:bg-dark p-10 transition-all duration-400 flex flex-col gap-6"
-            style={`transition-delay: ${i * 60}ms`}
+            class="reveal group relative bg-white hover:bg-dark p-9 transition-all duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col gap-5 overflow-hidden"
+            style={`transition-delay: ${i * 55}ms`}
           >
-            <div class="w-14 h-14 rounded-sm bg-gold/10 group-hover:bg-gold/20 flex items-center justify-center text-gold transition-colors duration-300">
+            {/* Gold accent line — slides up on hover */}
+            <div class="absolute bottom-0 left-0 right-0 h-[2px] bg-gradient-to-r from-gold to-gold/40 transform translate-y-0 group-hover:translate-y-full transition-transform duration-[400ms]"></div>
+            <div class="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-gold/60 to-transparent transform -translate-y-full group-hover:translate-y-0 transition-transform duration-[400ms]"></div>
+
+            {/* Number */}
+            <div class="text-[11px] font-bold tracking-[0.18em] text-dark/20 group-hover:text-gold/40 transition-colors duration-300">
+              {service.num}
+            </div>
+
+            {/* Icon */}
+            <div class="w-12 h-12 rounded-sm bg-gold/8 group-hover:bg-gold/15 border border-gold/15 group-hover:border-gold/30 flex items-center justify-center text-gold transition-all duration-300 flex-shrink-0">
               <div set:html={service.icon} />
             </div>
-            <div>
-              <h3 class="font-serif text-xl text-dark group-hover:text-white mb-3 transition-colors duration-300">{service.title}</h3>
-              <p class="text-dark/55 group-hover:text-white/55 text-sm leading-relaxed transition-colors duration-300">{service.desc}</p>
+
+            <div class="flex-1">
+              <h3 class="font-serif text-[1.2rem] text-dark group-hover:text-white mb-2.5 transition-colors duration-300 leading-snug">{service.title}</h3>
+              <p class="text-dark/50 group-hover:text-white/50 text-[13.5px] leading-relaxed transition-colors duration-300">{service.desc}</p>
             </div>
-            <div class="mt-auto flex items-center gap-2 text-gold text-xs font-medium tracking-wide uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+
+            {/* CTA link */}
+            <div class="flex items-center gap-2 text-gold text-[11px] font-bold tracking-[0.12em] uppercase opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0 mt-1">
               En savoir plus
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
@@ -180,18 +227,19 @@ const avantages = contactData.avantages;
     </div>
   </section>
 
-  <!-- MARQUES — Infinite Marquee -->
+  <!-- ══════════════════════════════════════════════════════════════════════
+       MARQUES — Infinite Marquee
+  ═══════════════════════════════════════════════════════════════════════ -->
   <section class="py-24 bg-white overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-14">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
       <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 reveal">
         <div>
-          <div class="text-gold text-xs tracking-widest uppercase font-medium mb-3">Nos partenaires</div>
-          <h2 class="font-serif text-5xl sm:text-6xl text-dark">{marquesData.marques.length}+ Marques</h2>
+          <span class="section-label mb-4 block text-dark/50" style="--gold: #0A0A0A;">Nos partenaires</span>
+          <h2 class="font-serif text-[2.8rem] sm:text-[3.5rem] text-dark">
+            {marquesData.marques.length}+ <em class="italic">Marques</em>
+          </h2>
         </div>
-        <a
-          href="/marques"
-          class="inline-flex items-center gap-2 border border-dark/20 hover:border-dark text-dark/60 hover:text-dark font-medium px-6 py-3 rounded-sm transition-all duration-200 text-sm self-start sm:self-auto"
-        >
+        <a href="/marques" class="btn-outline-dark self-start sm:self-auto flex-shrink-0">
           Voir toutes les marques
           <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
@@ -200,15 +248,18 @@ const avantages = contactData.avantages;
       </div>
     </div>
 
-    <!-- Marquee track -->
+    <!-- Marquee -->
     <div class="marquee-wrapper">
+      <!-- Fade masks -->
+      <div class="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 bg-gradient-to-r from-white to-transparent"></div>
+      <div class="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 bg-gradient-to-l from-white to-transparent"></div>
       <div class="marquee-track">
         {marqueeBrands.map((brand) => (
           <div class="marquee-item group">
             <img
               src={brand.logo}
               alt={brand.name}
-              class="h-8 sm:h-10 max-w-none object-contain grayscale opacity-40 group-hover:grayscale-0 group-hover:opacity-80 transition-all duration-400"
+              class="h-9 sm:h-11 max-w-none object-contain grayscale opacity-35 group-hover:grayscale-0 group-hover:opacity-85 transition-all duration-500"
               loading="lazy"
               onerror="this.parentElement.style.display='none'"
             />
@@ -218,55 +269,66 @@ const avantages = contactData.avantages;
     </div>
   </section>
 
-  <!-- NOTRE HISTOIRE -->
+  <!-- ══════════════════════════════════════════════════════════════════════
+       NOTRE HISTOIRE
+  ═══════════════════════════════════════════════════════════════════════ -->
   <section class="py-28 bg-dark text-white relative overflow-hidden">
-    <div class="absolute inset-0 opacity-[0.04]">
-      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, #C9A961 1px, transparent 0); background-size: 40px 40px;"></div>
-    </div>
+    <!-- Background decor -->
+    <div class="absolute inset-0 bg-dots-dark pointer-events-none"></div>
+    <div class="absolute -top-32 -right-32 w-96 h-96 rounded-full bg-gold/[0.04] blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-20 -left-20 w-72 h-72 rounded-full bg-gold/[0.03] blur-3xl pointer-events-none"></div>
+
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid lg:grid-cols-2 gap-20 items-center">
+      <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+
+        <!-- Left — Text -->
         <div class="reveal">
-          <div class="text-gold text-xs tracking-widest uppercase font-medium mb-6">Notre histoire</div>
-          <h2 class="font-serif text-5xl sm:text-6xl text-white mb-8 leading-tight" set:html={homeData.histoire_titre.replace(/(\d+ ans)/i, '<em class="text-gold italic">$1</em>')} />
-          <p class="text-white/55 text-lg leading-relaxed mb-10">
+          <span class="section-label mb-6 block" style="color: var(--gold);">Notre histoire</span>
+          <h2
+            class="font-serif text-[2.5rem] sm:text-[3rem] text-white mb-7 leading-[1.1]"
+            set:html={homeData.histoire_titre.replace(/(\d+\s+ans?)/gi, '<em class="text-gold italic">$1</em>')}
+          />
+          <p class="text-white/50 text-lg leading-relaxed mb-10">
             {homeData.histoire_texte}
           </p>
-          <div class="grid grid-cols-3 gap-8 mb-10 pt-8 border-t border-white/10">
+
+          <div class="grid grid-cols-3 gap-6 mb-10 pt-8 border-t border-white/8">
             {[
-              { title: 'Excellence', desc: 'Conseils personnalisés adaptés à vos besoins' },
+              { title: 'Excellence', desc: 'Conseils personnalisés adaptés à chaque client' },
               { title: 'Qualité', desc: 'Sélection rigoureuse des meilleures marques' },
               { title: 'Proximité', desc: 'Un accompagnement humain et bienveillant' },
             ].map((val) => (
               <div>
-                <div class="font-serif text-gold italic text-lg mb-2">{val.title}</div>
-                <div class="text-white/40 text-xs leading-relaxed">{val.desc}</div>
+                <div class="font-serif text-gold italic text-[1.05rem] mb-1.5">{val.title}</div>
+                <div class="text-white/35 text-[12px] leading-relaxed">{val.desc}</div>
               </div>
             ))}
           </div>
-          <a href="/boutique" class="inline-flex items-center gap-3 text-white/60 hover:text-gold text-sm tracking-wide transition-colors">
+
+          <a href="/boutique" class="inline-flex items-center gap-2.5 text-white/50 hover:text-gold text-[13px] tracking-wide transition-colors duration-200 group">
             Découvrir la boutique
-            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
             </svg>
           </a>
         </div>
 
-        <!-- Timeline -->
-        <div class="reveal">
+        <!-- Right — Timeline -->
+        <div class="reveal reveal-delay-2">
           <div class="space-y-0">
             {timeline.map((item: { annee: string; titre: string; description: string }, i: number) => (
-              <div class="flex gap-8 group">
-                <div class="flex flex-col items-center">
-                  <div class="w-px h-8 bg-white/10 first:hidden"></div>
-                  <div class="w-10 h-10 rounded-full border border-gold/30 flex items-center justify-center text-gold/70 font-serif text-xs flex-shrink-0 group-hover:border-gold group-hover:text-gold group-hover:bg-gold/10 transition-all duration-300">
-                    {item.annee.slice(2)}
+              <div class="flex gap-6 group">
+                <div class="flex flex-col items-center flex-shrink-0">
+                  {i > 0 && <div class="w-px h-6 bg-white/10"></div>}
+                  <div class="w-11 h-11 rounded-full border border-gold/25 flex items-center justify-center flex-shrink-0 group-hover:border-gold group-hover:bg-gold/10 transition-all duration-300">
+                    <span class="text-gold/60 group-hover:text-gold font-serif text-[11px] font-semibold transition-colors">{item.annee.slice(2)}</span>
                   </div>
-                  {i < timeline.length - 1 && <div class="w-px flex-1 bg-white/10 mt-0 min-h-8"></div>}
+                  {i < timeline.length - 1 && <div class="w-px flex-1 bg-gradient-to-b from-white/10 to-white/[0.04] min-h-8"></div>}
                 </div>
-                <div class="pb-8 pt-2">
-                  <div class="text-gold/60 text-xs tracking-widest uppercase mb-1">{item.annee}</div>
-                  <div class="font-serif text-white text-lg mb-1.5 group-hover:text-gold/90 transition-colors">{item.titre}</div>
-                  <div class="text-white/40 text-sm leading-relaxed">{item.description}</div>
+                <div class="pb-8 pt-2.5">
+                  <div class="text-gold/50 text-[10px] tracking-[0.18em] uppercase font-semibold mb-1">{item.annee}</div>
+                  <div class="font-serif text-white text-[1.1rem] mb-2 group-hover:text-gold/90 transition-colors duration-300 leading-snug">{item.titre}</div>
+                  <div class="text-white/35 text-[13px] leading-relaxed">{item.description}</div>
                 </div>
               </div>
             ))}
@@ -276,33 +338,38 @@ const avantages = contactData.avantages;
     </div>
   </section>
 
-  <!-- CTA CONTACT -->
+  <!-- ══════════════════════════════════════════════════════════════════════
+       CTA CONTACT
+  ═══════════════════════════════════════════════════════════════════════ -->
   <section class="py-32 bg-cream relative overflow-hidden">
-    <div class="absolute inset-0 opacity-40">
-      <div class="absolute inset-y-0 right-0 w-1/2 bg-gradient-to-l from-gold/5 to-transparent"></div>
-    </div>
+    <!-- Decorative elements -->
+    <div class="absolute inset-0 bg-dots-light opacity-40 pointer-events-none"></div>
+    <div class="absolute right-0 top-0 bottom-0 w-1/3 bg-gradient-to-l from-gold/[0.04] to-transparent pointer-events-none"></div>
+
+    <!-- Gold accent lines -->
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent"></div>
+    <div class="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/20 to-transparent"></div>
+
     <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
-      <div class="text-gold text-xs tracking-widest uppercase font-medium mb-6">Venez nous rendre visite</div>
-      <h2 class="font-serif text-5xl sm:text-6xl lg:text-7xl text-dark mb-8 leading-tight">
-        Votre prochaine paire<br /><em>vous attend</em>
+      <span class="section-label mb-6 block justify-center" style="--gold: #B8924A;">Venez nous rendre visite</span>
+
+      <h2 class="font-serif text-[clamp(2.5rem,6vw,4.5rem)] text-dark mb-8 leading-[1.05]">
+        Votre prochaine paire<br /><em class="text-gold italic">vous attend</em>
       </h2>
-      <div class="w-16 h-px bg-gold mx-auto mb-10"></div>
-      <p class="text-dark/55 text-lg mb-12 max-w-xl mx-auto">
-        Boutique de 100m², équipe de 7 experts, parking gratuit.<br />
+
+      <div class="gold-divider mx-auto mb-10"></div>
+
+      <p class="text-dark/50 text-lg mb-12 max-w-md mx-auto leading-relaxed">
+        100m² de boutique, 7 experts, parking gratuit.<br />
         Ouvert du mardi au samedi à Montivilliers.
       </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a
-          href="/contact"
-          class="inline-flex items-center gap-3 bg-dark hover:bg-dark/80 text-white font-semibold px-9 py-4 rounded-sm transition-colors duration-200 text-sm tracking-widest uppercase"
-        >
+
+      <div class="flex flex-col xs:flex-row gap-4 justify-center">
+        <a href="/contact" class="btn-primary" style="background: var(--dark); color: white;">
           Nos horaires & accès
         </a>
-        <a
-          href="tel:0235209978"
-          class="inline-flex items-center gap-3 border border-dark/15 hover:border-dark/40 text-dark/60 hover:text-dark font-medium px-9 py-4 rounded-sm transition-all duration-200 text-sm"
-        >
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+        <a href="tel:0235209978" class="btn-outline-dark">
+          <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
             <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
           </svg>
           02 35 20 99 78
@@ -315,9 +382,10 @@ const avantages = contactData.avantages;
 </Layout>
 
 <style>
+  /* Marquee */
   .marquee-wrapper {
-    overflow: hidden;
     position: relative;
+    overflow: hidden;
     padding: 2rem 0;
     border-top: 1px solid #EDE8DF;
     border-bottom: 1px solid #EDE8DF;
@@ -325,7 +393,7 @@ const avantages = contactData.avantages;
   .marquee-track {
     display: flex;
     align-items: center;
-    animation: marquee 40s linear infinite;
+    animation: marquee-anim 44s linear infinite;
     width: max-content;
   }
   .marquee-wrapper:hover .marquee-track {
@@ -333,13 +401,18 @@ const avantages = contactData.avantages;
   }
   .marquee-item {
     flex-shrink: 0;
-    padding: 0 3.5rem;
+    padding: 0 3rem;
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: default;
   }
-  @keyframes marquee {
+  @keyframes marquee-anim {
     from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    to   { transform: translateX(-50%); }
   }
+
+  /* Section label override for light section */
+  .section-label.dark-label { color: #7A6940; }
+  .section-label.dark-label::before { background: #7A6940; }
 </style>

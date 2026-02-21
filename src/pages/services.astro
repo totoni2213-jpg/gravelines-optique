@@ -5,19 +5,20 @@ import Footer from '../components/Footer.astro';
 import servicesData from '../data/services.json';
 
 const ICONS: Record<string, string> = {
-  examen: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.574-3.007-9.964-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>`,
-  montures: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10"><path stroke-linecap="round" stroke-linejoin="round" d="M3 14a4 4 0 1 0 8 0 4 4 0 0 0-8 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M13 14a4 4 0 1 0 8 0 4 4 0 0 0-8 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M11 14h2"/><path stroke-linecap="round" stroke-linejoin="round" d="M3 11 1 9M21 11l2-2"/></svg>`,
-  lentilles: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M8 12a4 4 0 1 0 8 0 4 4 0 0 0-8 0z"/></svg>`,
-  mutuelle: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>`,
-  domicile: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" /></svg>`,
-  audio: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10"><path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" /></svg>`,
+  'examen-de-vue': `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.574-3.007-9.964-7.178z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>`,
+  'montures-verres': `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 14a4 4 0 1 0 8 0 4 4 0 0 0-8 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M13 14a4 4 0 1 0 8 0 4 4 0 0 0-8 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M11 14h2"/><path stroke-linecap="round" stroke-linejoin="round" d="M3 11 1 9M21 11l2-2"/></svg>`,
+  'lentilles-de-contact': `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12a9 9 0 1 0 18 0 9 9 0 0 0-18 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M8 12a4 4 0 1 0 8 0 4 4 0 0 0-8 0z"/></svg>`,
+  'tiers-payant': `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" /></svg>`,
+  'service-a-domicile': `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" /></svg>`,
+  'audioprothese': `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z" /></svg>`,
 };
 
-const ICON_DEFAULT = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" /></svg>`;
+const ICON_DEFAULT = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8"><path stroke-linecap="round" stroke-linejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 11-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 004.486-6.336l-3.276 3.277a3.004 3.004 0 01-2.25-2.25l3.276-3.276a4.5 4.5 0 00-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437l1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008z" /></svg>`;
 
-const services = servicesData.services.map((s: { id: string; title: string; subtitle: string; description: string; details: string[]; accent: boolean }) => ({
+const services = servicesData.services.map((s: { id: string; title: string; subtitle: string; description: string; details: string[]; accent: boolean }, index: number) => ({
   ...s,
   icon: ICONS[s.id] || ICON_DEFAULT,
+  num: String(index + 1).padStart(2, '0'),
 }));
 ---
 
@@ -27,83 +28,103 @@ const services = servicesData.services.map((s: { id: string; title: string; subt
 >
   <Header />
 
-  <!-- Hero -->
-  <section class="pt-32 pb-20 bg-dark text-white relative overflow-hidden">
-    <div class="absolute inset-0 opacity-5">
-      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, #C9A961 1px, transparent 0); background-size: 40px 40px;"></div>
-    </div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div class="text-gold text-xs tracking-widest uppercase font-medium mb-4">Ce que nous proposons</div>
-      <h1 class="font-serif text-5xl sm:text-6xl text-white mb-6">
-        Nos <em class="text-gold">Services</em>
+  <!-- ══ HERO ══════════════════════════════════════════════════════════════ -->
+  <section class="pt-[74px] bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-dots-dark pointer-events-none"></div>
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/50 to-transparent"></div>
+
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-28 text-center">
+      <span class="section-label mb-5 block justify-center">Ce que nous proposons</span>
+      <h1 class="font-serif text-[clamp(2.8rem,7vw,5rem)] text-white mb-6 leading-[1.05]">
+        Nos <em class="text-gold italic">Services</em>
       </h1>
-      <p class="text-white/60 text-lg max-w-2xl mx-auto">
+      <p class="text-white/50 text-lg max-w-xl mx-auto leading-relaxed">
         Une expertise complète pour prendre soin de votre vue et de votre bien-être visuel,
         avec une équipe disponible et à l'écoute.
       </p>
     </div>
   </section>
 
-  <!-- Services List -->
+  <!-- ══ SERVICES LIST ═════════════════════════════════════════════════════ -->
   <section class="py-20 bg-cream">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-      {services.map((service, i) => (
-        <div
-          class={`reveal group rounded-sm border overflow-hidden transition-all duration-300 hover:shadow-lg
-            ${service.accent
-              ? 'bg-dark border-gold/40 text-white'
-              : 'bg-white border-cream-dark hover:border-gold/50'
-            }`}
-          style={`transition-delay: ${i * 80}ms`}
-        >
-          <div class="p-8 sm:p-10">
-            <div class="flex flex-col sm:flex-row sm:items-start gap-8">
-              <!-- Icon -->
-              <div class={`flex-shrink-0 w-16 h-16 rounded-sm flex items-center justify-center
-                ${service.accent ? 'bg-gold/20 text-gold' : 'bg-gold/10 text-gold group-hover:bg-gold/20'} transition-colors`}>
-                <div set:html={service.icon} />
-              </div>
-              <div class="flex-1">
-                <div class={`text-xs tracking-widest uppercase font-medium mb-2 ${service.accent ? 'text-gold' : 'text-gold-dark'}`}>
-                  {service.subtitle}
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-4">
+        {services.map((service, i) => (
+          <div
+            class={`reveal group rounded-sm border overflow-hidden transition-all duration-400 hover:shadow-card-hover
+              ${service.accent
+                ? 'bg-dark border-gold/30 text-white'
+                : 'bg-white border-cream-dark/80 hover:border-gold/30'
+              }`}
+            style={`transition-delay: ${i * 70}ms`}
+          >
+            <div class="p-8 sm:p-10">
+              <div class="flex flex-col sm:flex-row sm:items-start gap-7">
+
+                <!-- Number + Icon -->
+                <div class="flex-shrink-0 flex flex-col items-center gap-3">
+                  <div class={`text-[11px] font-bold tracking-[0.2em] ${service.accent ? 'text-gold/50' : 'text-dark/20'}`}>
+                    {service.num}
+                  </div>
+                  <div class={`w-16 h-16 rounded-sm flex items-center justify-center transition-colors duration-300
+                    ${service.accent ? 'bg-gold/15 text-gold' : 'bg-gold/8 text-gold group-hover:bg-gold/15 border border-gold/15 group-hover:border-gold/30'}`}>
+                    <div set:html={service.icon} />
+                  </div>
                 </div>
-                <h2 class={`font-serif text-3xl mb-4 ${service.accent ? 'text-white' : 'text-dark'}`}>
-                  {service.title}
-                </h2>
-                <p class={`text-lg leading-relaxed mb-6 ${service.accent ? 'text-white/70' : 'text-dark/60'}`}>
-                  {service.description}
-                </p>
-                <ul class="space-y-2.5">
-                  {service.details.map((detail) => (
-                    <li class={`flex items-start gap-3 text-sm ${service.accent ? 'text-white/70' : 'text-dark/70'}`}>
-                      <svg class="w-4 h-4 mt-0.5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                      </svg>
-                      {detail}
-                    </li>
-                  ))}
-                </ul>
+
+                <!-- Content -->
+                <div class="flex-1 min-w-0">
+                  <div class={`text-[10.5px] tracking-[0.18em] uppercase font-bold mb-2.5 ${service.accent ? 'text-gold' : 'text-gold-dark'}`}>
+                    {service.subtitle}
+                  </div>
+                  <h2 class={`font-serif text-[1.8rem] mb-4 leading-snug ${service.accent ? 'text-white' : 'text-dark'}`}>
+                    {service.title}
+                  </h2>
+                  <p class={`text-[1.0rem] leading-relaxed mb-6 ${service.accent ? 'text-white/60' : 'text-dark/55'}`}>
+                    {service.description}
+                  </p>
+
+                  <!-- Details list -->
+                  <ul class="grid sm:grid-cols-2 gap-x-6 gap-y-2.5">
+                    {service.details.map((detail: string) => (
+                      <li class={`flex items-start gap-3 text-[13.5px] ${service.accent ? 'text-white/60' : 'text-dark/60'}`}>
+                        <svg class="w-4 h-4 mt-0.5 text-gold flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                        </svg>
+                        {detail}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
+
+            {/* Accent bottom line */}
+            <div class={`h-[2px] bg-gradient-to-r from-transparent via-gold/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-400 ${service.accent ? 'opacity-30' : ''}`}></div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="py-20 bg-dark text-white">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="font-serif text-4xl text-white mb-5">Une question ? Appelez-nous.</h2>
-      <p class="text-white/60 text-lg mb-8">Notre équipe est disponible du mardi au samedi pour répondre à toutes vos questions.</p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="tel:0235209978" class="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-dark font-semibold px-8 py-4 rounded-sm transition-colors text-sm">
-          <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+  <!-- ══ CTA ════════════════════════════════════════════════════════════════ -->
+  <section class="py-20 bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-dots-dark pointer-events-none"></div>
+    <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent"></div>
+
+    <div class="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="font-serif text-[2rem] sm:text-[2.6rem] text-white mb-5 leading-tight">Une question ? Appelez-nous.</h2>
+      <p class="text-white/45 text-lg mb-10 leading-relaxed">
+        Notre équipe est disponible du mardi au samedi pour répondre à toutes vos questions.
+      </p>
+      <div class="flex flex-col xs:flex-row gap-4 justify-center">
+        <a href="tel:0235209978" class="btn-primary">
+          <svg class="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
             <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
           </svg>
           02 35 20 99 78
         </a>
-        <a href="/contact" class="inline-flex items-center gap-2 border border-white/20 hover:border-gold text-white hover:text-gold font-medium px-8 py-4 rounded-sm transition-colors text-sm">
+        <a href="/contact" class="btn-outline-white">
           Voir les horaires
         </a>
       </div>

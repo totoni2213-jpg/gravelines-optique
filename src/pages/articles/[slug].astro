@@ -2,7 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import { getCollection, getEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   try {
@@ -22,6 +22,11 @@ const { Content } = await article.render();
 function formatDate(date: string | Date) {
   return new Date(date).toLocaleDateString('fr-FR', { day: 'numeric', month: 'long', year: 'numeric' });
 }
+
+function readingTime(body: string) {
+  const words = (body || '').trim().split(/\s+/).length;
+  return `${Math.max(1, Math.ceil(words / 200))} min de lecture`;
+}
 ---
 
 <Layout
@@ -31,70 +36,116 @@ function formatDate(date: string | Date) {
 >
   <Header />
 
-  <!-- Hero article -->
-  <section class="pt-32 pb-0 bg-dark">
-    {article.data.image && (
-      <div class="relative h-64 sm:h-96 overflow-hidden">
+  <!-- Reading progress bar -->
+  <div id="reading-progress" class="fixed top-[74px] left-0 z-40 h-[2px] bg-gold transition-all duration-100 shadow-[0_0_8px_rgba(201,169,97,0.6)]" style="width: 0%;"></div>
+
+  <!-- ══ HERO ══════════════════════════════════════════════════════════════ -->
+  <section class="pt-[74px] bg-dark">
+    {article.data.image ? (
+      <div class="relative h-56 sm:h-80 lg:h-96 overflow-hidden">
         <img
           src={article.data.image}
           alt={article.data.titre}
-          class="w-full h-full object-cover opacity-40"
+          class="w-full h-full object-cover opacity-35 scale-105"
+          style="filter: brightness(0.8);"
         />
-        <div class="absolute inset-0 bg-gradient-to-t from-dark to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/60 to-transparent"></div>
+        <div class="absolute inset-0 bg-gradient-to-b from-dark/40 to-transparent"></div>
       </div>
+    ) : (
+      <div class="h-16 bg-dark bg-dots-dark"></div>
     )}
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 py-12 text-white">
-      <div class="flex items-center gap-3 mb-5">
-        <a href="/articles" class="text-gold/70 hover:text-gold text-sm flex items-center gap-1.5 transition-colors">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 pb-14 pt-10 text-white">
+      <!-- Breadcrumb + category -->
+      <div class="flex items-center gap-3 mb-7">
+        <a href="/articles" class="inline-flex items-center gap-1.5 text-white/40 hover:text-gold text-[13px] font-medium transition-colors group">
+          <svg class="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
           </svg>
           Tous les articles
         </a>
         {article.data.categorie && (
           <>
-            <span class="text-white/20">•</span>
-            <span class="text-xs font-medium text-gold bg-gold/10 border border-gold/20 px-3 py-1 rounded-full">
+            <span class="text-white/15">·</span>
+            <span class="text-[11px] font-bold text-gold bg-gold/12 border border-gold/20 px-3 py-1 rounded-full uppercase tracking-[0.1em]">
               {article.data.categorie}
             </span>
           </>
         )}
       </div>
-      <h1 class="font-serif text-4xl sm:text-5xl text-white mb-4 leading-tight">
+
+      <h1 class="font-serif text-[2rem] sm:text-[2.6rem] text-white mb-5 leading-[1.1]">
         {article.data.titre}
       </h1>
-      <div class="flex items-center gap-4 text-white/50 text-sm">
-        <span>Gravelines Optique</span>
-        <span>•</span>
+
+      <div class="flex items-center gap-4 text-white/35 text-[13px]">
+        <span class="text-white/50 font-medium">Gravelines Optique</span>
+        <span class="text-white/15">·</span>
         <time datetime={article.data.date.toString()}>{formatDate(article.data.date)}</time>
+        <span class="text-white/15">·</span>
+        <span>{readingTime(article.body)}</span>
       </div>
     </div>
   </section>
 
-  <!-- Content -->
+  <!-- ══ CONTENT ════════════════════════════════════════════════════════════ -->
   <section class="py-12 bg-cream">
     <div class="max-w-3xl mx-auto px-4 sm:px-6">
-      <article class="prose prose-lg prose-headings:font-serif prose-headings:text-dark prose-a:text-gold prose-strong:text-dark max-w-none">
+
+      <!-- Article intro (description as lead) -->
+      <div class="mb-8 p-6 bg-white border-l-4 border-gold rounded-r-sm shadow-card">
+        <p class="text-dark/70 text-[1.05rem] leading-[1.8] font-light italic">
+          {article.data.description}
+        </p>
+      </div>
+
+      <!-- Article body -->
+      <article class="prose-article" id="article-content">
         <Content />
       </article>
 
-      <!-- Share + Back -->
-      <div class="mt-12 pt-8 border-t border-cream-dark flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <a
-          href="/articles"
-          class="inline-flex items-center gap-2 text-dark/60 hover:text-dark text-sm transition-colors"
-        >
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-          </svg>
-          Retour aux articles
-        </a>
-        <a
-          href="/contact"
-          class="inline-flex items-center gap-2 bg-gold hover:bg-gold-dark text-dark font-semibold px-6 py-3 rounded-sm transition-colors text-sm"
-        >
-          Nous contacter
-        </a>
+      <!-- Bottom navigation -->
+      <div class="mt-14 pt-8 border-t border-cream-dark">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-5">
+          <a
+            href="/articles"
+            class="inline-flex items-center gap-2.5 text-dark/50 hover:text-dark text-[13.5px] font-medium transition-colors group"
+          >
+            <svg class="w-4 h-4 group-hover:-translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+            </svg>
+            Retour aux articles
+          </a>
+          <a href="/contact" class="btn-primary">
+            Prendre rendez-vous
+            <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Contact CTA card -->
+      <div class="mt-10 relative overflow-hidden bg-dark rounded-sm p-8 text-white">
+        <div class="absolute inset-0 bg-dots-dark pointer-events-none"></div>
+        <div class="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent"></div>
+        <div class="relative flex flex-col sm:flex-row items-center gap-5 sm:gap-8">
+          <div class="flex-1 text-center sm:text-left">
+            <h3 class="font-serif text-[1.4rem] text-white mb-2">Vous avez des questions sur votre vision ?</h3>
+            <p class="text-white/45 text-[14px] leading-relaxed">
+              Nos opticiens diplômés sont disponibles du mardi au samedi à Montivilliers.
+            </p>
+          </div>
+          <div class="flex flex-col gap-2.5 flex-shrink-0">
+            <a href="/contact" class="btn-primary whitespace-nowrap">
+              Nous contacter
+            </a>
+            <a href="tel:0235209978" class="btn-outline-white whitespace-nowrap justify-center text-center">
+              02 35 20 99 78
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -102,11 +153,20 @@ function formatDate(date: string | Date) {
   <Footer />
 </Layout>
 
-<style>
-  .prose :global(h2) { @apply mt-8 mb-4 text-2xl; }
-  .prose :global(h3) { @apply mt-6 mb-3 text-xl; }
-  .prose :global(p) { @apply mb-4 text-dark/80 leading-relaxed; }
-  .prose :global(ul) { @apply mb-4 space-y-2; }
-  .prose :global(li) { @apply text-dark/80; }
-  .prose :global(strong) { @apply font-semibold; }
-</style>
+<script>
+  // Reading progress bar
+  const progressBar = document.getElementById('reading-progress');
+  const content = document.getElementById('article-content');
+
+  if (progressBar && content) {
+    function updateProgress() {
+      const contentRect = content!.getBoundingClientRect();
+      const totalHeight = contentRect.height;
+      const scrolled = Math.max(0, -contentRect.top);
+      const progress = Math.min(100, (scrolled / totalHeight) * 100);
+      progressBar!.style.width = `${progress}%`;
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+  }
+</script>
