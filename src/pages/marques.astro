@@ -7,9 +7,7 @@ import marquesData from '../data/marques.json';
 const brands = marquesData.marques;
 
 // Three copies for seamless infinite loop
-const strip1 = [...brands, ...brands, ...brands];
-const strip2 = [...brands].reverse();
-const strip2x = [...strip2, ...strip2, ...strip2];
+const marqueeItems = [...brands, ...brands, ...brands];
 
 // Only keep categories that actually have brands
 const usedCats = marquesData.categories.filter(c =>
@@ -70,15 +68,12 @@ categories.forEach(c => {
     </div>
   </section>
 
-  <!-- ─── DUAL MARQUEE ──────────────────────────────────────────────────── -->
-  <div class="marquee-section bg-dark border-y border-white/[0.06] py-0 overflow-hidden">
-    <!-- Gold accent line top -->
+  <!-- ─── MARQUEE ─────────────────────────────────────────────────────── -->
+  <div class="marquee-section overflow-hidden bg-dark">
     <div class="h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent"></div>
-
-    <!-- Strip 1 — left to right -->
-    <div class="marquee-wrap py-4">
+    <div class="marquee-wrap py-5">
       <div class="marquee-track">
-        {strip1.map((brand: { logo: string; name: string }) => (
+        {marqueeItems.map((brand: { logo: string; name: string }) => (
           <div class="marquee-item">
             <img
               src={brand.logo}
@@ -90,27 +85,6 @@ categories.forEach(c => {
         ))}
       </div>
     </div>
-
-    <!-- Thin gold separator -->
-    <div class="h-px mx-8 bg-white/[0.06]"></div>
-
-    <!-- Strip 2 — right to left -->
-    <div class="marquee-wrap marquee-reversed py-4">
-      <div class="marquee-track-rev">
-        {strip2x.map((brand: { logo: string; name: string }) => (
-          <div class="marquee-item">
-            <img
-              src={brand.logo}
-              alt={brand.name}
-              loading="lazy"
-              onerror="this.parentElement.style.display='none'"
-            />
-          </div>
-        ))}
-      </div>
-    </div>
-
-    <!-- Gold accent line bottom -->
     <div class="h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent"></div>
   </div>
 
@@ -236,8 +210,6 @@ categories.forEach(c => {
 
 <style>
   /* ── MARQUEE ─────────────────────────────────────────────────────────── */
-  .marquee-section { position: relative; }
-
   .marquee-wrap { overflow: hidden; position: relative; }
 
   /* Fade masks on edges */
@@ -245,67 +217,46 @@ categories.forEach(c => {
   .marquee-wrap::after {
     content: '';
     position: absolute;
-    top: 0;
-    bottom: 0;
-    width: 120px;
+    top: 0; bottom: 0;
+    width: 140px;
     z-index: 2;
     pointer-events: none;
   }
-  .marquee-wrap::before {
-    left: 0;
-    background: linear-gradient(to right, #0a0a0a, transparent);
-  }
-  .marquee-wrap::after {
-    right: 0;
-    background: linear-gradient(to left, #0a0a0a, transparent);
-  }
+  .marquee-wrap::before { left: 0; background: linear-gradient(to right, #0a0a0a, transparent); }
+  .marquee-wrap::after  { right: 0; background: linear-gradient(to left, #0a0a0a, transparent); }
 
   .marquee-track {
     display: flex;
     align-items: center;
-    animation: marquee-ltr 55s linear infinite;
-    width: max-content;
-  }
-  .marquee-track-rev {
-    display: flex;
-    align-items: center;
-    animation: marquee-rtl 48s linear infinite;
+    animation: marquee-scroll 50s linear infinite;
     width: max-content;
   }
 
-  /* Pause on hover */
-  .marquee-section:hover .marquee-track,
-  .marquee-section:hover .marquee-track-rev {
+  .marquee-section:hover .marquee-track {
     animation-play-state: paused;
   }
 
   .marquee-item {
     flex-shrink: 0;
-    padding: 0 2.5rem;
+    padding: 0 3rem;
     display: flex;
     align-items: center;
     justify-content: center;
   }
   .marquee-item img {
-    height: 28px;
+    height: 26px;
     max-width: none;
     object-fit: contain;
     filter: brightness(0) invert(1);
-    opacity: 0.55;
+    opacity: 0.5;
     transition: opacity 0.3s ease;
     pointer-events: none;
   }
-  .marquee-item:hover img {
-    opacity: 1;
-  }
+  .marquee-item:hover img { opacity: 1; }
 
-  @keyframes marquee-ltr {
+  @keyframes marquee-scroll {
     from { transform: translateX(0); }
     to   { transform: translateX(-33.333%); }
-  }
-  @keyframes marquee-rtl {
-    from { transform: translateX(-33.333%); }
-    to   { transform: translateX(0); }
   }
 
   /* ── FILTER PILLS ────────────────────────────────────────────────────── */
