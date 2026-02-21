@@ -1,6 +1,6 @@
 ---
-titre: Tendances lunettes 2025 : les montures qui font l'actualité
-description: Retour du métal fin, acétate XXL, teintes vintage, transparences... Les grandes tendances lunettes de 2025 décryptées par nos opticiens.
+titre: "Tendances lunettes 2025 : les montures qui font l'actualité"
+description: "Retour du métal fin, acétate XXL, teintes vintage, transparences... Les grandes tendances lunettes de 2025 décryptées par nos opticiens."
 date: 2025-02-01T00:00:00.000Z
 categorie: Nouveautés
 publie: true

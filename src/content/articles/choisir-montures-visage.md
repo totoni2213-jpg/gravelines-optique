@@ -1,6 +1,6 @@
 ---
-titre: Comment choisir ses lunettes selon la forme de son visage ?
-description: Ovale, carré, rond, cœur... Chaque morphologie a ses montures idéales. Nos opticiens vous guident pour trouver la paire parfaite.
+titre: "Comment choisir ses lunettes selon la forme de son visage ?"
+description: "Ovale, carré, rond, cœur... Chaque morphologie a ses montures idéales. Nos opticiens vous guident pour trouver la paire parfaite."
 date: 2025-01-15T00:00:00.000Z
 categorie: Conseils optique
 publie: true

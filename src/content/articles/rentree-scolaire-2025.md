@@ -1,6 +1,6 @@
 ---
-titre: Rentrée 2025 : préparez la vue de vos enfants
-description: Avant la rentrée scolaire, pensez à contrôler la vue de vos enfants. Un défaut visuel non détecté peut impacter les apprentissages.
+titre: "Rentrée 2025 : préparez la vue de vos enfants"
+description: "Avant la rentrée scolaire, pensez à contrôler la vue de vos enfants. Un défaut visuel non détecté peut impacter les apprentissages."
 date: 2025-08-20T00:00:00.000Z
 categorie: Événements
 publie: true

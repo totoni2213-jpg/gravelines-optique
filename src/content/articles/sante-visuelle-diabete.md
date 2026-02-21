@@ -1,5 +1,5 @@
 ---
-titre: Diabète et vision : ce que vous devez savoir
+titre: "Diabète et vision : ce que vous devez savoir"
 description: Le diabète est la première cause de cécité avant 50 ans en France. Un suivi ophtalmologique régulier est indispensable. Gravelines Optique vous informe.
 date: 2025-07-05T00:00:00.000Z
 categorie: Conseils optique

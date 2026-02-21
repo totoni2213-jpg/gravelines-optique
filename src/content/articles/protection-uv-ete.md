@@ -1,5 +1,5 @@
 ---
-titre: Lunettes de soleil : l'importance de la protection UV
+titre: "Lunettes de soleil : l'importance de la protection UV"
 description: Toutes les lunettes teintées ne protègent pas des UV. Découvrez comment bien choisir vos lunettes solaires pour préserver votre vue.
 date: 2025-06-01T00:00:00.000Z
 categorie: Conseils optique

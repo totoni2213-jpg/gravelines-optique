@@ -1,6 +1,6 @@
 ---
-titre: Lunettes pour enfants : comment bien les choisir ?
-description: Choisir les lunettes de son enfant est une décision importante. Solidité, confort, correction adaptée : nos conseils pour les parents.
+titre: "Lunettes pour enfants : comment bien les choisir ?"
+description: "Choisir les lunettes de son enfant est une décision importante. Solidité, confort, correction adaptée : nos conseils pour les parents."
 date: 2025-07-10T00:00:00.000Z
 categorie: Conseils optique
 publie: true

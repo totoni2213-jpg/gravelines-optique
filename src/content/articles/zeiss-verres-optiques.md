@@ -1,6 +1,6 @@
 ---
-titre: Zeiss : la précision allemande au service de votre vision
-description: Carl Zeiss, fondé en 1846, est l'une des maisons optiques les plus prestigieuses au monde. Découvrez leur gamme de verres disponible chez Gravelines Optique.
+titre: "Zeiss : la précision allemande au service de votre vision"
+description: "Carl Zeiss, fondé en 1846, est l'une des maisons optiques les plus prestigieuses au monde. Découvrez leur gamme de verres disponible chez Gravelines Optique."
 date: 2025-08-15T00:00:00.000Z
 categorie: Nouveautés
 publie: true

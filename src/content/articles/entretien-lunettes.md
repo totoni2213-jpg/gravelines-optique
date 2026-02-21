@@ -1,6 +1,6 @@
 ---
-titre: Comment bien entretenir ses lunettes et prolonger leur durée de vie ?
-description: Nettoyage, rangement, réglage... Les bons gestes pour garder vos lunettes en parfait état le plus longtemps possible.
+titre: "Comment bien entretenir ses lunettes et prolonger leur durée de vie ?"
+description: "Nettoyage, rangement, réglage... Les bons gestes pour garder vos lunettes en parfait état le plus longtemps possible."
 date: 2025-03-25T00:00:00.000Z
 categorie: Conseils optique
 publie: true

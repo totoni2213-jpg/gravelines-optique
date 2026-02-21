@@ -1,6 +1,6 @@
 ---
-titre: Myopie chez les enfants : comprendre et agir
-description: La myopie progresse de façon alarmante chez les jeunes. Écrans, manque de lumière naturelle, hérédité... nos opticiens font le point.
+titre: "Myopie chez les enfants : comprendre et agir"
+description: "La myopie progresse de façon alarmante chez les jeunes. Écrans, manque de lumière naturelle, hérédité... nos opticiens font le point."
 date: 2025-09-01T00:00:00.000Z
 categorie: Conseils optique
 publie: true

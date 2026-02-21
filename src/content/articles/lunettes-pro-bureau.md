@@ -1,6 +1,6 @@
 ---
-titre: Lunettes de bureau : la solution méconnue pour les professionnels
-description: Les verres de bureau ou "occupationnels" sont spécialement conçus pour le travail en espace rapproché. Une solution très efficace pour les actifs.
+titre: "Lunettes de bureau : la solution méconnue pour les professionnels"
+description: "Les verres de bureau ou \"occupationnels\" sont spécialement conçus pour le travail en espace rapproché. Une solution très efficace pour les actifs."
 date: 2025-04-28T00:00:00.000Z
 categorie: Conseils optique
 publie: true

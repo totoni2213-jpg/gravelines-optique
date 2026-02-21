@@ -1,6 +1,6 @@
 ---
-titre: Semaine de la Vue 2025 : dépistage gratuit chez Gravelines Optique
-description: À l'occasion de la Semaine de la Vue, Gravelines Optique propose des dépistages gratuits et des ateliers de sensibilisation pour toute la famille.
+titre: "Semaine de la Vue 2025 : dépistage gratuit chez Gravelines Optique"
+description: "À l'occasion de la Semaine de la Vue, Gravelines Optique propose des dépistages gratuits et des ateliers de sensibilisation pour toute la famille."
 date: 2025-10-10T00:00:00.000Z
 categorie: Événements
 publie: true

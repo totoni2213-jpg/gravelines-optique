@@ -1,6 +1,6 @@
 ---
-titre: Varilux X Series : l'évolution des verres progressifs par Essilor
-description: Essilor Varilux, référence mondiale du verre progressif, lance les Varilux X Series. Découvrez ce qui change et si c'est fait pour vous.
+titre: "Varilux X Series : l'évolution des verres progressifs par Essilor"
+description: "Essilor Varilux, référence mondiale du verre progressif, lance les Varilux X Series. Découvrez ce qui change et si c'est fait pour vous."
 date: 2025-06-10T00:00:00.000Z
 categorie: Nouveautés
 publie: true

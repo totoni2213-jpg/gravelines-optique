@@ -1,6 +1,6 @@
 ---
 titre: Les grandes marques de luxe disponibles chez Gravelines Optique
-description: Tom Ford, Gucci, Prada, Saint Laurent, Dior... Découvrez notre sélection de lunettes de luxe à Montivilliers.
+description: "Tom Ford, Gucci, Prada, Saint Laurent, Dior... Découvrez notre sélection de lunettes de luxe à Montivilliers."
 date: 2025-03-05T00:00:00.000Z
 categorie: Nouveautés
 publie: true

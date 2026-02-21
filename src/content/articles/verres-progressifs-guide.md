@@ -1,6 +1,6 @@
 ---
-titre: Verres progressifs : s'adapter sans difficulté
-description: La presbytie vous oblige à envisager des verres progressifs ? Découvrez comment bien les choisir et réussir votre adaptation.
+titre: "Verres progressifs : s'adapter sans difficulté"
+description: "La presbytie vous oblige à envisager des verres progressifs ? Découvrez comment bien les choisir et réussir votre adaptation."
 date: 2025-04-05T00:00:00.000Z
 categorie: Conseils optique
 publie: true

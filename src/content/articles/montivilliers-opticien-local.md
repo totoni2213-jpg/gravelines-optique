@@ -1,6 +1,6 @@
 ---
-titre: Pourquoi choisir un opticien local plutôt qu'une grande enseigne ?
-description: Face aux grandes chaînes d'optique, les opticiens indépendants comme Gravelines Optique offrent des avantages réels. Explications.
+titre: "Pourquoi choisir un opticien local plutôt qu'une grande enseigne ?"
+description: "Face aux grandes chaînes d'optique, les opticiens indépendants comme Gravelines Optique offrent des avantages réels. Explications."
 date: 2025-01-10T00:00:00.000Z
 categorie: Actualités
 publie: true

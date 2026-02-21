@@ -1,6 +1,6 @@
 ---
 titre: 7 signes qui indiquent que vous avez besoin de lunettes
-description: Maux de tête, vision floue, yeux fatigués... certains symptômes sont des signaux d'alarme à ne pas ignorer. Apprenez à les reconnaître.
+description: "Maux de tête, vision floue, yeux fatigués... certains symptômes sont des signaux d'alarme à ne pas ignorer. Apprenez à les reconnaître."
 date: 2025-04-20T00:00:00.000Z
 categorie: Conseils optique
 publie: true

@@ -1,6 +1,6 @@
 ---
 titre: Les Ray-Ban Meta sont disponibles chez Gravelines Optique
-description: Découvrez les nouvelles lunettes connectées Ray-Ban Meta Stories. Photo, vidéo et musique intégrés dans une monture iconique.
+description: "Découvrez les nouvelles lunettes connectées Ray-Ban Meta Stories. Photo, vidéo et musique intégrés dans une monture iconique."
 date: 2025-08-20T00:00:00.000Z
 categorie: Nouveautés
 publie: true

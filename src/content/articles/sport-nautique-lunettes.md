@@ -1,6 +1,6 @@
 ---
-titre: Lunettes pour les sports nautiques : nos recommandations
-description: Voile, surf, kayak, natation... L'eau et le sel sont des ennemis des lunettes classiques. Découvrez les équipements adaptés aux sports nautiques.
+titre: "Lunettes pour les sports nautiques : nos recommandations"
+description: "Voile, surf, kayak, natation... L'eau et le sel sont des ennemis des lunettes classiques. Découvrez les équipements adaptés aux sports nautiques."
 date: 2025-06-15T00:00:00.000Z
 categorie: Conseils optique
 publie: true

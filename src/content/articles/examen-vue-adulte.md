@@ -1,6 +1,6 @@
 ---
-titre: Examen de vue : à quelle fréquence consulter ?
-description: Un contrôle de vue régulier est essentiel, même sans problème apparent. Découvrez les recommandations selon votre âge et vos facteurs de risque.
+titre: "Examen de vue : à quelle fréquence consulter ?"
+description: "Un contrôle de vue régulier est essentiel, même sans problème apparent. Découvrez les recommandations selon votre âge et vos facteurs de risque."
 date: 2025-05-20T00:00:00.000Z
 categorie: Conseils optique
 publie: true

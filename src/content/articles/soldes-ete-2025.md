@@ -1,6 +1,6 @@
 ---
-titre: Soldes été 2025 : jusqu'à -30% sur une sélection de montures
-description: Les soldes d'été sont là ! Profitez de réductions exceptionnelles sur une large sélection de montures et de lunettes de soleil chez Gravelines Optique.
+titre: "Soldes été 2025 : jusqu'à -30% sur une sélection de montures"
+description: "Les soldes d'été sont là ! Profitez de réductions exceptionnelles sur une large sélection de montures et de lunettes de soleil chez Gravelines Optique."
 date: 2025-06-25T00:00:00.000Z
 categorie: Promotions
 publie: true

@@ -1,5 +1,5 @@
 ---
-titre: Bienvenue sur notre nouveau site !
+titre: "Bienvenue sur notre nouveau site !"
 description: Gravelines Optique fait peau neuve. Découvrez notre nouvelle boutique en ligne avec toutes nos marques et services.
 date: 2025-02-20T00:00:00.000Z
 categorie: Actualités

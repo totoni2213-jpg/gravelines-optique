@@ -1,6 +1,6 @@
 ---
-titre: Débuter avec les lentilles de contact : tout ce qu'il faut savoir
-description: Vous pensez à passer aux lentilles ? Nos opticiens répondent à toutes vos questions : adaptation, entretien, durée de port et bien plus encore.
+titre: "Débuter avec les lentilles de contact : tout ce qu'il faut savoir"
+description: "Vous pensez à passer aux lentilles ? Nos opticiens répondent à toutes vos questions : adaptation, entretien, durée de port et bien plus encore."
 date: 2025-03-10T00:00:00.000Z
 categorie: Conseils optique
 publie: true

@@ -1,6 +1,6 @@
 ---
-titre: Cataracte : reconnaître les signes et savoir quand agir
-description: La cataracte est la première cause d'opération chirurgicale en France. Comment la détecter et quel rôle joue votre opticien dans votre parcours de soins ?
+titre: "Cataracte : reconnaître les signes et savoir quand agir"
+description: "La cataracte est la première cause d'opération chirurgicale en France. Comment la détecter et quel rôle joue votre opticien dans votre parcours de soins ?"
 date: 2025-11-01T00:00:00.000Z
 categorie: Conseils optique
 publie: true

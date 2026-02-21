@@ -1,6 +1,6 @@
 ---
-titre: Oakley chez Gravelines Optique : performance et style pour les sportifs
-description: Oakley, la référence des lunettes de sport. Découvrez notre sélection de montures et solaires Oakley disponibles à Montivilliers.
+titre: "Oakley chez Gravelines Optique : performance et style pour les sportifs"
+description: "Oakley, la référence des lunettes de sport. Découvrez notre sélection de montures et solaires Oakley disponibles à Montivilliers."
 date: 2025-07-25T00:00:00.000Z
 categorie: Nouveautés
 publie: true

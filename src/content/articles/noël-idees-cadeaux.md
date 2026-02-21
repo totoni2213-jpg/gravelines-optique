@@ -1,6 +1,6 @@
 ---
-titre: Noël 2025 : offrez une paire de lunettes, un cadeau qui dure
-description: Vous cherchez une idée de cadeau original et utile pour Noël ? Une belle monture ou une paire de solaires de qualité, c'est un cadeau pour toute l'année.
+titre: "Noël 2025 : offrez une paire de lunettes, un cadeau qui dure"
+description: "Vous cherchez une idée de cadeau original et utile pour Noël ? Une belle monture ou une paire de solaires de qualité, c'est un cadeau pour toute l'année."
 date: 2025-11-20T00:00:00.000Z
 categorie: Événements
 publie: true

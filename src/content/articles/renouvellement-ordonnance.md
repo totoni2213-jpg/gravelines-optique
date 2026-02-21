@@ -1,6 +1,6 @@
 ---
-titre: Renouvellement d'ordonnance : vos droits et les nouvelles règles
-description: Depuis 2022, les opticiens peuvent renouveler certaines ordonnances sans passer par l'ophtalmologue. Ce qu'il faut savoir.
+titre: "Renouvellement d'ordonnance : vos droits et les nouvelles règles"
+description: "Depuis 2022, les opticiens peuvent renouveler certaines ordonnances sans passer par l'ophtalmologue. Ce qu'il faut savoir."
 date: 2025-03-18T00:00:00.000Z
 categorie: Actualités
 publie: true

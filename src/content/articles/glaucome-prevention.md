@@ -1,5 +1,5 @@
 ---
-titre: Glaucome : la maladie silencieuse que le dépistage peut stopper
+titre: "Glaucome : la maladie silencieuse que le dépistage peut stopper"
 description: Le glaucome est la première cause de cécité évitable dans le monde. Un dépistage précoce change tout. Gravelines Optique fait le point.
 date: 2025-10-05T00:00:00.000Z
 categorie: Conseils optique

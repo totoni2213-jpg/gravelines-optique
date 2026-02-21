@@ -1,6 +1,6 @@
 ---
-titre: L'acétate de cellulose : le matériau tendance pour vos lunettes
-description: Épais, coloré, brillant ou mat... L'acétate de cellulose est le matériau phare de la mode lunettière actuelle. Pourquoi est-il si populaire ?
+titre: "L'acétate de cellulose : le matériau tendance pour vos lunettes"
+description: "Épais, coloré, brillant ou mat... L'acétate de cellulose est le matériau phare de la mode lunettière actuelle. Pourquoi est-il si populaire ?"
 date: 2025-04-15T00:00:00.000Z
 categorie: Conseils optique
 publie: true

@@ -1,6 +1,6 @@
 ---
-titre: Tiers payant en optique : comment ça marche chez nous ?
-description: Chez Gravelines Optique, nous pratiquons le tiers payant avec toutes les mutuelles. Plus besoin d'avancer les frais. Explications.
+titre: "Tiers payant en optique : comment ça marche chez nous ?"
+description: "Chez Gravelines Optique, nous pratiquons le tiers payant avec toutes les mutuelles. Plus besoin d'avancer les frais. Explications."
 date: 2025-01-20T00:00:00.000Z
 categorie: Actualités
 publie: true

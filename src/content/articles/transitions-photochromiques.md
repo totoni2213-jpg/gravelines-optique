@@ -1,6 +1,6 @@
 ---
-titre: Verres Transitions : la liberté de ne plus changer de lunettes
-description: Les verres photochromiques s'adaptent automatiquement à la luminosité. Tout ce qu'il faut savoir sur la technologie Transitions.
+titre: "Verres Transitions : la liberté de ne plus changer de lunettes"
+description: "Les verres photochromiques s'adaptent automatiquement à la luminosité. Tout ce qu'il faut savoir sur la technologie Transitions."
 date: 2025-05-05T00:00:00.000Z
 categorie: Nouveautés
 publie: true

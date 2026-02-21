@@ -1,6 +1,6 @@
 ---
-titre: Lunettes et masques pour les sports d'hiver : bien s'équiper
-description: Ski, snowboard, randonnée en neige... Les yeux sont extrêmement exposés aux UV en montagne. Découvrez comment bien vous protéger.
+titre: "Lunettes et masques pour les sports d'hiver : bien s'équiper"
+description: "Ski, snowboard, randonnée en neige... Les yeux sont extrêmement exposés aux UV en montagne. Découvrez comment bien vous protéger."
 date: 2025-10-20T00:00:00.000Z
 categorie: Conseils optique
 publie: true

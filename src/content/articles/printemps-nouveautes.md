@@ -1,6 +1,6 @@
 ---
-titre: Printemps 2025 : les nouvelles collections sont arrivées !
-description: Chaque printemps, Gravelines Optique renouvelle ses collections. Découvrez les nouvelles montures et les solaires de la saison.
+titre: "Printemps 2025 : les nouvelles collections sont arrivées !"
+description: "Chaque printemps, Gravelines Optique renouvelle ses collections. Découvrez les nouvelles montures et les solaires de la saison."
 date: 2025-03-01T00:00:00.000Z
 categorie: Événements
 publie: true

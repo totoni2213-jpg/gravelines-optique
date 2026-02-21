@@ -1,6 +1,6 @@
 ---
-titre: Presbytie : toutes les solutions pour bien voir de près après 40 ans
-description: Progressifs, demi-lunes, lentilles multifocales... La presbytie a de nombreuses solutions. Découvrez celle qui correspond à votre mode de vie.
+titre: "Presbytie : toutes les solutions pour bien voir de près après 40 ans"
+description: "Progressifs, demi-lunes, lentilles multifocales... La presbytie a de nombreuses solutions. Découvrez celle qui correspond à votre mode de vie."
 date: 2025-05-15T00:00:00.000Z
 categorie: Conseils optique
 publie: true

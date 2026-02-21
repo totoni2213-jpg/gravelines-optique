@@ -1,6 +1,6 @@
 ---
-titre: Silhouette : l'art autrichien de la monture ultra-légère
-description: Silhouette, c'est la monture sans vis, sans charnière et sans rivets. Une prouesse d'ingénierie autrichienne disponible chez Gravelines Optique.
+titre: "Silhouette : l'art autrichien de la monture ultra-légère"
+description: "Silhouette, c'est la monture sans vis, sans charnière et sans rivets. Une prouesse d'ingénierie autrichienne disponible chez Gravelines Optique."
 date: 2025-08-05T00:00:00.000Z
 categorie: Nouveautés
 publie: true

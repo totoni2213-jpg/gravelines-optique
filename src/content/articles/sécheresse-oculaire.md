@@ -1,6 +1,6 @@
 ---
-titre: Sécheresse oculaire : causes, symptômes et solutions
-description: Des yeux qui piquent, brûlent ou larmoient en permanence ? La sécheresse oculaire touche des millions de personnes. Explications et solutions.
+titre: "Sécheresse oculaire : causes, symptômes et solutions"
+description: "Des yeux qui piquent, brûlent ou larmoient en permanence ? La sécheresse oculaire touche des millions de personnes. Explications et solutions."
 date: 2025-09-10T00:00:00.000Z
 categorie: Conseils optique
 publie: true
