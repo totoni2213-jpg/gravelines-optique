@@ -71,7 +71,7 @@ categories.forEach(c => {
   <!-- ─── MARQUEE ─────────────────────────────────────────────────────── -->
   <div class="marquee-section overflow-hidden bg-dark">
     <div class="h-px bg-gradient-to-r from-transparent via-gold/40 to-transparent"></div>
-    <div class="marquee-wrap py-5">
+    <div class="marquee-wrap py-8">
       <div class="marquee-track">
         {marqueeItems.map((brand: { logo: string; name: string }) => (
           <div class="marquee-item">
@@ -238,17 +238,17 @@ categories.forEach(c => {
 
   .marquee-item {
     flex-shrink: 0;
-    padding: 0 3rem;
+    padding: 0 3.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
   }
   .marquee-item img {
-    height: 26px;
-    max-width: none;
+    height: 52px;
+    max-width: 140px;
     object-fit: contain;
     filter: brightness(0) invert(1);
-    opacity: 0.5;
+    opacity: 0.65;
     transition: opacity 0.3s ease;
     pointer-events: none;
   }
