@@ -3,37 +3,44 @@
     {
       "nom": "Frédéric",
       "role": "Expert Optique",
-      "expertise": "30 ans d'expérience"
+      "expertise": "30 ans d'expérience",
+      "photo": "/images/equipe/frederic-gravelines-optique.jpg"
     },
     {
       "nom": "Marianne",
       "role": "Responsable administrative",
-      "expertise": "La voix au téléphone"
+      "expertise": "La voix au téléphone",
+      "photo": "/images/equipe/marianne-gravelines-optique.jpg"
     },
     {
       "nom": "Sacha",
       "role": "Opticien",
-      "expertise": "Conseil montures"
+      "expertise": "Conseil montures",
+      "photo": "/images/equipe/sacha-gravelines-optique.jpg"
     },
     {
       "nom": "Antoine",
       "role": "Opticien",
-      "expertise": "Sport & outdoor"
+      "expertise": "Sport & outdoor",
+      "photo": "/images/equipe/antoine-gravelines-optique.jpg"
     },
     {
       "nom": "Marine",
       "role": "Opticienne",
-      "expertise": "Collections enfants"
+      "expertise": "Collections enfants",
+      "photo": "/images/equipe/marine-gravelines-optique.jpg"
     },
     {
       "nom": "Paul",
       "role": "Opticien",
-      "expertise": "SAV & réparations"
+      "expertise": "SAV & réparations",
+      "photo": "/images/equipe/paul-gravelines-optique.jpg"
     },
     {
       "nom": "Raphaël",
       "role": "Opticien",
-      "expertise": "Verres progressifs"
+      "expertise": "Verres progressifs",
+      "photo": "/images/equipe/raphael-gravelines-optique.jpg"
     }
   ]
 }
