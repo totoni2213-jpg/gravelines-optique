@@ -29,42 +29,19 @@ categories.forEach(c => {
   <Header />
 
   <!-- ─── HERO ─────────────────────────────────────────────────────────── -->
-  <section class="pt-32 pb-24 bg-dark text-white relative overflow-hidden">
-    <!-- Dot grid -->
-    <div class="absolute inset-0 opacity-[0.035]"
-      style="background-image: radial-gradient(circle at 1.5px 1.5px, #C9A961 1px, transparent 0); background-size: 36px 36px;">
+  <section class="pt-32 pb-20 bg-dark text-white relative overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.04]">
+      <div class="absolute inset-0" style="background-image: radial-gradient(circle at 2px 2px, #C9A961 1px, transparent 0); background-size: 40px 40px;"></div>
     </div>
-    <!-- Large blurred glow -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-gold/5 blur-[120px] pointer-events-none"></div>
-
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <div class="inline-flex items-center gap-2 bg-white/[0.06] border border-white/10 rounded-full px-5 py-2 text-gold text-xs tracking-widest uppercase font-medium mb-8 backdrop-blur-sm">
-        <span class="w-1.5 h-1.5 bg-gold rounded-full"></span>
-        Sélection exclusive
-      </div>
-      <h1 class="font-serif text-6xl sm:text-8xl text-white mb-6 leading-[0.95] tracking-tight">
-        {brands.length}+&nbsp;<em class="text-gold italic">Marques</em><br/>
-        <span class="text-white/30 text-5xl sm:text-6xl">d'Exception</span>
+      <div class="text-gold text-xs tracking-widest uppercase font-medium mb-4">Notre sélection</div>
+      <h1 class="font-serif text-5xl sm:text-6xl text-white mb-6">
+        {brands.length}+ Marques <em class="text-gold">d'Exception</em>
       </h1>
-      <div class="w-12 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto my-8"></div>
-      <p class="text-white/45 text-base max-w-md mx-auto leading-relaxed">
-        Des créateurs indépendants aux grandes maisons — chaque marque
-        sélectionnée avec exigence pour vous offrir le meilleur.
+      <p class="text-white/60 text-lg max-w-2xl mx-auto">
+        Des créateurs indépendants aux grandes maisons, nous sélectionnons avec exigence
+        chaque marque pour vous offrir le meilleur de l'optique.
       </p>
-
-      <!-- Mini stats -->
-      <div class="flex items-center justify-center gap-10 mt-12">
-        {[
-          { val: brands.length + '+', label: 'Marques' },
-          { val: usedCats.length.toString(), label: 'Catégories' },
-          { val: '2008', label: 'Depuis' },
-        ].map(s => (
-          <div class="text-center">
-            <div class="font-serif text-gold text-2xl font-bold">{s.val}</div>
-            <div class="text-white/30 text-xs uppercase tracking-widest mt-0.5">{s.label}</div>
-          </div>
-        ))}
-      </div>
     </div>
   </section>
 
@@ -89,56 +66,34 @@ categories.forEach(c => {
   </div>
 
   <!-- ─── BRANDS SHOWCASE ───────────────────────────────────────────────── -->
-  <section class="py-24 bg-[#080808] min-h-screen">
+  <section class="py-20 bg-cream">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-      <!-- Section header -->
-      <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-12 reveal">
-        <div>
-          <div class="text-gold text-xs tracking-widest uppercase font-medium mb-3">Toutes nos marques</div>
-          <h2 class="font-serif text-4xl text-white leading-tight">
-            Explorer la collection
-          </h2>
-        </div>
-        <p class="text-white/30 text-sm max-w-xs sm:text-right leading-relaxed">
-          Cliquez sur une catégorie pour filtrer. Toutes les marques sont disponibles en boutique.
-        </p>
-      </div>
-
-      <!-- Category filter — scrollable pills -->
-      <div class="filter-scroll-wrap mb-12 reveal">
-        <div class="flex gap-2 overflow-x-auto pb-1 filter-pills">
-          {categories.map((cat) => (
-            <button
-              data-filter={cat}
-              class={`filter-btn flex-shrink-0 flex items-center gap-2 px-4 py-2 rounded-full text-xs font-medium tracking-wide border transition-all duration-200 whitespace-nowrap
-                ${cat === 'Toutes'
-                  ? 'bg-gold text-[#080808] border-gold font-bold active'
-                  : 'text-white/40 border-white/10 hover:text-white/80 hover:border-white/30'
-                }`}
-            >
-              {cat}
-              <span class={`text-[10px] font-bold rounded-full px-1.5 py-0.5 min-w-[18px] text-center leading-none
-                ${cat === 'Toutes' ? 'bg-[#080808]/20 text-[#080808]' : 'bg-white/8 text-white/40'}`}>
-                {countByCat[cat]}
-              </span>
-            </button>
-          ))}
-        </div>
+      <!-- Category filter -->
+      <div class="flex flex-wrap gap-2 mb-14 reveal">
+        {categories.map((cat) => (
+          <button
+            data-filter={cat}
+            class={`filter-btn flex-shrink-0 flex items-center gap-2 px-4 py-2 text-xs font-medium rounded-full border transition-all duration-200 tracking-wide whitespace-nowrap
+              ${cat === 'Toutes'
+                ? 'bg-dark text-white border-dark active'
+                : 'border-dark/15 text-dark/50 hover:border-dark hover:text-dark'
+              }`}
+          >
+            {cat}
+            <span class="text-[10px] font-bold opacity-60">{countByCat[cat]}</span>
+          </button>
+        ))}
       </div>
 
       <!-- Brands Grid -->
-      <div
-        class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3"
-        id="brands-grid"
-      >
+      <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4" id="brands-grid">
         {brands.map((brand: { name: string; logo: string; category: string; featured: boolean }, i: number) => (
           <div
             class="brand-card reveal group"
             data-category={brand.category}
-            style={`transition-delay: ${(i % 15) * 40}ms`}
+            style={`transition-delay: ${(i % 15) * 35}ms`}
           >
-            <!-- Logo frame (white bg so colors always show) -->
             <div class="logo-frame">
               <img
                 src={brand.logo}
@@ -146,32 +101,22 @@ categories.forEach(c => {
                 loading="lazy"
                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
               />
-              <!-- Fallback -->
               <div class="logo-fallback" style="display:none">
                 <span>{brand.name[0]}</span>
               </div>
             </div>
-
-            <!-- Info -->
             <div class="card-info">
               <div class="brand-name">{brand.name}</div>
               <div class="brand-cat">{brand.category}</div>
             </div>
-
-            <!-- Hover glow overlay -->
-            <div class="card-glow" aria-hidden="true"></div>
-
-            {brand.featured && (
-              <div class="featured-dot" title="Marque phare"></div>
-            )}
+            {brand.featured && <div class="featured-dot"></div>}
           </div>
         ))}
       </div>
 
-      <!-- Empty state -->
-      <div id="empty-state" class="hidden text-center py-20 text-white/20">
+      <div id="empty-state" class="hidden text-center py-20 text-dark/30">
         <div class="text-5xl mb-4">🔍</div>
-        <p class="text-lg">Aucune marque dans cette catégorie.</p>
+        <p>Aucune marque dans cette catégorie.</p>
       </div>
 
     </div>
@@ -277,126 +222,92 @@ categories.forEach(c => {
   /* ── BRAND CARDS ─────────────────────────────────────────────────────── */
   .brand-card {
     position: relative;
-    background: #111111;
-    border: 1px solid rgba(255, 255, 255, 0.055);
-    border-radius: 16px;
-    padding: 20px 16px 16px;
+    background: #fff;
+    border: 1px solid #e8e4df;
+    border-radius: 4px;
+    padding: 24px 16px 16px;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 14px;
-    cursor: default;
     overflow: hidden;
-    transition: transform 0.35s cubic-bezier(.22,1,.36,1),
-                border-color 0.35s ease,
-                box-shadow 0.35s ease;
+    transition: transform 0.3s cubic-bezier(.22,1,.36,1),
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
   }
 
   .brand-card:hover {
-    transform: translateY(-5px) scale(1.01);
-    border-color: rgba(201, 169, 97, 0.45);
-    box-shadow:
-      0 24px 64px rgba(0,0,0,0.6),
-      0 0 0 1px rgba(201,169,97,0.08),
-      0 8px 32px rgba(201,169,97,0.1);
+    transform: translateY(-4px);
+    border-color: rgba(201,169,97,0.5);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.1), 0 0 0 1px rgba(201,169,97,0.15);
   }
 
-  /* White background logo frame — so logos show in full color */
+  /* Logo area — logos in full color on white */
   .logo-frame {
     width: 100%;
     aspect-ratio: 3/2;
-    background: #fff;
-    border-radius: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
-    padding: 14px 16px;
-    transition: box-shadow 0.35s ease;
-  }
-
-  .brand-card:hover .logo-frame {
-    box-shadow: 0 2px 20px rgba(0,0,0,0.4);
+    padding: 8px 12px;
   }
 
   .logo-frame img {
-    max-height: 52px;
+    max-height: 56px;
     max-width: 100%;
     object-fit: contain;
-    transition: transform 0.35s cubic-bezier(.22,1,.36,1);
+    transition: transform 0.3s cubic-bezier(.22,1,.36,1);
   }
 
   .brand-card:hover .logo-frame img {
-    transform: scale(1.06);
+    transform: scale(1.07);
   }
 
   .logo-fallback {
-    width: 52px;
-    height: 52px;
-    background: #f0f0f0;
-    border-radius: 8px;
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 22px;
     font-weight: 700;
-    color: #666;
+    color: #999;
     font-family: serif;
   }
 
   /* Card info */
-  .card-info {
-    text-align: center;
-    width: 100%;
-  }
+  .card-info { text-align: center; width: 100%; }
+
   .brand-name {
     font-size: 12.5px;
     font-weight: 600;
-    color: rgba(255,255,255,0.8);
-    letter-spacing: 0.02em;
+    color: #1a202c;
+    letter-spacing: 0.01em;
     line-height: 1.3;
-    margin-bottom: 5px;
-    transition: color 0.25s;
+    margin-bottom: 4px;
+    transition: color 0.2s;
   }
-  .brand-card:hover .brand-name {
-    color: #fff;
-  }
+  .brand-card:hover .brand-name { color: #0a0a0a; }
+
   .brand-cat {
     font-size: 10px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: rgba(201,169,97,0.6);
-    transition: color 0.25s;
-  }
-  .brand-card:hover .brand-cat {
     color: #C9A961;
+    opacity: 0.7;
+    transition: opacity 0.2s;
   }
-
-  /* Gold glow overlay on hover */
-  .card-glow {
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 50% -10%, rgba(201,169,97,0.12) 0%, transparent 65%);
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.35s ease;
-    border-radius: 16px;
-  }
-  .brand-card:hover .card-glow {
-    opacity: 1;
-  }
+  .brand-card:hover .brand-cat { opacity: 1; }
 
   /* Featured dot */
   .featured-dot {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 6px;
-    height: 6px;
+    top: 8px;
+    right: 8px;
+    width: 5px;
+    height: 5px;
     background: #C9A961;
     border-radius: 50%;
-    box-shadow: 0 0 6px rgba(201,169,97,0.8);
+    box-shadow: 0 0 5px rgba(201,169,97,0.7);
   }
 </style>
 
@@ -410,17 +321,15 @@ categories.forEach(c => {
     btn.addEventListener('click', () => {
       const filter = btn.getAttribute('data-filter') || 'Toutes';
 
-      // Update active state
       filterBtns.forEach(b => {
-        b.classList.remove('active', 'bg-gold', 'text-[#080808]', 'border-gold', 'font-bold');
-        b.classList.add('text-white/40', 'border-white/10');
+        b.classList.remove('bg-dark', 'text-white', 'border-dark', 'active');
+        b.classList.add('border-dark/15', 'text-dark/50');
       });
-      btn.classList.add('active');
-      btn.classList.remove('text-white/40', 'border-white/10');
+      btn.classList.add('bg-dark', 'text-white', 'border-dark', 'active');
+      btn.classList.remove('border-dark/15', 'text-dark/50');
 
-      // Filter cards
       let visible = 0;
-      brandCards.forEach((card, i) => {
+      brandCards.forEach((card) => {
         const category = card.getAttribute('data-category');
         const show = filter === 'Toutes' || category === filter;
         if (show) {
@@ -432,9 +341,7 @@ categories.forEach(c => {
         }
       });
 
-      if (emptyState) {
-        emptyState.classList.toggle('hidden', visible > 0);
-      }
+      if (emptyState) emptyState.classList.toggle('hidden', visible > 0);
     });
   });
 </script>
